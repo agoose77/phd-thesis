@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: content/preamble
+chapters:
+- file: content/introduction
+- file: content/theory-and-experiment
+- file: content/investigation-of-14o-texat-tpc
+- file: content/olab-online-laboratory
+- file: content/discussion
+- file: todo
