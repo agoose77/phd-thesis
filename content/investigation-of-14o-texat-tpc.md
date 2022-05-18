@@ -1,1 +1,0 @@
-# Investigation of 14O with R-Matrix Analysis

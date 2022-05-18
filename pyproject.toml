@@ -5,25 +5,53 @@ description = ""
 authors = [
     {name = "Angus Hollands", email = "goosey15@gmail.com"},
 ]
-dependencies = [
-    "jupyterlab>=3.3.0a1",
-    "jupyter-book>=0.12.1",
-    "jupyterlab-markup>=1.0.1",
-    "JLDracula>=0.1.0",
-    "matplotlib>=3.5.1",
-    "numpy>=1.22.1",
-    "awkward>=1.7.0",
-    "jupyterlab-myst>=0.1.3",
-]
-requires-python = ">=3.9"
+requires-python = ">=3.10,<3.11"
 license = {text = "MIT"}
+dependencies = [
+    "texat @ file:///${PROJECT_ROOT}/extern/texat-0.1.0-py3-none-any.whl",
+    # Book
+    "jupyter-book>=0.12.1",
+    # Interact
+    "matplotlib>=3.5.0",
+    "mplhep>=0.3.15",
+    "ipympl>=0.8.2",
+    "ipywidgets>=7.6.5",
+    "sidecar>=0.5.1",
+    "numpy-html>=1.0.0",
+    "k3d @ git+https://github.com/agoose77/K3D-jupyter.git#a653b118933405788b80a73a8aee0b8901140e06",
+    # Lint
+    "black>=21.11b1",
+    "isort>=5.10.1",
+    "flake8>=4.0.1",
+    # Editor
+    "JLDracula>=0.1.0",
+    "python-lsp-server>=1.3",
+    "jupyterlab-myst @ file:///${PROJECT_ROOT}/extern/jupyterlab_myst-0.1.7a0-py3-none-any.whl",
+    "jupyterlab-code-formatter>=1.4.10",
+    "jupyterlab-katex>=3.2.2",
+    "jupyterlab-lsp>=3.9",
+    "jupyterlab-unfold>=0.1.6",
+    "jupyterlab>=3.2.4",
+    # Kernel
+    "ipython<8",
+    # Other
+    "nbdime>=3.1.1"
+]
 
-[project.urls]
-homepage = ""
 
-[tool]
+[tool.pdm.overrides]
+myst-nb= ">=0.15.0"  # Newer version
+
+[tool.black]
+line-length = 88
+target-version = ['py39'] # py39
+include = '\.pyi?$'
+exclude = "extern"
+
+[tool.isort]
+profile = "black"
+
 [tool.pdm]
-
 [build-system]
 requires = ["pdm-pep517"]
 build-backend = "pdm.pep517.api"

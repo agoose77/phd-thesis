@@ -2,11 +2,15 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: content/preamble
+root: content/00-preamble
 chapters:
-- file: content/introduction
-- file: content/theory-and-experiment
-- file: content/investigation-of-14o-texat-tpc
-- file: content/olab-online-laboratory
-- file: content/discussion
-- file: todo
+- file: content/01-introduction
+- file: conttent/10-experiment
+  sections:
+    - file: content/11-nuclear-models
+    - file: content/12-experimental-scattering
+    - file: content/13-track-finding-and-fitting
+    - file: content/14-texat-tpc
+- file: content/20-olab-online-laboratory
+- file: content/30-reproducible-research
+- file: content/40-discussion
