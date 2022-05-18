@@ -1,1 +1,0 @@
-*.{npy,png,jpg,jpeg,hdf5,pickle} filter=lfs diff=lfs merge=lfs -text

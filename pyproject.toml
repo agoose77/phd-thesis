@@ -35,7 +35,8 @@ dependencies = [
     # Kernel
     "ipython<8",
     # Other
-    "nbdime>=3.1.1"
+    "nbdime>=3.1.1",
+    "not-dead-yet>=0.4.0",
 ]
 
 

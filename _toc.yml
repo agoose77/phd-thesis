@@ -5,12 +5,14 @@ format: jb-book
 root: content/00-preamble
 chapters:
 - file: content/01-introduction
-- file: conttent/10-experiment
+- file: content/10-experiment
   sections:
     - file: content/11-nuclear-models
     - file: content/12-experimental-scattering
     - file: content/13-track-finding-and-fitting
     - file: content/14-texat-tpc
+    - file: content/15-10c-4he-experiment
 - file: content/20-olab-online-laboratory
 - file: content/30-reproducible-research
 - file: content/40-discussion
+- file: content/99-bibliography

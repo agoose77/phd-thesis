@@ -6,16 +6,12 @@ author: Angus Hollands
 logo: logo.png
 exclude_patterns: 
   - .virtual_documents
+  - generation
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: cache
-
-# Define the name of the latex output file for PDF builds
-latex:
-  latex_documents:
-    targetname: book.tex
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
