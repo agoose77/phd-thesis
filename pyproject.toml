@@ -37,11 +37,10 @@ dependencies = [
     # Other
     "nbdime>=3.1.1",
     "not-dead-yet>=0.4.0",
+    "jupyterlab-git>=0.37.1",
+    "sphinxcontrib-mermaid>=0.7.1",
 ]
 
-
-[tool.pdm.overrides]
-myst-nb= ">=0.15.0"  # Newer version
 
 [tool.black]
 line-length = 88
@@ -56,3 +55,7 @@ profile = "black"
 [build-system]
 requires = ["pdm-pep517"]
 build-backend = "pdm.pep517.api"
+
+[tool.pdm.overrides]
+myst-nb = ">=0.15.0"  # Newer version
+myst-parser = ">=0.17.0"  # Newer version
