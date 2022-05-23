@@ -18,7 +18,7 @@ dependencies = [
     "ipywidgets>=7.6.5",
     "sidecar>=0.5.1",
     "numpy-html>=1.0.0",
-    "k3d @ git+https://github.com/agoose77/K3D-jupyter.git#a653b118933405788b80a73a8aee0b8901140e06",
+    "k3d @ file:///${PROJECT_ROOT}/extern/k3d-2.12.0-py2.py3-none-any.whl",
     # Lint
     "black>=21.11b1",
     "isort>=5.10.1",
