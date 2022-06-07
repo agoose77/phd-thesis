@@ -10,7 +10,7 @@ license = {text = "MIT"}
 dependencies = [
     "texat @ file:///${PROJECT_ROOT}/extern/texat-0.1.0-py3-none-any.whl",
     # Book
-    "jupyter-book>=0.12.1",
+    "jupyter-book>=0.13.0",
     # Interact
     "matplotlib>=3.5.0",
     "mplhep>=0.3.15",
