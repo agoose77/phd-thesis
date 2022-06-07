@@ -1,2 +1,3 @@
 _build
 .virtual_documents/
+.ipynb_checkpoints/
