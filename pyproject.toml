@@ -39,6 +39,8 @@ dependencies = [
     "not-dead-yet>=0.4.0",
     "jupyterlab-git>=0.37.1",
     "sphinxcontrib-mermaid>=0.7.1",
+    "jupyterlab-spellchecker>=0.7.2",
+    "hist>=2.6.1",
 ]
 
 
@@ -57,5 +59,6 @@ requires = ["pdm-pep517"]
 build-backend = "pdm.pep517.api"
 
 [tool.pdm.overrides]
-myst-nb = ">=0.15.0"  # Newer version
-myst-parser = ">=0.17.0"  # Newer version
+myst-nb = "0.15.0"  # Newer version
+myst-parser = "0.17.2"  # Newer version
+jupyter-cache = "0.5.0" # Newer version
