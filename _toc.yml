@@ -1,18 +1,43 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
-root: content/00-preamble
-chapters:
-- file: content/01-introduction
-- file: content/10-experiment
-  sections:
-    - file: content/11-nuclear-models
-    - file: content/12-experimental-scattering
-    - file: content/13-track-finding-and-fitting
-    - file: content/14-texat-tpc
-    - file: content/15-10c-4he-experiment
-- file: content/20-olab-online-laboratory
-- file: content/30-reproducible-research
-- file: content/40-discussion
-- file: content/99-bibliography
+root: content/0000-preamble
+parts:
+  - caption: Preface
+    numbered: true
+    chapters:
+      - file: content/1000-preface
+  - caption: Experimental Nuclear Physics
+    numbered: true
+    chapters:
+      - file: content/2100-nuclear-models
+      - file: content/2200-experimental-scattering
+      - file: content/2300-track-finding-and-fitting
+      - file: content/2400-texat-tpc
+      - file: content/2500-10c-4he-experiment
+        sections:
+            - file: content/2501-partitioning
+            - file: content/2502-noise-and-baseline-removal
+            - file: content/2503-response-estimation
+            - file: content/2504-gain-matching
+            - file: content/2505-signal-fitting
+            - file: content/2506-signal-ringing
+            - file: content/2507-silicon-calibration
+            - file: content/2508-garfield-simulation
+            - file: content/2509-cluster-reconstruction
+            - file: content/2510-track-fitting
+            - file: content/2511-kinematic-fitting
+  - caption: O-Lab Online Nuclear Laboratory
+    numbered: true
+    chapters:
+      - file: content/3000-olab-online-laboratory
+  - caption: Reproducible Research
+    numbered: true
+    chapters:
+      - file: content/4000-reproducible-research
+  - caption: Discussion
+    numbered: true
+    chapters:
+      - file: content/5000-discussion.ipynb
+  - caption: Bibliography
+    numbered: true
+    chapters:
+      - file: content/9999-bibliography

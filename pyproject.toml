@@ -41,6 +41,7 @@ dependencies = [
     "sphinxcontrib-mermaid>=0.7.1",
     "jupyterlab-spellchecker>=0.7.2",
     "hist>=2.6.1",
+    "pyppeteer>=1.0.2",
 ]
 
 
