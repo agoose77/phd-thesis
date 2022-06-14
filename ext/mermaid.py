@@ -16,6 +16,7 @@ from sphinxcontrib.mermaid import (
     figure_wrapper,
 )
 
+
 class Mermaid(Directive):
     """
     Directive to insert arbitrary Mermaid markup.
@@ -80,6 +81,7 @@ class Mermaid(Directive):
 
 
 def install_js(app, *args):
+    print("INSTALL JS with ", app.config.mermaid_js_priority)
     # add required javascript
     if not app.config.mermaid_version:
         _mermaid_js_url = None     # asummed is local
@@ -92,7 +94,7 @@ def install_js(app, *args):
 
     if app.config.mermaid_init_js:
         # If mermaid is local the init-call must be placed after `html_js_files` which has a priority of 800.
-        priority = 500 if _mermaid_js_url is not None else 801
+        priority = app.config.mermaid_init_js_priority if _mermaid_js_url is not None else 801
         app.add_js_file(None, body=app.config.mermaid_init_js, priority=priority)
 
 
@@ -114,6 +116,7 @@ def setup(app):
     app.add_config_value("mermaid_output_format", "raw", "html")
     app.add_config_value("mermaid_params", list(), "html")
     app.add_config_value("mermaid_js_priority", 500, "html")
+    app.add_config_value("mermaid_init_js_priority", 500, "html")
     app.add_config_value("mermaid_verbose", False, "html")
     app.add_config_value("mermaid_sequence_config", False, "html")
     app.add_config_value("mermaid_version", "latest", "html")
