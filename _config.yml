@@ -41,10 +41,15 @@ sphinx:
   recursive_update: true
   local_extensions: 
       mermaid: ./ext
+      policy: ./policy
 
   config:
-      mermaid_version: "latest"
+      # Mermaid
+      mermaid_version: latest
       mermaid_js_priority: 499
+      mermaid_init_js: "mermaid.initialize({startOnLoad:true});"
+      # Policy
+      html_assets_policy: always
 
 parse:
   myst_heading_anchors: 3
