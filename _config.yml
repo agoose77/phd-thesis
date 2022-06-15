@@ -40,9 +40,9 @@ latex:
 sphinx:
   recursive_update: true
   local_extensions: 
-      mermaid: ./ext
-      policy: ./policy
-
+      policy: ./ext
+  extra_extensions:
+      - sphinxcontrib.mermaid
   config:
       # Mermaid
       mermaid_version: latest
