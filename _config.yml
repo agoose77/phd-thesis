@@ -41,6 +41,9 @@ sphinx:
   recursive_update: true
   local_extensions: 
       policy: ./ext
+  latex_elements: 
+      preamble:
+          - "\\usepackage{physics}"
   extra_extensions:
       - sphinxcontrib.mermaid
   config:
@@ -50,6 +53,16 @@ sphinx:
       mermaid_init_js: "mermaid.initialize({startOnLoad:true});"
       # Policy
       html_assets_policy: always
+      # MathJax
+      mathjax3_config:
+        loader:
+          load:
+            - "[tex]/physics"
+        tex:
+          packages: 
+            "[+]": 
+              - "physics"
+          
 
 parse:
   myst_heading_anchors: 3
