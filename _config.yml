@@ -41,9 +41,6 @@ sphinx:
   recursive_update: true
   local_extensions: 
       policy: ./ext
-  latex_elements: 
-      preamble:
-          - "\\usepackage{physics}"
   extra_extensions:
       - sphinxcontrib.mermaid
   config:
@@ -51,7 +48,7 @@ sphinx:
       mermaid_version: latest
       mermaid_js_priority: 499
       mermaid_init_js: "mermaid.initialize({startOnLoad:true});"
-      # Policy
+      # Ensure that JS/CSS assets are loaded for all pages (math in headers)
       html_assets_policy: always
       # MathJax
       mathjax3_config:
@@ -62,6 +59,11 @@ sphinx:
           packages: 
             "[+]": 
               - "physics"
+      latex_elements: 
+          preamble: >
+              % Fix trace which is defined in JupyterBook.cls
+              \\let\\trace\\undefined
+              \\usepackage{physics}
           
 
 parse:
