@@ -21,7 +21,7 @@ parts:
             - file: content/2505-signal-fitting
             - file: content/2506-signal-ringing
             - file: content/2507-silicon-calibration
-            - file: content/2508-garfield-simulation
+            - file: content/2508-gas-simulation
             - file: content/2509-cluster-reconstruction
             - file: content/2510-track-fitting
             - file: content/2511-kinematic-fitting
