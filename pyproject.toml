@@ -46,6 +46,7 @@ dependencies = [
     "jupytext>=1.13.8",
     "iminuit>=2.11.2",
     "jupyterlab-imarkdown>=0.2.0",
+    "pydot>=1.4.2",
 ]
 
 

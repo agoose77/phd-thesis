@@ -96,6 +96,28 @@
   author = {Bishop, Jack}
 }
 
+@article{boykov_fast_2001-1,
+  title = {Fast Approximate Energy Minimization via Graph Cuts},
+  author = {Boykov, Y. and Veksler, O. and Zabih, R.},
+  year = {2001},
+  month = nov,
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume = {23},
+  number = {11},
+  pages = {1222--1239},
+  issn = {1939-3539},
+  doi = {10.1109/34.969114},
+  abstract = {Many tasks in computer vision involve assigning a label (such as disparity) to every pixel. A common constraint is that the labels should vary smoothly almost everywhere while preserving sharp discontinuities that may exist, e.g., at object boundaries. These tasks are naturally stated in terms of energy minimization. The authors consider a wide class of energies with various smoothness constraints. Global minimization of these energy functions is NP-hard even in the simplest discontinuity-preserving case. Therefore, our focus is on efficient approximation algorithms. We present two algorithms based on graph cuts that efficiently find a local minimum with respect to two types of large moves, namely expansion moves and swap moves. These moves can simultaneously change the labels of arbitrarily large sets of pixels. In contrast, many standard algorithms (including simulated annealing) use small moves where only one pixel changes its label at a time. Our expansion algorithm finds a labeling within a known factor of the global minimum, while our swap algorithm handles more general energy functions. Both of these algorithms allow important cases of discontinuity preserving energies. We experimentally demonstrate the effectiveness of our approach for image restoration, stereo and motion. On real data with ground truth, we achieve 98 percent accuracy.},
+  keywords = {Approximation algorithms,Computer vision,Energy measurement,Image restoration,Labeling,Markov random fields,Minimization methods,Motion estimation,Simulated annealing,Stereo vision},
+  file = {/home/angus/Zotero/storage/JNKCCRWE/Boykov et al. - 2001 - Fast approximate energy minimization via graph cut.pdf}
+}
+
+@misc{Cheriyan98approximationalgorithms,
+  title = {Approximation Algorithms for Network Problems},
+  author = {Cheriyan, J. and Ravi, R.},
+  year = {1998}
+}
+
 @article{dalitz_iterative_2017,
   title = {Iterative {{Hough Transform}} for {{Line Detection}} in {{3D Point Clouds}}},
   author = {Dalitz, Christoph and Schramke, Tilman and Jeltsch, Manuel},
@@ -107,6 +129,20 @@
   doi = {10.5201/ipol.2017.208},
   isbn = {2105-1232},
   langid = {english}
+}
+
+@inproceedings{delong_fast_2010,
+  title = {Fast Approximate Energy Minimization with Label Costs},
+  booktitle = {2010 {{IEEE Computer Society Conference}} on {{Computer Vision}} and {{Pattern Recognition}}},
+  author = {Delong, Andrew and Osokin, Anton and Isack, Hossam N. and Boykov, Yuri},
+  year = {2010},
+  month = jun,
+  pages = {2173--2180},
+  issn = {1063-6919},
+  doi = {10.1109/CVPR.2010.5539897},
+  abstract = {The {$\alpha$}-expansion algorithm has had a significant impact in computer vision due to its generality, effectiveness, and speed. Thus far it can only minimize energies that involve unary, pairwise, and specialized higher-order terms. Our main contribution is to extend {$\alpha$}-expansion so that it can simultaneously optimize ``label costs'' as well. An energy with label costs can penalize a solution based on the set of labels that appear in it. The simplest special case is to penalize the number of labels in the solution. Our energy is quite general, and we prove optimality bounds for our algorithm. A natural application of label costs is multi-model fitting, and we demonstrate several such applications in vision: homography detection, motion segmentation, and unsupervised image segmentation. Our C++/MATLAB implementation is publicly available.},
+  keywords = {Computer science,Computer vision,Cost function,Cybernetics,Image segmentation,Labeling,Mathematics,Minimization methods,Motion detection,Motion segmentation},
+  file = {/home/angus/Zotero/storage/28R9G9SA/5539897.html}
 }
 
 @article{fister_deconvolving_2007,
@@ -132,6 +168,21 @@
   title = {Particle Tracking with Micro-Pattern Gaseous Detectors},
   author = {Flierl, Bernhard},
   year = {2018}
+}
+
+@article{ford_maximal_1956,
+  title = {Maximal {{Flow Through}} a {{Network}}},
+  author = {Ford, L. R. and Fulkerson, D. R.},
+  year = {1956/ed},
+  journal = {Canadian Journal of Mathematics},
+  volume = {8},
+  pages = {399--404},
+  publisher = {{Cambridge University Press}},
+  issn = {0008-414X, 1496-4279},
+  doi = {10.4153/CJM-1956-045-5},
+  abstract = {Introduction. The problem discussed in this paper was formulated by T. Harris as follows:``Consider a rail network connecting two cities by way of a number of intermediate cities, where each link of the network has a number assigned to it representing its capacity. Assuming a steady state condition, find a maximal flow from one given city to the other.''},
+  langid = {english},
+  file = {/home/angus/Zotero/storage/YQTGU6ZH/Ford and Fulkerson - 1956 - Maximal Flow Through a Network.pdf;/home/angus/Zotero/storage/G8KJE5JV/5D6E55D3B06C4F7B1043BC1D82D40764.html}
 }
 
 @article{freer_clustered_2007,
@@ -198,6 +249,17 @@
   langid = {english},
   keywords = {Data analysis,GET electronics,TPC},
   file = {/home/angus/Zotero/storage/GYXUB8IE/Giovinazzo et al. - 2016 - GET electronics samples data analysis.pdf;/home/angus/Zotero/storage/ASLQWC6S/S0168900216309408.html}
+}
+
+@article{hadamard,
+  title = {Sur Les Probl\`emes Aux D\'eriv\'es Partielles et Leur Signification Physique},
+  author = {Hadamard, J.},
+  year = {1902},
+  journal = {Princeton University Bulletin},
+  volume = {13},
+  pages = {49--52},
+  citeulike-article-id = {7133163},
+  keywords = {ill-posed,problem,vision}
 }
 
 @article{hilke_time_2010,
@@ -280,6 +342,20 @@
   publisher = {{Wiley}},
   address = {{New York u.a}},
   isbn = {978-0-471-80553-3}
+}
+
+@article{kuehn_heuristic_1963,
+  title = {A {{Heuristic Program}} for {{Locating Warehouses}}},
+  author = {Kuehn, Alfred A. and Hamburger, Michael J.},
+  year = {1963},
+  journal = {Management Science},
+  volume = {9},
+  number = {4},
+  pages = {643--666},
+  publisher = {{INFORMS}},
+  issn = {0025-1909},
+  abstract = {The linear programing algorithms available for optimizing the routing of shipments in multi-plant, multi-destination systems cannot, in the current state of knowledge, be applied directly to the more general problem of determining the number and location of regional warehouses in large-scale distribution networks. This paper outlines a heuristic computer program for locating warehouses and compares it with recently published efforts at solving the problem either by means of simulation or as a variant of linear programing. The heuristic approach outlined in this paper appears to offer significant advantages in the solution of this class of problems in that it (1) provides considerable flexibility in the specification (modeling) of the problem to be solved, (2) can be used to study large-scale problems, that is, complexes with several hundred potential warehouse sites and several thousand shipment destinations, and (3) is economical of computer time. The results obtained in applying the program to small scale problems have been equal to or better than those provided by the alternative methods considered.},
+  file = {/home/angus/Zotero/storage/IC6GBD5V/Kuehn and Hamburger - 1963 - A Heuristic Program for Locating Warehouses.pdf}
 }
 
 @article{lara-alvarez_multiple_2017,
