@@ -938,7 +938,6 @@ summary = "Experimental type system extensions for programs checked with the myp
 name = "myst-nb"
 version = "0.16.0"
 requires_python = ">=3.7"
-url = "file:///${PROJECT_ROOT}/extern/myst_nb-0.16.0-py3-none-any.whl"
 summary = "A Jupyter Notebook Sphinx reader built on top of the MyST markdown parser."
 dependencies = [
     "importlib-metadata",
@@ -1067,11 +1066,11 @@ summary = "Patch asyncio to allow nested event loops"
 
 [[package]]
 name = "not-dead-yet"
-version = "0.4.0"
-requires_python = ">=3.9,<4.0"
+version = "0.5.0"
+requires_python = ">=3.9"
 summary = "A simple live server implementation."
 dependencies = [
-    "aiohttp<4.0.0,>=3.7.4",
+    "aiohttp>=3.7.4",
 ]
 
 [[package]]
@@ -3023,7 +3022,8 @@ content_hash = "sha256:c5bf46626a1d5ce9ff375330cd81e055e03b4cd776b164d5a7d986e86
     {file = "mypy_extensions-0.4.3.tar.gz", hash = "sha256:2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"},
 ]
 "myst-nb 0.16.0" = [
-    {file = "myst_nb-0.16.0-py3-none-any.whl", hash = "sha256:1eed04e7617ee4d539465b16f1c69f55b68f749e6c6cddafa2a258eb79615601"},
+    {file = "myst_nb-0.16.0-py3-none-any.whl", hash = "sha256:bc1073a1fb707e9be4711bce3222ffd4bee30de0cf51aed3c8b852ceccbc4ff0"},
+    {file = "myst-nb-0.16.0.tar.gz", hash = "sha256:9c7ab37929da72f78569a37bcccbc5d49fd679fd7935bf6c9fa36365eb58783a"},
 ]
 "myst-parser 0.18.0" = [
     {file = "myst_parser-0.18.0-py3-none-any.whl", hash = "sha256:4965e51918837c13bf1c6f6fe2c6bddddf193148360fbdaefe743a4981358f6a"},
@@ -3053,9 +3053,9 @@ content_hash = "sha256:c5bf46626a1d5ce9ff375330cd81e055e03b4cd776b164d5a7d986e86
     {file = "nest_asyncio-1.5.5-py3-none-any.whl", hash = "sha256:b98e3ec1b246135e4642eceffa5a6c23a3ab12c82ff816a92c612d68205813b2"},
     {file = "nest_asyncio-1.5.5.tar.gz", hash = "sha256:e442291cd942698be619823a17a86a5759eabe1f8613084790de189fe9e16d65"},
 ]
-"not-dead-yet 0.4.0" = [
-    {file = "not_dead_yet-0.4.0-py3-none-any.whl", hash = "sha256:e5d680d14bd4e892c39d96522b2c0c5d224c7f297bd0f266b9ef628ada0b0662"},
-    {file = "not-dead-yet-0.4.0.tar.gz", hash = "sha256:9ec76937c6a03bdffa8eff305648e1347ce463c91c01b24b5071340ff99a9767"},
+"not-dead-yet 0.5.0" = [
+    {file = "not_dead_yet-0.5.0-py3-none-any.whl", hash = "sha256:8de6bc548a2feebc7f8551e53d6a9bf4ee9464f4ed7f2b63ed29a40ae68f0c05"},
+    {file = "not_dead_yet-0.5.0.tar.gz", hash = "sha256:1588688840b3d71e284795698460e41a47757abda678ac8391687de9dee3d1da"},
 ]
 "notebook 6.4.12" = [
     {file = "notebook-6.4.12-py3-none-any.whl", hash = "sha256:8c07a3bb7640e371f8a609bdbb2366a1976c6a2589da8ef917f761a61e3ad8b1"},
