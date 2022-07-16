@@ -1,0 +1,14 @@
+- repo: local
+  hooks:
+    - id: lint-check-citation
+      name: check citation punctuation
+      description: Ensure that cite roles are not followed by punctuation
+      entry: '[\.,?!:;]\s*\{cite(?::\w+)?\}`[^`]+`\s*[\.,?!:;]'
+      language: pygrep
+      types:
+        - jupyter
+        - markdown
+- repo: 'https://github.com/pre-commit/pre-commit-hooks'
+  rev: v4.3.0
+  hooks:
+    - id: check-added-large-files
