@@ -5,7 +5,7 @@
       description: Ensure that cite roles are not followed by punctuation
       entry: '[\.,?!:;]\s*\{cite(?::\w+)?\}`[^`]+`\s*[\.,?!:;]'
       language: pygrep
-      types:
+      types_or:
         - jupyter
         - markdown
 - repo: 'https://github.com/pre-commit/pre-commit-hooks'
