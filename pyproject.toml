@@ -47,6 +47,7 @@ dependencies = [
     "iminuit>=2.11.2",
     "jupyterlab-imarkdown>=0.2.0",
     "pydot>=1.4.2",
+    "sphinx-jupyterbook-latex @ file:///${PROJECT_ROOT}/extern/sphinx_jupyterbook_latex-0.4.7-py3-none-any.whl",
 ]
 
 
