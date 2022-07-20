@@ -1,82 +1,58 @@
-# Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
-
 title: PhD Thesis
 author: Angus Hollands
 logo: logo.png
-exclude_patterns: 
+exclude_patterns:
   - .virtual_documents
-  - generation
-
-
-
-
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+  - node_modules
 execute:
   execute_notebooks: cache
 
-
-# Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib
-
-# Information about where the book exists on the web
 repository:
-  url: https://github.com/agoose77/phd-thesis  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
-
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+  url: 'https://github.com/agoose77/phd-thesis'
+  path_to_book: docs
+  branch: master
 html:
   use_issues_button: true
   use_repository_button: true
   use_multitoc_numbering: false
-
 latex:
   latex_engine: pdflatex
-
 sphinx:
   recursive_update: true
-  local_extensions: 
-      policy: ./ext
+  local_extensions:
+    policy: ./sphinx-ext
   extra_extensions:
-      - sphinxcontrib.mermaid
+    - sphinxcontrib.mermaid
   config:
-      # Mermaid
-      mermaid_version: latest
-      mermaid_js_priority: 499
-      mermaid_init_js: "mermaid.initialize({startOnLoad:true});"
-      # Ensure that JS/CSS assets are loaded for all pages (math in headers)
-      html_assets_policy: always
-      # MathJax
-      mathjax3_config:
-        loader:
-          load:
-            - "[tex]/physics"
-        tex:
-          packages: 
-            "[+]": 
-              - "physics"
-      latex_elements: 
-          preamble: >
-              % Fix trace which is defined in JupyterBook.cls
-              \\let\\trace\\undefined
-              \\usepackage{physics}
-          
-
+    mermaid_version: latest
+    mermaid_js_priority: 499
+    mermaid_init_js: 'mermaid.initialize({startOnLoad:true});'
+    html_assets_policy: always
+    mathjax3_config:
+      loader:
+        load:
+          - '[tex]/physics'
+      tex:
+        packages:
+          '[+]':
+            - physics
+    latex_elements:
+      preamble: |
+        % Fix trace which is defined in JupyterBook.cls
+        \let\trace\undefined
+        \usepackage{physics}
+        % Support emoji
+        
+    # nb_mime_priority_overrides:
+    #   - ['latex', 'image/svg+xml', 0]
 parse:
   myst_heading_anchors: 3
-  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+  myst_enable_extensions:
     - amsmath
     - colon_fence
     - deflist
     - dollarmath
-    # - html_admonition
-    # - html_image
     - linkify
-    # - replacements
-    # - smartquotes
-    # - substitution
     - tasklist
