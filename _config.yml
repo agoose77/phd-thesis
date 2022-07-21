@@ -28,7 +28,7 @@ sphinx:
   config:
     mermaid_version: latest
     mermaid_js_priority: 499
-    mermaid_init_js: 'mermaid.initialize({startOnLoad:true});'
+    mermaid_init_js: 'mermaid.initialize({startOnLoad:true});
     html_assets_policy: always
     mathjax3_config:
       loader:
@@ -43,10 +43,7 @@ sphinx:
         % Fix trace which is defined in JupyterBook.cls
         \let\trace\undefined
         \usepackage{physics}
-        % Support emoji
-        
-    # nb_mime_priority_overrides:
-    #   - ['latex', 'image/svg+xml', 0]
+
 parse:
   myst_heading_anchors: 3
   myst_enable_extensions:

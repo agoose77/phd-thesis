@@ -46,8 +46,8 @@ dependencies = [
     "jupytext>=1.13.8",
     "iminuit>=2.11.2",
     "jupyterlab-imarkdown>=0.2.0",
-    "pydot>=1.4.2",
     "sphinx-jupyterbook-latex @ file:///${PROJECT_ROOT}/extern/sphinx_jupyterbook_latex-0.4.7-py3-none-any.whl",
+    "graphviz>=0.20",
 ]
 
 
@@ -69,3 +69,4 @@ build-backend = "pdm.pep517.api"
 myst-nb = "file:///${PROJECT_ROOT}/extern/myst_nb-0.16.0-py3-none-any.whl"  # Newer version
 myst-parser = "0.18.0"  # Newer version
 jupyter-cache = "0.5.0" # Newer version
+mdit-py-plugins = "0.3.0"
