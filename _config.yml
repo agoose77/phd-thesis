@@ -23,12 +23,13 @@ sphinx:
   recursive_update: true
   local_extensions:
     policy: ./sphinx-ext
+    hide_dropdowns: ./sphinx-ext
   extra_extensions:
     - sphinxcontrib.mermaid
   config:
     mermaid_version: latest
     mermaid_js_priority: 499
-    mermaid_init_js: 'mermaid.initialize({startOnLoad:true});
+    mermaid_init_js: 'mermaid.initialize({startOnLoad:true});'
     html_assets_policy: always
     mathjax3_config:
       loader:
@@ -43,6 +44,10 @@ sphinx:
         % Fix trace which is defined in JupyterBook.cls
         \let\trace\undefined
         \usepackage{physics}
+
+        % Fix fragile hyperlinks in captions
+        \usepackage{etoolbox}
+        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
 
 parse:
   myst_heading_anchors: 3
