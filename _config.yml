@@ -24,11 +24,10 @@ sphinx:
   local_extensions:
     policy: ./sphinx-ext
     hide_dropdowns: ./sphinx-ext
+    load_mermaid: ./sphinx-ext
   extra_extensions:
     - sphinxcontrib.mermaid
   config:
-    mermaid_version: latest
-    mermaid_js_priority: 499
     mermaid_init_js: 'mermaid.initialize({startOnLoad:true});'
     html_assets_policy: always
     mathjax3_config:
