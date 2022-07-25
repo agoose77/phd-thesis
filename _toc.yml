@@ -1,42 +1,43 @@
 format: jb-book
 root: content/0000-preamble
 parts:
-  - caption: Preface
-    numbered: true
-    chapters:
-      - file: content/1000-preface
+  # - caption: Preface
+  #   numbered: true
+  #   chapters:
+  #     - file: content/1000-preface
   - caption: Experimental Nuclear Physics
     numbered: true
     chapters:
       - file: content/2100-nuclear-models
-      - file: content/2200-experimental-scattering
-      - file: content/2300-track-finding-and-fitting
-      - file: content/2400-texat-tpc
-      - file: content/2500-10c-4he-experiment
+      - file: content/2200-carbon-oxygen-14
+      - file: content/2300-experimental-scattering
+      - file: content/2400-track-finding-and-fitting
+      - file: content/2500-texat-tpc
+      - file: content/2600-10c-4he-experiment
         sections:
-            - file: content/2501-partitioning
-            - file: content/2502-noise-and-baseline-removal
-            - file: content/2503-response-estimation
-            - file: content/2504-gain-matching
-            - file: content/2505-signal-fitting
-            - file: content/2506-signal-ringing
-            - file: content/2507-silicon-calibration
-            - file: content/2508-gas-simulation
-            - file: content/2509-cluster-reconstruction
-            - file: content/2510-track-fitting
-            - file: content/2511-kinematic-fitting
-  - caption: O-Lab Online Nuclear Laboratory
-    numbered: true
-    chapters:
-      - file: content/3000-olab-online-laboratory
-  - caption: Reproducible Research
-    numbered: true
-    chapters:
-      - file: content/4000-reproducible-research
-  - caption: Discussion
-    numbered: true
-    chapters:
-      - file: content/5000-discussion.ipynb
+            - file: content/2601-partitioning
+            - file: content/2602-noise-and-baseline-removal
+            - file: content/2603-response-estimation
+            - file: content/2604-gain-matching
+            - file: content/2605-signal-f`itting
+            - file: content/2606-signal-ringing
+            - file: content/2607-silicon-calibration
+            - file: content/2608-gas-simulation
+            - file: content/2609-cluster-reconstruction
+            - file: content/2610-track-fitting
+            - file: content/2611-kinematic-fitting
+  # - caption: O-Lab Online Nuclear Laboratory
+  #   numbered: true
+  #   chapters:
+  #     - file: content/3000-olab-online-laboratory
+  # - caption: Reproducible Research
+  #   numbered: true
+  #   chapters:
+  #     - file: content/4000-reproducible-research
+  # - caption: Discussion
+  #   numbered: true
+  #   chapters:
+  #     - file: content/5000-discussion.ipynb
   - caption: Bibliography
     numbered: true
     chapters:

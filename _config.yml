@@ -23,10 +23,13 @@ sphinx:
   recursive_update: true
   local_extensions:
     policy: ./sphinx-ext
+    # Hide any :dropdown: or {toggle} content for LaTeX
     hide_dropdowns: ./sphinx-ext
     load_mermaid: ./sphinx-ext
   extra_extensions:
     - sphinxcontrib.mermaid
+    # Convert SVG to PDF
+    - sphinxcontrib.rsvgconverter
   config:
     mermaid_init_js: 'mermaid.initialize({startOnLoad:true});'
     html_assets_policy: always
@@ -47,7 +50,14 @@ sphinx:
         % Fix fragile hyperlinks in captions
         \usepackage{etoolbox}
         \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
+        
+        % Double line spacing
+        \usepackage{setspace}
+        \doublespacing
 
+    # MyST-nb support for image/svg+xml
+    nb_mime_priority_overrides:
+        - ["latex", "image/svg+xml", 15]
 parse:
   myst_heading_anchors: 3
   myst_enable_extensions:
