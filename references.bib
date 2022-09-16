@@ -50,7 +50,7 @@
   doi = {10.1016/S0375-9474(00)00445-0},
   abstract = {We present exact Hartree\textendash Fock\textendash Bogoliubov calculations with the finite-range density-dependent Gogny force using a triaxial basis. For the first time, all contributions to the pairing and Fock fields arising from the Gogny and Coulomb interactions as well as the two-body correction of the kinetic energy have been calculated in this basis. We analyze the relevance of these terms in different regions of the periodic table at zero and high angular momentum. The validity of commonly used approximations that neglect different terms in the variational equations is also checked. We find a decrease of the proton-pairing energies mainly due to a Coulomb antipairing effect.},
   langid = {english},
-  keywords = {and  regions,Coulomb exchange terms,Gogny interaction,HFB equations},
+  keywords = {coulomb exchange,hfb,mean field},
   file = {/home/angus/Zotero/storage/86UGNELM/Anguiano et al. - 2001 - Coulomb exchange and pairing contributions in nucl.pdf;/home/angus/Zotero/storage/Y3D7GP2E/S0375947400004450.html}
 }
 
@@ -68,6 +68,7 @@
   doi = {10.1088/0954-3899/41/2/025102},
   abstract = {In this work we test the validity of a Hartree\textendash Fock plus Bardeen\textendash Cooper\textendash Schrieffer model in which a finite-range interaction is used in the two steps of the calculation by comparing the results obtained to those found in fully self-consistent Hartree\textendash Fock\textendash Bogoliubov calculations using the same interaction. Specifically, we consider the Gogny-type D1S and D1M forces. We study a wide range of spherical nuclei, far from the stability line, in various regions of the nuclear chart, from oxygen to tin isotopes. We calculate various quantities related to the ground state properties of these nuclei, such as binding energies, radii, charge and density distributions, and elastic electron scattering cross sections. The pairing effects are studied by direct comparison with the Hartree\textendash Fock results. Despite its relative simplicity, in most cases, our model provides results very close to those of the Hartree\textendash Fock\textendash Bogoliubov calculations, and it reproduces the empirical evidence of pairing effects rather well in the nuclei investigated.},
   langid = {english},
+  keywords = {bcs,hartree-fock,mean field},
   file = {/home/angus/Zotero/storage/HK2ECZM3/Anguiano et al. - 2014 - A study of self-consistent Hartree–Fock plus Barde.pdf}
 }
 
@@ -137,7 +138,9 @@
   issn = {0370-2693},
   doi = {10.1016/0370-2693(93)90316-A},
   abstract = {A simple two-level model is developed and used to test the properties of effective interactions for performing nuclear structure calculations in truncated model spaces. It is shown that the effective many-body interactions sensitively depend on the choice of the single-particle basis and they appear to be minimized when a self-consistent Hartree-Fock basis is used.},
-  langid = {english}
+  langid = {english},
+  keywords = {effective interaction,hartree-fock,truncated model space},
+  file = {/home/angus/Zotero/storage/MQEP2G5F/Barrett et al. - 1993 - Minimizing effective many-body interactions.pdf;/home/angus/Zotero/storage/IYR3EZQW/037026939390316A.html}
 }
 
 @book{beck_clusters_2010,
@@ -196,7 +199,7 @@
   issn = {1939-3539},
   doi = {10.1109/34.969114},
   abstract = {Many tasks in computer vision involve assigning a label (such as disparity) to every pixel. A common constraint is that the labels should vary smoothly almost everywhere while preserving sharp discontinuities that may exist, e.g., at object boundaries. These tasks are naturally stated in terms of energy minimization. The authors consider a wide class of energies with various smoothness constraints. Global minimization of these energy functions is NP-hard even in the simplest discontinuity-preserving case. Therefore, our focus is on efficient approximation algorithms. We present two algorithms based on graph cuts that efficiently find a local minimum with respect to two types of large moves, namely expansion moves and swap moves. These moves can simultaneously change the labels of arbitrarily large sets of pixels. In contrast, many standard algorithms (including simulated annealing) use small moves where only one pixel changes its label at a time. Our expansion algorithm finds a labeling within a known factor of the global minimum, while our swap algorithm handles more general energy functions. Both of these algorithms allow important cases of discontinuity preserving energies. We experimentally demonstrate the effectiveness of our approach for image restoration, stereo and motion. On real data with ground truth, we achieve 98 percent accuracy.},
-  keywords = {Approximation algorithms,Computer vision,Energy measurement,Image restoration,Labeling,Markov random fields,Minimization methods,Motion estimation,Simulated annealing,Stereo vision},
+  keywords = {Computer vision,Energy measurement,Image restoration,Labeling,Markov random fields,Minimization methods,Motion estimation,Simulated annealing,Stereo vision},
   file = {/home/angus/Zotero/storage/JNKCCRWE/Boykov et al. - 2001 - Fast approximate energy minimization via graph cut.pdf}
 }
 
@@ -219,7 +222,6 @@
   doi = {10.48550/arXiv.1704.02363},
   abstract = {Ab initio calculations face the challenge of describing a complex multiscale quantum many-body system. The nuclear wave function has both strong short-range correlations and long-range contributions. Natural orbitals provide a means of adapting the single-particle basis for ab initio no-core configuration interaction (NCCI) calculations to better match the many-body wave function. Natural orbitals are obtained by diagonalizing the one-body density matrix from a calculation using an initial single-particle reference basis, such as the traditional harmonic oscillator basis. The natural orbital basis builds in contributions from high-lying oscillator shells, thus accelerating convergence of wave functions, energies, and other observables. The convergence of the ground and excited state energies, radii, and electromagnetic observables of He, Li, and Be isotopes calculated using natural orbitals in ab initio NCCI calculations is discussed. It is found that electromagnetic observables involving the M1 operator fully converge, while the calculated energies, radii, and observables involving the E2 operator converge significantly faster with the natural orbital basis than with the harmonic oscillator basis. The use of infrared (IR) extrapolation schemes with the natural orbital calculations is also explored.},
   archiveprefix = {arXiv},
-  keywords = {Nuclear Theory},
   file = {/home/angus/Zotero/storage/B5E6R6YD/Constantinou - 2017 - Natural orbitals for the no-core configuration int.pdf;/home/angus/Zotero/storage/PZW3IRBQ/1704.html}
 }
 
@@ -246,7 +248,7 @@
   issn = {1063-6919},
   doi = {10.1109/CVPR.2010.5539897},
   abstract = {The {$\alpha$}-expansion algorithm has had a significant impact in computer vision due to its generality, effectiveness, and speed. Thus far it can only minimize energies that involve unary, pairwise, and specialized higher-order terms. Our main contribution is to extend {$\alpha$}-expansion so that it can simultaneously optimize ``label costs'' as well. An energy with label costs can penalize a solution based on the set of labels that appear in it. The simplest special case is to penalize the number of labels in the solution. Our energy is quite general, and we prove optimality bounds for our algorithm. A natural application of label costs is multi-model fitting, and we demonstrate several such applications in vision: homography detection, motion segmentation, and unsupervised image segmentation. Our C++/MATLAB implementation is publicly available.},
-  keywords = {Computer science,Computer vision,Cost function,Cybernetics,Image segmentation,Labeling,Mathematics,Minimization methods,Motion detection,Motion segmentation},
+  keywords = {Computer science,Computer vision,Cost function,Image segmentation,Labeling,Mathematics,Minimization methods,Motion detection,Motion segmentation},
   file = {/home/angus/Zotero/storage/28R9G9SA/5539897.html}
 }
 
@@ -280,23 +282,6 @@
   langid = {english},
   keywords = {Deeply inelastic reactions,Fermion system,Fermionic Molecular Dynamics,Heavy ion collisions,Liquid-gas phase transition,Molecular dynamics,Multifragmentation,Thermodynamic properties},
   file = {/home/angus/Zotero/storage/8TDHBU2A/Feldmeier and Schnack - 1997 - Fermionic molecular dynamics SCV252SCV133 V2.pdf;/home/angus/Zotero/storage/NJBLYVZ8/S0146641097000471.html}
-}
-
-@misc{feldmeier_nuclear_2016-1,
-  title = {Nuclear {{Clustering}} in {{Fermionic Molecular Dynamics}}},
-  author = {Feldmeier, Hans and Neff, Thomas},
-  year = {2016},
-  month = dec,
-  number = {arXiv:1612.02602},
-  eprint = {1612.02602},
-  eprinttype = {arxiv},
-  primaryclass = {nucl-th},
-  publisher = {{arXiv}},
-  doi = {10.48550/arXiv.1612.02602},
-  abstract = {Clustering plays an important role in the structure of nuclei, especially for light nuclei in the \$p\$-shell. In nuclear cluster models these degrees of freedom are introduced explicitly. In the Resonating Group Method or in the Generator Coordinate Method the clusters are built from individual nucleons interacting via an effective nucleon-nucleon interaction; the total wave function is antisymmetrized. Fermionic Molecular Dynamics (FMD) goes beyond pure cluster models. It is a microscopic many-body approach using a Gaussian wave packet basis that includes the harmonic oscillator shell model and Brink-type cluster model wave functions as special cases. Clustering is not imposed but appears dynamically in the calculations. The importance of clustering for the understanding of bound states, resonances and scattering states is illustrated with examples discussing the charge radii of the Neon isotopes, the \$\^3\$He(\$\textbackslash alpha\$,\$\textbackslash gamma\$)\$\^7\$Be capture reaction and the cluster states in the \$\^\{12\}\$C continuum.},
-  archiveprefix = {arXiv},
-  keywords = {Nuclear Theory},
-  file = {/home/angus/Zotero/storage/8PJLE6L3/Feldmeier and Neff - 2016 - Nuclear Clustering in Fermionic Molecular Dynamics.pdf;/home/angus/Zotero/storage/254WUUKJ/1612.html}
 }
 
 @article{fetter_quantum_1972,
@@ -445,7 +430,7 @@
   doi = {10.1007/978-3-642-60970-1},
   isbn = {978-3-540-78046-5 978-3-642-60970-1},
   langid = {english},
-  keywords = {element,fission,Kernmodelle,neutron,nuclear model,nuclear models,nuclear physics,nucleon,particle physics,quantum chromodynamics,quantum electrodynamics,quantum mechanics,radiation,scattering,weak interaction},
+  keywords = {fission,nuclear models,scattering,weak interaction},
   file = {/home/angus/Zotero/storage/GIUDFT4W/Greiner and Maruhn - 1996 - Nuclear Models.pdf}
 }
 
@@ -457,7 +442,7 @@
   volume = {13},
   pages = {49--52},
   citeulike-article-id = {7133163},
-  keywords = {ill-posed,problem,vision}
+  keywords = {ill-posed,vision}
 }
 
 @article{heisenberg_uber_1932,
@@ -600,7 +585,7 @@
   doi = {10.1016/S1631-0705(03)00062-8},
   abstract = {The AMD theory for nuclear structure is explained by showing its actual applications. First the formulation of AMD including various refined versions is briefly presented and its characteristics are discussed, putting a stress on its nature as an ab initio theory. Then we demonstrate fruitful applications to various structure problems in stable nuclei, in order to explicitly verify the ab initio nature of AMD, especially the ability to describe both mean-field-type structure and cluster structure. Finally, we show the results of applications of AMD to unstable nuclei, from which we see that AMD is powerful in elucidating and understanding various types of nuclear structure of unstable nuclei. To cite this article: Y. Kanada-En'yo et al., C.~R. Physique 4 (2003). R\'esum\'e Cet article pr\'esente de la structure de plusieurs noyaux atomiques en utilisant l'approximation de la dynamique mol\'eculaire antisym\'etris\'ee (AMD). Apr\`es un bref rappel mettant en avant la possibilit\'e de faire des calculs ab initio, nous montrons que cette approche permet de comprendre diff\'erents probl\`emes de structure nucl\'eaire bien connus pour les noyaux stables. En particulier, elle donne une description unifi\'ee des comportements de type champ moyen et de l'apparition d'agr\'egats de nucl\'eons. Pour finir, nous appliquons AMD aux noyaux instables (exotiques) et nous illustrons qu'une telle approche fournit une explication et une compr\'ehension des diff\'erentes structures d\'ecouvertes avec les noyaux exotiques. Pour citer cet article : Y. Kanada-En'yo et al., C.~R. Physique 4 (2003).},
   langid = {english},
-  keywords = {AMD,Noyaux instables,Nuclear structure,Structure nucléaire,Unstable nuclei},
+  keywords = {AMD,Unstable nuclei},
   file = {/home/angus/Zotero/storage/MNGJ5GXK/Kanada-En'yo et al. - 2003 - Antisymmetrized Molecular Dynamics a new insight .pdf;/home/angus/Zotero/storage/JL9JPT2U/S1631070503000628.html}
 }
 
@@ -718,7 +703,7 @@
   doi = {10.1007/3-540-10579-4_20},
   isbn = {978-3-540-38576-9},
   langid = {english},
-  keywords = {Poisson Bracket,Symplectic Manifold,Symplectic Structure,Variational Principle,Wave Function},
+  keywords = {Symplectic Manifold,Symplectic Structure,Variational Principle,Wave Function},
   file = {/home/angus/Zotero/storage/HFUIYDSJ/Kramer and Saraceno - 1981 - The time-dependent variational principle (TDVP).pdf}
 }
 
@@ -787,7 +772,6 @@
   doi = {10.1016/j.nuclphysa.2004.03.004},
   abstract = {The validity of the K-quantum number in rapidly rotating warm nuclei is investigated as a function of thermal excitation energy U and angular momentum I, for the rare-earth nucleus 163Er. The quantal eigenstates are described with a shell model which combines a cranked Nilsson mean-field and a residual two-body interaction, together with a term which takes into account the angular momentum carried by the K-quantum number in an approximate way. K-mixing is produced by the interplay of the Coriolis interaction and the residual interaction; it is weak in the region of the discrete rotational bands (U{$\lessequivlnt$}1~MeV), but it gradually increases until the limit of complete violation of the K-quantum number is approached around U{$\sim$}2\textendash 2.5~MeV. The calculated matrix elements between bands having different K-quantum numbers decrease exponentially as a function of {$\Delta$}K, in qualitative agreement with recent data.},
   langid = {english},
-  keywords = {-quantum number,Band crossings,Compound states,Quasi-continuum gamma spectra,Residual interaction,Warm rotating nuclei},
   file = {/home/angus/Zotero/storage/DRTVDKMC/Matsuo et al. - 2004 - Violation and persistence of the K-quantum number .pdf;/home/angus/Zotero/storage/3CNN7VXQ/S0375947404002726.html}
 }
 
@@ -802,7 +786,7 @@
   file = {/home/angus/Zotero/storage/V3K974QE/Morhaˇc and Matouˇsek - 2005 - MULTIDIMENSIONAL FFT BASED POSITIVE DEFINITE GOLD .pdf}
 }
 
-@article{neff_nuclear_2008-1,
+@article{neff_nuclear_2008,
   title = {Nuclear Structure and Reactions in the Fermionic Molecular Dynamics Approach},
   author = {Neff, T. and Feldmeier, H.},
   year = {2008},
@@ -830,6 +814,7 @@
   publisher = {{American Physical Society}},
   doi = {10.1103/RevModPhys.54.913},
   abstract = {The physical and theoretical foundations are presented for the mean-field theory of nuclear structure and dynamics. Salient features of the many-body theory of stationary states are reviewed to motivate the time-dependent mean-field approximation. The time-dependent Hartree-Fock approximation and its limitations are discussed and general theoretical formulations are presented which yield time-dependent mean-field equations in lowest approximation and provide suitable frameworks for overcoming various conceptual and practical limitations of the mean-field theory. Particular emphasis is placed on recent developments utilizing functional integral techniques to obtain a quantum mean-field theory applicable to quantized eigen-states, spontaneous fission, the nuclear partition function, and scattering problems. Applications to a number of simple, idealized systems are presented to verify the approximations for solvable problems and to elucidate the essential features of mean-field dynamics. Finally, calculations utilizing moderately realistic geometries and interactions are reviewed which address heavy-ion collisions, fusion, strongly damped collisions, and fission.},
+  keywords = {mean field},
   file = {/home/angus/Zotero/storage/42M4CXYB/RevModPhys.54.html}
 }
 
@@ -940,7 +925,8 @@
   author = {Rowe, D. J.},
   year = {2010},
   publisher = {{World Scientific}},
-  isbn = {978-981-279-064-4}
+  isbn = {978-981-279-064-4},
+  file = {/home/angus/Documents/Nuclear Structure/[Rowe,_David_J.]_Nuclear_collective_motion___model(z-lib.org).pdf}
 }
 
 @article{scholze_mean_1998,
@@ -1013,7 +999,7 @@
   howpublished = {http://ed-primo.hosted.exlibrisgroup.com/openurl/44UOE/44UOE\_services\_page?u.ignore\_date\_coverage=true\&rft.mms\_id=9917702573502466},
   isbn = {9783540488590},
   langid = {english},
-  keywords = {Elementary particles (Physics).,Elementary Particles; Quantum Field Theory.,Mathematical Methods in Physics.,Mathematical physics.,Nuclear physics.,Nuclear structure.,Particle and Nuclear Physics.,Particles (Nuclear physics),Physics.,Physique.,Quantum field theory.,Quantum theory.,Structure nucleaire.,Structure nucléaire.},
+  keywords = {Elementary particles (Physics).,Elementary Particles; Quantum Field Theory.,Particle and Nuclear Physics.,Quantum field theory.},
   file = {/home/angus/Documents/Nuclear Structure/(Theoretical and Mathematical Physics) Professor Jouni Suhonen (auth.) - From Nucleons to Nucleus_ Concepts of Microscopic Nuclear Theory-Springer-Verlag Berlin Heidelberg (2007).pdf}
 }
 
@@ -1140,8 +1126,7 @@
   year = {2017},
   publisher = {{John Wiley \& Sons, Incorporated}},
   address = {{Somerset, GERMANY}},
-  isbn = {978-3-527-69360-3},
-  keywords = {Nuclear physics.}
+  isbn = {978-3-527-69360-3}
 }
 
 
