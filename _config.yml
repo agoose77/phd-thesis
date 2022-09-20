@@ -24,7 +24,7 @@ sphinx:
   local_extensions:
     policy: ./sphinx-ext
     # Hide any :dropdown: or {toggle} content for LaTeX
-    hide_dropdowns: ./sphinx-ext
+    hide_builder_classes: ./sphinx-ext
     load_mermaid: ./sphinx-ext
   extra_extensions:
     - sphinxcontrib.mermaid
@@ -33,7 +33,6 @@ sphinx:
   config:
     mermaid_version: null
     mermaid_init_js: 'mermaid.initialize({startOnLoad:true});'
-    mermaid_cmd: "npx -p @mermaid-js/mermaid-cli mmdc"
     html_assets_policy: always
     mathjax3_config:
       loader:

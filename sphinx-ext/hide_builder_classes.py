@@ -1,4 +1,3 @@
-from sphinx.builders.latex import LaTeXBuilder
 from sphinx.transforms.post_transforms import SphinxPostTransform
 from docutils import nodes
 
@@ -26,24 +25,42 @@ def visit_HiddenNode(self, node):
     raise nodes.SkipNode
 
 
-class HideDropdownsTransform(SphinxPostTransform):
-    """Replaces nodes with dropdowns with a node that is ignored when rendering."""
+class HideNodesTransform(SphinxPostTransform):
+    """Hides nodes with the given classes during rendering."""
 
     default_priority = 400
 
     def apply(self, **kwargs):
+        builder_ignore_classes = self.app.config['builder_ignore_classes'].get(
+            self.app.builder.name, []
+        )
         for node in self.document.traverse(nodes.Element):
-            if set(node["classes"]) & {"dropdown", "toggle"}:
+            node_classes = set(node['classes'])
+            if any((node_classes & c) for c in builder_ignore_classes):
                 node.replace_self([HiddenNode()])
+
+
+DEFAULT_BUILDER_IGNORE_CLASSES = {
+    "latex": [
+        ["dropdown", "toggle"],
+        ["margin"]
+    ]
+}
 
 
 def setup(app):
     app.connect("builder-inited", setup_transforms)
+    app.connect('config-inited', setup_ignore_classes)
+    app.add_config_value("builder_ignore_classes", DEFAULT_BUILDER_IGNORE_CLASSES, "env", [dict])
+
+
+
+def setup_ignore_classes(app, config):
+    config['builder_ignore_classes'] = {
+        k: [set(l) for l in v] for k, v in config['builder_ignore_classes'].items()
+    }
 
 
 def setup_transforms(app):
-    if not isinstance(app.builder, LaTeXBuilder):
-        return
-
-    app.add_post_transform(HideDropdownsTransform)
+    app.add_post_transform(HideNodesTransform)
     HiddenNode.add_node(app)
