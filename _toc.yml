@@ -26,10 +26,10 @@ parts:
             - file: content/2609-cluster-reconstruction
             - file: content/2610-track-fitting
             - file: content/2611-kinematic-fitting
-  # - caption: O-Lab Online Nuclear Laboratory
-  #   numbered: true
-  #   chapters:
-  #     - file: content/3000-olab-online-laboratory
+  - caption: O-Lab Online Nuclear Laboratory
+    numbered: true
+    chapters:
+      - file: content/3000-olab-online-laboratory
   # - caption: Reproducible Research
   #   numbered: true
   #   chapters:

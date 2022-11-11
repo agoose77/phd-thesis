@@ -31,19 +31,20 @@ class HideNodesTransform(SphinxPostTransform):
     default_priority = 400
 
     def apply(self, **kwargs):
-        builder_ignore_classes = self.app.config['builder_ignore_classes'].get(
-            self.app.builder.name, []
+        builder_ignore_classes = self.app.config['builder_ignore_classes']
+        ignore_classes = builder_ignore_classes.get(
+            self.app.builder.name, set()
         )
         for node in self.document.traverse(nodes.Element):
             node_classes = set(node['classes'])
-            if any((node_classes & c) for c in builder_ignore_classes):
+            if node_classes & ignore_classes:
+                print("IGNORE", node)
                 node.replace_self([HiddenNode()])
 
 
 DEFAULT_BUILDER_IGNORE_CLASSES = {
     "latex": [
-        ["dropdown", "toggle"],
-        ["margin"]
+        "dropdown", "toggle", "margin",
     ]
 }
 
@@ -57,7 +58,7 @@ def setup(app):
 
 def setup_ignore_classes(app, config):
     config['builder_ignore_classes'] = {
-        k: [set(l) for l in v] for k, v in config['builder_ignore_classes'].items()
+        k: set(v) for k, v in config['builder_ignore_classes'].items()
     }
 
 
