@@ -4,6 +4,7 @@ logo: logo.png
 exclude_patterns:
   - .virtual_documents
   - node_modules
+  - .direnv
 execute:
   execute_notebooks: cache
 
@@ -19,6 +20,8 @@ html:
   use_multitoc_numbering: false
 latex:
   latex_engine: pdflatex
+execute:
+  stderr_output: remove-warn
 sphinx:
   recursive_update: true
   local_extensions:
@@ -39,7 +42,7 @@ sphinx:
             - dropdown
             - toggle
             - margin
-            - tag_no_latex
+            - tag_no-latex
     mathjax3_config:
       loader:
         load:

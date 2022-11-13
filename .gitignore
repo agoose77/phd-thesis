@@ -167,3 +167,4 @@ cython_debug/
 .emoji
 
 node_modules
+.direnv
