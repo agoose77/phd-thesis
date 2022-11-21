@@ -38,7 +38,7 @@ dependencies = [
     "nbdime>=3.1.1",
     "not-dead-yet>=0.4.0",
     "jupyterlab-git>=0.37.1",
-    "sphinxcontrib-mermaid @ file:///${PROJECT_ROOT}/extern/sphinxcontrib_mermaid-0.7.1-py2.py3-none-any.whl",
+    "sphinxcontrib-mermaid @ file:///${PROJECT_ROOT}/extern/sphinxcontrib_mermaid-0.7.1-py3-none-any.whl",
     "sphinx-book-theme>=0.3.2",
     "jupyterlab-spellchecker>=0.7.2",
     "hist>=2.6.1",

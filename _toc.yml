@@ -19,7 +19,7 @@ parts:
             - file: content/2602-noise-and-baseline-removal
             - file: content/2603-response-estimation
             - file: content/2604-gain-matching
-            - file: content/2605-signal-f`itting
+            - file: content/2605-signal-fitting
             - file: content/2606-signal-ringing
             - file: content/2607-silicon-calibration
             - file: content/2608-gas-simulation
@@ -30,6 +30,12 @@ parts:
     numbered: true
     chapters:
       - file: content/3000-olab-online-laboratory
+        sections:
+            - file: content/3001-motivations
+            - file: content/3002-virtual-laboratories
+            - file: content/3003-design
+            - file: content/3004-methodology
+            - file: content/3005-analytics
   # - caption: Reproducible Research
   #   numbered: true
   #   chapters:
