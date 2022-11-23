@@ -35,9 +35,8 @@ parts:
             - file: content/3002-virtual-laboratories
             - file: content/3003-software-and-infrastructure
             - file: content/3004-content
-            - file: content/3005-methodology
-            - file: content/3006-analytics
-            - file: content/3007-future-work
+            - file: content/3005-analytics
+            - file: content/3006-future-work
   # - caption: Reproducible Research
   #   numbered: true
   #   chapters:
