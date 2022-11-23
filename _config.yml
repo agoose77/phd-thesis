@@ -33,6 +33,7 @@ sphinx:
     - sphinxcontrib.mermaid
     # Convert SVG to PDF
     - sphinxcontrib.rsvgconverter
+    - sphinx_subfigure
   config:
     mermaid_version: null
     mermaid_init_js: 'mermaid.initialize({startOnLoad:true});'
@@ -54,6 +55,7 @@ sphinx:
     latex_elements:
       preamble: |
         % Fix trace which is defined in JupyterBook.cls
+        \let\trace\undefined
         \let\trace\undefined
         \usepackage{physics}
 

@@ -33,9 +33,11 @@ parts:
         sections:
             - file: content/3001-motivations
             - file: content/3002-virtual-laboratories
-            - file: content/3003-design
-            - file: content/3004-methodology
-            - file: content/3005-analytics
+            - file: content/3003-software-and-infrastructure
+            - file: content/3004-content
+            - file: content/3005-methodology
+            - file: content/3006-analytics
+            - file: content/3007-future-work
   # - caption: Reproducible Research
   #   numbered: true
   #   chapters:
@@ -44,6 +46,12 @@ parts:
   #   numbered: true
   #   chapters:
   #     - file: content/5000-discussion.ipynb
+  
+  - caption: Appendix
+    numbered: true
+    chapters:
+      - file: content/9998-appendix
+      
   - caption: Bibliography
     numbered: true
     chapters:
