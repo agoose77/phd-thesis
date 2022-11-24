@@ -1,10 +1,10 @@
 format: jb-book
 root: content/0000-preamble
 parts:
-  # - caption: Preface
-  #   numbered: true
-  #   chapters:
-  #     - file: content/1000-preface
+  - caption: Preface
+    numbered: true
+    chapters:
+      - file: content/1000-preface
   - caption: Experimental Nuclear Physics
     numbered: true
     chapters:
@@ -37,6 +37,7 @@ parts:
             - file: content/3004-content
             - file: content/3005-analytics
             - file: content/3006-future-work
+  
   # - caption: Reproducible Research
   #   numbered: true
   #   chapters:

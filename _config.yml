@@ -49,13 +49,12 @@ sphinx:
         load:
           - '[tex]/physics'
       tex:
-        packages:
+        packages: 
           '[+]':
             - physics
     latex_elements:
       preamble: |
         % Fix trace which is defined in JupyterBook.cls
-        \let\trace\undefined
         \let\trace\undefined
         \usepackage{physics}
 
@@ -66,6 +65,10 @@ sphinx:
         % Double line spacing
         \usepackage{setspace}
         \doublespacing
+        
+        \usepackage{placeins}
+        \usepackage{afterpage}
+        \afterpage{\FloatBarrier}
 
     # MyST-nb support for image/svg+xml
     nb_mime_priority_overrides:
@@ -76,7 +79,7 @@ sphinx:
             "integrity": "sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA="
             "crossorigin": "anonymous"
         # Load IPywidgets bundle for embedding.
-        "https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@0.20.0/dist/embed-amd.js":
+        "https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js":
             "data-jupyter-widgets-cdn": "https://cdn.jsdelivr.net/npm/"
             "crossorigin": "anonymous"
         
