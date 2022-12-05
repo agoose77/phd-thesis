@@ -69,6 +69,22 @@ sphinx:
         \usepackage{placeins}
         \usepackage{afterpage}
         \afterpage{\FloatBarrier}
+        
+        \makeatletter
+        \fancypagestyle{normal}{
+            \fancyhf{}
+            \fancyfoot[RO]{{\py@HeaderFamily\thepage}}
+            \fancyfoot[LO]{{\py@HeaderFamily\nouppercase{\rightmark}}}
+            \renewcommand{\footrulewidth}{0.4pt}
+        }
+        \makeatother
+
+      tableofcontents: |
+        \sphinxtableofcontents
+        \listoffigures
+        \listoftables
+      
+      sphinxsetup: "hmargin={1in,1in}, vmargin={0.7in,1in}, marginpar=1in"
 
     # MyST-nb support for image/svg+xml
     nb_mime_priority_overrides:
