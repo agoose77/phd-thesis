@@ -23,9 +23,10 @@ parts:
             - file: content/2606-signal-ringing
             - file: content/2607-silicon-calibration
             - file: content/2608-gas-simulation
-            - file: content/2609-cluster-reconstruction
-            - file: content/2610-track-fitting
-            - file: content/2611-kinematic-fitting
+            - file: content/2609-beam-origin
+            - file: content/2610-cluster-reconstruction
+            - file: content/2611-track-fitting
+            - file: content/2612-kinematic-fitting
   - caption: O-Lab Online Nuclear Laboratory
     numbered: true
     chapters:
