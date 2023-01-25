@@ -1,10 +1,11 @@
 format: jb-book
-root: content/0000-preamble
+root: content/preface
 parts:
-  - caption: Preface
-    numbered: true
+  - caption: Front Matter
+    numbered: false
     chapters:
-      - file: content/1000-quote
+      - file: content/0000-abstract
+      - file: content/1000-acknowledgements
   - caption: Experimental Nuclear Physics
     numbered: true
     chapters:
