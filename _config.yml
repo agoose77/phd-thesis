@@ -1,6 +1,6 @@
-title: PhD Thesis
+title: A search for molecular structure in oxygen-14 & interactive computing for nuclear laboratories
 author: Angus Hollands
-logo: logo.png
+logo: content/image/uob-logo.svg
 exclude_patterns:
   - .virtual_documents
   - node_modules
