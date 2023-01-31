@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="142.87108mm"
+   height="132.7403mm"
+   viewBox="0 0 142.87108 132.7403"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="micromegas-anode-zones.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="false"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.83243026"
+     inkscape:cx="351.38079"
+     inkscape:cy="149.56208"
+     inkscape:window-width="1920"
+     inkscape:window-height="1031"
+     inkscape:window-x="1920"
+     inkscape:window-y="49"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="-1.4029065e-05,92.547247"
+       orientation="1,0"
+       id="guide882" />
+    <sodipodi:guide
+       position="142.87109,33.285086"
+       orientation="1,0"
+       id="guide884" />
+    <sodipodi:guide
+       position="37.335253,132.7403"
+       orientation="0,-1"
+       id="guide886" />
+    <sodipodi:guide
+       position="59.734354,113.45655"
+       orientation="0,-1"
+       id="guide888" />
+    <sodipodi:guide
+       position="103.00914,5.8207671e-06"
+       orientation="0,-1"
+       id="guide890" />
+    <sodipodi:guide
+       position="59.281943,104.78833"
+       orientation="1,0"
+       id="guide892" />
+    <sodipodi:guide
+       position="83.597606,99.929587"
+       orientation="1,0"
+       id="guide894" />
+    <sodipodi:guide
+       position="59.281944,84.419054"
+       orientation="0,-1"
+       id="guide8219" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-25.873745,-53.708031)">
+    <rect
+       style="fill:#ff7f0e;fill-opacity:1;stroke-width:0.264583"
+       id="rect1118"
+       width="24.315662"
+       height="19.283749"
+       x="85.155685"
+       y="53.708031" />
+    <rect
+       style="fill:#1f77b4;fill-opacity:1;stroke-width:0.267079"
+       id="rect1186"
+       width="24.315664"
+       height="113.45654"
+       x="85.155685"
+       y="72.991783" />
+    <g
+       id="g1004"
+       style="fill:#2ca02c;fill-opacity:1"
+       transform="translate(1.3348016e-5)">
+      <rect
+         style="fill:#2ca02c;fill-opacity:1;stroke-width:0.264583"
+         id="rect918"
+         width="59.281956"
+         height="132.7403"
+         x="25.873732"
+         y="53.708031" />
+      <rect
+         style="fill:#2ca02c;fill-opacity:1;stroke-width:0.264583"
+         id="rect920"
+         width="59.273479"
+         height="132.7403"
+         x="109.47134"
+         y="53.708031" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="49.112648"
+       y="120.80353"
+       id="text3776"><tspan
+         sodipodi:role="line"
+         id="tspan3774"
+         style="stroke-width:0.264583;fill:#ffffff"
+         x="49.112648"
+         y="120.80353">(a)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="90.38131"
+       y="130.80164"
+       id="text3776-3"><tspan
+         sodipodi:role="line"
+         id="tspan3774-6"
+         style="stroke-width:0.264583;fill:#ffffff"
+         x="90.38131"
+         y="130.80164">(b)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="90.245491"
+       y="67.300453"
+       id="text3776-3-7"><tspan
+         sodipodi:role="line"
+         id="tspan3774-6-5"
+         style="stroke-width:0.264583;fill:#ffffff"
+         x="90.245491"
+         y="67.300453">(c)</tspan></text>
+  </g>
+</svg>
