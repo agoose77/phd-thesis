@@ -26,8 +26,8 @@ parts:
             - file: content/2608-gas-simulation
             - file: content/2609-beam-origin
             - file: content/2610-cluster-reconstruction
-            - file: content/2611-particle-identification
-            - file: content/2612-track-fitting
+            - file: content/2611-track-fitting
+            - file: content/2612-particle-identification
             - file: content/2613-kinematic-fitting
   - caption: O-Lab Online Nuclear Laboratory
     numbered: true
