@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="107.45294mm"
-   height="69.566048mm"
-   viewBox="0 0 107.45294 69.566047"
+   width="48.888329mm"
+   height="91.809158mm"
+   viewBox="0 0 48.888328 91.809158"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
@@ -27,37 +27,37 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="2.2136241"
-     inkscape:cx="203.06068"
-     inkscape:cy="95.092931"
+     inkscape:zoom="1.8847272"
+     inkscape:cx="194.98843"
+     inkscape:cy="122.82945"
      inkscape:window-width="1920"
-     inkscape:window-height="1055"
+     inkscape:window-height="1031"
      inkscape:window-x="1920"
-     inkscape:window-y="25"
+     inkscape:window-y="49"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g10216"
      showguides="true"
      inkscape:guide-bbox="true"
      guidetolerance="20"
      gridtolerance="10000">
     <sodipodi:guide
-       position="96.123291,-7.2319096"
+       position="104.27565,10.337617"
        orientation="1,0"
        id="guide2013" />
     <sodipodi:guide
-       position="42.937868,-19.469218"
+       position="51.090225,-1.8996921"
        orientation="0,-1"
        id="guide8799" />
     <sodipodi:guide
-       position="41.727585,-7.2319096"
+       position="49.879942,10.337617"
        orientation="0,-1"
        id="guide8871" />
     <sodipodi:guide
-       position="8.2209066,66.978975"
+       position="16.373263,84.548504"
        orientation="1,0"
        id="guide10917" />
     <sodipodi:guide
-       position="10.213163,46.683348"
+       position="18.365519,64.252876"
        orientation="0,1"
        id="guide10919"
        inkscape:label=""
@@ -67,32 +67,18 @@
   <defs
      id="defs2">
     <marker
-       style="overflow:visible"
-       id="Arrow1Send"
-       refX="0"
-       refY="0"
+       style="overflow:visible;"
+       id="Arrow2Send"
+       refX="0.0"
+       refY="0.0"
        orient="auto"
-       inkscape:stockid="Arrow1Send"
+       inkscape:stockid="Arrow2Send"
        inkscape:isstock="true">
       <path
-         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path1066" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="DotS"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="DotS"
-       inkscape:isstock="true">
-      <path
-         transform="matrix(0.2,0,0,0.2,1.48,0.2)"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         id="path1118" />
+         transform="scale(0.3) rotate(180) translate(-2.3,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+         id="path1267" />
     </marker>
     <marker
        style="overflow:visible"
@@ -234,92 +220,70 @@
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path13210" />
     </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow1Mend-7"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow1Mend"
-       inkscape:isstock="true">
-      <path
-         transform="matrix(-0.4,0,0,-0.4,-4,0)"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path1483-5" />
-    </marker>
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-86.098965,-25.291455)">
+     transform="translate(-77.946609,-20.617871)">
     <rect
-       style="fill:#2ca02c;fill-opacity:1;stroke:none;stroke-width:0.698133"
+       style="fill:#440154;fill-opacity:1;stroke:none;stroke-width:0.698133"
        id="rect23405-9"
        width="15.231592"
        height="37.654171"
        x="147.31006"
        y="41.46265" />
     <rect
-       style="fill:#ff7f0e;fill-opacity:1;stroke:none;stroke-width:0.200473"
+       style="fill:#440154;fill-opacity:1;stroke:none;stroke-width:0.200473"
        id="rect23405"
        width="1.2559737"
        height="37.654171"
        x="137.65833"
        y="41.462646" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:6.074px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:#1f77b4;stroke-width:0.0455551"
-       x="90.979897"
-       y="57.283585"
-       id="text4393-1-6-6-0"
-       transform="scale(1.0001347,0.99986531)"><tspan
-         id="tspan4391-27-2-1-1"
-         x="90.979897"
-         y="57.283585"
-         style="font-weight:normal;font-size:6.074px;fill:#000000;fill-opacity:1;stroke:#1f77b4;stroke-width:0.0455551"
-         sodipodi:role="line">Incident ion</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:6.074px;line-height:1.25;font-family:sans-serif;fill:#ff7f0e;fill-opacity:1;stroke:#ff7f0e;stroke-width:0.0455551"
-       x="100.03069"
-       y="94.76149"
-       id="text4393-1-6-6-0-3"
-       transform="scale(1.0001347,0.99986531)"><tspan
-         id="tspan4391-27-2-1-1-6"
-         x="100.03069"
-         y="94.76149"
-         style="font-weight:normal;font-size:6.074px;fill:#ff7f0e;fill-opacity:1;stroke:#ff7f0e;stroke-width:0.0455551"
-         sodipodi:role="line">Thin &quot;dE&quot; detector</tspan></text>
+    <g
+       id="g10216"
+       transform="matrix(0.99999321,0,0,0.99972384,-16.2256,8.7614866)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:6.07486px;line-height:1.25;font-family:sans-serif;fill:#440154;fill-opacity:1;stroke:none;stroke-width:0.0455615"
+         x="154.71164"
+         y="21.172787"
+         id="text4393-1-6-6"><tspan
+           id="tspan4391-27-2-1"
+           x="154.71164"
+           y="21.172787"
+           style="font-weight:normal;font-size:6.07486px;fill:#440154;fill-opacity:1;stroke-width:0.0455615"
+           sodipodi:role="line">Thick &quot;E&quot; detector</tspan></text>
+      <g
+         id="g1013"
+         style="fill:#1f77b4;stroke:#1f77b4">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:6.07486px;line-height:1.25;font-family:sans-serif;fill:#1f77b4;fill-opacity:1;stroke:#1f77b4;stroke-width:0.0455615"
+           x="107.31717"
+           y="50.072315"
+           id="text4393-1-6-6-0"><tspan
+             id="tspan4391-27-2-1-1"
+             x="107.31717"
+             y="50.072315"
+             style="font-weight:normal;font-size:6.07486px;fill:#1f77b4;fill-opacity:1;stroke-width:0.0455615;stroke:#1f77b4"
+             sodipodi:role="line">Incident ion</tspan></text>
+        <path
+           style="fill:#1f77b4;stroke:#1f77b4;stroke-width:0.860061;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+           d="m 102.32526,50.615139 h 69.37788"
+           id="path901-2-5"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <path
+         style="display:inline;fill:#440154;fill-opacity:1;fill-rule:evenodd;stroke:#440154;stroke-width:0.264621px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+         d="m 176.83143,22.244761 -5.57913,9.322423"
+         id="path29992"
+         inkscape:connector-type="polyline"
+         inkscape:connector-curvature="54" />
+    </g>
     <path
-       style="fill:#000000;stroke:#000000;stroke-width:0.859939;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Send)"
-       d="M 86.098965,59.362648 H 155.47637"
-       id="path901-2-5"
-       sodipodi:nodetypes="cc" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:6.074px;line-height:1.25;font-family:sans-serif;fill:#2ca02c;fill-opacity:1;stroke:#2ca02c;stroke-width:0.0455551"
-       x="138.46634"
-       y="29.932459"
-       id="text4393-1-6-6"
-       transform="scale(1.0001347,0.99986531)"><tspan
-         id="tspan4391-27-2-1"
-         x="138.46634"
-         y="29.932459"
-         style="font-weight:normal;font-size:6.074px;fill:#2ca02c;fill-opacity:1;stroke:#2ca02c;stroke-width:0.0455551"
-         sodipodi:role="line">Thick &quot;E&quot; detector</tspan></text>
-    <path
-       style="display:inline;fill:#2ca02c;fill-opacity:1;fill-rule:evenodd;stroke:#2ca02c;stroke-width:0.264584px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
-       d="m 160.60463,31.000104 -5.57909,9.319849"
-       id="path29992"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="54" />
-    <path
-       style="display:inline;fill:#ff7f0e;fill-opacity:1;fill-rule:evenodd;stroke:#ff7f0e;stroke-width:0.264584px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-7)"
-       d="m 126.58047,88.935289 10.79192,-8.962753"
-       id="path29992-3"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="54" />
+       style="fill:none;stroke:#3b528b;stroke-width:0.264546;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.05818, 1.05818;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 77.946609,64.038056 H 126.83461"
+       id="path10018" />
   </g>
 </svg>
