@@ -1,11 +1,12 @@
-title: A search for molecular structure in oxygen-14 & interactive computing for nuclear laboratories
+title: A search for molecular structure in oxygen-14, and interactive computing for nuclear laboratories
 author: Angus Hollands
 logo: content/image/uob-logo.svg
 exclude_patterns:
   - .virtual_documents
   - node_modules
   - .direnv
-execute:
+
+mystnb:
   execute_notebooks: cache
 
 bibtex_bibfiles:
