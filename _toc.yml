@@ -29,6 +29,7 @@ parts:
             - file: content/2611-track-fitting
             - file: content/2612-particle-identification
             - file: content/2613-kinematic-fitting
+            - file: content/2614-kinematics
   - caption: O-Lab Online Nuclear Laboratory
     numbered: true
     chapters:
