@@ -14,7 +14,7 @@ kernelspec:
 (gas-simulation)=
 # Gas Simulation
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 # Fix RC overwriting
@@ -51,7 +51,7 @@ The transformation from energy-time space of the GET waveforms to the energy-pos
 - - Temperature
   - 290 K
 - - Composition
-  - 96% <sup>4</sup>He, 4% CO2
+  - 96% {math}`{}^{4}\mathrm{He}`, 4% {math}`\mathrm{CO}_2`
 - - Drift Field
   - 53.85 V/cm
 :::
@@ -99,7 +99,7 @@ A Magboltz simulation was performed to compute the mean drift velocity within th
 
 Using a microscopic Monte Carlo model, the spread of the drift electrons can be determined as a function of displacement. The Garfield++ detector simulation toolkit includes a microscopic tracking component that consumes the per-scattering-process collision rates {math}`\tau_i^{-1}(\epsilon)` computed by Magboltz in order to evolve single electrons through time. An aggregate of these single-particle walks can be used to determine the distribution of the drift time and widths in the transverse and drift axes. {numref}`x-distribution-garfield` shows the transverse position resolution of electrons produced at a drift height of 5.90&nbsp;cm.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -146,7 +146,7 @@ A regression of the transverse spread against the drift height shows a linear co
 Justify linear regression
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -172,7 +172,7 @@ handles = [
         color="C1",
     ),
 ]
-ax[0].set_ylabel("$\sigma(x)$ /cm")
+ax[0].set_ylabel(r"$\sigma(x)$ /cm")
 ax[1].stem(
     avalanche.y,
     x_std - (x_fit.intercept + x_fit.slope * avalanche.y),
@@ -183,6 +183,6 @@ plt.xlabel("z /cm")
 ax[0].legend(handles=handles, loc="upper left");
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 
 ```

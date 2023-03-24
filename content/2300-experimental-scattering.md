@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 # Fix RC overwriting
@@ -225,7 +225,7 @@ In each panel, the upper region indicates a potential post-scattering configurat
 Given the clear {math}`z` dependence of {eq}`bethe-bloch-formula-non-rel` (see {numref}`stopping-power-10c-4he`), it is evident that thick-target inverse-kinematics configurations are particularly useful in isolating the heavy beam ions from the light target ions; the target dimensions can be configured such that the heavy ions are quickly arrested within the detector volume. From the {math}`\frac{\ln(\frac{E}{I})}{E}` terms, the stopping power acquires a maximum as a function of energy just prior to the particle coming to rest. When plotted as a function of the path length, the observed peak in the stopping power distribution is often called the Bragg-peak.
 The thickness of the target additionally enhances the luminosity; unlike thin-target reactions in which a significant proportion of events will not interact with the target, thick-target reactions span a much wider portion of the reaction cross-section energy domain. In the event that the beam fully stops within the target, the efficiency of the experiment is limited only by secondary interactions, and the efficiency of the detectors.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:

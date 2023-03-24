@@ -13,12 +13,9 @@ kernelspec:
 
 # Silicon Calibration
 
-```{code-cell}
----
-jupyter:
-  source_hidden: true
-tags: [hide-cell]
----
+```{code-cell} ipython3
+:tags: [hide-cell]
+
 # Fix RC overwriting
 %config InlineBackend.rc = {}
 
@@ -33,7 +30,7 @@ from texat.utils.awkward.convert import from_hdf5
 
 plt.style.use(ROOT)
 plt.rc("figure", figsize=(10, 5), dpi=120)
-data_path = pathlib.Path("data")
+data_path = Path("data")
 ```
 
 ## Semiconductor Detectors
@@ -154,7 +151,7 @@ For this experiment, a four-peak alpha source was suspended within the TexAT TPC
 
 The waveforms recorded by the GET acquisition system were fit using the methods described in {ref}`signal-fitting`, and the corresponding charge accumulated in a histogram. The distribution for each detector is shown in {numref}`calibration-spectra`.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -211,7 +208,7 @@ P(E_{N})=C_{N}\exp\left[-\frac{(E_{N}-N\epsilon)^{2}}{2N\langle\delta\epsilon^%
 
 In order to determine the set of initial fit parameters, a cumulative mass lookup was used to estimate the peak loci (see {numref}`calibration-charge-cmf`), and sensible values chosen for the peak width and scaling factor.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -260,7 +257,7 @@ This method of localising the decay peaks from the calibration source is robust 
 ## Calibration
 Following the peak fitting process, a linear regression was then performed against the known energies given in {numref}`calibration-sources` to obtain a set of calibration coefficients for each detector. A superposition of the calibrated charge distributions can be seen in {numref}`calibrated-distributions`.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
