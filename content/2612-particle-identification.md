@@ -13,7 +13,7 @@ kernelspec:
 
 # Particle Identification
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 import pickle
@@ -22,6 +22,9 @@ import numpy as np
 from matplotlib import pyplot as plt
 from texat.detector.micromegas import STRIP_HEIGHT
 from texat.units import units as u
+
+u.setup_matplotlib(True)
+u.separate_format_defaults = True
 ```
 
 ## Beam Tracks
@@ -34,7 +37,7 @@ A 2D histogram of the measured charge against the pad row was computed across al
 
 By approximately fitting the stopping power curve to the arbitrary charge units seen in {numref}`stopping-power-beam-hist`, a rudimentary calibration of the MicroMeGaS gain can be achieved yielding {math}`\sim 1.219\times10^{-1}\,\mathrm{keV}\mathrm{cm}^{-1}` in the low-gain region.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -55,7 +58,7 @@ de_dx_10c = u.Quantity(de_dx_10c, "MeV/cm")
 ion_energy_10c = u.Quantity(ion_energy_10c, "MeV")
 
 DE_DX_TO_CHARGE = 8.2 * u("cm/keV")
-de_predicted = de_dx_10c.to("keV/cm") * DE_DX_TO_CHARGE  # e4
+de_predicted = (de_dx_10c.to("keV/cm") * DE_DX_TO_CHARGE).magnitude  # e4
 x_predicted = -43 + 128 - (range_10c.to("mm").magnitude / STRIP_HEIGHT)
 
 with open("data/de-dx-beam.pickle", "rb") as f:
@@ -79,7 +82,7 @@ plt.legend();
 
 The primary set of particles observed in the TPC are {math}`{}^{10}\mathrm{C}`, {math}`{}^{1}\mathrm{H}`, and {math}`{}^{4}\mathrm{He}`. Each has a characteristic stopping power curve, as determined by SRIM (see {numref}`stopping-power-ions`). Notably, the protons are easily distinguished from the beam ions, which typically vary by 1–2 orders of magnitude over the active region of the MicroMeGaS. Meanwhile, the stopping power of the {math}`{}^4\mathrm{He}` ions lies nearly equidistant from the other two ions (in log space), and if the ion energies are not known, experimental uncertainty can render it difficult to distinguish between the two ions simply from the energy deposition within the TPC.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -99,19 +102,53 @@ _, de_dx_4he, ion_energy_4he = np.loadtxt(
 
 de_dx_4he = u.Quantity(de_dx_4he, "MeV/cm")
 ion_energy_4he = u.Quantity(ion_energy_4he, "MeV")
+```
 
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: Stopping power curves predicted by SRIM for {math}`{}^{1}\mathrm{H}`,
+      {math}`{}^{4}\mathrm{He}`, and {math}`{}^{10}\mathrm{C}` ions in a gas-mixture
+      of 96% {math}`{}^4\mathrm{He}`, 4% {math}`\mathrm{CO}_2` with density {math}`\rho`.
+      Each curve overlaps with the others for a given ion energy.
+    name: stopping-power-ions
+  image:
+    align: center
+    width: 512px
+tags: [hide-input]
+---
 _, de_dx_1h, ion_energy_1h = np.loadtxt(
     "data/1H-in-4He-CO2.csv", delimiter=",", unpack=True
 )
 de_dx_1h = u.Quantity(de_dx_1h, "MeV/cm")
 ion_energy_1h = u.Quantity(ion_energy_1h, "MeV")
+```
 
-plt.figure()
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: Stopping power curves predicted by SRIM for {math}`{}^{1}\mathrm{H}`,
+      {math}`{}^{4}\mathrm{He}`, and {math}`{}^{10}\mathrm{C}` ions in a gas-mixture
+      of 96% {math}`{}^4\mathrm{He}`, 4% {math}`\mathrm{CO}_2` with density {math}`\rho`.
+      Each curve overlaps with the others for a given ion energy.
+    name: stopping-power-ions
+  image:
+    align: center
+    width: 512px
+tags: [hide-input]
+---
+fig, ax = plt.subplots()
 plt.loglog(ion_energy_1h, de_dx_1h, "C1", label="${}^{1}H$")
 plt.loglog(ion_energy_4he, de_dx_4he, "C2", label="${}^{4}He$")
 plt.loglog(ion_energy_10c, de_dx_10c, "C3", label="${}^{10}C$")
 plt.xlabel(f"Ion energy /{ion_energy_10c.units:~}")
 plt.ylabel(f"Linear Stopping Power /{de_dx_10c.units:~}")
+
+ax.yaxis.set_units(u.inches)
+ax.xaxis.set_units(u.seconds)
+
 plt.legend();
 ```
 
@@ -127,7 +164,7 @@ In order to identify the ions that comprise the tracks found in {ref}`content:te
 Illustration of a particle telescope. A thin {math}`\Delta E` detector measures the {math}`z`-dependent energy loss of the incident radiation within a thin silicon target. The ion punches through this material, and is fully stopped within the "thick" silicon detector. Conventionally, the energy lost in both detectors is taken to be the total energy of the particle. However, to first approximation the contribution lost in the thin detector can be ignored.
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:

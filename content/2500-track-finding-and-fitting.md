@@ -17,6 +17,7 @@ kernelspec:
 # Fix RC overwriting
 %config InlineBackend.rc = {}
 
+import jax; jax.config.update('jax_platform_name', 'cpu')
 import k3d
 import numpy as np
 from IPython.display import Image

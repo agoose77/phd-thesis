@@ -14,9 +14,9 @@ kernelspec:
 ```{code-cell} ipython3
 :tags: [hide-cell]
 
+import awkward as ak
 import k3d
 import k3d.platonic
-import awkward as ak
 import numpy as np
 from IPython.display import Image
 from matplotlib import pyplot as plt
@@ -51,11 +51,16 @@ tags: [hide-input]
 cluster = from_hdf5("data/cluster.h5")
 
 t = np.linspace(0, 1, 32)
-color_map = np.concatenate((t[:, np.newaxis], viridis(t)[:, :-1]), axis=1)
+color_map = ak.values_astype(
+    np.concatenate((t[:, np.newaxis], viridis(t)[:, :-1]), axis=1), np.float32
+)
 
 plot = k3d.plot(grid=(-40, -120, -20, 90, 120, 20))
 plot += k3d.points(
-    np.stack(ak.unzip(cluster.position[["x", "y", "z"]]), axis=1),
+    np.stack(
+        ak.unzip(cluster.position[["x", "y", "z"]]),
+        axis=1,
+    ),
     attribute=cluster.charge,
     color_map=color_map,
     point_size=3,
