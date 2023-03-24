@@ -13,7 +13,7 @@ kernelspec:
 
 # Response Estimation
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 # Fix RC overwriting
@@ -53,7 +53,7 @@ Show visual example of convolution
 ## Iterative Estimation
 In order to determine a better approximation for the response function, an iterative deconvolve-fit process can be applied to a set of MicroMeGaS waveforms. These waveforms should be taken from a random spanning sample of the recorded MicroMeGaS waveforms (see {numref}`mm-random-sample`).
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -68,7 +68,7 @@ tags: [hide-input]
 sample_mm = np.load(data_path / "sample-mm.npy")
 
 plt.figure()
-for s in sample_mm:
+for s in sample_mm[::8]:
     plt.stairs(s)
 plt.xlabel("Time /cells")
 plt.ylabel("Amplitude");
@@ -84,7 +84,7 @@ Y^{(1)} = F^{(1)} * \mathcal{N}^{(1)}\,,
 
 where the initial function {math}`F^{(1)}` can be determined from {eq}`get-response` with {math}`\tau = 502\,\text{ns}` (see {numref}`mm-response-shaping`).{cite:ps}`giovinazzo_get_2016`
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -119,7 +119,7 @@ Y^{(n-1)} &= F^{(n-1)} * \mathcal{N}^{(n-1)}\,,
 F^{(n)} &= \operatorname{Deconv}(Y^{(n-1)}, \mathcal{N}^{(n-1)})\,,
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -145,7 +145,7 @@ plt.xlim(0, 1_50);
 
 The initial trial function shown in {numref}`mm-response-evolution` is a poor fit with respect to the final response function. The convergence of the fit can be improved by first optimising the parameter $\tau$ using a convolution fit (see {numref}`cost-tau`).
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -168,7 +168,7 @@ plt.ylabel("Cost");
 
 It can be seen that the fit value of {math}`\tau` is larger than the {math}`\tau=502\,\text{ns}` that was taken from the literature (see {numref}`mm-response-initial-tau`).
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -192,7 +192,7 @@ plt.legend();
 
 Performing another estimate of $F$ using {eq}`iterative-estimate-steps` converges to a solution much more quickly (see {numref}`mm-response-evolution-tau`), with little change in macroscopic shape.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -217,7 +217,7 @@ plt.xlim(0, 1_50);
 
 The final response function estimate also agrees with that computed from the published {math}`\tau`. A comparison of the two solutions is shown in {numref}`mm-response-final-comparison`.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -256,7 +256,7 @@ As discussed in <TODO>, the width of the deconvolved GET waveforms in the MicroM
 To first approximation, the measured signal can be assumed to be the convolution of the delta function at some time $t$ and the intrinsic response function.
 To build a response function estimate, a random sample of silicon waveforms spanning a range of amplitudes is taken. The bin-wise mean of this set of waveforms is taken to produce an average waveform (see {numref}`si-response-average`). This waveform is an approximate response function, which can then be time-shifted such that the peak coincides with {math}`t=0`.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -283,7 +283,7 @@ ax.legend();
 
 These two methods of estimating the response function of the GET electronics can be compared. In {numref}`mm-si-response-comparison` the two response function estimates are visually compared. It can be seen that the MicroMeGaS iterative-estimate response function closely resembles the silicon average response function after Gaussian broadening. As the silicon average response function is computed directly, and is narrower than that of the MicroMeGaS response, it is better suited as the response function of choice.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -339,6 +339,6 @@ ax[1].set_ylabel("Amplitude")
 ax[1].legend(loc="upper right");
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 
 ```

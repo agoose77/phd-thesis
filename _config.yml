@@ -93,6 +93,7 @@ sphinx:
       sphinxsetup: "hmargin={1in,1in}, vmargin={0.7in,1in}, marginpar=1in"
 
     # MyST-nb support for image/svg+xml
+    nb_execution_raise_on_error: true
     nb_eval_name_regex: ".*"
     nb_mime_priority_overrides:
         - ["latex", "image/svg+xml", 15]

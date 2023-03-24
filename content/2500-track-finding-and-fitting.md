@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 # Fix RC overwriting
@@ -212,7 +212,7 @@ In the domain of track labelling, the terms "facility", "distance", and "consume
 
 Meanwhile, the consumer demand {math}`D_{fc}` is simply the delta function of the labelling {math}`\delta_{ff(c)}`, i.e. a single observation {math}`c` is served by exactly one facility {math}`f(c)`. See {numref}`track-model-illustration` for an illustration of these components.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -322,7 +322,7 @@ E(F) =
 
 A two dimensional model potential is shown in {numref}`smoothness-labelling-illustration`.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -454,7 +454,7 @@ E(F) =
 
 A _graph_ {math}`\mathcal{G}(\mathcal{V}, \mathcal{E})` is fundamentally a set of vertices {math}`\mathcal{V}` and a set of pairwise edges {math}`\mathcal{E}` between them. Each edge may have an associated weight, and may further be directed such that {math}`A\rightarrow B` is distinct from {math}`A \leftarrow B`.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -510,7 +510,7 @@ DOT(
 )
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -543,7 +543,7 @@ digraph my_graph {
 
 A _cut_ {math}`\mathcal{C} \subset \mathcal{E}` is a set of edges which partitions the graph into two disjoint subsets, separating the terminals. Importantly, the _cost_ {math}`\lvert \mathcal{C} \rvert` equals the sum of the edge weights. Furthermore, no proper subset of {math}`\mathcal{C}` may also be a cut.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -619,7 +619,7 @@ i.e. the sum of
 
 From the definition of the expansion-move, it follows that we can construct a graph {math}`G_\alpha` such that the minimum cut gives {eq}`expansion-minimum-cut-cost`. (see {numref}`graph-expansion-ocean-cut`).
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -852,7 +852,7 @@ Then we can simplify with known geometric identities
 
 A visualisation of this likelihood function can be see in {numref}`volume-likelihood-interval`.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:

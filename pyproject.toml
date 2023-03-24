@@ -8,7 +8,6 @@ authors = [
 requires-python = ">=3.10,<3.11"
 license = {text = "MIT"}
 dependencies = [
-    "texat @ file:///${PROJECT_ROOT}/extern/texat-0.2.7-py3-none-any.whl",
     # Book
     "jupyter-book>=0.15.0",
     "docutils<0.18.0",
@@ -53,6 +52,7 @@ dependencies = [
     "pandas>=1.5.1",
     "sphinx-subfigure>=0.2.4",
     "particle>=0.21.2",
+    "texat @ file:///${PROJECT_ROOT}/extern/texat-0.2.9-py3-none-any.whl",
 ]
 
 

@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 import k3d
@@ -20,7 +20,7 @@ import awkward as ak
 import numpy as np
 from IPython.display import Image
 from matplotlib import pyplot as plt
-from matplotlib.cm import viridis
+from matplotlib.cm import vt                          0.2.9iridis
 from texat.utils.awkward.convert import from_hdf5
 from utils import displayed_as_mimebundle
 ```
@@ -28,13 +28,14 @@ from utils import displayed_as_mimebundle
 +++ {"tags": ["hide-cell"]}
 
 (content:cluster-reconstruction)=
+
 # Cluster Reconstruction
 
 +++
 
 As outlined in {ref}`content:micromegas`, the MicroMeGaS anode is highly segmented to give good position resolution measurements of the charge clusters produced by ionisation. In order to reconstruct the track trajectories in 3D, it is necessary to determine the height of the charge cluster. Given that the MicroMeGaS waveforms are energy-time signals, the height coordinate can be derived from the drift time, given by the locus of the peak in the measured waveform, and the drift velocity (see {ref}`gas-simulation`). The _origin_ of this coordinate was discussed in {ref}`content:beam-origin`.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -65,7 +66,7 @@ plot
 ## Central Region
 Within the central "pads" region, the anode position of a waveform is uniquely determined by the channel from which it was measured (see {numref}`pads-procedure-inclined`). Yet, the resolution in this region is diminished in the horizontal (x) axis; each pad has a width of 3.5 mm, and a length of 1.75 mm. As such, to avoid biasing subsequent fitting routines with aliasing artefacts yielded by taking the exact pad location, a uniform random offset was added to each {math}`(x, y)` coordinate .
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -169,7 +170,7 @@ Among these ordered pairs, only a small subset {math}`P_\text{valid}` provides a
 
 For tracks with a significant inclination to the drift plane, we can use the drift _time_  to order strip-chain pairings by their vertical separation. In the extreme case of a track that lies along the drift axis, the drift time is an exact proxy for the position of the charge distribution along the track (see {numref}`strip-chain-procedure-inclined`). It follows that for some deviation from this ideal case, taking the strip-chain pairs with the smallest time difference will yield a reasonable set of charge clusters.
 
-+++
++++ {"tags": ["no-latex"]}
 
 :::{admonition} To Do
 :class: margin
@@ -177,10 +178,8 @@ For tracks with a significant inclination to the drift plane, we can use the dri
 Do a better job of explaining how the mechanism of charge formation implies a minimum resolution.
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 ---
-jupyter:
-  source_hidden: true
 mystnb:
   figure:
     caption: A 3D diagram of the strip-chain pairing procedure. The electrical contacts
@@ -302,10 +301,8 @@ with displayed_as_mimebundle() as c:
 
 Meanwhile, the charge distributions formed along a track have a non-zero width and relative position to the average track direction; the electrons liberated by scattering of the incident ion arrest over a finite distance within the gas. There is therefore a _minimum_ time-separation below which a "reasonable set" of pair can not be discriminated from those which arise from random correlations. In the extreme case, a track that lies exactly within the drift plane will yield strip-chain pairs that are entirely separated in time by the uncertainty on the cluster position, and this method cannot be used (see {numref}`strip-chain-procedure-planar`).
 
-```{code-cell}
+```{code-cell} ipython3
 ---
-jupyter:
-  source_hidden: true
 mystnb:
   figure:
     caption: A 3D diagram of the strip-chain pairing procedure for planar tracks.

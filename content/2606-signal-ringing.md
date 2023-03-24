@@ -29,7 +29,7 @@ from matplotlib import pyplot as plt
 from mplhep.styles import ROOT
 from texat.signal.statistics import rolling_statistics
 from texat.utils.awkward.convert import from_hdf5
-from texat.utils.awkward.structure import groupby, make_jagged
+from texat.utils.awkward.structure import groupby
 
 plt.style.use(ROOT)
 plt.rc("figure", figsize=(10, 5), dpi=120)

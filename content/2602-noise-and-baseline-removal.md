@@ -13,7 +13,7 @@ kernelspec:
 
 # Noise and Baseline Removal
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 # Fix RC overwriting
@@ -25,7 +25,7 @@ from matplotlib import pyplot as plt
 from mplhep.styles import ROOT
 from texat.signal.statistics import rolling_statistics
 from texat.utils.awkward.convert import from_hdf5
-from texat.utils.awkward.structure import groupby, make_jagged
+from texat.utils.awkward.structure import groupby
 
 plt.style.use(ROOT)
 plt.rc("figure", figsize=(10, 5), dpi=120)
@@ -37,7 +37,7 @@ plt.rc("figure", figsize=(10, 5), dpi=120)
 
 As discussed in {ref}`content:get-architecture`, the AGET chip provides four additional channels for measuring the electronic noise see {numref}`fpn-averaging`). These channels can be used to eliminate some of the electronic noise inherent within the system.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -55,7 +55,7 @@ tags: [hide-input]
 ---
 # Load chan and group by AGET
 chan_ext = from_hdf5("data/GET-event.h5")
-by_aget = groupby(chan_ext.addr.index.aget, chan_ext).slot1
+by_aget = groupby(chan_ext.addr.index.aget, chan_ext)["1"]
 
 # Split into FPN and measured components
 # by grouping each set of event lists according
@@ -92,7 +92,7 @@ plt.legend(
 
 As seen in {numref}`fpn-averaging`, the FPN waveforms typically include a non-linear baseline component. This component, when subtracted from non-FPN channels, restores the constant floor of the measured signals (see {numref}`fpn-baseline-subtraction`). A number of noise removal strategies are discussed in {cite:ps}`giovinazzo_get_2016`, where it is established that an average over the set of FPN channels per-chip is optimal.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -135,7 +135,7 @@ In addition to a low frequency component of the electronic noise, a separate bas
 
 Given that time in the MicroMeGaS is primarly determined by the drift time of the liberated electrons in the gas volume, the baseline observed in the MicroMeGaS detector was not seen to occur at specific times. Therefore, in order to identify the region of baseline that would be linearly subtracted from the recorded signal, a local variance was computed for the channel samples, with a window of 96 cells. The value of the baseline was given by the locus of the minimum computed variance (see {numref}`baseline-estimate-micromegas`).
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -155,7 +155,7 @@ stats = rolling_statistics(sample, 48)
 # Find minimum local variance
 j_baseline = ak.argmin(stats.var, keepdims=True, axis=-1, mask_identity=False)
 # Compute amplitude
-stats_baseline = ak.to_regular(stats[make_jagged(j_baseline)])
+stats_baseline = ak.to_regular(stats[ak.from_regular(j_baseline)])
 
 fig_mm_baseline, ax = plt.subplots(2, 1, figsize=(10, 10), sharex=True)
 
@@ -182,7 +182,7 @@ ax[1].legend(loc="upper left");
 
 Unlike the MicroMeGaS channels, the silicon quadrant detectors have a well defined boundary between the baseline and the interaction signals. This boundary occurs at a similar time for each detector, as it is the silicon detectors upon which the GET system was configured to trigger. To determine the baseline value, the mean of the sample values for the preceeding ten cells was used (see {numref}`baseline-estimate-silicon`).
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -206,5 +206,3 @@ ax.set_xlabel("Time /cell")
 ax.set_ylabel("Amplitude")
 ax.legend();
 ```
-
-In addition to removing the baseline component of the signal, it is also inverted as the polarity is an experimental detail.
