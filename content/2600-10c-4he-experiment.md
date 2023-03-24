@@ -12,7 +12,7 @@ kernelspec:
 ---
 
 (experiment)=
-# Resonance Elastic Scattering of $\alpha$-particles with ${}^{10}\text{C}$
+# Resonant Elastic Scattering of $\alpha$-particles with ${}^{10}\text{C}$
 
 +++
 

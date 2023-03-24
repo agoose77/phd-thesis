@@ -90,7 +90,7 @@ p_3^\pqty{1} &= \frac{\pqty{\pqty{p_2^\pqty{2}}^2 + \pqty{p_2^\pqty{1}}^2}\frac{
 :::
 ultimately yielding an expression for the beam energy in terms of the reaction products.
 
-::::{tip}
+::::{admonition} Derivation of {eq}`angular-kinematics-recoil`
 :class: dropdown no-latex
 
 :::{math}
@@ -148,7 +148,7 @@ This in turn admits a relationship between the beam and scatter energies
 :::
 
 
-::::{tip}
+::::{admonition} Derivation of {eq}`beam-energy-zero-degree`
 :class: dropdown no-latex
 
 :::{math}

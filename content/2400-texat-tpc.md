@@ -14,7 +14,7 @@ kernelspec:
 (content:the-texat-detector)=
 # The TexAT Detector for Rare Isotope Beam Experiments
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 import awkward as ak
@@ -25,7 +25,7 @@ from matplotlib.cm import viridis
 from utils import displayed_as_mimebundle
 ```
 
-TexAT (Texas Active Target) is a general-purpose detector developed by the Cyclotron Institute at Texas A&M University for low energy nuclear physics experiments.{cite:ps}`koshchiy_texat_2020` As an active-target detector, the fill gas serves as both the detection medium and the target, such that TexAT is well suited to conducting scattering and implantation experiments with rare isotope beams. 
+TexAT (Texas Active Target) is a general-purpose detector developed by the Cyclotron Institute at Texas A&M University for low energy nuclear physics experiments.{cite:ps}`koshchiy_texas_2020` As an active-target detector, the fill gas serves as both the detection medium and the target, such that TexAT is well suited to conducting scattering and implantation experiments with rare isotope beams. 
 
 TexAT has been upgraded over several experiments. In this section, the intial design of the detector will be outlined, followed by an exploration of the modifications relevant to the experiment discussed later in the chapter.
 
@@ -45,7 +45,7 @@ A primary {math}`{}^{10}B^{3+}` beam with 7 MeV/u was produced by the K500 cyclo
 
 TexAT is comprised of a gas-filled TPC and MicroMeGaS (Micro-Mesh Gaseous Structure) particle detector, surrounded by an array of telescopes for particle identification and total energy measurement of ions that escape the active volume. A 3D model of these detectors is shown in {numref}`texat-detector-3d`.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -156,7 +156,7 @@ These elements are arranged into a three-region configuration: the two side regi
 :width: 400px
 :align: center
 
-The segmentation plan of the MicroMeGaS anode. There are three distinct regions: a central column of $6\times 128$ pads, and two side regions with 64 interleaved rows (strips) and columns (chains). The strips are formed from single electrodes, whilst the chains are formed from staggered readout pads that are electrically connected together. Note that the measurements in this figure were subsequently revised for fabrication. Figure adapted from {cite:ps}`koshchiy_texat_2020`.
+The segmentation plan of the MicroMeGaS anode. There are three distinct regions: a central column of $6\times 128$ pads, and two side regions with 64 interleaved rows (strips) and columns (chains). The strips are formed from single electrodes, whilst the chains are formed from staggered readout pads that are electrically connected together. Note that the measurements in this figure were subsequently revised for fabrication. Figure adapted from {cite:ps}`koshchiy_texas_2020`.
 :::
 
 +++
@@ -183,13 +183,13 @@ Both of these detectors are configured with four ($25\times25\,\text{mm}^2$) qua
 :width: 400px
 :align: center
 
-A 3D rendering of the solid-state detector telescopes that surround the TPC: downstream array (top left); upstream array (bottom left); side array (rop right); bottom array (bottom right). Figure taken from {cite:ps}`koshchiy_texat_2020`.
+A 3D rendering of the solid-state detector telescopes that surround the TPC: downstream array (top left); upstream array (bottom left); side array (rop right); bottom array (bottom right). Figure taken from {cite:ps}`koshchiy_texas_2020`.
 :::
 
 +++
 
 ### Ion Counter
-For this experiment, a planar windowless ionisation chamber was placed immediately after the entrance window to the gas volume to detect the beam current. This can be used to help eliminate pile-up within the TPC, and trigger the acquisition system in coincidence with the other detectors.
+For this experiment, a planar windowless ionisation chamber (IC) was placed immediately after the entrance window to the gas volume to detect the beam current (see {numref}`texat-detector-2d`). Through charge-time discrimination, the signals of this detector can be used to identify the beam ion, help to eliminate pile-up within the TPC, and trigger the acquisition system in coincidence with the other detectors.
 
 +++
 
@@ -224,7 +224,7 @@ In order to synchronize the CoBos and generate a global trigger, an additional b
 
 +++
 
-The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in cases where exernal pre-amplifiers need to be read-out by the GET electronics.{cite:ps}`pollacco_get_2018` Instead of using the internal GET pre-amplifier, the IC is connected to an external MESYTEC shaper (MSCF-16), whose signals are fed back into the Gain-2 stage of AGET chip, as discussed in {cite:ps}`koshchiy_texat_2020`.
+The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in cases where exernal pre-amplifiers need to be read-out by the GET electronics.{cite:ps}`pollacco_get_2018` Instead of using the internal GET pre-amplifier, the IC is connected via a bypass circuit (see {numref}`external-shaper`) to an external MESYTEC shaper (MSCF-16), whose signals are fed back into the Gain-2 stage of AGET chip, as discussed in {cite:ps}`koshchiy_texas_2020`.
 
 +++
 
