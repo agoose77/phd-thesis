@@ -430,6 +430,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "hepunits"
+version = "2.3.1"
+requires_python = ">=3.7"
+summary = "Units and constants in the HEP system of units"
+
+[[package]]
 name = "hist"
 version = "2.6.3"
 requires_python = ">=3.7"
@@ -1390,6 +1396,16 @@ requires_python = ">=3.6"
 summary = "A Python Parser"
 
 [[package]]
+name = "particle"
+version = "0.21.2"
+requires_python = ">=3.7"
+summary = "Extended PDG particle data and MC identification codes"
+dependencies = [
+    "attrs>=19.2",
+    "hepunits>=2.0.0",
+]
+
+[[package]]
 name = "pathspec"
 version = "0.11.1"
 requires_python = ">=3.7"
@@ -2235,7 +2251,7 @@ summary = "Backport of pathlib-compatible object wrapper for zip files"
 
 [metadata]
 lock_version = "4.1"
-content_hash = "sha256:fc833e8be27802f0fe93920cf9972142e9b7f27346689dcbd9a05ea25cd612a0"
+content_hash = "sha256:e2ab4ce5ac2de2494273a0884dd37823754fbb679b7f2ebf4a8b778210977dce"
 
 [metadata.files]
 "accessible-pygments 0.0.4" = [
@@ -3122,6 +3138,10 @@ content_hash = "sha256:fc833e8be27802f0fe93920cf9972142e9b7f27346689dcbd9a05ea25
     {url = "https://files.pythonhosted.org/packages/de/51/8f8061ee35cfbafd5ecae845a546392da7c29f77bf33622dc10274bc22e7/h5py-3.8.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:8f55d9c6c84d7d09c79fb85979e97b81ec6071cc776a97eb6b96f8f6ec767323"},
     {url = "https://files.pythonhosted.org/packages/ea/c5/433bd152962f3183f1565e4f5088f0b58f2f297fa06aeb91fb8810f94243/h5py-3.8.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:c873ba9fd4fa875ad62ce0e4891725e257a8fe7f5abdbc17e51a5d54819be55c"},
 ]
+"hepunits 2.3.1" = [
+    {url = "https://files.pythonhosted.org/packages/22/95/8a4e302895e13162e3a500af61142e661cc2e094c831e6b3e5e38f8e39fc/hepunits-2.3.1.tar.gz", hash = "sha256:b1174bba4d575b9939c01f341e24d9bdbe0e0cd4cc4ce2e7d77692da19145cfb"},
+    {url = "https://files.pythonhosted.org/packages/91/48/76b99f9cf2ec8fadea882f70ec7866d227644b857791f49892a86083ac82/hepunits-2.3.1-py3-none-any.whl", hash = "sha256:e070c3145fb50526a9a5d2fb557faafdd8bb9b8cb0045a27d2d6ac489269b24d"},
+]
 "hist 2.6.3" = [
     {url = "https://files.pythonhosted.org/packages/11/a1/dfb443d67670cb31338b7cea77cccba33e38979a3ba9e94405db23691f52/hist-2.6.3.tar.gz", hash = "sha256:dede097733d50b273af9f67386e6dcccaab77e900ae702e1a9408a856e217ce9"},
     {url = "https://files.pythonhosted.org/packages/3f/15/67606c84dfd0c024a122b631b0c539a6e0f611977b18276447e5f62bbe97/hist-2.6.3-py3-none-any.whl", hash = "sha256:0bc4798cfa4706c2007fe206eed622b1a7cf358cbd75421f398cf75f220315a9"},
@@ -3915,6 +3935,10 @@ content_hash = "sha256:fc833e8be27802f0fe93920cf9972142e9b7f27346689dcbd9a05ea25
     {url = "https://files.pythonhosted.org/packages/05/63/8011bd08a4111858f79d2b09aad86638490d62fbf881c44e434a6dfca87b/parso-0.8.3-py2.py3-none-any.whl", hash = "sha256:c001d4636cd3aecdaf33cbb40aebb59b094be2a74c556778ef5576c175e19e75"},
     {url = "https://files.pythonhosted.org/packages/a2/0e/41f0cca4b85a6ea74d66d2226a7cda8e41206a624f5b330b958ef48e2e52/parso-0.8.3.tar.gz", hash = "sha256:8c07be290bb59f03588915921e29e8a50002acaf2cdc5fa0e0114f91709fafa0"},
 ]
+"particle 0.21.2" = [
+    {url = "https://files.pythonhosted.org/packages/4f/cc/26e051e887516456acbf6023aaa3314d80831834e25b5b9bb1e962ba0fa1/particle-0.21.2-py3-none-any.whl", hash = "sha256:b85aa51b4e993e58f672c61d8e43d03f0b45f072751868ec2f88f4f1d58c0e18"},
+    {url = "https://files.pythonhosted.org/packages/ff/63/33c68b4b6618f5f6f984c4d286c8ce580e8cc629ee18f66007e34b2af3e3/particle-0.21.2.tar.gz", hash = "sha256:0434d39aab4fc72bce452a11f822736f95937c5f4116b0e831254ebcef6cfcdb"},
+]
 "pathspec 0.11.1" = [
     {url = "https://files.pythonhosted.org/packages/95/60/d93628975242cc515ab2b8f5b2fc831d8be2eff32f5a1be4776d49305d13/pathspec-0.11.1.tar.gz", hash = "sha256:2798de800fa92780e33acca925945e9a19a133b715067cf165b8866c15a31687"},
     {url = "https://files.pythonhosted.org/packages/be/c8/551a803a6ebb174ec1c124e68b449b98a0961f0b737def601e3c1fbb4cfd/pathspec-0.11.1-py3-none-any.whl", hash = "sha256:d8af70af76652554bd134c22b3e8a1cc46ed7d91edcdd721ef1a0c51a84a5293"},
@@ -4526,7 +4550,7 @@ content_hash = "sha256:fc833e8be27802f0fe93920cf9972142e9b7f27346689dcbd9a05ea25
     {url = "https://files.pythonhosted.org/packages/c2/42/4c8646762ee83602e3fb3fbe774c2fac12f317deb0b5dbeeedd2d3ba4b77/sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl", hash = "sha256:2ec2eaebfb78f3f2078e73666b1415417a116cc848b72e5172e596c871103178"},
 ]
 "sphinxcontrib-mermaid 0.7.1" = [
-    {url = "file:///${PROJECT_ROOT}/extern/sphinxcontrib_mermaid-0.7.1-py3-none-any.whl", hash = "sha256:8c8e8680de2cf243a868eaaf731f78cd0b5dd475e76eef1c4ac809bad9995391"},
+    {url = "file:///home/angus/Git/phd-thesis/extern/sphinxcontrib_mermaid-0.7.1-py3-none-any.whl", hash = "sha256:8c8e8680de2cf243a868eaaf731f78cd0b5dd475e76eef1c4ac809bad9995391"},
 ]
 "sphinxcontrib-qthelp 1.0.3" = [
     {url = "https://files.pythonhosted.org/packages/2b/14/05f9206cf4e9cfca1afb5fd224c7cd434dcc3a433d6d9e4e0264d29c6cdb/sphinxcontrib_qthelp-1.0.3-py2.py3-none-any.whl", hash = "sha256:bd9fc24bcb748a8d51fd4ecaade681350aa63009a347a8c14e637895444dfab6"},
@@ -4592,7 +4616,7 @@ content_hash = "sha256:fc833e8be27802f0fe93920cf9972142e9b7f27346689dcbd9a05ea25
     {url = "https://files.pythonhosted.org/packages/84/a7/c7628d79651b8c8c775d27b374315a825141b5783512e82026fb210dd639/terminado-0.17.1-py3-none-any.whl", hash = "sha256:8650d44334eba354dd591129ca3124a6ba42c3d5b70df5051b6921d506fdaeae"},
 ]
 "texat 0.2.7" = [
-    {url = "file:///${PROJECT_ROOT}/extern/texat-0.2.7-py3-none-any.whl", hash = "sha256:342cc75d467eaf4248fb92dc71cbb6778c1ef1571765ccf197aacf7f18601c66"},
+    {url = "file:///home/angus/Git/phd-thesis/extern/texat-0.2.7-py3-none-any.whl", hash = "sha256:342cc75d467eaf4248fb92dc71cbb6778c1ef1571765ccf197aacf7f18601c66"},
 ]
 "tinycss2 1.2.1" = [
     {url = "https://files.pythonhosted.org/packages/75/be/24179dfaa1d742c9365cbd0e3f0edc5d3aa3abad415a2327c5a6ff8ca077/tinycss2-1.2.1.tar.gz", hash = "sha256:8cff3a8f066c2ec677c06dbc7b45619804a6938478d9d73c284b29d14ecb0627"},

@@ -51,7 +51,8 @@ dependencies = [
     "altair>=4.2.0",
     "altair-saver>=0.5.0",
     "pandas>=1.5.1",
-    "sphinx-subfigure>=0.2.4"
+    "sphinx-subfigure>=0.2.4",
+    "particle>=0.21.2",
 ]
 
 
