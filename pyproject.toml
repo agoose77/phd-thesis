@@ -70,6 +70,9 @@ profile = "black"
 requires = ["pdm-pep517"]
 build-backend = "pdm.pep517.api"
 
+[tool.jupytext]
+formats = "md:myst"
+cell_metadata_filter = "-user_expressions"
 # [tool.pdm.overrides]
 # myst-nb = "file:///${PROJECT_ROOT}/extern/myst_nb-0.17.1-py3-none-any.whl"  # Newer version
 # sphinx-jupyterbook-latex = "0.5.1"

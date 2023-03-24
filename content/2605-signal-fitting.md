@@ -1,0 +1,51 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.14.5
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+
+(signal-fitting)=
+# Signal Fitting
+
+In the above sections, it was established that the sampled GET waveforms are effectively convolutions of an original source signal and the intrinsic GET shaper response function. Having determined an approximation for this response function, the source signals can then be recovered by deconvolutional methods. 
+
+For each preprocessed sample, a convolutional Gaussian fit is performed that solves $y = F * \mathcal{N}(\boldsymbol{\phi})$ for $\boldsymbol{\phi}$. This is preferred over computing the Gaussian fit of the deconvolved signal; although repeated convolution is computationally expensive, it is less vulnerable to artefacts produced by the deconvolution technique. For samples which do not exceed the dynamic range of the acquisition system, the peak multiplicity is estimated using the GOLD deconvolution algorithm with boosting, which collapses broad peaks into smooth, sharp peaks. These peaks are then identified using a simple turning-point localiser, which is used to seed the initial fit parameters (see {numref}`turning-point-localiser`). 
+
+:::{figure} image/placeholder/placeholder.png
+:name: turning-point-localiser
+:::
+
+:::{warning}
+Figure show turning point localiser
+:::
+
+In some cases, the measured sample exceeds the maximum value that can be measured. This saturation introduces a discontinuity in the derivative of the sample, which renders it un-amenable to deconvolution (see {numref}`signal-saturation-discontinuity`).
+:::{figure} image/placeholder/placeholder.png
+:name: signal-saturation-discontinuity
+:::
+
+:::{warning}
+Figure show signal-saturation-discontinuity
+:::
+
+In such instances, one cannot easily determine the peak multiplicity of the sample. It is therefore assumed that the measured sample contains only one peak, which is fit as described above using an additional mask that forces the fit algorithm to reject the saturated regions.
+
+
+:::{warning}
+TODO: 
+- [ ] discuss current vs voltage here of preamplifier
+- [ ] check whether drift of charges is significant to signal formation in presence of micromesh?
+- [ ] consider meaning of non linear least squares
+- [ ] Mention GOLD deconvolution
+:::
+
+```{code-cell}
+
+```

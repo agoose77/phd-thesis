@@ -1,0 +1,54 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.14.5
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+
+(olab:virtual-laboratories)=
+# Virtual Laboratories
+
++++
+
+(olab:simplicity-and-reproducibility)=
+## Simplicity and Reproducibility
+
++++
+
+Despite being strongly motivated by the need to provide students with laboratory experience, the opportunities afforded by an online physics laboratory transcend the immediate problem of tackling the disruption of a public health emergency. Through a carefully defined environment, experiment designers can guide students towards successful application of learned theory, but also towards "interesting" or educational failure modes.{cite:ps}`de_jong_physical_2013-1` Crucially, the experiment designer can design experiments in which these "error conditions" are directly addressed as part of the narrative content, such as through user-prompts, or remote demonstrator questions. For example, the background radiation observed during a measurement can be modified by the designer to exhibit particular spectral peaks that the student might be tasked with explaining. Due to the curated nature of the virtual environment, these failure modes can be introduced in accordance with the objectives of the laboratory; educators can _teach_ through failure in a controlled manner. Furthermore, by designing failure into an experiment, educators are given the ability to prepare in advance for adverse outcomes, and guide students through the experience. This is particularly relevant in the event that experiment failures are irrecoverable, e.g. loss of experimental data, or damage to the electronics of a high-voltage power supply. Through the careful selection of a basis of representative failure modes, students can be better prepared for failures in a real-world experiment, which are often multi-factorial and represent poor educational experiences.
+
+Given the removal of the physical constraints associated with on-premise in-person teaching, online laboratory experiences are free to explore experiment designs that are infeasible or indeed impossible to realise in a conventional setting. Experiments can be simplified to eliminate confusing details such as cumbrous software, or simplify characteristics of the model such that the results are easier or more convenient to interpret e.g. increasing the rate of a decay process.{cite:ps}`de_jong_physical_2013-1` Furthermore, it is possible to treat physical invariants as model parameters that students can interact with e.g. the material properties of a radiation absorber. This freedom to modify "reality" can be used to build experiments in which the challenge to the student is not building the experiment, but rather interpreting the observed results. Where suitable, this may provide a mechanism to improve student understanding and retention.
+
++++
+
+(olab:hybrid-learning)=
+## Hybrid Learning
+In addition to providing educators with greater freedoms over experimental outcomes and narrative towards deeper understanding of fundamental concepts, a significant benefit of virtual experiments is the improved efficiency associated with reduced setup time, and time-to-results. Nuclear physics experiments are typically constrained by the time required to configure the necessary detection equipment, and the subsequent interval over which the measurement must be gathered. In some cases, the time investment required to perform a measurement may serve as a lens through which to develop planning and reflection skills.{cite:ps}`de_jong_physical_2013-1` In the virtual laboratory, educators can choose whether to impose these restrictions. Where hybrid learning is possible, it may be favourable to distinguish between virtual and practical experiments through these real-world constraints in order to prioritise different learning outcomes. Equally, by preparing an experiment in the virtual space, students would have the opportunity to identify areas of concern ahead of time, and optimise their time in the physical laboratory e.g. determining ideal detector locations. It has been shown that hybrid approaches that combine in-person and virtual laboratories can improve learning outcomes with respect to either method in isolation.{cite:ps}`de_jong_physical_2013-1` 
+
+For educators, the added flexibility of hybrid learning can also be beneficial; supervision of multiple groups of students is made more feasible by the elimination of spatial constraints associated with particular in-person demonstrations.{cite:ps}`post_effects_2019` In the event that physical/spatial resources are limited, such as equipment confined to particular laboratories with a finite capacity, virtual experiments can be used to increase the number of concurrent students that may engage with the session. Furthermore, demonstrators of virtual laboratories would not be required to undergo the same kinds of safety training that in-person demonstration necessitates. This follows from the improved health and safety risk-profile of distance learning.
+
++++
+
+## Accessibility and Student-Centred Learning
+
+As noted in the introduction to this chapter, a significant motivation for the development of OLAB was provided by the need to support students engaging with distance learning as a consequence of University, domestic, or foreign policy. Outside of the pandemic control measures, the opportunity for students to revisit practical experiments in order to aid retention and understanding has been identified by students as a welcome consequence.{cite:ps}`aayiksoy_impact_2017` Remote labs can be used to extend the window of availability of an experiment outside the limits of contact time, which provides tangible benefits to part-time learners, or students who wish to revisit material at a later date in order to consolidate their learning. It is also noted that the flexibility to arrange their own learning process can give students a sense of ownership that correlates with increased motivation.{cite:ps}`post_effects_2019` 
+
+It should also be noted that hybrid virtual-practical laboratories offer the opportunity to increase accessibility and equity of learning provision, particularly in such cases where buildings or experiments cannot be readily made accessible. For students with learning difficulties such as dyslexia, the ability to decouple the process of learning laboratory skills from the spatio-temporal requirements of timetabled learning may offer a more inclusive learning experience. Furthermore, this flexibility may also offer benefits to students who are unable to access on-campus teaching, but wish to continue their learning in some capacity, such as students on temporary withdrawal or off-sick.
+
+Undergraduate laboratories typically imposes significant constraints on the teaching schedule due to the long sessions required to setup, measure, and restore the experimental equipment. This, in turn, places a higher cost on mistakes during these sessions, and prevents the students from repeating an experiment with the knowledge learned through failure. The ability to revisit experiments has been recognised by students as a positive aspect of virtual laboratories. Some students have also reported that the ability to work alone was a preferential mode of learning that was not possible in the physical laboratory due to equipment constraints.{cite:ps}`aayiksoy_impact_2017` Alongside this, research has shown that communication opportunities within virtual laboratories are highly correlated with student learning achievement; care must be taken by educators to ensure that these opportunities are established within the virtual space.{cite}`klein_studying_2021-1`
+
++++
+
+(olab:learning-tools)=
+## Powerful Learning Tools 
+
+The provision of a virtual laboratory offers the opportunity for educators to directly influence the kinds of software available to students on a per-course or even per-experiment basis. In particular, unlike practical laboratories in which the hardware often has a lifespan of many years (with the associated software lifespan), virtual laboratories may not be so far constrained in the software that students are required to use, and are better positioned to modify the tools that students are presented with on a needs basis. This is particularly relevant in the context of nuclear laboratories, in which the lifespan of the apparatus can span decades. 
+Virtual laboratories are well positioned to eliminate these kinds of "lock-in" issues. Within virtual experiments, educators may choose to provide interfaces that make it easier for students to analyse their acquired data. The elimination of this boundary between measurement and analysis is a contributing factor to reducing the "time to result" that distracts from learning outcomes. Whilst there is a recognisable place for teaching students the skills required to operate real hardware, virtual laboratories enable educators to determine when these skills are taught. 
+
+The promise of virtual laboratories includes the ability to interleave hands-on experimental tasks with curated learning material. Outside of the virtual laboratory space, Massive Online Only Courses (MOOCs) are increasingly built around interactive notebooks, which employ the principles of computational narratives and interactive computing to build expressive and communicative resources that permit students to employ an explorative approach to their learning.{cite:ps}`granger_jupyter_2021` These tools show similar promise in the context of university education, where they are often already used to facilitate undergraduate programming classes. Developments in these tools offer the prospect for educators to interact with multiple remote students, providing a foundation for remote-first teaching. Students in virtual laboratories would arguably benefit from reusing the same tools that they are familiar with outside of the laboratory to reduce inertia. Furthermore, the challenge of preparing a software environment in order to perform an analysis is ever-growing; students wishing to use the tools that are commonplace in modern high-energy physics (HEP) research must increasingly demonstrate an understanding of package management, code compilation, unix, and containerisation technologies before they can even start to begin looking at their data. By utilising managed, remote software, educators can reduce the burden of supporting students with installing these software packages on their own computers via a write-once, deploy many strategy. In some institutions, it has been possible for a small team of developers to support uwpards of 800 students using such strategies.{cite:ps}`perkel_why_2018`
