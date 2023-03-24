@@ -24,7 +24,9 @@ from pathlib import Path
 
 import awkward as ak
 import numpy as np
+import vector
 from matplotlib import pyplot as plt
+from matplotlib.collections import PolyCollection
 from mplhep.styles import ROOT
 from texat.utils.awkward.convert import from_hdf5
 
@@ -113,7 +115,7 @@ It is the time-integral of the current induced within the semiconductor that is 
 
 For this experiment, a four-peak alpha source was suspended within the TexAT TPC chamber, which was held under vacuum. A list of constituent isotopes and their decay radiation is given in {numref}`calibration-sources`.
 
-:::{list-table} Isotopes present in the four-α calibration source, and their α decay radiation.
+:::{list-table} Isotopes present in the four-α calibration source, and their α decay radiation. From ENSDF database as of March 24th, 2023. Version available at <http://www.nndc.bnl.gov/ensarchivals/>.
 :name: calibration-sources
 :header-rows: 1
 
@@ -148,10 +150,96 @@ For this experiment, a four-peak alpha source was suspended within the TexAT TPC
 
 +++ {"tags": ["remove-input", "remove-output"]}
 
-The waveforms recorded by the GET acquisition system were fit using the methods described in {ref}`signal-fitting`, and the corresponding charge accumulated in a histogram. The distribution for each detector is shown in {numref}`calibration-spectra`.
+The waveforms recorded by the GET acquisition system were fit using the methods described in {ref}`signal-fitting`, and the corresponding charge accumulated in a histogram. It can be seen in {numref}`calibration-spectra` that the majority of the silicon quadrants measured similar signal amplitudes for the given sources. A total of 11 quadrants were found to have an insufficient number of hits to be able to build a calibration, primarily those in the forward silicon detector array. See {numref}`calibration-quadrant-map` for a visual representation of these missing quadrants.
 
 ```{code-cell} ipython3
 ---
+mystnb:
+  figure:
+    caption: A schematic diagram of the (a) forward and (b) side silicon detector
+      arrays indicating quadrants with incomplete calibrations in pink.
+    name: calibration-quadrant-map
+  image:
+    align: center
+    width: 512px
+tags: [hide-input]
+---
+with open(data_path / "calibration-heatmap.pickle", "rb") as f:
+    calibration_heatmap = pickle.load(f)[:, ::2j]
+quadrant_table = from_hdf5(data_path / "calibration.h5")
+count = np.sum(calibration_heatmap.values(), axis=-1)
+quadrant = ak.zip({"position": quadrant_table.position, "count": count}, depth_limit=1)
+is_forward = quadrant.position.y > 190
+
+vertices = (
+    np.where(
+        is_forward,
+        vector.zip({"x": quadrant.position.x, "y": quadrant.position.z}),
+        vector.zip({"x": quadrant.position.y, "y": quadrant.position.z}),
+    )[:, np.newaxis]
+    + vector.zip(dict(x=[-1, -1, 1, 1], y=[-1, 1, 1, -1]))[np.newaxis, :] * 12.5
+)
+vert = ak.concatenate(
+    (vertices.x[..., np.newaxis], vertices.y[..., np.newaxis]), axis=-1
+)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, sharey=True, width_ratios=(200, 250))
+
+ax1.add_collection(
+    PolyCollection(
+        vert[(quadrant.count > 100) & is_forward],
+        edgecolors="black",
+        facecolors="green",
+        linestyle="--",
+        alpha=0.2,
+    )
+)
+
+ax1.add_collection(
+    PolyCollection(
+        vert[(quadrant.count <= 100) & is_forward],
+        edgecolors="black",
+        facecolors="red",
+        linestyle="--",
+        alpha=0.2,
+    )
+)
+ax2.add_collection(
+    PolyCollection(
+        vert[(quadrant.count > 100) & (~is_forward)],
+        edgecolors="black",
+        facecolors="green",
+        linestyle="--",
+        alpha=0.2,
+    )
+)
+
+ax2.add_collection(
+    PolyCollection(
+        vert[(quadrant.count <= 100) & (~is_forward)],
+        edgecolors="black",
+        facecolors="red",
+        linestyle="--",
+        alpha=0.2,
+    )
+)
+ax1.set_xlabel("x /mm")
+ax1.set_ylabel("y /mm");
+ax1.set_title("(a)")
+ax1.set_xlim(-100, 100)
+ax1.set_ylim(-100, 100)
+ax1.set_aspect(1)
+ax2.set_title("(b)")
+ax2.set_xlim(-125, 125)
+ax2.set_ylim(-100, 100)
+ax2.set_aspect(1)
+ax2.set_xlabel("x /mm");
+```
+
+```{code-cell} ipython3
+---
+jupyter:
+  source_hidden: true
 mystnb:
   figure:
     caption: A 2D histogram of the charge distribution measured by each silicon detector
@@ -163,12 +251,9 @@ mystnb:
     width: 1280px
 tags: [hide-input]
 ---
-with open(data_path / "calibration-heatmap.pickle", "rb") as f:
-    calibration_heatmap = pickle.load(f)[:, ::2j]
-
 fig_heatmap = plt.figure(figsize=(24, 10))
 ax = fig_heatmap.gca()
-calibration_heatmap.plot2d(ax=ax);
+calibration_heatmap.plot2d(ax=ax)
 ticks = ax.get_xticks()
 ax.set_xticks(ticks[::2]);
 ```
@@ -247,8 +332,10 @@ ax2.hlines(
     alpha=0.3,
 )
 plt.legend(handles=lines)
-plt.xlabel("Charge")
-plt.ylabel("Counts");
+ax.set_xlabel("Charge /arb")
+ax.set_ylabel("Counts");
+ax2.set_ylabel("CMF");
+plt.tight_layout()
 ```
 
 This method of localising the decay peaks from the calibration source is robust in the face of varying detector noise.
@@ -285,11 +372,10 @@ source_energy = ak.to_numpy(
         / np.sum(calibration[..., 1], axis=1)
     )
 )
-coeff = from_hdf5(data_path / "calibration.h5").coefficient
 
 fig_combined, ax = plt.subplots(figsize=(14, 4))
 ax.plot(
-    coeff[:, 1] * charge[:, np.newaxis] + coeff[:, 0],
+    quadrant_table.coefficient[:, 1] * charge[:, np.newaxis] + quadrant_table.coefficient[:, 0],
     np.transpose(calibration_heatmap.values()),
 )
 ax.set_xlabel("Energy /keV")

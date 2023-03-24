@@ -14,7 +14,7 @@ kernelspec:
 (content:texat-track-fitting)=
 # Track Fitting
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 import pickle
@@ -39,7 +39,7 @@ hep.style.use(hep.style.ATLAS)
 
 In {ref}`content:facility-location-problem`, the PeARL method for multi-model discovery and fitting was discussed. For this experiment, a random sample of 1024 models was drawn from pairwise combinations of the clusters computed in {ref}`content:cluster-reconstruction`. Each model comprised of a pair of clusters, with corresponding positions and charges, and assigned a characteristic width drawn from a Gaussian distribution whose width was determined by inspection. {numref}`track-multiplicity-fit` shows the track multiplicity of these fits, i.e. the number of tracks per event. Perfect scattering reactions correspond to three-track events, in which the beam, light product recoil, and heavy reactant scatter are observed. However, these events are in the minority; many scattering reactions will happen such that the beam track is not observed, or the light product track is missed. As such, the majority of events are <3 track events. Beyond three track events correspond to coherent noise, which is reconstructed as ghost tracks, or pileup, in which there are demonstrably greater than three tracks present in the event.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -74,10 +74,8 @@ A plot of the _relative_ hitmap formed by taking the difference of the reconstru
 :::{warning} Describe why so many quadrants are poor
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 ---
-jupyter:
-  source_hidden: true
 mystnb:
   figure:
     caption: 2D hitmaps for the forward silicon detector array, formed by the intersection
@@ -135,7 +133,7 @@ plt.axhline(0)
 plt.axvline(0);
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -168,6 +166,6 @@ plt.ylim(-35, 35)
 ax.set_aspect(1);
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 
 ```

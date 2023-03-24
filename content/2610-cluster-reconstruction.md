@@ -20,7 +20,7 @@ import awkward as ak
 import numpy as np
 from IPython.display import Image
 from matplotlib import pyplot as plt
-from matplotlib.cm import vt                          0.2.9iridis
+from matplotlib.cm import viridis
 from texat.utils.awkward.convert import from_hdf5
 from utils import displayed_as_mimebundle
 ```
