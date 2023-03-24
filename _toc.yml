@@ -12,8 +12,8 @@ parts:
       - file: content/2100-nuclear-models
       - file: content/2200-carbon-oxygen-14
       - file: content/2300-experimental-scattering
-      - file: content/2400-track-finding-and-fitting
-      - file: content/2500-texat-tpc
+      - file: content/2400-texat-tpc
+      - file: content/2500-track-finding-and-fitting
       - file: content/2600-10c-4he-experiment
         sections:
             - file: content/2601-partitioning
