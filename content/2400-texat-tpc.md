@@ -14,7 +14,7 @@ kernelspec:
 (content:the-texat-detector)=
 # The TexAT Detector for Rare Isotope Beam Experiments
 
-```{code-cell} ipython3
+```{code-cell}
 :tags: [hide-cell]
 
 import awkward as ak
@@ -45,7 +45,7 @@ A primary {math}`{}^{10}B^{3+}` beam with 7 MeV/u was produced by the K500 cyclo
 
 TexAT is comprised of a gas-filled TPC and MicroMeGaS (Micro-Mesh Gaseous Structure) particle detector, surrounded by an array of telescopes for particle identification and total energy measurement of ions that escape the active volume. A 3D model of these detectors is shown in {numref}`texat-detector-3d`.
 
-```{code-cell} ipython3
+```{code-cell}
 ---
 mystnb:
   figure:
@@ -228,19 +228,11 @@ The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in 
 
 +++
 
-:::{admonition} To Do
-:class: margin
-
-TODO: better figure for IC
-:::
-
-+++
-
 :::{figure} image/placeholder/external-shaper.png
 :name: external-shaper
 :alt: Schematic diagram of the bypass mechanism for the AGET chip.
 :width: 400px
 :align: center
 
-A schematic diagram of the shaper bypass facility of AGET chips.
+A schematic diagram of the shaper bypass facility of AGET chips. External shapers are used for the ion counter signals (see above). Figure adapted from {cite:ps}`koshchiy_texas_2020`.
 :::
