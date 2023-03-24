@@ -183,7 +183,7 @@ Both of these detectors are configured with four ($25\times25\,\text{mm}^2$) qua
 :width: 400px
 :align: center
 
-A 3D rendering of the solid-state detector telescopes that surround the TPC: downstream array (top left); upstream array (bottom left); side array (rop right); bottom array (bottom right). Figure taken from {cite:ps}`koshchiy_texas_2020`.
+A 3D rendering of the solid-state detector telescopes that surround the TPC: downstream array (top left); upstream array (bottom left); side array (top right); bottom array (bottom right). Figure taken from {cite:ps}`koshchiy_texas_2020`.
 :::
 
 +++
