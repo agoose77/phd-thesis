@@ -87,7 +87,7 @@ https://indico.cern.ch/event/122157/attachments/69728/99908/R_Veenhof.pdf
 
 +++
 
-{eq}`boltzmann-transport-equation` is nontrivial to solve. Under the assumption of a constant uniform electric field, the distribution function may be reparametrised in terms of the electron energy $\epsilon$ and angle to the field $\theta$ such that $f$ may be written as an expansion in the Legendre polynomials.{cite:ps}`palladino_application_1974` This simplification yields a set of coupled differential equations, which can be solved with numerical methods. An experimental code that numerically solves the BTE, Magboltz, is described in {cite:ps}`palladino_application_1974`. Recent versions of the Magboltz program solve the problem of electron transport with Monte Carlo techniques, which yields solutions whose accuracy depends solely upon computation time.{cite:ps}`biagi_monte_1999`
+{eq}`boltzmann-transport-equation` is nontrivial to solve. Under the assumption of a constant uniform electric field, the distribution function may be reparametrised in terms of the electron energy $\epsilon$ and angle to the field $\theta$ such that $f$ may be written as an expansion in the Legendre polynomials.{cite:ps}`palladino_application_1975` This simplification yields a set of coupled differential equations, which can be solved with numerical methods. An experimental code that numerically solves the BTE, Magboltz, is described in {cite:ps}`palladino_application_1975`. Recent versions of the Magboltz program solve the problem of electron transport with Monte Carlo techniques, which yields solutions whose accuracy depends solely upon computation time.{cite:ps}`biagi_monte_1999`
 
 % note that assumptions change for GEM https://aip.scitation.org/doi/10.1063/5.0009286
 

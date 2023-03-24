@@ -20,6 +20,8 @@ For each preprocessed sample, a convolutional Gaussian fit is performed that sol
 
 :::{figure} image/placeholder/placeholder.png
 :name: turning-point-localiser
+
+Placeholder.
 :::
 
 :::{warning}
@@ -29,6 +31,8 @@ Figure show turning point localiser
 In some cases, the measured sample exceeds the maximum value that can be measured. This saturation introduces a discontinuity in the derivative of the sample, which renders it un-amenable to deconvolution (see {numref}`signal-saturation-discontinuity`).
 :::{figure} image/placeholder/placeholder.png
 :name: signal-saturation-discontinuity
+
+Placeholder.
 :::
 
 :::{warning}

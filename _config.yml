@@ -4,6 +4,10 @@ exclude_patterns:
   - .virtual_documents
   - node_modules
   - .direnv
+  - README.md
+  - extern/*
+  - content/4000*.md
+  - content/5000*.md
 
 mystnb:
   execute_notebooks: cache

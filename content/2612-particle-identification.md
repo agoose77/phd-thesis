@@ -143,11 +143,8 @@ fig, ax = plt.subplots()
 plt.loglog(ion_energy_1h, de_dx_1h, "C1", label="${}^{1}H$")
 plt.loglog(ion_energy_4he, de_dx_4he, "C2", label="${}^{4}He$")
 plt.loglog(ion_energy_10c, de_dx_10c, "C3", label="${}^{10}C$")
-plt.xlabel(f"Ion energy /{ion_energy_10c.units:~}")
-plt.ylabel(f"Linear Stopping Power /{de_dx_10c.units:~}")
-
-ax.yaxis.set_units(u.inches)
-ax.xaxis.set_units(u.seconds)
+plt.xlabel(f"Ion energy /{ion_energy_1h.units:~}")
+plt.ylabel(f"Linear Stopping Power /{de_dx_1h.units:~}")
 
 plt.legend();
 ```
