@@ -431,7 +431,7 @@ _NP-hard_ problems are _at least_ as complex as NP-complete problems, i.e. there
 :width: 512px
 :align: center
 
-Diagram illustrating the relationship between P, NP, NP-complete, and NP-hard problems under the assumptions of {math}`P=NP` and {math}`P\neq NP`
+Diagram illustrating the relationship between P, NP, NP-complete, and NP-hard problems under the assumptions of {math}`P=NP` and {math}`P\neq NP`. Figure by Behnam Esfahbod, distributed under a [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license.
 :::
 
 ::::

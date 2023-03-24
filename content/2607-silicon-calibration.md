@@ -44,8 +44,7 @@ width: 400px
 align: center
 ---
 An illustration of the band structure in a semiconductor. The dashed line indicates the Fermi level that separates the valence and conduction bands.
-
-% https://commons.wikimedia.org/wiki/File:Semiconductor_band_structure_(lots_of_bands_2).svg
+Figure by Tim Starling & Mliu92, distributed under a [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en) license.
 :::
 
 The excitation of an electron across the gap between the valence and conduction bands establises an electron-hole pair, which is free to migrate throughout the lattice. It is the motion of these charge-pairs under an electric field that gives rise to a current. Above 0 K there will exist some steady-state concentration (given by the Boltzmann distribution) of thermal electrons in the conduction band such that the material will be conductive.  
@@ -88,7 +87,7 @@ alt: A schematic diagram of the charge-carrier distribution across a P-N junctio
 width: 800px
 align: center
 ---
-A schematic diagram of the charge-carrier distribution across a P-N junction. Additional graphs show the charge, field, and electric potential, across the junction.
+A schematic diagram of the charge-carrier distribution across a P-N junction. Additional graphs show the charge, field, and electric potential, across the junction. Figure by TheNoise, distributed under a [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license.
 :::
 
 
@@ -170,6 +169,8 @@ with open(data_path / "calibration-heatmap.pickle", "rb") as f:
 fig_heatmap = plt.figure(figsize=(24, 10))
 ax = fig_heatmap.gca()
 calibration_heatmap.plot2d(ax=ax);
+ticks = ax.get_xticks()
+ax.set_xticks(ticks[::2]);
 ```
 
 Where charge-pair formation is not the primary mode of energy loss within the semiconductor, the number of created pairs is governed by Poisson counting statistics {math}`\operatorname{Var}(N)=N`. Meanwhile, in the limit that charge-pair formation is the singular energy-loss mechanism, the number of charge pairs is exactly determined by the deposited energy (ignoring the distribution on the ionisation energy), i.e. {math}`\operatorname{Var}(N)=0`. The ratio between the observed variance and its Poissonian expectation value is the Fano factor:{cite:ps}`subashiev_correlation_2010`
