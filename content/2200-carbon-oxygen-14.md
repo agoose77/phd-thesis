@@ -179,7 +179,7 @@ In a large work that undertakes a systematic review of experimental data, {cite:
 :name: cluster-structures-14c
 :width: 300px
 
-Schematic illustration of the cluster structures anticipated in {math}`{}^{14}\mathrm{C}` for various valence neutron configurations. (a) depicts the symmetric, positive parity {math}`\alpha+n+\alpha+n+\alpha` configuration with the valence neutrons distributed outside of the symmetry axis; (b) shows the reflection-asymmetric inversion doublets, based upon {math}`{}^{10}\mathrm{Be}+\alpha` structure with the valence neutrons in the same covalent {math}`\pi`-bond; and (c) illustrates the oblate traignular-cluster states with {math}`\sigma`-bonds between two {math}`\alpha`-particles.
+Schematic illustration of the cluster structures anticipated in {math}`{}^{14}\mathrm{C}` for various valence neutron configurations. (a) depicts the symmetric, positive parity {math}`\alpha+n+\alpha+n+\alpha` configuration with the valence neutrons distributed outside of the symmetry axis; (b) shows the reflection-asymmetric inversion doublets, based upon {math}`{}^{10}\mathrm{Be}+\alpha` structure with the valence neutrons in the same covalent {math}`\pi`-bond; and (c) illustrates the oblate triangular-cluster states with {math}`\sigma`-bonds between two {math}`\alpha`-particles. Figure adapted from {numref}`cluster-structures-14c`.
 :::
 
 +++
