@@ -47,7 +47,7 @@ The transformation from energy-time space of the GET waveforms to the energy-pos
 - - Name
   - Value
 - - Pressure
-  - 405 Torr
+  - 405
 - - Temperature
   - 290 K
 - - Composition
@@ -91,13 +91,13 @@ https://indico.cern.ch/event/122157/attachments/69728/99908/R_Veenhof.pdf
 
 % note that assumptions change for GEM https://aip.scitation.org/doi/10.1063/5.0009286
 
-A Magboltz simulation was performed to compute the mean drift velocity within the TPC for the parameters given in {numref}`drift-parameters`. The drift velocity was found to be 5.302&nbsp;µm/ns
+A Magboltz simulation was performed to compute the mean drift velocity within the TPC for the parameters given in {numref}`drift-parameters`. The drift velocity was found to be 5.302 µm/ns.
 
 +++
 
 ## Cluster Resolution
 
-Using a microscopic Monte Carlo model, the spread of the drift electrons can be determined as a function of displacement. The Garfield++ detector simulation toolkit includes a microscopic tracking component that consumes the per-scattering-process collision rates {math}`\tau_i^{-1}(\epsilon)` computed by Magboltz in order to evolve single electrons through time. An aggregate of these single-particle walks can be used to determine the distribution of the drift time and widths in the transverse and drift axes. {numref}`x-distribution-garfield` shows the transverse position resolution of electrons produced at a drift height of 5.90&nbsp;cm.
+Using a microscopic Monte Carlo model, the spread of the drift electrons can be determined as a function of displacement. The Garfield++ detector simulation toolkit includes a microscopic tracking component that consumes the per-scattering-process collision rates {math}`\tau_i^{-1}(\epsilon)` computed by Magboltz in order to evolve single electrons through time. An aggregate of these single-particle walks can be used to determine the distribution of the drift time and widths in the transverse and drift axes. {numref}`x-distribution-garfield` shows the transverse position resolution of electrons produced at a drift height of 5.90 cm.
 
 ```{code-cell} ipython3
 ---

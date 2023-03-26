@@ -419,7 +419,7 @@ Mention constraints on potential (see [https://profs.etsmtl.ca/hlombaert/energy/
 
 ### Graph Cut Optimization
 
-In the absence of smooth costs, the UFLP can be solved by integer programming techniques, but remains NP-hard {cite:ps}`Cheriyan98approximationalgorithms`. There exists an heuristic method which solves {eq}`uflp-cost-function` in {math}`\mathcal{O}(\lvert F\rvert^2 \lvert C \rvert)` time {cite:ps}`kuehn_heuristic_1963`. Meanwhile, task of minimising {eq}`cost-function-pearl` is also NP-hard for {math}`\lvert F \rvert \geq 3`,{cite:ps}`boykov_fast_2001-1` but there exist approximate solutions using _graph cuts_ that are guaranteed to find the local minima within a fixed bound of the global optimum {cite:ps}`delong_fast_2010`.
+In the absence of smooth costs, the UFLP can be solved by integer programming techniques, but remains NP-hard {cite:ps}`Cheriyan98approximationalgorithms`. There exists an heuristic method which solves {eq}`uflp-cost-function` in {math}`\mathcal{O}(\lvert F\rvert^2 \lvert C \rvert)` time {cite:ps}`kuehn_heuristic_1963`. Meanwhile, task of minimising {eq}`cost-function-pearl` is also NP-hard for {math}`\lvert F \rvert \geq 3` {cite:ps}`boykov_fast_2001-1`, but there exist approximate solutions using _graph cuts_ that are guaranteed to find the local minima within a fixed bound of the global optimum {cite:ps}`delong_fast_2010`.
 
 ::::{admonition} NP-hardness
 :class: dropdown
@@ -580,7 +580,7 @@ digraph my_graph {
 )
 ```
 
-Under the _min-cut max-flow_ theorem , the _minimum_-cut {math}`\mathcal{C}^\star` (cut for which {math}`\lvert \mathcal{C} \rvert` is minimal) is equivalent to the maximum-_flow_, which can be computed in an efficient manner {cite:ps}`ford_maximal_1956`.{cite:ps}`kolmogorov_what_2004`
+Under the _min-cut max-flow_ theorem , the _minimum_-cut {math}`\mathcal{C}^\star` (cut for which {math}`\lvert \mathcal{C} \rvert` is minimal) is equivalent to the maximum-_flow_, which can be computed in an efficient manner {cite:ps}`ford_maximal_1956` {cite:ps}`kolmogorov_what_2004`.
 
 +++
 
@@ -689,7 +689,7 @@ It can be shown that this algorithm can be generalised to account for label cost
 
 +++
 
-A condition of the {math}`\alpha`-expansion method is that the interaction potential between labels be _metric_, i.e. it must satisfy{cite:ps}`boykov_fast_2001-1`
+A condition of the {math}`\alpha`-expansion method is that the interaction potential between labels be _metric_, i.e. it must satisfy {cite:ps}`boykov_fast_2001-1`
 
 :::{math}
 V_{\alpha, \beta} &\leq V_{\alpha, \gamma} + V_{\gamma, \beta}

@@ -163,7 +163,7 @@ Under the adiabatic limit, it is reasonable to consider the intrinsic structure 
 
 (content:parity-doublets)=
 #### Parity Doublets
-Simultaneously, if the intrinsic Hamiltonian is invariant with respect to a rotation {math}`\mathcal{R}_2(\pi)` about an axis perpendicular to the symmetry axis, a further reduction in the rotational (extrinsic) degrees of freedom is possible. This intrinsic symmetry operator {math}`\mathcal{R}_i = \mathcal{R}_2(\pi)` has corresponding eigenvalues {math}`r = \pm 1` as {math}`\mathcal{R}_i^2 = \mathcal{R}_2(2\pi) = +1`. The {math}`K=0` state is an eigenfunction of this operator. Meanwhile, the same symmetry in the extrinsic frame {math}`\mathcal{R}_e = \mathcal{R}_i` yields eigenvalues of {math}`-1^I` for this {math}`K=0` state, which follows from the behaviour of the spherical harmonics,{cite:ps}`bohr_nuclear_1977` such that we have 
+Simultaneously, if the intrinsic Hamiltonian is invariant with respect to a rotation {math}`\mathcal{R}_2(\pi)` about an axis perpendicular to the symmetry axis, a further reduction in the rotational (extrinsic) degrees of freedom is possible. This intrinsic symmetry operator {math}`\mathcal{R}_i = \mathcal{R}_2(\pi)` has corresponding eigenvalues {math}`r = \pm 1` as {math}`\mathcal{R}_i^2 = \mathcal{R}_2(2\pi) = +1`. The {math}`K=0` state is an eigenfunction of this operator. Meanwhile, the same symmetry in the extrinsic frame {math}`\mathcal{R}_e = \mathcal{R}_i` yields eigenvalues of {math}`-1^I` for this {math}`K=0` state, which follows from the behaviour of the spherical harmonics {cite:ps}`bohr_nuclear_1977`, such that we have 
 :::{math}
 :label: rot-eigen
 r = -1^I
@@ -294,7 +294,7 @@ Though a detailed discussion of HF will not be performed here, it suffices to es
 :::{math}
 \ket{\text{HF}} = \hat{a}^\dagger_{i_1}\hat{a}^\dagger_{i_2}\dots \hat{a}^\dagger_{i_N}\ket{0}\,.
 :::
-This assumption is most appropriate for doubly-closed nuclei, where there is a large energy gap between the first unfilled single-particle level and the ground state {math}`\ket{\text{HF}}` such that the gound state is reasonably stable {cite:ps}`ring_nuclear_2004`.{cite:ps}`rowe_nuclear_2010`
+This assumption is most appropriate for doubly-closed nuclei, where there is a large energy gap between the first unfilled single-particle level and the ground state {math}`\ket{\text{HF}}` such that the gound state is reasonably stable {cite:ps}`ring_nuclear_2004` {cite:ps}`rowe_nuclear_2010`.
 :::{note}
 :class: margin
 Details on the HF method are given in {cite:ps}`ring_nuclear_2004`. Historically calculations have been performed using a suitable, complete basis e.g. the Harmonic Oscillator basis, [truncated to a required accuracy](https://web.ornl.gov/~kentpr/thesis/pkthnode13.html#SECTION00730100000000000000). In recent times, discretised finite-element calculations have been used in atomic physics to directly compute the solution.
@@ -309,7 +309,7 @@ The mean field is ultimately derived through the variational principle, which se
 :label: variational-principle
 \delta\pqty{\expval{\hat{H}}{\phi} -E\braket{\phi}} = \matrixel{\delta\psi}{\hat{H}}{\psi} - E\braket{\delta\psi}{\psi} = 0\,,
 :::
-where {math}`\ket{\delta\psi} = \varepsilon \hat{a}^\dagger_k\hat{a}_j\ket{\psi}` for some arbitrary {math}`\varepsilon`, and {math}`k>N,j\leq N` {cite:ps}`rowe_fundamentals_2010`.{cite:ps}`greiner_nuclear_1996` If the {math}`N`-lowest energy single-particle eigenfunctions are taken as the HF ground-state, then these admixtures correspond to single "particle-hole" (1p1h) excitations of the closed "core" that lies below the sharp Fermi surface (see {numref}`sharp-fermi-surface`).
+where {math}`\ket{\delta\psi} = \varepsilon \hat{a}^\dagger_k\hat{a}_j\ket{\psi}` for some arbitrary {math}`\varepsilon`, and {math}`k>N,j\leq N` {cite:ps}`rowe_fundamentals_2010` {cite:ps}`greiner_nuclear_1996`. If the {math}`N`-lowest energy single-particle eigenfunctions are taken as the HF ground-state, then these admixtures correspond to single "particle-hole" (1p1h) excitations of the closed "core" that lies below the sharp Fermi surface (see {numref}`sharp-fermi-surface`).
 :::{note}
 :class: margin
 
@@ -323,7 +323,7 @@ The single-particle eigenfunctions form a complete basis (subject to truncation)
 Labelling of particle and hole states relative to a sharp Fermi surface, that follows from the restricted Slater determinant form of the HF ground state {math}`\ket{\text{HF}}`. Figure taken from {cite:ps}`rowe_nuclear_2010`.
 :::
 
-The process of determining the eigenstates of {math}`\hat{H}^{[1]}` is given by the following recurrence relation:{cite:ps}`rowe_nuclear_2010`
+The process of determining the eigenstates of {math}`\hat{H}^{[1]}` is given by the following recurrence relation {cite:ps}`rowe_nuclear_2010`:
 :::{math}
 \left\{\ket{\text{HF}_\pqty{0}}\right\} \rightarrow \hat{U}^\pqty{0} \rightarrow \left\{\ket{\text{HF}_\pqty{1}}\right\} \rightarrow \hat{U}^\pqty{1} \rightarrow \dots
 :::
@@ -347,7 +347,7 @@ where {math}`\hat{\overline{V}}` is the anti-symmetrised interaction potential. 
 :::{math}
 \hat{U} = \sum_{\alpha\gamma\beta}\overline{V}_{\alpha\gamma\beta\gamma}\hat{a}^\dagger_\alpha\hat{a}_\beta\,,
 :::
-i.e. the averaged two-body contributions from the {math}`N-1` remaining nucleons {cite:ps}`rowe_fundamentals_2010`.{cite:ps}`greiner_nuclear_1996`
+i.e. the averaged two-body contributions from the {math}`N-1` remaining nucleons {cite:ps}`rowe_fundamentals_2010` {cite:ps}`greiner_nuclear_1996`.
 Primitive excited states can then be constructed from one-particle/one-hole (1p1h) and two-particle/two-hole (2p2h) excitations of this ground state {cite:ps}`rowe_nuclear_2010`.
 
 % NB for those computing the HF ground state - the expectation value of the GS energy <φ|H|φ> is not the sum of the SP energies - this follows from the fact that the mean-field potential between two nucleons in a two-particle nucleus is the same, so including it for each nucleon leads to double counting. {cite:ps}`suhonen_nucleons_2007`
@@ -376,7 +376,7 @@ Whilst the HF approximation generates a set of self-consistent single-particle s
 % NOTE: Even for deformed nuclei, where there is no longer degeneracy of different j projections, Kramer's theorem holds that there exists a time-reversed analogue state {cite:ps}`Wigner1932`. {cite:ps}`rowe_fundamentals_2010` %p530
 
 Extensions to the Hartree-Fock method have been developed to consider the pairing interaction: 
-- the Bardeen-Cooper-Schrieffer (BCS) model introduces a generalised pair creation operator for even-even nuclei of the form {math}`A^{+}=\sum_{k>0} \frac{v_k}{u_k} a_k^{+} a_k^{+}` to build the BCS ansatz: {math}`\mathrm{BCS}\rangle \propto \exp \left(A^{+}\right)|-\rangle=\sum_{r=0}^{\infty} \frac{1}{n !}\left(A^{+}\right)^r|-\rangle`. The resulting Hamiltonian is constrained to conserve particle number {math}`N`. Unlike the base HF method, the BCS model is not self-consistent; the pairing field does not change the single-particle wavefunctions,{cite:ps}`zelevinsky_physics_2017` which are generated using traditional Hartree-Fock {cite:ps}`anguiano_study_2014`.
+- the Bardeen-Cooper-Schrieffer (BCS) model introduces a generalised pair creation operator for even-even nuclei of the form {math}`A^{+}=\sum_{k>0} \frac{v_k}{u_k} a_k^{+} a_k^{+}` to build the BCS ansatz: {math}`\mathrm{BCS}\rangle \propto \exp \left(A^{+}\right)|-\rangle=\sum_{r=0}^{\infty} \frac{1}{n !}\left(A^{+}\right)^r|-\rangle`. The resulting Hamiltonian is constrained to conserve particle number {math}`N`. Unlike the base HF method, the BCS model is not self-consistent; the pairing field does not change the single-particle wavefunctions {cite:ps}`zelevinsky_physics_2017`, which are generated using traditional Hartree-Fock {cite:ps}`anguiano_study_2014`.
 - the Hartree-Fock-Bogoliubov (HFB) model generalises HF theory to incorporate the quasi-particle concepts of the BCS model. Importantly, it replaces the single particle-pair operators with generalised Bogoliubov quasi-particle operators of the form {math}`\sum_\mu \hat{a}_\mu^\dagger u_{\mu\nu} + \hat{a}_\mu v_{\mu\nu}` {cite:ps}`rowe_fundamentals_2010`.
 
 +++
@@ -388,7 +388,7 @@ Meanwhile, _excited_ states are primarily modelled in the HF approximation as 1p
 
 +++
 
-In addition to collective models, there are microscopic treatments of collective excitations. The most fundamental of these is the Tamm-Dancoff Approximation (TDA), which treats excited states of the nucleus as a superposition of 1p1h excitations of the ground state. These excitations are introduced by a creation operator:{cite:ps}`greiner_nuclear_1996`
+In addition to collective models, there are microscopic treatments of collective excitations. The most fundamental of these is the Tamm-Dancoff Approximation (TDA), which treats excited states of the nucleus as a superposition of 1p1h excitations of the ground state. These excitations are introduced by a creation operator {cite:ps}`greiner_nuclear_1996`:
 :::{math}
 \hat{Q}^\dagger_\nu = 
 \sum_{mi}
@@ -520,12 +520,12 @@ Schematic representation of the eigenstates resulting from anti-symmetrisation o
 At the surface level, the HF and AMD methods bare a striking resemblence. The fundamental difference between the two, besides the ansatz of a single-particle Gaussian representation (the basis of the AMD wavefunction), is the supposition of a mean-field. The HF equations are solved iteratively to determine the self-consistent solution. The single-particle eigenfunctions are typically expanded in a complete basis, e.g. harmonic oscillator eigenfunctions, or solved numerically. Meanwhile, the AMD method optimises _parameters_ for a fixed model (Gaussian wave-packets), following the gradient of the Hamiltonian. the "variation" in the time-independent HF method corresponds to single 1p1h excitation of the trial state, whereas for AMD, variation is introduced through the total derivative of the wavefunction.
 :::
 
-To determine the optimum values for {math}`\mathcal{Z}`, the time-dependent variational principle (using the principle of least action){cite:ps}`kramer_time-dependent_1981` 
+To determine the optimum values for {math}`\mathcal{Z}`, the time-dependent variational principle (using the principle of least action ) {cite:ps}`kramer_time-dependent_1981`
 :::{math}
 :label: time-dependent-variational-principle
 \delta\matrixel{\psi}{\hat{H}-\mathrm{i} \hbar \frac{\partial}{\partial t}}{\psi}=0
 :::
-is used to derive the equations of motion of the system:{cite:ps}`feldmeier_fermionic_1997`
+is used to derive the equations of motion of the system {cite:ps}`feldmeier_fermionic_1997`:
 :::{math}
 :label: amd-equation-of-motion
 i \hbar \dv{t} u_k = (\lambda+i \mu) 
@@ -539,7 +539,7 @@ i \hbar \dv{t} u_k = (\lambda+i \mu)
             \ip{\phi^{\pm}}
         }\,,
 :::
-where the term {math}`(\lambda+i \mu)` is an _artificial_ viscous component designed to dissipate the energy of the system towards a minimum {cite:ps}`wilets_classical_1977`.{cite:ps}`horiuchi_neutron-rich_1995`
+where the term {math}`(\lambda+i \mu)` is an _artificial_ viscous component designed to dissipate the energy of the system towards a minimum {cite:ps}`wilets_classical_1977` {cite:ps}`horiuchi_neutron-rich_1995`.
 
 +++
 
@@ -556,7 +556,7 @@ In the language of second quantisation, the AMD Hamiltonian
      }\hat{a}^\dagger_\alpha\hat{a}^\dagger_\beta\hat{a}_\delta\hat{a}_\gamma
 - \hat{T}_\text{CoM}
 :::
-is identical to {eq}`hamiltonian-2q` except for an additional two-body Coulomb interaction (usually ignored in the HFB procedure){cite:ps}`anguiano_coulomb_2001`, and the removal of the centre-of-mass energy via the operator {math}`\hat{T}_\text{CoM}`. A range of effective nuclear potentials have been used for {math}`\hat{V}_\text{nuc}` including the Volkov, Gogny, or Skyme forces; whilst the Coulomb force is often approximated by a sum of (seven) Gaussians {cite}`kanada-enyo_antisymmetrized_2012`. The expectation of this Hamiltonian is then minimised with respect to the wave-function parametrisation {math}`\mathcal{Z}`
+is identical to {eq}`hamiltonian-2q` except for an additional two-body Coulomb interaction (usually ignored in the HFB procedure) {cite:ps}`anguiano_coulomb_2001`, and the removal of the centre-of-mass energy via the operator {math}`\hat{T}_\text{CoM}`. A range of effective nuclear potentials have been used for {math}`\hat{V}_\text{nuc}` including the Volkov, Gogny, or Skyme forces; whilst the Coulomb force is often approximated by a sum of (seven) Gaussians {cite}`kanada-enyo_antisymmetrized_2012`. The expectation of this Hamiltonian is then minimised with respect to the wave-function parametrisation {math}`\mathcal{Z}`
 :::{math}
  \min _ { \mathcal{Z} } 
  \frac { 
@@ -576,7 +576,7 @@ States obtained by the variation procedure generally no longer demonstrate the s
 \ket{ \phi _ { M K } ^ { J } } &\equiv P _ { M K } ^ { J } \ket{ \phi _ { \mathrm { AMD } } ( \mathcal{Z} ) } = \int d \Omega D _ { M K } ^ { J * } ( \Omega ) \hat { R } ( \Omega ) \ket{ \phi _ { \mathrm { AMD } } ( \mathcal{Z} ) }
 \,,
 :::
-where {math}`D _ { M K } ^ { J } ( \Omega )` is the Wigner's {math}`D` function, and {math}`\hat{R}(\Omega)` is a rotation operator for some Euler angle {math}`\Omega` {cite:ps}`kanada-enyo_antisymmetrized_2012`.{cite:ps}`rampho_antisymmetrized_2012` 
+where {math}`D _ { M K } ^ { J } ( \Omega )` is the Wigner's {math}`D` function, and {math}`\hat{R}(\Omega)` is a rotation operator for some Euler angle {math}`\Omega` {cite:ps}`kanada-enyo_antisymmetrized_2012` {cite:ps}`rampho_antisymmetrized_2012`. 
        
 Early AMD calculations were performed first by a method known as variation _before_ projection (VBP, or properly {math}`\text{VaP}^\pi \text{bP}^J`) {cite:ps}`horiuchi_neutron-rich_1995`. By deferring angular momentum projection until after variation, VBP is numerically the least inexpensive means of obtaining states of good angular momentum. Nevertheless, it is possible to minimise the energy of the _projected state_, i.e.
 :::{math}
@@ -726,7 +726,7 @@ Illustration of the spatial overlap of two {math}`p`-shell orbits, corresponding
 
 +++
 
-In {math}`{}^9\text{Be}`, molecular states comprise two clusters {math}`\alpha+\alpha+n\rightarrow {}^5\mathrm{He}+\alpha`, whereby molecular orbitals are constructed from the {math}`p_{3/2}` shell-model orbit of the valence neutron in {math}`{}^5\text{He}`. A two-center model of the nucleus has been explored in {cite:ps}`scharnweber_asymptotically_1970`, and a neutron level scheme computed as a function of the center separation (see {numref}`two-center-correlations`). Though a formal model can be used to build this scheme,{cite:ps}`seya_nuclear_1981` significant insight can be derived from mapping the separate-center shell-model states onto states in the Nilsson deformed harmonic oscillator. With known spin and parity, the Nilsson orbits can be used to label the two-center solutions and define a set of molecular orbitals {cite:ps}`von_oertzen_nuclear_2002`. By correlating the states in {numref}`two-center-correlations` with those in {numref}`nilsson-orbits`, one can identify the four molecular orbitals available to the {math}`1p3/2` neutron in {math}`{}^5\mathrm{He}`: the {math}`3 / 2^{-}`, {math}`1 / 2^{+}`, and {math}`1 / 2^{-}` states in {math}`{ }^9 \mathrm{Be}` correspond to the {math}`\left(\pi_{3 / 2^{-}}, \mathrm{g}\right)`, {math}`\left(\sigma_{1 / 2^{+}}, u\right)`, and {math}`\left(\pi_{1 / 2^{-}}, g\right)` orbitals {cite:ps}`von_oertzen_dimers_1997`. The complete set of low-lying states in {math}`{}^{9}\mathrm{Be}` are consistent with rotational bands built upon these basis {cite:ps}`von_oertzen_dimers_1997`.
+In {math}`{}^9\text{Be}`, molecular states comprise two clusters {math}`\alpha+\alpha+n\rightarrow {}^5\mathrm{He}+\alpha`, whereby molecular orbitals are constructed from the {math}`p_{3/2}` shell-model orbit of the valence neutron in {math}`{}^5\text{He}`. A two-center model of the nucleus has been explored in {cite:ps}`scharnweber_asymptotically_1970`, and a neutron level scheme computed as a function of the center separation (see {numref}`two-center-correlations`). Though a formal model can be used to build this scheme {cite:ps}`seya_nuclear_1981`, significant insight can be derived from mapping the separate-center shell-model states onto states in the Nilsson deformed harmonic oscillator. With known spin and parity, the Nilsson orbits can be used to label the two-center solutions and define a set of molecular orbitals {cite:ps}`von_oertzen_nuclear_2002`. By correlating the states in {numref}`two-center-correlations` with those in {numref}`nilsson-orbits`, one can identify the four molecular orbitals available to the {math}`1p3/2` neutron in {math}`{}^5\mathrm{He}`: the {math}`3 / 2^{-}`, {math}`1 / 2^{+}`, and {math}`1 / 2^{-}` states in {math}`{ }^9 \mathrm{Be}` correspond to the {math}`\left(\pi_{3 / 2^{-}}, \mathrm{g}\right)`, {math}`\left(\sigma_{1 / 2^{+}}, u\right)`, and {math}`\left(\pi_{1 / 2^{-}}, g\right)` orbitals {cite:ps}`von_oertzen_dimers_1997`. The complete set of low-lying states in {math}`{}^{9}\mathrm{Be}` are consistent with rotational bands built upon these basis {cite:ps}`von_oertzen_dimers_1997`.
 
 :::{figure} image/two-center-correlations.png
 :align: center

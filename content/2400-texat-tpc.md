@@ -35,7 +35,7 @@ TexAT has been upgraded over several experiments. In this section, the intial de
 
 +++
 
-A primary {math}`{}^{10}B^{3+}` beam with 7 MeV/u was produced by the K500 cyclotron at the Cyclotron Institute, Texas A & M University {cite:ps}`youngblood_texas_1991`. These ions were directed towards a liquid-nitrogen (LN) cooled 9.2 cm gas cell, with 4 μm thick and 19 mm diameter Havar entrance and exit windows {cite:ps}`hooker_structure_2019`. At a pressure of the 870 Torr, the {math}`H_2` gas within the cell was used to facilitate an {math}`{}^{10}B(p,n){}^{10}C` exchange reaction. The resulting {math}`{}^{10}C` beam had an energy of 32.9 MeV, and an intensity of 7500–16500 particles per second (pps).
+A primary {math}`{}^{10}B^{3+}` beam with 7 MeV/u was produced by the K500 cyclotron at the Cyclotron Institute, Texas A & M University {cite:ps}`youngblood_texas_1991`. These ions were directed towards a liquid-nitrogen (LN) cooled 9.2 cm gas cell, with 4 μm thick and 19 mm diameter Havar entrance and exit windows {cite:ps}`hooker_structure_2019`. At a pressure of the 870, the {math}`H_2` gas within the cell was used to facilitate an {math}`{}^{10}B(p,n){}^{10}C` exchange reaction. The resulting {math}`{}^{10}C` beam had an energy of 32.9 MeV, and an intensity of 7500–16500 particles per second (pps).
 
 +++
 

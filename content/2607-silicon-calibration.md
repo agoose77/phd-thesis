@@ -258,17 +258,17 @@ ticks = ax.get_xticks()
 ax.set_xticks(ticks[::2]);
 ```
 
-Where charge-pair formation is not the primary mode of energy loss within the semiconductor, the number of created pairs is governed by Poisson counting statistics {math}`\operatorname{Var}(N)=N`. Meanwhile, in the limit that charge-pair formation is the singular energy-loss mechanism, the number of charge pairs is exactly determined by the deposited energy (ignoring the distribution on the ionisation energy), i.e. {math}`\operatorname{Var}(N)=0`. The ratio between the observed variance and its Poissonian expectation value is the Fano factor:{cite:ps}`subashiev_correlation_2010`
+Where charge-pair formation is not the primary mode of energy loss within the semiconductor, the number of created pairs is governed by Poisson counting statistics {math}`\operatorname{Var}(N)=N`. Meanwhile, in the limit that charge-pair formation is the singular energy-loss mechanism, the number of charge pairs is exactly determined by the deposited energy (ignoring the distribution on the ionisation energy), i.e. {math}`\operatorname{Var}(N)=0`. The ratio between the observed variance and its Poissonian expectation value is the Fano factor: {cite:ps}`subashiev_correlation_2010`
 :::{math}
 :label: fano-factor
 F=\frac{\langle\delta N^2\rangle}{\langle N\rangle}\,,
 :::
-where {math}`\langle\delta N^2\rangle` is the observed variance and {math}`\langle N\rangle` the observed mean. In silicon detectors, which exhibit a high charge-pair formation efficiency, $F$ is experimentally found to be of the order $10^{-1}$ {cite:ps}`kotov_pair_2018`.{cite:ps}`alig_scattering_1980`
+where {math}`\langle\delta N^2\rangle` is the observed variance and {math}`\langle N\rangle` the observed mean. In silicon detectors, which exhibit a high charge-pair formation efficiency, $F$ is experimentally found to be of the order $10^{-1}$ {cite:ps}`kotov_pair_2018`{cite:ps}`alig_scattering_1980`.
 
 +++ {"tags": ["only-web"]}
 
 :::{note}
-Simplified "final-state" models can predict the experimental values for {math}`F` with a microscopic assuming a single-particle-distribution function. One such model, the "bathtub model", assumes no inter-charge-pair correlations and draws from this single-particle-distribution to partition the deposited energy. It has been shown that correlational effects are required to fully reproduce experimental measurements of $F$, through models such as the random parking problem (RPP){cite:ps}`subashiev_correlation_2010`
+Simplified "final-state" models can predict the experimental values for {math}`F` with a microscopic assuming a single-particle-distribution function. One such model, the "bathtub model", assumes no inter-charge-pair correlations and draws from this single-particle-distribution to partition the deposited energy. It has been shown that correlational effects are required to fully reproduce experimental measurements of $F$, through models such as the random parking problem (RPP) {cite:ps}`subashiev_correlation_2010`.
 :::
 
 % See also http://www.ee.sunysb.edu/~serge/235.pdf and https://arxiv.org/pdf/0911.1532.pdf
@@ -283,7 +283,7 @@ For each detector, the charge distribution was fit as a sum of four Gaussian dis
 +++ {"tags": ["only-web"]}
 
 :::{note}
-The motivation for a Gaussian fit function follows from the application of the central-limit-theorem to the final-state model of charge-pair formation,{cite:ps}`subashiev_correlation_2010` yielding
+The motivation for a Gaussian fit function follows from the application of the central-limit-theorem to the final-state model of charge-pair formation {cite:ps}`subashiev_correlation_2010`, yielding
 ```{math}
 P(E_{N})=C_{N}\exp\left[-\frac{(E_{N}-N\epsilon)^{2}}{2N\langle\delta\epsilon^%
 {2}\rangle}\right]~{}.
@@ -408,7 +408,7 @@ where $E$ is the mean, and $\text{FWHM}$ the full-width at half-maximum (FWHM) o
 :label: silicon-resolution-fano
 R = 2\sqrt{\frac{2\ln{2}Fk}{E}}\,,
 :::
-where $F$ the Fano factor, and $k$ is the mean number of charge carriers liberated per unit energy deposited in the detector. Experimental measurements have found $k$ to be approximately 3.6 eV for alpha particles in silicon {cite:ps}`kotov_pair_2018`.{cite:ps}`scholze_mean_1998`{cite:ps}`alig_scattering_1980`.
+where $F$ the Fano factor, and $k$ is the mean number of charge carriers liberated per unit energy deposited in the detector. Experimental measurements have found $k$ to be approximately 3.6 eV for alpha particles in silicon {cite:ps}`kotov_pair_2018`{cite:ps}`scholze_mean_1998`{cite:ps}`alig_scattering_1980`.
 
 +++
 

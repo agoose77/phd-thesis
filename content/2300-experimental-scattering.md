@@ -58,7 +58,7 @@ Where the energy of the entrance channel is sufficiently matched with that of th
 
 \sigma_\text{res}(E) =\sigma_0 \frac{\frac{1}{4} \Gamma^2}{\left(E-E_{\mathrm{r}}\right)^2+\frac{1}{4} \Gamma^2}\,,
 :::
-where {math}`\Gamma` is the full-width at half-maximum (FWHM) of the resonance (see {numref}`resonance-shape`), {math}`E_r` the centroid of the distribution, and {math}`\sigma_0` the amplitude of the resonance {cite:ps}`satchler_introduction_1990`. These resonant states are only visible at sufficiently low energies; as the excitation energy increases, the separation between levels decreases until the density is such that individual states can no-longer be resolved and form a continuum of unbound states. It transpires that in practical terms the energy relation in {eq}`energy-uncertainty` is inapplicable to the Breit-Wigner curve, yet it can be shown that the lifetime of the state {math}`\tau` is related to its width by {eq}`breit-wigner-width` {cite:ps}`bransden_quantum_2000`.{cite:ps}`uffink_rate_1993`
+where {math}`\Gamma` is the full-width at half-maximum (FWHM) of the resonance (see {numref}`resonance-shape`), {math}`E_r` the centroid of the distribution, and {math}`\sigma_0` the amplitude of the resonance {cite:ps}`satchler_introduction_1990`. These resonant states are only visible at sufficiently low energies; as the excitation energy increases, the separation between levels decreases until the density is such that individual states can no-longer be resolved and form a continuum of unbound states. It transpires that in practical terms the energy relation in {eq}`energy-uncertainty` is inapplicable to the Breit-Wigner curve, yet it can be shown that the lifetime of the state {math}`\tau` is related to its width by {eq}`breit-wigner-width` {cite:ps}`bransden_quantum_2000` {cite:ps}`uffink_rate_1993`.
 :::{math}
 :label: breit-wigner-width
 
@@ -150,7 +150,7 @@ It is observed that clusters with greater than a single electron tend to contain
 
 +++
 
-The mean energy-loss of an ion moving through a material is given by the Bethe-Bloch formula,{cite:ps}`cockcroft_experimental_1955` which relates several material properties
+The mean energy-loss of an ion moving through a material is given by the Bethe-Bloch formula {cite:ps}`cockcroft_experimental_1955`, which relates several material properties
 :::{math}
 :label: bethe-bloch-formula
 

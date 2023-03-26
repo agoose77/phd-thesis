@@ -1,9 +1,9 @@
 - repo: local
   hooks:
-    - id: lint-check-citation
+    - id: lint-check-citation-space
       name: check citation punctuation
-      description: Ensure that cite roles are not followed by punctuation
-      entry: '[\.,?!:;]\s*\{cite(?::\w+)?\}`[^`]+`\s*[\.,?!:;]'
+      description: Ensure that cite roles are preceeded by a space or backtick
+      entry: '[^\s`]\{cite(?::\w+)?\}'
       language: pygrep
       types_or:
         - jupyter
