@@ -176,7 +176,7 @@ handles = [
         color="C1",
     ),
 ]
-ax[0].set_ylabel(r"$\sigma^2(x)$ /cm^2")
+ax[0].set_ylabel(r"$\sigma^2(x)\;\;/cm^2$")
 ax[1].stem(
     avalanche.y,
     x_dist - (x_fit.intercept + x_fit.slope * avalanche.y),
