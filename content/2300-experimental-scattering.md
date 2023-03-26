@@ -25,6 +25,7 @@ plt.style.use(ROOT)
 plt.rc("figure", figsize=(10, 5), dpi=120)
 ```
 
+(content:thick-target-experiments)=
 # Thick Target Experiments
 
 +++
@@ -118,6 +119,7 @@ The vector {math}`\vb{\hat{J}_X}` is _by definition_ perpendicular to the moment
 
 +++
 
+(content:time-projection-chambers)=
 ## Time-Projection Chambers
 
 A time-projection chamber (TPC) is a particle detector which employs the use of a time-sensitive anode to perform three-dimensional reconstruction of particle trajectories. The original design for the TPC was developed at Lawrence Berkeley Laboratory {cite:ps}`marx_time_1978`, and has since seen multiple variations that improve the spatial resolution and gain. At the heart of the TPC is the time-sensitive anode, upon which a current is induced due to the drift of charges liberated by ionising radiation incident upon the active volume (see {numref}`gridded-ion-chamber`). Conventionally, time-projection chambers use gas mixtures such as P10 (90% Argon, 10% Methane) as the interaction medium; gas targets may easily be pressurised to tune the density according to the energies and families of particles that are likely to be observed.
@@ -252,4 +254,4 @@ plt.legend();
 
 +++ {"tags": ["no-latex"]}
 
-Unlike thin-target kinematics, reactions that take place within a gas chamber are not confined to a localised region.  Therefore, the experimental advantages of operating in a thick-target inverse-kinematic regime can only realised if there are suitable detectors and analysis techniques available to recover the reaction kinematics. One such detector, the MicroMeGaS, is discussed in {ref}`content:the-texat-detector`.
+Unlike thin-target kinematics, reactions that take place within a gas chamber are not confined to a localised region.  Therefore, the experimental advantages of operating in a thick-target inverse-kinematic regime can only realised if there are suitable detectors (see {ref}`content:the-texat-detector`) and analysis techniques (see {ref}`content:track-finding-and-fitting`) available to recover the reaction kinematics. 

@@ -53,6 +53,8 @@ dependencies = [
     "sphinx-subfigure>=0.2.4",
     "particle>=0.21.2",
     "texat @ file:///${PROJECT_ROOT}/extern/texat-0.2.9-py3-none-any.whl",
+    "myst-nb @ file:///${PROJECT_ROOT}/extern/myst_nb-0.17.1-py3-none-any.whl",
+    "selenium<4.3.0",
 ]
 
 

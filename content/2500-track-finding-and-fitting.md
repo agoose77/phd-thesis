@@ -32,16 +32,21 @@ plt.rc("figure", figsize=(10, 5), dpi=120)
 plt.rc('font', size="16")
 ```
 
+(content:track-finding-and-fitting)=
 # Track Finding and Fitting
+
+Fundamental to design of many particle physics experiments is the ability to detect reaction ejectiles and measure their physical properties. The considerable challenge that this poses, in even the most conventional forward-kinematics fixed-target experiments, is exacerbated in the thick-target regime described in {ref}`content:thick-target-experiments`. In the absence of a single interaction locus, it becomes of vital importance to be able to observe the _trajectories_ of reaction products such that the underlying kinematic variables can be reconstructed. As discussed in {ref}`time-projection-chambers`, the TPC detectors in which these experiments are often conducted typically incorporate a segmented readout, whereby particle trajectories are described as a set of discretised samples. The resolution of these data is usually governed by a combination of the ejectile, gas, and readout properties. 
+
+The problems of identifying and fitting the particle trajectories recorded in such data are nominally distinct concepts, although many approaches necessarily combine the two. Track _finding_ describes the task of identifying the existence of a particle track, whilst track _fitting_ refers to the process of ascribing model variables to identified tracks subject to the parametrisation. Central to both subproblems is the importance of outlier rejection, which is often used as a metric by which to evaluate algorithm performance. 
 
 +++
 
-## Tracking in TPCs
+## Conventional Techniques
+
 
 +++
 
 ### Hough Transform
-
 
 The _classical_ Hough Transform is a technique for estimating the parameters and multiplicity of a model family within a dataset. It employs a scheme whereby _features_ in the dataset, i.e. observations, vote for models with which they are compatible. For any continuous parametrisation, a single observation is a member of an infinite set of models. In order to make this tractable, the Hough Transform is conventionally performed by discretising the {math}`n`-dimensional parameter space of the model. Thereafter, for each observation, the set of compatible models can be determined from the permutations of the discrete {math}`n-1`-dimensional free parameter space.
 
@@ -79,7 +84,7 @@ graph LR;
 
 :::
 
-This technique introduces an explicit relationship between the precision of the identified model parameters and the robustness to noise; fine discretisations are able to accurately determine the underlying model parameters, but the introduction of noise quickly leads to the identification of multiple models. Meanwhile, coarse discretisations are far less vulnerable to over-fitting, but at a cost of poor parameter resolution. This tradeoff requires the user to balance the anticipated level of noise (signal-to-noise ratio) and the similarity of observations (how close any-two separate models are in parameter space. Furthermore, the search complexity increases exponentially with the number of model parameters.
+This technique introduces an explicit relationship between the precision of the identified model parameters and the robustness to noise; fine discretisations are able to accurately determine the underlying model parameters, but the introduction of noise quickly leads to the identification of multiple models. Meanwhile, coarse discretisations are far less vulnerable to over-fitting, but at a cost of poor parameter resolution. This trade-off requires the user to balance the anticipated level of noise (signal-to-noise ratio) and the similarity of observations (how close any-two separate models are in parameter space. Furthermore, the search complexity increases exponentially with the number of model parameters.
 
 Certain procedures can be used to mitigate this compromise:
 - Bin smoothing: convolving the parameter space with a smoothing kernel to reduce the significance of spurious peaks
@@ -732,11 +737,13 @@ The proposal step (1) of the PeARL algorithm closely resembles that of RANSAC. U
 ### Track Fitting
 
 #### Unbounded Line
-Conventional track fitting approaches often model a track as an unbounded line in three dimensional space. Such a model has an non-normalisable probability density; naturally over an infinite interval, the probability of observing any particular value approaches 0. As such, it is not appropriate (or indeed possible) to use the log-likelihood in {eq}`log-likelihood-sum` to describe the data cost required by {eq}`cost-function-pearl`. Instead, a simple orthogonal displacement cost function can be used
+Conventional track fitting approaches often model a track as an unbounded line in three dimensional space. Such a model has an non-normalisable probability density; naturally over an infinite interval, the probability of observing any particular value approaches 0. As such, it is not appropriate (or indeed possible) to use the log-likelihood in {eq}`log-likelihood-sum` to describe the data cost required by {eq}`cost-function-pearl`. Instead, a simple orthogonal displacement cost function, analogous to the total least-squares cost function, can be used
 :::{math}
 T_{fc} = k\frac{\norm{\left(\vb{r}(c) - \vb{o}(f)\right)\wedge \hat{\vb{n}}(f)}^2}{\sigma(f)^2}\,,
 :::
-where {math}`\vb{r}(c)` is the position of observation {math}`c`, {math}`\vb{o}(f)` a point belonging to model {math}`f`, {math}`\hat{\vb{n}}(f)` the direction of model {math}`f`, {math}`\sigma(f)` the width of the transverse distribution, and {math}`k` a scaling factor. This corresponds to the residual shown in {numref}`track-model-illustration`.
+where {math}`\vb{r}(c)` is the position of observation {math}`c`, {math}`\vb{o}(f)` a point belonging to model {math}`f`, {math}`\hat{\vb{n}}(f)` the direction of model {math}`f`, {math}`\sigma(f)` the width of the transverse distribution, and {math}`k` a scaling factor. This corresponds to the residual shown in {numref}`track-model-illustration`. 
+
+The unbounded line may not be the most suitable model to describe linear data. Crucially, it has no concept of regularity; there is no parameterisation by which to describe the distribution along the linear axis. 
 
 +++
 

@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 # Fix RC overwriting
@@ -58,7 +58,15 @@ In the context of a scattering reaction between an incident heavy (larger A, Z) 
 
 +++
 
-Given the energy and angular straggling of the beam following interactions with the window, it is also evident that indirect measurements of the beam energy will be less accurate than those of the light ion after it interacts with the silicon detector array. As such, the most accurate measurements of the reaction kinematics are given by the track scattering angles and known energy of the light product. In such a configuration, the beam and recoil momentum vectors are initially unknown. We can define a beam-centric coordinate system with the {math}`\hat{1}` vector given by the beam direction, the {math}`\hat{3}` vector given by the normalised cross product of the beam and scatter tracks, and the {math}`\hat{2}` vector taken to be perpendicular to {math}`\hat{1}` and {math}`\hat{3}`.
+Given the energy and angular straggling of the beam following interactions with the window, it is also evident that indirect measurements of the beam energy will be less accurate than those of the light ion after it interacts with the silicon detector array. As such, the most accurate measurements of the reaction kinematics are given by the track scattering angles and known energy of the light product. In such a configuration, the beam and recoil momentum vectors are initially unknown. We can define a beam-centric coordinate system (see {numref}`scattering-coordinate-system`) with the {math}`\hat{1}` vector given by the beam direction, the {math}`\hat{3}` vector given by the normalised cross product of the beam and scatter tracks, and the {math}`\hat{2}` vector taken to be perpendicular to {math}`\hat{1}` and {math}`\hat{3}`. 
+
++++
+
+:::{figure} image/scattering-coordinate-system.svg
+:name: scattering-coordinate-system
+
+Schematic diagram of a static-target scattering reaction in a beam-centric coordinate system. The {math}`\hat{1}` vector is given by the beam direction, the {math}`\hat{3}` vector given by the reaction plane normal, and the {math}`\hat{2}` vector taken to be perpendicular to {math}`\hat{1}` and {math}`\hat{3}`. Each particle {math}`p_{i}` can be resolved along these canonical axis vectors.
+:::
 
 +++
 
@@ -108,7 +116,7 @@ p_3^\pqty{1}&= \frac{\pqty{p_2^\pqty{2}}^2\pqty{m_1+m_2} + \pqty{p_2^\pqty{1}}^2
 
 {numref}`angular-energy-curve` shows a histogram of the observed silicon energy as a function of the reconstructed event vertex position.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -171,7 +179,7 @@ E_1 &= \frac{\pqty{p_3}^2}{2m_1} + \frac{\pqty{p_2}^2}{2m_2}
 
 With this relationship, the beam energy is uniquely determined for elastic scattering by the energy of the light ion at the reaction vertex. As discussed above, the zero-degree reconstruction is useful in the event that one cannot easily identify the reaction vertex. If the beam energy is approximately known, it is possible to identify the vertex at the intersection between the curves that describe the beam energy as reconstructed from the initial beam energy and the energy deposited in the silicon detectors. See {numref}`zero-degree-energy-curve` for a plot of the vertex position as a function of silicon energy as reconstructed by this method.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -199,7 +207,7 @@ plt.legend();
 
 ## Excitation Functions
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -218,7 +226,7 @@ excitation_hist.stack(0).plot();
 plt.legend();
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 carbon_10 = Particle.from_nucleus_info(a=10, z=6)

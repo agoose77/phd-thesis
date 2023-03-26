@@ -13,7 +13,7 @@ kernelspec:
 
 # Analytics
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 import json
@@ -70,7 +70,7 @@ The produced JSON records consisted of two families: a notebook record (see {num
 }
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 data_dir = pathlib.Path("olab-analytics", "server-sessions")
@@ -83,7 +83,7 @@ df["duration_minutes"] = (df["stop"] - df["start"]).dt.total_seconds() / 60
 df.head()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 # Bind the start timestamp to the user, resample series to days, find the unique users per sample and reset
@@ -100,7 +100,7 @@ is_early_dec = (daily_active_users.start.dt.month == 12) & (
 daily_active_users[is_weekday].describe().T
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-cell]
 
 daily_active_users.describe().T
@@ -108,7 +108,12 @@ daily_active_users.describe().T
 
 The `start` time of each user server was downsampled to a granularity of days, and the distinct number of unique users per-day computed. A total of {eval}`len(np.unique(df.user))` unique users (including demonstrators) were identified in this dataset. See {numref}`table:olab-unique-users` for a subset of these records. The OLAB cluster was closed over the weekend to minimise running costs, which is reflected in the sharp, constant drop in users during these two-day windows. The median number of concurrent users for the entire trial period was found to be {eval}`int(daily_active_users[is_weekday].median())` users per day, but this value represents the entire distribution; in totality, the trial was phased as different student cohorts were given access to the resource. Throughout the month of November, a steady increasing trend in the number of concurrent users can be seen. In the subsequent period, user engagement remained fairly closely distributed around {eval}`int(daily_active_users[is_weekday & is_early_dec].median())` daily users. Strongly evident in these data is the end of term on the 21st of December 2020; in the week preceding, student engagement was much reduced.
 
-```{code-cell}
+```{code-cell} ipython3
+import warnings
+warnings.filterwarnings("ignore", category=Warning, module=r".*tornado.*")
+```
+
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -122,14 +127,14 @@ alt.Chart(daily_active_users).mark_line(interpolate="step-after").encode(
 ).interactive()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 user_starts_count = df.groupby("user").count()["start"].to_frame()
 user_starts_count.describe().T
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -149,7 +154,7 @@ On a per-user basis, a long-tailed distribution was observed in the number of ti
 - students from outside the teaching cohort visiting the deployment page.
 - students failing to meaningfully engage with the laboratory.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -166,7 +171,7 @@ alt.Chart(df).mark_tick().encode(
 ).interactive()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -192,13 +197,13 @@ alt.Chart(df_by_user_started).mark_bar().encode(
 
 The median session length for single-use servers was found to be {eval}`f"{df.loc[df.is_single_use].duration_minutes.median():.2f} minutes"`. This includes an additional margin of one minute for the server to detect and stop servers after users close the browser tab. Due to the anonymisation of records, it is not possible to isolate instructors from students in these data. The median session length across all server sessions was {eval}`f"{df.duration_minutes.quantile(0.5):.1f} min"`, with a long tailed distribution; the mean session length was {eval}`f"{df.duration_minutes.mean():.1f} min"` with a standard deviation of {eval}`f"{df.duration_minutes.std():.1f} min"`. One reason for this long-tail is the possibility of idle servers; servers with which users are no longer interacting, but remain open and consuming resources. A prompt was generated to remind users to close unused servers, but the component responsible for automatically closing the server (after a grace period elapsed) was not successful, following some technical problems with API authentication.
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-cell]
 
 df["duration_minutes"].describe()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -213,7 +218,7 @@ alt.Chart(df.loc[df["duration_minutes"] < duration_cutoff]).mark_bar().encode(
 ).interactive()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 server_events = df.melt(
@@ -225,7 +230,7 @@ sessions = server_events.assign(concurrent=concurrent)
 sessions.describe()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-output, remove-input]
 
 is_before_nov = sessions.time < pd.datetime(2020, 11, 8)
@@ -233,7 +238,7 @@ is_before_dec = sessions.time < pd.datetime(2020, 12, 8)
 sessions.loc[is_before_nov].describe()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-cell]
 
 sessions.loc[(~is_before_nov) & is_before_dec].describe()
@@ -241,7 +246,7 @@ sessions.loc[(~is_before_nov) & is_before_dec].describe()
 
 To better understand resource provision, it is useful to look at the number of concurrent users over the course of the trial (see {numref}`chart:olab-concurrent-users`). From a peak of {eval}`sessions.concurrent.max()` users, the median number of concurrent users was {eval}`round(sessions.concurrent.median())`. Again, partitioning the dataset around the 9th of November reveals two trends; the median number of concurrent sessions in the pre-November period was {eval}`int(sessions.loc[is_before_nov].median())`, whilst during the second period this value was {eval}`int(sessions.loc[(~is_before_nov) & is_before_dec].median())`. This finding was significantly far from early predictions; to ensure sufficient capacity exists for 90% of the trial period, provision for only {eval}`int(np.ceil(sessions[(~is_before_nov) & is_before_dec].concurrent.quantile(0.9)))` concurrent users was required. With the near-continuous roll-out of OLAB within the separate student cohorts, and without the necessary further study into usage trends and student engagement, only limited conclusions can be drawn from these data. Specifically, it is not within scope to use these data in order to predict the capacity required for future deployments.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -278,12 +283,9 @@ The notebook record includes information about the time that a notebook session 
 }
 :::
 
-```{code-cell}
----
-jupyter:
-  source_hidden: true
-tags: [hide-cell]
----
+```{code-cell} ipython3
+:tags: [hide-cell]
+
 data_dir = pathlib.Path("olab-analytics", "notebook-sessions")
 
 sessions = [json.loads(p.read_text()) for p in data_dir.glob("*.json")]
@@ -297,7 +299,7 @@ df.head()
 
 Within the notebook analytics, clear trends emerge with respect to access patterns. In {numref}`chart:olab-noteobook-access-patterns`, a timeline plot of the per-notebook session intervals is shown. It can clearly be seen that the `30-gamma-attenuation.ipynb` resource was accessed predominantly after the 13th of November. Meanwhile, students most-frequently visited the `10-nai-detector.ipynb` NaI(Tl) detector investigation notebook throughout the trial, with similar degree of regularity to that of the HPGe detector investigation notebook. It is likely that these notebooks were used as a reference on detector behaviour and principles (e.g. solid angle calculations) even after students had completed the experiment in the early (relative) weeks of the trial.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -308,7 +310,7 @@ tags: [hide-input]
 alt.Chart(df).mark_bar().encode(x="start", x2="stop", y="notebook").interactive()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-output, remove-input]
 
 df_count_by_user = (
@@ -323,7 +325,7 @@ df_unique_count_by_user = (
 df_unique_count_by_notebook = df.groupby("notebook").nunique().reset_index()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-cell]
 
 df_unique_count_by_user.describe()
@@ -331,7 +333,7 @@ df_unique_count_by_user.describe()
 
 The number of times a notebook server was launched differed significantly across users. {numref}`chart:olab-notebook-sessions` shows the distribution of the number of started notebooks across the trial participants. A significant number of users opened under two notebook sessions, with the median number of notebook sessions equal to {eval}`int(df_count_by_user.notebook.median())` sessions per user. Within these sessions, it is useful to consider the unique notebooks that were opened by each user. {numref}`chart:olab-unique-notebook-sessions` plots the distribution of the number of unique notebooks opened by users. It is clear that the median student opened {eval}`int(df_unique_count_by_user.notebook.median())` notebooks. A breakdown of the number of users that visited each notebook (see {numref}`chart:olab-notebook-unique-users`) shows a distinct pattern; nearly all users visited the index page (those who didn't likely experienced connectivity problems), with the most popular experiment being the NaI(Tl) detector investigation notebook (`10-nai-detector.ipynb`). Besides this experiment, the majority of the virtual experiments had similar occupancy, with the detector comparison notebook (`60-detector-comparison.ipynb`) being the least popular of the available assignments.
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -347,7 +349,7 @@ tags: [hide-input]
 )
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -363,7 +365,7 @@ tags: [hide-input]
 )
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -379,4 +381,8 @@ tags: [hide-input]
     .encode(alt.Y("notebook"), alt.X("user"))
     .interactive()
 )
+```
+
+```{code-cell} ipython3
+
 ```
