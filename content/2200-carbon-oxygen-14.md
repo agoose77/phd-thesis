@@ -61,7 +61,7 @@ The level schemes for a pair of mirror nuclei are shown in {numref}`level-scheme
 :::{figure} image/placeholder/level-scheme-11c-11b.svg
 :name: level-scheme-11c-11b
 
-Level schemes of the {math}`{}^{11}C` and {math}`{}^{11}B` nuclei. The order and spacing between the levels is well preserved under exchange of the protons and neutrons, with only the {math}`\frac{7}{2}^{-}` and {math}`\frac{7}{2}^{-}` states changing in order. The states of the {math}`{}^{11}C` nucleus are observed to have lower energies (are more weakly bound), which follows from the increased long-range Coulomb repulsion between protons. Generated from data taken from the ENSDF database as of March 24th, 2023. Version available at <http://www.nndc.bnl.gov/ensarchivals/>
+Level schemes of the {math}`{}^{11}C` and {math}`{}^{11}B` nuclei. The order and spacing between the levels is well preserved under exchange of the protons and neutrons, with only the {math}`\frac{7}{2}^{-}` and {math}`\frac{7}{2}^{-}` states changing in order. The states of the {math}`{}^{11}C` nucleus are observed to have lower energies (are more weakly bound), which follows from the increased long-range Coulomb repulsion between protons. Generated from data taken from the ENSDF database as of March 24th, 2023. Version available at <http://www.nndc.bnl.gov/ensarchivals/>.
 :::
 
 +++
@@ -207,7 +207,3 @@ Of particular relevance to this work is that of {cite:authorpars}`baba_coulomb_2
 
 States in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` determined by AMD calculation. Close correspondence between the {math}`\pi`-bond chain states is observed, whilst the {math}`\sigma`-bond levels are expected to differ significantly in excitation energy and decay width. Figure taken from {cite:ps}`baba_coulomb_2019`.
 ::::
-
-```{code-cell}
-
-```
