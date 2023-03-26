@@ -233,7 +233,7 @@ mystnb:
   figure:
     caption: Stopping power of {math}`{}^{10}\mathrm{C}` and {math}`{}^{4}\mathrm{He}`
       ions in a gas-mixture of 96% {math}`{}^4\mathrm{He}`, 4% {math}`\mathrm{CO}_2`
-      with density {math}`\rho`.
+      at 405 atm, simulated using SRIM.{cite:ps}`ziegler_srim_2010`
     name: stopping-power-10c-4he
   image:
     align: center
