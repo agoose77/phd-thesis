@@ -263,7 +263,7 @@ Where charge-pair formation is not the primary mode of energy loss within the se
 :label: fano-factor
 F=\frac{\langle\delta N^2\rangle}{\langle N\rangle}\,,
 :::
-where {math}`\langle\delta N^2\rangle` is the observed variance and {math}`\langle N\rangle` the observed mean. In silicon detectors, which exhibit a high charge-pair formation efficiency, $F$ is experimentally found to be of the order $10^{-1}$.{cite:ps}`kotov_pair_2018`{cite:ps}`alig_scattering_1980`
+where {math}`\langle\delta N^2\rangle` is the observed variance and {math}`\langle N\rangle` the observed mean. In silicon detectors, which exhibit a high charge-pair formation efficiency, $F$ is experimentally found to be of the order $10^{-1}$ {cite:ps}`kotov_pair_2018`.{cite:ps}`alig_scattering_1980`
 
 +++ {"tags": ["only-web"]}
 
@@ -408,7 +408,7 @@ where $E$ is the mean, and $\text{FWHM}$ the full-width at half-maximum (FWHM) o
 :label: silicon-resolution-fano
 R = 2\sqrt{\frac{2\ln{2}Fk}{E}}\,,
 :::
-where $F$ the Fano factor, and $k$ is the mean number of charge carriers liberated per unit energy deposited in the detector. Experimental measurements have found $k$ to be approximately 3.6 eV for alpha particles in silicon.{cite:ps}`kotov_pair_2018`{cite:ps}`scholze_mean_1998`{cite:ps}`alig_scattering_1980`.
+where $F$ the Fano factor, and $k$ is the mean number of charge carriers liberated per unit energy deposited in the detector. Experimental measurements have found $k$ to be approximately 3.6 eV for alpha particles in silicon {cite:ps}`kotov_pair_2018`.{cite:ps}`scholze_mean_1998`{cite:ps}`alig_scattering_1980`.
 
 +++
 

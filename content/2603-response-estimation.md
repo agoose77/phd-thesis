@@ -40,7 +40,7 @@ Channels which employ the AGET shaper require deconvolution in order to recover 
 
 h(t) = A \cdot \exp \left(-3 \frac{t}{\tau}\right) \cdot\left(\frac{t}{\tau}\right)^{3} \cdot \sin \left(\frac{t}{\tau}\right)\,,\\
 :::
-for {math}`\tau=\frac{\tau_s}{\delta t}`, where {math}`\tau` is the shaping time and {math}`\delta t` the reciprocal sampling rate. The authors note, however, that it is insufficiently accurate to be used with deconvolutional methods. Whilst the electronics can be configured such that the response function can be directly measured, this would have required further access to the detector which resides at the Cyclotron Institute, Texas A&M University.{cite:ps}`giovinazzo_get_2016` Without the ability to experimentally derive a response function, an estimate was determined through two separate methods.
+for {math}`\tau=\frac{\tau_s}{\delta t}`, where {math}`\tau` is the shaping time and {math}`\delta t` the reciprocal sampling rate. The authors note, however, that it is insufficiently accurate to be used with deconvolutional methods. Whilst the electronics can be configured such that the response function can be directly measured, this would have required further access to the detector which resides at the Cyclotron Institute, Texas A&M University {cite:ps}`giovinazzo_get_2016`. Without the ability to experimentally derive a response function, an estimate was determined through two separate methods.
 
 :::{admonition} To Do
 :class: margin
@@ -82,7 +82,7 @@ Given such a sample, an initial estimate of the response function $F^{(1)}$ can 
 Y^{(1)} = F^{(1)} * \mathcal{N}^{(1)}\,,
 :::
 
-where the initial function {math}`F^{(1)}` can be determined from {eq}`get-response` with {math}`\tau = 502\,\text{ns}` (see {numref}`mm-response-shaping`).{cite:ps}`giovinazzo_get_2016`
+where the initial function {math}`F^{(1)}` can be determined from {eq}`get-response` with {math}`\tau = 502\,\text{ns}` (see {numref}`mm-response-shaping`) {cite:ps}`giovinazzo_get_2016`.
 
 ```{code-cell} ipython3
 ---

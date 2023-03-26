@@ -25,7 +25,7 @@ from matplotlib.cm import viridis
 from utils import displayed_as_mimebundle
 ```
 
-TexAT (Texas Active Target) is a general-purpose detector developed by the Cyclotron Institute at Texas A&M University for low energy nuclear physics experiments.{cite:ps}`koshchiy_texas_2020` As an active-target detector, the fill gas serves as both the detection medium and the target, such that TexAT is well suited to conducting scattering and implantation experiments with rare isotope beams. 
+TexAT (Texas Active Target) is a general-purpose detector developed by the Cyclotron Institute at Texas A&M University for low energy nuclear physics experiments {cite:ps}`koshchiy_texas_2020`. As an active-target detector, the fill gas serves as both the detection medium and the target, such that TexAT is well suited to conducting scattering and implantation experiments with rare isotope beams. 
 
 TexAT has been upgraded over several experiments. In this section, the intial design of the detector will be outlined, followed by an exploration of the modifications relevant to the experiment discussed later in the chapter.
 
@@ -35,7 +35,7 @@ TexAT has been upgraded over several experiments. In this section, the intial de
 
 +++
 
-A primary {math}`{}^{10}B^{3+}` beam with 7 MeV/u was produced by the K500 cyclotron at the Cyclotron Institute, Texas A & M University.{cite:ps}`youngblood_texas_1991` These ions were directed towards a liquid-nitrogen (LN) cooled 9.2 cm gas cell, with 4 μm thick and 19 mm diameter Havar entrance and exit windows.{cite:ps}`hooker_structure_2019` At a pressure of the 870 Torr, the {math}`H_2` gas within the cell was used to facilitate an {math}`{}^{10}B(p,n){}^{10}C` exchange reaction. The resulting {math}`{}^{10}C` beam had an energy of 32.9 MeV, and an intensity of 7500–16500 particles per second (pps).
+A primary {math}`{}^{10}B^{3+}` beam with 7 MeV/u was produced by the K500 cyclotron at the Cyclotron Institute, Texas A & M University {cite:ps}`youngblood_texas_1991`. These ions were directed towards a liquid-nitrogen (LN) cooled 9.2 cm gas cell, with 4 μm thick and 19 mm diameter Havar entrance and exit windows {cite:ps}`hooker_structure_2019`. At a pressure of the 870 Torr, the {math}`H_2` gas within the cell was used to facilitate an {math}`{}^{10}B(p,n){}^{10}C` exchange reaction. The resulting {math}`{}^{10}C` beam had an energy of 32.9 MeV, and an intensity of 7500–16500 particles per second (pps).
 
 +++
 
@@ -197,7 +197,7 @@ For this experiment, a planar windowless ionisation chamber (IC) was placed imme
 
 (content:get-architecture)=
 ### GET Architecture
-TexAT uses the General Electronics for TPCs (GET) system for readout of the detectors.{cite:ps}`pollacco_get_2018` GET comprises of a heirarchy of electronic components, starting at the lowest level with the AGET (Asic for GET) chip to amplify, shape, and store the signals from each detector (see {numref}`get-schematic`).
+TexAT uses the General Electronics for TPCs (GET) system for readout of the detectors {cite:ps}`pollacco_get_2018`. GET comprises of a heirarchy of electronic components, starting at the lowest level with the AGET (Asic for GET) chip to amplify, shape, and store the signals from each detector (see {numref}`get-schematic`).
 
 +++
 
@@ -212,9 +212,9 @@ A 3D rendering of the solid-state detector telescopes that surround the TPC: dow
 
 +++
 
-Each channel possesses an independent trigger and continuously samples the filtered analogue signal from the shaper, with a sampling frequency between 1 and 100 MHz, using a 512-cell switch-capacitor circular buffer.{cite:ps}`pollacco_get_2018` A single AGET chip has 64 independent channels in addition to 4 floating channels that provide a measure of the electronic noise, known as fixed-pattern noise (FPN) channels. These FPN channels are distributed across the AGET chip in order to place one FPN channel at the edge of each chip.{cite:ps}`pollacco_get_2018` 
+Each channel possesses an independent trigger and continuously samples the filtered analogue signal from the shaper, with a sampling frequency between 1 and 100 MHz, using a 512-cell switch-capacitor circular buffer {cite:ps}`pollacco_get_2018`. A single AGET chip has 64 independent channels in addition to 4 floating channels that provide a measure of the electronic noise, known as fixed-pattern noise (FPN) channels. These FPN channels are distributed across the AGET chip in order to place one FPN channel at the edge of each chip {cite:ps}`pollacco_get_2018`. 
 
-To read out all of the channels in a TexAT detector requires 24 AGET chips. There are 4 AGET chips on each AsAd (ASic and Analog to Digital converter) board, which digitises the signals from the SCA memory of the AGET chips using a 12-bit ADC.{cite:ps}`pollacco_get_2018`. The data from these ASAD boards are collected by a series of CoBo's (Concentration Boards), which timestamp the information and transmit it to the storage infrastructure. 
+To read out all of the channels in a TexAT detector requires 24 AGET chips. There are 4 AGET chips on each AsAd (ASic and Analog to Digital converter) board, which digitises the signals from the SCA memory of the AGET chips using a 12-bit ADC {cite:ps}`pollacco_get_2018`.. The data from these ASAD boards are collected by a series of CoBo's (Concentration Boards), which timestamp the information and transmit it to the storage infrastructure. 
 
 In order to synchronize the CoBos and generate a global trigger, an additional board called the MuTAnT (MUltiplicity Trigger ANd Time) is used.
 
@@ -224,7 +224,7 @@ In order to synchronize the CoBos and generate a global trigger, an additional b
 
 +++
 
-The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in cases where exernal pre-amplifiers need to be read-out by the GET electronics.{cite:ps}`pollacco_get_2018` Instead of using the internal GET pre-amplifier, the IC is connected via a bypass circuit (see {numref}`external-shaper`) to an external MESYTEC shaper (MSCF-16), whose signals are fed back into the Gain-2 stage of AGET chip, as discussed in {cite:ps}`koshchiy_texas_2020`.
+The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in cases where exernal pre-amplifiers need to be read-out by the GET electronics {cite:ps}`pollacco_get_2018`. Instead of using the internal GET pre-amplifier, the IC is connected via a bypass circuit (see {numref}`external-shaper`) to an external MESYTEC shaper (MSCF-16), whose signals are fed back into the Gain-2 stage of AGET chip, as discussed in {cite:ps}`koshchiy_texas_2020`.
 
 +++
 

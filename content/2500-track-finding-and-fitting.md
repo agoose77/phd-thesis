@@ -100,7 +100,7 @@ Create figures to illustrate Hough Transform algorithm.
 
 ### RANSAC 
 
-Random Sample Consensus (RANSAC) is a paradigm for fitting a singular model to experimental data. It recognises the model finding/fitting problem as a connected one; the challenge of identifying a unique set of models within a dataset is highly dependent upon estimating their free parameters given the observed data.{cite:ps}`fischler_random_1981`
+Random Sample Consensus (RANSAC) is a paradigm for fitting a singular model to experimental data. It recognises the model finding/fitting problem as a connected one; the challenge of identifying a unique set of models within a dataset is highly dependent upon estimating their free parameters given the observed data {cite:ps}`fischler_random_1981`.
 
 RANSAC draws a distinction between two kinds of error: 
 - _measurement_ error: deviations from the "true" values observed in measurements)
@@ -306,7 +306,7 @@ The trivial form of {eq}`uflp-cost-function`, in which the facility cost {math}`
 :label: cost-function-trivial
 E(F) = \sum_{f \in F,\,c \in C} T_{fc} D_{fc}\,,
 :::
-is ill-posed. A _well-posed_ problem is guaranteed to have a _unique_ solution that depends continuously on the input data.{cite:ps}`hadamard`
+is ill-posed. A _well-posed_ problem is guaranteed to have a _unique_ solution that depends continuously on the input data {cite:ps}`hadamard`.
 
 In order to solve {eq}`cost-function-trivial`, the set of admissable solutions must be restricted by the introduction of _a priori_ knowledge, i.e. the problem must be _regularised_. The label cost term given in {eq}`uflp-cost-function` is one such regulariser which imposes a preference for solutions with fewer labels.
 
@@ -419,7 +419,7 @@ Mention constraints on potential (see [https://profs.etsmtl.ca/hlombaert/energy/
 
 ### Graph Cut Optimization
 
-In the absence of smooth costs, the UFLP can be solved by integer programming techniques, but remains NP-hard.{cite:ps}`Cheriyan98approximationalgorithms` There exists an heuristic method which solves {eq}`uflp-cost-function` in {math}`\mathcal{O}(\lvert F\rvert^2 \lvert C \rvert)` time.{cite:ps}`kuehn_heuristic_1963` Meanwhile, task of minimising {eq}`cost-function-pearl` is also NP-hard for {math}`\lvert F \rvert \geq 3`,{cite:ps}`boykov_fast_2001-1` but there exist approximate solutions using _graph cuts_ that are guaranteed to find the local minima within a fixed bound of the global optimum.{cite:ps}`delong_fast_2010`
+In the absence of smooth costs, the UFLP can be solved by integer programming techniques, but remains NP-hard {cite:ps}`Cheriyan98approximationalgorithms`. There exists an heuristic method which solves {eq}`uflp-cost-function` in {math}`\mathcal{O}(\lvert F\rvert^2 \lvert C \rvert)` time {cite:ps}`kuehn_heuristic_1963`. Meanwhile, task of minimising {eq}`cost-function-pearl` is also NP-hard for {math}`\lvert F \rvert \geq 3`,{cite:ps}`boykov_fast_2001-1` but there exist approximate solutions using _graph cuts_ that are guaranteed to find the local minima within a fixed bound of the global optimum {cite:ps}`delong_fast_2010`.
 
 ::::{admonition} NP-hardness
 :class: dropdown
@@ -580,7 +580,7 @@ digraph my_graph {
 )
 ```
 
-Under the _min-cut max-flow_ theorem , the _minimum_-cut {math}`\mathcal{C}^\star` (cut for which {math}`\lvert \mathcal{C} \rvert` is minimal) is equivalent to the maximum-_flow_, which can be computed in an efficient manner.{cite:ps}`ford_maximal_1956`{cite:ps}`kolmogorov_what_2004`
+Under the _min-cut max-flow_ theorem , the _minimum_-cut {math}`\mathcal{C}^\star` (cut for which {math}`\lvert \mathcal{C} \rvert` is minimal) is equivalent to the maximum-_flow_, which can be computed in an efficient manner {cite:ps}`ford_maximal_1956`.{cite:ps}`kolmogorov_what_2004`
 
 +++
 
@@ -666,7 +666,7 @@ The choice of weights is the fundamental mechanism by which the expansion-move a
 Clearly, the cut illustrated in {numref}`graph-expansion-ocean-cut` yields the correct cost. However, how does this cut invoke a new labelling? One implication of the property 
 > no proper subset of {math}`\mathcal{C}` may also be a cut
 
-is that exactly _one_ edge between the terminals ({math}`\{\,\omega, \alpha\,\}`) and any node can be cut.{cite:ps}`boykov_fast_2001-1` This naturally defines a correspondence between a cut and a labelling: the cutting of a terminal edge assigns the corresponding label to the node. In this case, we have a cut through {math}`\alpha-A` and {math}`\omega-\Omega`, which assigns label {math}`\alpha` to {math}`A` and {math}`\Omega` to {math}`\omega` respectively. Hence, the edge with a cost of {math}`\infty` is required in order to satisfy the expanding-only property of the expansion-move; it will never be favourable to cut these edges, i.e. the primary label {math}`\alpha` for a given expansion will never be reassigned from.
+is that exactly _one_ edge between the terminals ({math}`\{\,\omega, \alpha\,\}`) and any node can be cut {cite:ps}`boykov_fast_2001-1`. This naturally defines a correspondence between a cut and a labelling: the cutting of a terminal edge assigns the corresponding label to the node. In this case, we have a cut through {math}`\alpha-A` and {math}`\omega-\Omega`, which assigns label {math}`\alpha` to {math}`A` and {math}`\Omega` to {math}`\omega` respectively. Hence, the edge with a cost of {math}`\infty` is required in order to satisfy the expanding-only property of the expansion-move; it will never be favourable to cut these edges, i.e. the primary label {math}`\alpha` for a given expansion will never be reassigned from.
 
 +++
 
@@ -685,7 +685,7 @@ The {math}`\alpha`-expansion algorithm is therefore
 
 +++
 
-It can be shown that this algorithm can be generalised to account for label costs in order to solve {eq}`cost-function-pearl`.{cite:ps}`delong_fast_2010`
+It can be shown that this algorithm can be generalised to account for label costs in order to solve {eq}`cost-function-pearl` {cite:ps}`delong_fast_2010`.
 
 +++
 
@@ -697,13 +697,13 @@ V_{\alpha, \beta} &\leq V_{\alpha, \gamma} + V_{\gamma, \beta}
 V_{\alpha, \beta} &= V_{\beta, \alpha} \geq 0\,.
 :::
 
-The choice of a {math}`V_{\alpha, \gamma}=\delta_{\alpha\gamma}` interaction potential (the Potts model) combined with a geometric distance meets this requirement.{cite:ps}`isack_energy-based_2012`
+The choice of a {math}`V_{\alpha, \gamma}=\delta_{\alpha\gamma}` interaction potential (the Potts model) combined with a geometric distance meets this requirement {cite:ps}`isack_energy-based_2012`.
 
 +++
 
 ### PeARL
 
-So far, we have explored the application of graph-cuts to solving the metric labelling problem. It is not immediately obvious how this approach maps onto the problem of track fitting. At first glance, the model {math}`f` seen in {eq}`cost-function-pearl` resembles the label described in {ref}`alpha-expansion`. However, our track models are members of {math}`\mathcal{L}=\mathbb{R}^n`, and therefore a one-to-one mapping between {math}`F` and {math}`\mathcal{L}` would be infinitely large. In order to explore the continuum of model parameters whilst working within a feasible subset of the parameter space, the PeARL algorithm may be used.{cite:ps}`boykov_fast_2001-1`
+So far, we have explored the application of graph-cuts to solving the metric labelling problem. It is not immediately obvious how this approach maps onto the problem of track fitting. At first glance, the model {math}`f` seen in {eq}`cost-function-pearl` resembles the label described in {ref}`alpha-expansion`. However, our track models are members of {math}`\mathcal{L}=\mathbb{R}^n`, and therefore a one-to-one mapping between {math}`F` and {math}`\mathcal{L}` would be infinitely large. In order to explore the continuum of model parameters whilst working within a feasible subset of the parameter space, the PeARL algorithm may be used {cite:ps}`boykov_fast_2001-1`.
 
 +++
 
