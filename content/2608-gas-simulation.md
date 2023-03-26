@@ -30,10 +30,14 @@ from matplotlib import pyplot as plt
 from mplhep.styles import ROOT
 from scipy.stats import linregress, norm
 from texat.utils.awkward.convert import from_hdf5
+from texat.units import units as u
 
 plt.style.use(ROOT)
 plt.rc("figure", figsize=(10, 5), dpi=120)
 data_path = Path("data")
+
+u.setup_matplotlib(True)
+u.separate_format_defaults = True
 ```
 
 ## Drift Velocity
@@ -101,6 +105,8 @@ Using a microscopic Monte Carlo model, the spread of the drift electrons can be 
 
 ```{code-cell} ipython3
 ---
+jupyter:
+  source_hidden: true
 mystnb:
   figure:
     caption: The x position distribution of drifted electrons for y=5.90 cm fit with
@@ -135,16 +141,12 @@ plt.ylabel("PDF")
 plt.legend();
 ```
 
-A regression of the transverse spread against the drift height shows a linear correlation (see {numref}`x-distribution-regression`).
-
-+++
-
-:::{admonition} To Do
-:class: margin
-
-
-Justify linear regression
+The observed width of a charge cluster resolved perpendicular to the drift plane is determined by two components; the intrinsic resolution (e.g. of the readout system), and the spread determined by transverse diffusion of the charge cluster:
+:::{math}
+:label: drift-resolution
+\sigma_\mathrm{track}^2 = \sigma_0^2 + C_D^2 z\,,
 :::
+where {math}`C_D` is the transverse diffusion coefficient, {math}`z` the drift distance, and {math}`\sigma_0` the intrinsic resolution {cite:ps}`carnegie_resolution_2005`.
 
 ```{code-cell} ipython3
 ---
@@ -159,12 +161,14 @@ mystnb:
     width: 512px
 tags: [hide-input]
 ---
-x_std = np.std(avalanche.endpoints.x, axis=-1)
-x_fit = linregress(avalanche.y, x_std)
+x_dist = np.var(avalanche.endpoints.x, axis=-1)
+x_fit = linregress(avalanche.y, x_dist)
+
+C_D = x_fit.slope * u.cm
 
 fig, ax = plt.subplots(2, 1, sharex=True, gridspec_kw={"hspace": 0})
 handles = [
-    ax[0].scatter(avalanche.y, x_std, label="Simulation"),
+    ax[0].scatter(avalanche.y, x_dist, label="Simulation"),
     *ax[0].plot(
         avalanche.y,
         x_fit.intercept + x_fit.slope * avalanche.y,
@@ -172,10 +176,10 @@ handles = [
         color="C1",
     ),
 ]
-ax[0].set_ylabel(r"$\sigma(x)$ /cm")
+ax[0].set_ylabel(r"$\sigma^2(x)$ /cm^2")
 ax[1].stem(
     avalanche.y,
-    x_std - (x_fit.intercept + x_fit.slope * avalanche.y),
+    x_dist - (x_fit.intercept + x_fit.slope * avalanche.y),
 )
 ax[1].axhline(0, color="black", linestyle="-")
 ax[1].set_ylabel("Residual")
@@ -183,6 +187,4 @@ plt.xlabel("z /cm")
 ax[0].legend(handles=handles, loc="upper left");
 ```
 
-```{code-cell} ipython3
-
-```
+A regression of the transverse variance against the drift height yields {math}`C_D^2` of {eval}`C_D.to("mm")` (see {numref}`x-distribution-regression`), with the width of the charge cluster distribution spanning 1–2 mm within the conversion region of the TPC. This value is significantly smaller than the width of a MicroMeGaS pad, which (subject to the initial cluster size) implies that tracks within the central region of the detector should predominantly comprise of single pads.
