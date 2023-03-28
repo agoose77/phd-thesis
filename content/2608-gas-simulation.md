@@ -150,6 +150,8 @@ where {math}`C_D` is the transverse diffusion coefficient, {math}`z` the drift d
 
 ```{code-cell} ipython3
 ---
+jupyter:
+  source_hidden: true
 mystnb:
   figure:
     caption: The standard deviation of the final electron transverse position as a
@@ -187,4 +189,4 @@ plt.xlabel("z /cm")
 ax[0].legend(handles=handles, loc="upper left");
 ```
 
-A regression of the transverse variance against the drift height yields {math}`C_D^2` of {eval}`C_D.to("mm")` (see {numref}`x-distribution-regression`), with the width of the charge cluster distribution spanning 1–2 mm within the conversion region of the TPC. This value is significantly smaller than the width of a MicroMeGaS pad, which (subject to the initial cluster size) implies that tracks within the central region of the detector should predominantly comprise of single pads.
+A regression of the transverse variance against the drift height yields {math}`C_D` of {eval}`C_D.to("mm")` (see {numref}`x-distribution-regression`), with the width of the charge cluster distribution spanning 1–2 mm within the conversion region of the TPC. This value is significantly smaller than the width of a MicroMeGaS pad, which (subject to the initial cluster size) implies that tracks within the central region of the detector should predominantly comprise of single pads.

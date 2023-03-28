@@ -35,25 +35,24 @@ plt.rc('font', size="16")
 (content:track-finding-and-fitting)=
 # Track Finding and Fitting
 
-Fundamental to design of many particle physics experiments is the ability to detect reaction ejectiles and measure their physical properties. The considerable challenge that this poses, in even the most conventional forward-kinematics fixed-target experiments, is exacerbated in the thick-target regime described in {ref}`content:thick-target-experiments`. In the absence of a single interaction locus, it becomes of vital importance to be able to observe the _trajectories_ of reaction products such that the underlying kinematic variables can be reconstructed. As discussed in {ref}`time-projection-chambers`, the TPC detectors in which these experiments are often conducted typically incorporate a segmented readout, whereby particle trajectories are described as a set of discretised samples. The resolution of these data is usually governed by a combination of the ejectile, gas, and readout properties. 
+Fundamental to design of many particle physics experiments is the ability to detect reaction ejectiles and measure their physical properties. The considerable challenge that this poses, in even the most conventional forward-kinematics fixed-target experiments, is exacerbated in the thick-target regime described in {ref}`content:thick-target-experiments`. In the absence of a single interaction locus, it becomes of vital importance to be able to observe the _trajectories_ of reaction products such that the underlying kinematic variables can be reconstructed. As discussed in {ref}`content:time-projection-chambers`, the TPC detectors in which these experiments are often conducted typically incorporate a segmented readout, whereby particle trajectories are described as a set of discretised samples. The resolution of these data is usually governed by a combination of the ejectile, gas, and readout properties. 
 
-The problems of identifying and fitting the particle trajectories recorded in such data are nominally distinct concepts, although many approaches necessarily combine the two. Track _finding_ describes the task of identifying the existence of a particle track, whilst track _fitting_ refers to the process of ascribing model variables to identified tracks subject to the parametrisation. Central to both subproblems is the importance of outlier rejection, which is often used as a metric by which to evaluate algorithm performance. 
+The problems of identifying and fitting the particle trajectories recorded in such data are nominally distinct concepts, although many approaches necessarily combine the two. Track _finding_ describes the task of identifying the existence of a particle track, whilst track _fitting_ refers to the process of ascribing model variables to identified tracks subject to the parametrisation. Central to both subproblems is the importance of outlier rejection, which is often used as a metric by which to evaluate algorithm performance.
 
 +++
 
 ## Conventional Techniques
 
-
 +++
 
 ### Hough Transform
 
-The _classical_ Hough Transform is a technique for estimating the parameters and multiplicity of a model family within a dataset. It employs a scheme whereby _features_ in the dataset, i.e. observations, vote for models with which they are compatible. For any continuous parametrisation, a single observation is a member of an infinite set of models. In order to make this tractable, the Hough Transform is conventionally performed by discretising the {math}`n`-dimensional parameter space of the model. Thereafter, for each observation, the set of compatible models can be determined from the permutations of the discrete {math}`n-1`-dimensional free parameter space.
+The _classical_ Hough transform is a technique for estimating the parameters and multiplicity of a model family within a dataset. In this context, a _model_ is a description of a set of data, such as a line or a plane. The Hough transform employs a scheme whereby _features_ in the dataset, i.e. points along a line, vote for models with which they are compatible. For any continuous parametrisation, a single observation is a member of an infinite set of models. In order to make this tractable, the Hough transform is conventionally performed by discretising the {math}`n`-dimensional parameter space of the model. Thereafter, for each observation, the set of compatible models can be determined from the permutations of the discrete {math}`n-1`-dimensional free parameter space.
 
 :::{mermaid}
-:caption: Flowchart detailing the classic discrete Hough Transform.
+:caption: Flowchart detailing the classic discrete Hough transform.
 
-graph LR;
+graph TD;
     start[Start]
     observation[Select observation]
     parameter_2[Select parameter #2]
@@ -93,7 +92,7 @@ Certain procedures can be used to mitigate this compromise:
 :::{admonition} To Do
 :class: margin
 
-Create figures to illustrate Hough Transform algorithm.
+Create figures to illustrate Hough transform algorithm.
 :::
 
 +++
@@ -117,7 +116,7 @@ Create figures to illustrate RANSAC algorithm.
 :::{mermaid}
 :caption: Flowchart outlining the RANSAC algorithm.
 
-graph LR;
+graph TD;
 start[Start]
 finish[Finish]
 sample[Draw random sample]
@@ -170,7 +169,7 @@ The RANSAC algorithm establishes a hard distinction between inliers and outliers
 
 (content:facility-location-problem)=
 ## Facility Location Problem
-The previously explored methods of the Hough Transform and RANSAC are both _greedy_ methods; the order in which solutions are generated favours those models which are found first. The consequence of greedy optimisation is that the global solution across several models may not be optimal.
+The previously explored methods of the Hough transform and RANSAC are both _greedy_ methods; the order in which solutions are generated favours those models which are found first. The consequence of greedy optimisation is that the global solution across several models may not be optimal.
 
 :::{admonition} To Do
 :class: margin
@@ -179,12 +178,12 @@ Give a visual example of this
 :::
 
 In order obtain a _global_ solution to track labelling, the task must be reframed as a global optimisation problem. 
-The facility location problem (FLP) is an optimization problem whose solution determines the optimal location for a set of facilities such that the transportation costs for each facility are minimised. There are several formulations of the problem with auxillary constraints, such as the _capacity_ of the facilities, or the addition of an _opening cost_ for each facility. 
+The facility location problem (FLP) is an optimisation problem whose solution determines the optimal location for a set of facilities such that the transportation costs for each facility are minimised. There are several formulations of the problem with auxillary constraints, such as the _capacity_ of the facilities, or the addition of an _opening cost_ for each facility. 
 
 The significance of "facility" and "transportation cost" depends upon the framing of the problem. Here, the _uncapacitated facility location problem_ (UFLP) will be explored in the context of particle track labelling.
 
 ### Uncapacitated Facility Location Problem
-The uncapacitated facility location problem is a variant of the FLP in which each facility has an unlimited capacity and an associated opening cost. In prose, the problem may be defined by the following requirements
+The uncapacitated facility location problem is a variant of the FLP in which each facility has an unlimited capacity and an associated opening cost. In prose, the problem may be defined by three requirements:
 - A manufacturing company wants to minimise costs.
 - Delivery is expensive, so facilities need to be close to consumers.
 - Facilities are also expensive, so as few as possible should be opened.
@@ -317,7 +316,7 @@ This behaviour can be accounted for by an additional regulariser in the energy f
 :label: cost-smoothness
 \sum_{cc'\in C}V_{f(c),f(c')}(c, c')\,,
 :::
-where {math}`V_{f(c),f(c')}(c, c')` is the pairwise prior that penalises {math}`f(c) \neq f(c')`, such that we have
+where {math}`V_{f(c),f(c')}(c, c')` is the pairwise prior that penalises {math}`f(c) \neq f(c')`, such that
 :::{math}
 :label: cost-function-pearl
 E(F) = 
@@ -417,7 +416,7 @@ Mention constraints on potential (see [https://profs.etsmtl.ca/hlombaert/energy/
 
 +++
 
-### Graph Cut Optimization
+### Graph Cut Optimisation
 
 In the absence of smooth costs, the UFLP can be solved by integer programming techniques, but remains NP-hard {cite:ps}`Cheriyan98approximationalgorithms`. There exists an heuristic method which solves {eq}`uflp-cost-function` in {math}`\mathcal{O}(\lvert F\rvert^2 \lvert C \rvert)` time {cite:ps}`kuehn_heuristic_1963`. Meanwhile, task of minimising {eq}`cost-function-pearl` is also NP-hard for {math}`\lvert F \rvert \geq 3` {cite:ps}`boykov_fast_2001-1`, but there exist approximate solutions using _graph cuts_ that are guaranteed to find the local minima within a fixed bound of the global optimum {cite:ps}`delong_fast_2010`.
 
@@ -590,7 +589,7 @@ The {math}`\alpha`-expansion algorithm is a method of finding the labelling {mat
 
 +++
 
-Let us consider an example comprised of two nodes (observations) {math}`\Omega` and {math}`A`. We can introduce two labels: {math}`\alpha` and {math}`\omega`. The true labelling is given in {numref}`expansion-example-true-labelling`: the {math}`\Omega` is labelled by {math}`\omega`, and {math}`A` is labelled by {math}`\alpha`.
+Consider an example comprised of two nodes (observations) {math}`\Omega` and {math}`A`. One can introduce two labels: {math}`\alpha` and {math}`\omega`. The true labelling is given in {numref}`expansion-example-true-labelling`: the {math}`\Omega` is labelled by {math}`\omega`, and {math}`A` is labelled by {math}`\alpha`.
 
 :::{list-table} Lowest cost (correct) labelling for a two-node system
 :name: expansion-example-true-labelling
@@ -606,7 +605,7 @@ Let us consider an example comprised of two nodes (observations) {math}`\Omega` 
 
 +++
 
-Although we already know that this labelling is the correct (optimal) one, let us imagine that we did not have this information. To determine whether the current labelling {math}`F` is a local minimum, one can use the _expansion-move_ algorithm to find an improved labelling {math}`F^\prime_\alpha` through the expansion of a particular label {math}`\alpha`. If the expansion does not modify the labelling, then it is optimal.
+Although is is already known that this labelling is the correct (optimal) one, in general one might not have this prior information. The _expansion-move_ algorithm can be used to find an improved labelling {math}`F^\prime_\alpha` through the expansion of a particular label {math}`\alpha`. If the expansion does not modify the labelling, then it is optimal i.e. the current labelling {math}`F` is a (local) minimum.
 
 The optimal labelling given in ({numref}`expansion-example-true-labelling`) should have a cost that evaluates to
 
@@ -623,7 +622,7 @@ i.e. the sum of
 
 +++
 
-From the definition of the expansion-move, it follows that we can construct a graph {math}`G_\alpha` such that the minimum cut gives {eq}`expansion-minimum-cut-cost`. (see {numref}`graph-expansion-ocean-cut`).
+From the definition of the expansion-move, it follows that one can construct a graph {math}`G_\alpha` such that the minimum cut gives {eq}`expansion-minimum-cut-cost`. (see {numref}`graph-expansion-ocean-cut`).
 
 ```{code-cell} ipython3
 ---
@@ -666,11 +665,11 @@ The choice of weights is the fundamental mechanism by which the expansion-move a
 Clearly, the cut illustrated in {numref}`graph-expansion-ocean-cut` yields the correct cost. However, how does this cut invoke a new labelling? One implication of the property 
 > no proper subset of {math}`\mathcal{C}` may also be a cut
 
-is that exactly _one_ edge between the terminals ({math}`\{\,\omega, \alpha\,\}`) and any node can be cut {cite:ps}`boykov_fast_2001-1`. This naturally defines a correspondence between a cut and a labelling: the cutting of a terminal edge assigns the corresponding label to the node. In this case, we have a cut through {math}`\alpha-A` and {math}`\omega-\Omega`, which assigns label {math}`\alpha` to {math}`A` and {math}`\Omega` to {math}`\omega` respectively. Hence, the edge with a cost of {math}`\infty` is required in order to satisfy the expanding-only property of the expansion-move; it will never be favourable to cut these edges, i.e. the primary label {math}`\alpha` for a given expansion will never be reassigned from.
+is that exactly _one_ edge between the terminals ({math}`\{\,\omega, \alpha\,\}`) and any node can be cut {cite:ps}`boykov_fast_2001-1`. This naturally defines a correspondence between a cut and a labelling: the cutting of a terminal edge assigns the corresponding label to the node. In this case, there is a cut through {math}`\alpha-A` and {math}`\omega-\Omega`, which assigns label {math}`\alpha` to {math}`A` and {math}`\Omega` to {math}`\omega` respectively. Hence, the edge with a cost of {math}`\infty` is required in order to satisfy the expanding-only property of the expansion-move; it will never be favourable to cut these edges, i.e. the primary label {math}`\alpha` for a given expansion will never be reassigned from.
 
 +++
 
-Our simple model only considers two labels ({math}`\lvert F \rvert = 2`), whilst in practice {math}`\lvert F \rvert \gg 2`. To generalise the expansion of label {math}`\alpha` to {math}`\lvert F \rvert > 2`, we can replace {math}`\omega` with a _meta_ label {math}`\overline{\alpha}` that represents not-{math}`\alpha`. Thereafter, the procedure remains identical. In order to determine the optimum expansion-move, we must repeat this procedure for each label.
+This simple model only considers two labels ({math}`\lvert F \rvert = 2`), whilst in practice {math}`\lvert F \rvert \gg 2`. To generalise the expansion of label {math}`\alpha` to {math}`\lvert F \rvert > 2`, {math}`\omega` can be replaced with a _meta_ label {math}`\overline{\alpha}` that represents not-{math}`\alpha`. Thereafter, the procedure remains identical. In order to determine the optimum expansion-move, this procedure must be repeated for each label.
 
 +++
 
@@ -703,7 +702,7 @@ The choice of a {math}`V_{\alpha, \gamma}=\delta_{\alpha\gamma}` interaction pot
 
 ### PeARL
 
-So far, we have explored the application of graph-cuts to solving the metric labelling problem. It is not immediately obvious how this approach maps onto the problem of track fitting. At first glance, the model {math}`f` seen in {eq}`cost-function-pearl` resembles the label described in {ref}`alpha-expansion`. However, our track models are members of {math}`\mathcal{L}=\mathbb{R}^n`, and therefore a one-to-one mapping between {math}`F` and {math}`\mathcal{L}` would be infinitely large. In order to explore the continuum of model parameters whilst working within a feasible subset of the parameter space, the PeARL algorithm may be used {cite:ps}`boykov_fast_2001-1`.
+So far, the application of graph-cuts to solving the metric labelling problem as been explored. It is not immediately obvious how this approach maps onto the problem of track fitting. At first glance, the model {math}`f` seen in {eq}`cost-function-pearl` resembles the label described in {ref}`alpha-expansion`. However, our track models are members of {math}`\mathcal{L}=\mathbb{R}^n`, and therefore a one-to-one mapping between {math}`F` and {math}`\mathcal{L}` would be infinitely large. In order to explore the continuum of model parameters whilst working within a feasible subset of the parameter space, the PeARL algorithm may be used {cite:ps}`boykov_fast_2001-1`.
 
 +++
 
@@ -730,7 +729,7 @@ A process diagram for the PeARL algorithm is shown in {numref}`pearl-algorithm`,
 
 +++
 
-The proposal step (1) of the PeARL algorithm closely resembles that of RANSAC. Unlike RANSAC, however, PeARL evaluates these proposals against a single optimization objective, rather than hierarchically.
+The proposal step (1) of the PeARL algorithm closely resembles that of RANSAC. Unlike RANSAC, however, PeARL evaluates these proposals against a single optimisation objective, rather than hierarchically.
 
 +++
 
@@ -743,7 +742,7 @@ T_{fc} = k\frac{\norm{\left(\vb{r}(c) - \vb{o}(f)\right)\wedge \hat{\vb{n}}(f)}^
 :::
 where {math}`\vb{r}(c)` is the position of observation {math}`c`, {math}`\vb{o}(f)` a point belonging to model {math}`f`, {math}`\hat{\vb{n}}(f)` the direction of model {math}`f`, {math}`\sigma(f)` the width of the transverse distribution, and {math}`k` a scaling factor. This corresponds to the residual shown in {numref}`track-model-illustration`. 
 
-The unbounded line may not be the most suitable model to describe linear data. Crucially, it has no concept of regularity; there is no parameterisation by which to describe the distribution along the linear axis. 
+The unbounded line may not be the most suitable model to describe linear data. Crucially, it has no concept of regularity; there is no parameterisation by which to describe the distribution along the linear axis.
 
 +++
 
