@@ -9,6 +9,8 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+mystnb:
+  execution_mode: "inline"
 ---
 
 # Gain Matching
@@ -51,7 +53,7 @@ Illustration of the significant zones within the MicroMeGaS anode segmentation. 
 
 +++
 
-Following position reconstruction, these gains must be accounted for if the collected charge is to be used for particle identification. Given that the strips, chains, and final central pads were held at the same potential, the relative gain of these regions can be determined solely by looking at the relative gain of the final central pad region. This was experimentally measured by observing the change in charge collected by the rows of pads either side of the high-low gain boundary (see regions (b) and (c) of {numref}`micromegas-anode-relative-gain`).
+Following position reconstruction, these gains must be accounted for if the collected charge is to be used for particle identification. Given that the strips, chains, and final central pads were held at the same potential, the relative gain of these regions can be determined solely by looking at the relative gain of the final central pad region. This was experimentally measured by observing the change in charge collected by the rows of pads either side of the high-low gain boundary (see regions (b) and (c) of {numref}`micromegas-anode-gain-region`).
 
 ```{code-cell}
 ---
@@ -100,7 +102,3 @@ pass  # Required for next cell's eval
 ```
 
 After fitting this distribution with a binned likelihood estimator, the relative gain between the low and high gain regions was found to be {eval}`f"{m_last.values['mu']:.3f}"` with a standard deviation of {eval}`f"{m_last.values['sigma']:.3f}"`.
-
-```{code-cell}
-
-```

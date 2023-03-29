@@ -903,12 +903,4 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 
 ## Kinematic Fitting
 
-:::{note}
-:class: margin
 
-Should we look at GNN / CA methods here?
-:::
-
-:::{admonition} To Do
-CPA?
-:::
