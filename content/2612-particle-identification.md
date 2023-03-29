@@ -140,9 +140,9 @@ mystnb:
 tags: [hide-input]
 ---
 fig, ax = plt.subplots()
-plt.loglog(ion_energy_1h, de_dx_1h, "C1", label="${}^{1}H$")
-plt.loglog(ion_energy_4he, de_dx_4he, "C2", label="${}^{4}He$")
-plt.loglog(ion_energy_10c, de_dx_10c, "C3", label="${}^{10}C$")
+plt.loglog(ion_energy_1h, de_dx_1h, "C1", label="${}^{1}\mathrm{H}$")
+plt.loglog(ion_energy_4he, de_dx_4he, "C2", label="${}^{4}\mathrm{He}$")
+plt.loglog(ion_energy_10c, de_dx_10c, "C3", label="${}^{10}\mathrm{C}$")
 plt.xlabel(f"Ion energy /{ion_energy_1h.units:~}")
 plt.ylabel(f"Linear Stopping Power /{de_dx_1h.units:~}")
 
