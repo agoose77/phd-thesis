@@ -55,7 +55,8 @@ color_map = ak.values_astype(
     np.concatenate((t[:, np.newaxis], viridis(t)[:, :-1]), axis=1), np.float32
 )
 
-plot = k3d.plot(grid=(-40, -120, -20, 90, 120, 20))
+
+plot = k3d.plot(camera_auto_fit=False)
 plot += k3d.points(
     np.stack(
         ak.unzip(cluster.position[["x", "y", "z"]]),
@@ -65,7 +66,25 @@ plot += k3d.points(
     color_map=color_map,
     point_size=3,
 )
-plot
+
+
+plot.camera = [
+    61.074389691473755,
+    -96.22154295310594,
+    89.70776220694191,
+    9.371344315440503,
+    -16.951841141852235,
+    -1.7712522306590803,
+    -0.3550874463889188,
+    0.549335795833905,
+    0.7564014072121542,
+]
+# Provide image fallback
+with displayed_as_mimebundle() as c:
+    display(
+        plot,
+        Image("image/sample-micromegas-reconstruction.png"),
+    )
 ```
 
 ## Central Region

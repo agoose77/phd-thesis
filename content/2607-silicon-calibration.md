@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 ---
 
+(content:silicon-calibration)=
 # Silicon Calibration
 
 ```{code-cell} ipython3

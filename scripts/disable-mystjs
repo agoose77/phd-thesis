@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-jupyter labextension disable jupyterlab-mystjs
-jupyter labextension enable jupyterlab-myst
-jupyter labextension enable @agoose77/jupyterlab-imarkdown
