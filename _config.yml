@@ -1,4 +1,4 @@
-title: A search for molecular structure in oxygen-14, and interactive computing for nuclear laboratories
+title: New methods for investigating cluster structure in light nuclei, and interactive computing for nuclear laboratories
 author: Angus Hollands
 exclude_patterns:
   - .virtual_documents
@@ -74,6 +74,9 @@ sphinx:
         % Fix fragile hyperlinks in captions
         \usepackage{etoolbox}
         \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
+        
+        % Remove intrinsic bib name
+        \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
         
         % Double line spacing
         \usepackage{setspace}

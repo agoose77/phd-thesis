@@ -902,5 +902,132 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 +++ {"tags": ["no-latex"]}
 
 ## Kinematic Fitting
+Many classes of problem, including those seen in track fitting, are amenable through least squares optimisation. In the context of track fitting, it is often the case that the solution is required to satisfy a set of constraints. These constraints ensure that determined solution is physically admissible.
+
+The general case of least squares estimation with constraints is solved by linearising the constraint equations, and solving the problem iteratively. Let {math}`\vec{\eta}=\set{\eta_1, \eta_2, \dots, \eta_n}` be a vector of {math}`N` observables, whose measured values are {math}`\vec{y}`, with errors given by the covariance matrix {math}`V\mathopen{}\pqty{\vec{y}}\mathclose{}`.
+From the Least-Squares Principle {cite:ps}`frodesen_probability_1979`, the objective function {math}`\chi^2` is given by
+:::{math}
+:label: least-squares-problem
+\chi^2 = \pqty{\vec{y}-\vec{\eta}}^TV\mathopen{}\pqty{\vec{y}}\mathclose{}^{-1}\left(\vec{y}-\vec{\eta}\right)\,.
+:::
+It follows that the best estimates of {math}`\vec{\eta}` satisfy
+:::{math}
+:label: least-squares-solution
+\grad_\vec{\eta}{\chi^2\mathopen{}\pqty{\vec{\eta}}\mathclose{}} = \vec{0}\,.
+:::
+Frequently one is interested in a solution to {eq}`least-squares-solution`, subject to constraints. Consider a single constraint {math}`g`, for which {math}`S=\set{\vec{r}:g(\vec{r})=0}`. The minimum for {math}`f` subject to {math}`g` is the point {math}`\vec{r}_1\in S` at which any small displacement along {math}`g` yields no change in {math}`f` (to first order). If this were not the case, there would exist another point {math}`\vec{r}_2\in S` for which {math}`f(\vec{r}_2) < f(\vec{r}_1)`. It follows that level curve {math}`f(\vec{r})=k` must be parallel to {math}`g` at {math}`\vec{r}_1`, which is equivalently stated as
+:::{math}
+\grad{f} = \lambda\grad{g}\,,
+:::
+where {math}`\lambda` is a constant (see {numref}`lagrange-multipliers`). 
 
 
+:::{figure} image/lagrange-multipliers.svg
+:name: lagrange-multipliers
+:width: 300px
+
+Diagram illustrating a constrained optimisation problem, in which the constraint (red curve) touches an equipotential contour (blue curve) of the function being optimised. By definition, the constrained solution occur where the two curves are touching, in order for the solution to be a minimum.
+:::
+
+Instead of a single constraint {math}`g(\vec{r})`, one might have {math}`K` constraint equations,
+:::{math}
+g_k\mathopen{}\pqty{\vec{\eta}, \vec{\xi}}\mathclose{} = 0\,, \qquad\qquad k=1,2,\dots,K\,.
+:::
+where {math}`\vec{\xi}` is a set of unmeasured model variables {math}`\vec{\xi}=\set{\xi_1, \xi_2, \dots, \xi_J}`.The solution to {eq}`least-squares-solution` is then given by reformulating the problem in terms of the Lagrangian
+:::{math}
+\mathcal{L} = \chi^2 + \sum_k \lambda_k g_k\,,
+:::
+and solving {math}`\grad_{\lambda,\vec{r}}\mathcal{L} = 0` for {math}`\vec{r}`.
+
+Our original problem in {eq}`least-squares-problem` may be rewritten using Lagrange multipliers, such that one minimises
+:::{math}
+\chi^2\mathopen{}\pqty{\vec{\eta}, \vec{\xi}, \vec{\lambda}}\mathclose{} = \left(\vec{y}-\vec{\eta}\right)^TV\mathopen{}\pqty{\vec{y}}\mathclose{}^{-1}\left(\vec{y}-\vec{\eta}\right) +
+2\vec{\lambda}^T\vec{g}\mathopen{}\pqty{\vec{\eta}, \vec{\xi}}\mathclose{}\,.
+:::
+% It follows that the best estimates of {math}`\vec{\eta}` and {math}`\vec{\xi}` satisfy
+% :::{math}
+%   \vec{f}\mathopen{}\pqty{\vec{\eta}, \vec{\xi}}\mathclose{} = \vec{0}
+%   \,.
+% :::
+
+Setting the gradient of {math}`\chi^2` to zero gives
+:::{math}
+\grad_\vec{\eta}\chi^2 &= 2V^{-1}\mathopen{}\pqty{\vec{y}-\vec{\eta}}\mathclose{} + 2G_\vec{\eta}^T\vec{\lambda} = \vec{0}\\
+\grad_\vec{\xi}\chi^2 &= 2G_\vec{\xi}^T\vec{\lambda} = \vec{0}\\
+\grad_\vec{\lambda}\chi^2 &= 2\vec{g}\mathopen{}\pqty{\vec{\eta},\vec{\xi}}\mathclose{} = \vec{0}\,,
+:::
+where the matrices {math}`G_{\vec{\mu}}` are defined as
+:::{math}
+\left(G_{\vec{\mu}}\right)_{ki} = \pdv{g_k}{\mu_i}\,.
+:::
+It follows that to minimise the objective function, one must solve
+:::{math}
+:label: solution-known
+
+V^{-1}\mathopen{}\pqty{\vec{\eta}-\vec{y}}\mathclose{} + G_\vec{\eta}^T\vec{\lambda} = \vec{0}\,,
+:::
+
+:::{math}
+:label: solution-unknown
+
+G_\vec{\xi}^T\vec{\lambda}  = \vec{0}\,,
+:::
+and
+:::{math}
+\vec{g}\mathopen{}\pqty{\vec{\eta}, \vec{\xi}}\mathclose{} 
+= \vec{0}\,.
+:::
+Taylor expanding {math}`g(\vec{\eta},\vec{\xi})` to first order about the point {math}`\vec{\eta}^v,\vec{\xi}^v` gives
+:::{math}
+:label: constraint-linear
+
+\vec{g}\mathopen{}\pqty{\vec{\eta}, \vec{\xi}}\mathclose{} =  \vec{g}\mathopen{}\pqty{\vec{\eta}^v, \vec{\xi}^v}\mathclose{} + G^v_\vec{\eta}\mathopen{}\pqty{\vec{\eta}-\vec{\eta}^v}\mathclose{} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{}\,.
+:::
+Solving  {eq}`solution-known` for {math}`\vec{\eta}` and setting  {eq}`constraint-linear` to zero, it follows that
+:::{math}
+:label: solution-linear
+
+\vec{g}^v + G^v_\vec{\eta}\mathopen{}\pqty{\vec{y}-V\mathopen{}\pqty{G_\vec{\eta}^v}\mathclose{}^T\vec{\lambda}-\vec{\eta}^v}\mathclose{} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{} =\vec{0}\,.
+:::
+
+By the introduction of
+:::{math}
+\vec{r} &= \vec{g}^v + G^v_\vec{\eta}\mathopen{}\pqty{\vec{y}-\vec{\eta}^v}\mathclose{}\\
+S &= G^v_\vec{\eta} V\mathopen{}\pqty{G^v_\vec{\eta}}\mathclose{}^T\,,
+:::
+{eq}`solution-linear` becomes
+:::{math}
+\vec{r} - S\vec{\lambda} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{} = \vec{0}\,.
+:::
+Left multiplying by {math}`S^{-1}` one obtains
+:::{math}
+:label: multiplier-definition
+
+\vec{\lambda} = S^{-1}\pqty{\vec{r} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{}}\,.
+:::
+ {eq}`multiplier-definition` may then be substituted into {eq}`solution-unknown` to give
+:::{math}
+\pqty{G_\vec{\xi}^v}^TS^{-1}\pqty{\vec{r} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{}} = \vec{0}\,,
+:::
+which may be solved for {math}`\vec{\xi}`:
+:::{math}
+:label: unknown-definition
+
+ \vec{\xi} = \vec{\xi}^v - \pqty{\pqty{G_\vec{\xi}^v}^TS^{-1}G_\vec{\xi}^v}^{-1}\pqty{G_\vec{\xi}^v}^TS^{-1}\vec{r}\,.
+:::
+Finally,  {eq}`solution-known` can be rearranged to give
+:::{math}
+:label: known-definition
+
+\vec{\eta} = \vec{y} - V\mathopen{}\pqty{G_\vec{\eta}^v}\mathclose{}^T\vec{\lambda}
+:::
+
+The solutions to the system are obtained by repeated application of the update equations as follows:
+- Determine {math}`\vec{\xi}^{i+1}` from {math}`\vec{r}^i` and {math}`S^i` using  {eq}`unknown-definition`.
+- Find {math}`\vec{\lambda}^{i+1}` from {math}`\vec{\xi}^{i+1}` using  {eq}`multiplier-definition`.
+- Use {math}`\vec{\lambda}^{i+1}` to find {math}`\vec{\eta}^{i+1}` using  {eq}`known-definition`.
+
+In this manner, the unknown variables {math}`\vec{\xi}` are initially computed, then the Lagrangian multipliers found, and finally the estimates {math}`\vec{\eta}` of the measured variables {math}`\vec{y}` are updated. This process repeats until the {math}`\chi^2` reaches a minimum, e.g. it becomes stable within successive iterations to some tolerance,
+:::{math}
+\abs{\frac{\left(\chi^2\right)^{i+1} - \left(\chi^2\right)^{i+1}}{\left(\chi^2\right)^{i}}} < \epsilon\,.
+:::

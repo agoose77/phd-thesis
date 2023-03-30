@@ -81,18 +81,18 @@ p_1 &= p_2^\pqty{1} + p_3^\pqty{1}
 An application of energy conservation yields
 :::{math}
 \frac{
-    \pqty{p_1}
+    p_1
 ^2}{2m_1} =
 \frac{
-    \pqty{p_2}
+    p_2
 ^2}{2m_2} +
 \frac{
-    \pqty{p_3}
+    p_3
 ^2}{2m_3}\,.
 :::
 
 
-It can be shown that the recoil momentum is uniquely determined by
+It can be shown that if {math}`m_1 = m_3`, the recoil momentum is uniquely determined by
 :::{math}
 :label: angular-kinematics-recoil
 p_3^\pqty{1} &= \frac{\pqty{\pqty{p_2^\pqty{2}}^2 + \pqty{p_2^\pqty{1}}^2}\frac{m_1}{m_2} + \pqty{p_2^\pqty{2}}^2 - \pqty{p_2^\pqty{1}}^2}{2 p_2^\pqty{1} }\\

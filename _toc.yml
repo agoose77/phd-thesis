@@ -28,7 +28,7 @@ parts:
             - file: content/2610-cluster-reconstruction
             - file: content/2611-track-fitting
             - file: content/2612-particle-identification
-            - file: content/2613-kinematic-fitting
+            # - file: content/2613-kinematic-fitting
             - file: content/2614-kinematics
   - caption: O-Lab Online Nuclear Laboratory
     numbered: true
@@ -51,12 +51,8 @@ parts:
   #   chapters:
   #     - file: content/5000-discussion.ipynb
   
-  - caption: Appendix
-    numbered: true
+  - caption: End Matter
+    numbered: false
     chapters:
       - file: content/9998-appendix
-      
-  - caption: Bibliography
-    numbered: true
-    chapters:
       - file: content/9999-bibliography
