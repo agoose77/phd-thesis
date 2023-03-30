@@ -738,9 +738,9 @@ The proposal step (1) of the PeARL algorithm closely resembles that of RANSAC. U
 #### Unbounded Line
 Conventional track fitting approaches often model a track as an unbounded line in three dimensional space. Such a model has an non-normalisable probability density; naturally over an infinite interval, the probability of observing any particular value approaches 0. As such, it is not appropriate (or indeed possible) to use the log-likelihood in {eq}`log-likelihood-sum` to describe the data cost required by {eq}`cost-function-pearl`. Instead, a simple orthogonal displacement cost function, analogous to the total least-squares cost function, can be used
 :::{math}
-T_{fc} = k\frac{\norm{\left(\vb{r}(c) - \vb{o}(f)\right)\wedge \hat{\vb{n}}(f)}^2}{\sigma(f)^2}\,,
+T_{fc} = k\frac{\norm{\left(\vec{r}(c) - \vec{o}(f)\right)\wedge \hat{\vec{n}}(f)}^2}{\sigma(f)^2}\,,
 :::
-where {math}`\vb{r}(c)` is the position of observation {math}`c`, {math}`\vb{o}(f)` a point belonging to model {math}`f`, {math}`\hat{\vb{n}}(f)` the direction of model {math}`f`, {math}`\sigma(f)` the width of the transverse distribution, and {math}`k` a scaling factor. This corresponds to the residual shown in {numref}`track-model-illustration`. 
+where {math}`\vec{r}(c)` is the position of observation {math}`c`, {math}`\vec{o}(f)` a point belonging to model {math}`f`, {math}`\hat{\vec{n}}(f)` the direction of model {math}`f`, {math}`\sigma(f)` the width of the transverse distribution, and {math}`k` a scaling factor. This corresponds to the residual shown in {numref}`track-model-illustration`. 
 
 The unbounded line may not be the most suitable model to describe linear data. Crucially, it has no concept of regularity; there is no parameterisation by which to describe the distribution along the linear axis.
 
@@ -904,18 +904,18 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ## Kinematic Fitting
 Many classes of problem, including those seen in track fitting, are amenable through least squares optimisation. In the context of track fitting, it is often the case that the solution is required to satisfy a set of constraints. These constraints ensure that determined solution is physically admissible.
 
-The general case of least squares estimation with constraints is solved by linearising the constraint equations, and solving the problem iteratively. Let {math}`\vec{\eta}=\set{\eta_1, \eta_2, \dots, \eta_n}` be a vector of {math}`N` observables, whose measured values are {math}`\vec{y}`, with errors given by the covariance matrix {math}`V\mathopen{}\pqty{\vec{y}}\mathclose{}`.
+The general case of least squares estimation with constraints is solved by linearising the constraint equations, and solving the problem iteratively. Let {math}`\vec{\eta}=\{ \eta_1, \eta_2, \dots, \eta_n \}` be a vector of {math}`N` observables, whose measured values are {math}`\vec{y}`, with errors given by the covariance matrix {math}`V\mathopen{}\pqty{\vec{y}}\mathclose{}`.
 From the Least-Squares Principle {cite:ps}`frodesen_probability_1979`, the objective function {math}`\chi^2` is given by
 :::{math}
 :label: least-squares-problem
-\chi^2 = \pqty{\vec{y}-\vec{\eta}}^TV\mathopen{}\pqty{\vec{y}}\mathclose{}^{-1}\left(\vec{y}-\vec{\eta}\right)\,.
+\chi^2 = \pqty{\vec{y}-\vec{\eta}}^TV\mathopen{}\pqty{\vec{y}}\mathclose{}^{-1}\pqty{\vec{y}-\vec{\eta}}\,.
 :::
 It follows that the best estimates of {math}`\vec{\eta}` satisfy
 :::{math}
 :label: least-squares-solution
-\grad_\vec{\eta}{\chi^2\mathopen{}\pqty{\vec{\eta}}\mathclose{}} = \vec{0}\,.
+\grad_{\vec{\eta}} {\chi^2\mathopen{}\pqty{\vec{\eta}}\mathclose{}} = \vec{0}\,.
 :::
-Frequently one is interested in a solution to {eq}`least-squares-solution`, subject to constraints. Consider a single constraint {math}`g`, for which {math}`S=\set{\vec{r}:g(\vec{r})=0}`. The minimum for {math}`f` subject to {math}`g` is the point {math}`\vec{r}_1\in S` at which any small displacement along {math}`g` yields no change in {math}`f` (to first order). If this were not the case, there would exist another point {math}`\vec{r}_2\in S` for which {math}`f(\vec{r}_2) < f(\vec{r}_1)`. It follows that level curve {math}`f(\vec{r})=k` must be parallel to {math}`g` at {math}`\vec{r}_1`, which is equivalently stated as
+Frequently one is interested in a solution to {eq}`least-squares-solution`, subject to constraints. Consider a single constraint {math}`g`, for which {math}`S=\{ \vec{r}:g(\vec{r})=0 \}`. The minimum for {math}`f` subject to {math}`g` is the point {math}`\vec{r}_1\in S` at which any small displacement along {math}`g` yields no change in {math}`f` (to first order). If this were not the case, there would exist another point {math}`\vec{r}_2\in S` for which {math}`f(\vec{r}_2) < f(\vec{r}_1)`. It follows that level curve {math}`f(\vec{r})=k` must be parallel to {math}`g` at {math}`\vec{r}_1`, which is equivalently stated as
 :::{math}
 \grad{f} = \lambda\grad{g}\,,
 :::
@@ -933,7 +933,7 @@ Instead of a single constraint {math}`g(\vec{r})`, one might have {math}`K` cons
 :::{math}
 g_k\mathopen{}\pqty{\vec{\eta}, \vec{\xi}}\mathclose{} = 0\,, \qquad\qquad k=1,2,\dots,K\,.
 :::
-where {math}`\vec{\xi}` is a set of unmeasured model variables {math}`\vec{\xi}=\set{\xi_1, \xi_2, \dots, \xi_J}`.The solution to {eq}`least-squares-solution` is then given by reformulating the problem in terms of the Lagrangian
+where {math}`\vec{\xi}` is a set of unmeasured model variables {math}`\vec{\xi}=\{ \xi_1, \xi_2, \dots, \xi_J \}`.The solution to {eq}`least-squares-solution` is then given by reformulating the problem in terms of the Lagrangian
 :::{math}
 \mathcal{L} = \chi^2 + \sum_k \lambda_k g_k\,,
 :::
@@ -952,9 +952,9 @@ Our original problem in {eq}`least-squares-problem` may be rewritten using Lagra
 
 Setting the gradient of {math}`\chi^2` to zero gives
 :::{math}
-\grad_\vec{\eta}\chi^2 &= 2V^{-1}\mathopen{}\pqty{\vec{y}-\vec{\eta}}\mathclose{} + 2G_\vec{\eta}^T\vec{\lambda} = \vec{0}\\
-\grad_\vec{\xi}\chi^2 &= 2G_\vec{\xi}^T\vec{\lambda} = \vec{0}\\
-\grad_\vec{\lambda}\chi^2 &= 2\vec{g}\mathopen{}\pqty{\vec{\eta},\vec{\xi}}\mathclose{} = \vec{0}\,,
+\grad_{\vec{\eta}}\chi^2 &= 2V^{-1}\mathopen{}\pqty{\vec{y}-\vec{\eta}}\mathclose{} + 2G_{\vec{\eta}}^T\vec{\lambda} = \vec{0}\\
+\grad_{\vec{\xi}}\chi^2 &= 2G_{\vec{\xi}}^T\vec{\lambda} = \vec{0}\\
+\grad_{\vec{\lambda}}\chi^2 &= 2\vec{g}\mathopen{}\pqty{\vec{\eta},\vec{\xi}}\mathclose{} = \vec{0}\,,
 :::
 where the matrices {math}`G_{\vec{\mu}}` are defined as
 :::{math}
@@ -964,13 +964,13 @@ It follows that to minimise the objective function, one must solve
 :::{math}
 :label: solution-known
 
-V^{-1}\mathopen{}\pqty{\vec{\eta}-\vec{y}}\mathclose{} + G_\vec{\eta}^T\vec{\lambda} = \vec{0}\,,
+V^{-1}\mathopen{}\pqty{\vec{\eta}-\vec{y}}\mathclose{} + G_{\vec{\eta}}^T\vec{\lambda} = \vec{0}\,,
 :::
 
 :::{math}
 :label: solution-unknown
 
-G_\vec{\xi}^T\vec{\lambda}  = \vec{0}\,,
+G_{\vec{\xi}}^T\vec{\lambda}  = \vec{0}\,,
 :::
 and
 :::{math}
@@ -981,45 +981,45 @@ Taylor expanding {math}`g(\vec{\eta},\vec{\xi})` to first order about the point 
 :::{math}
 :label: constraint-linear
 
-\vec{g}\mathopen{}\pqty{\vec{\eta}, \vec{\xi}}\mathclose{} =  \vec{g}\mathopen{}\pqty{\vec{\eta}^v, \vec{\xi}^v}\mathclose{} + G^v_\vec{\eta}\mathopen{}\pqty{\vec{\eta}-\vec{\eta}^v}\mathclose{} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{}\,.
+\vec{g}\mathopen{}\pqty{\vec{\eta}, \vec{\xi}}\mathclose{} =  \vec{g}\mathopen{}\pqty{\vec{\eta}^v, \vec{\xi}^v}\mathclose{} + G^v_{\vec{\eta}}\mathopen{}\pqty{\vec{\eta}-\vec{\eta}^v}\mathclose{} + G^v_{\vec{\xi}}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{}\,.
 :::
 Solving  {eq}`solution-known` for {math}`\vec{\eta}` and setting  {eq}`constraint-linear` to zero, it follows that
 :::{math}
 :label: solution-linear
 
-\vec{g}^v + G^v_\vec{\eta}\mathopen{}\pqty{\vec{y}-V\mathopen{}\pqty{G_\vec{\eta}^v}\mathclose{}^T\vec{\lambda}-\vec{\eta}^v}\mathclose{} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{} =\vec{0}\,.
+\vec{g}^v + G^v_{\vec{\eta}}\mathopen{}\pqty{\vec{y}-V\mathopen{}\pqty{G_{\vec{\eta}}^v}\mathclose{}^T\vec{\lambda}-\vec{\eta}^v}\mathclose{} + G^v_{\vec{\xi}}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{} =\vec{0}\,.
 :::
 
 By the introduction of
 :::{math}
-\vec{r} &= \vec{g}^v + G^v_\vec{\eta}\mathopen{}\pqty{\vec{y}-\vec{\eta}^v}\mathclose{}\\
-S &= G^v_\vec{\eta} V\mathopen{}\pqty{G^v_\vec{\eta}}\mathclose{}^T\,,
+\vec{r} &= \vec{g}^v + G^v_{\vec{\eta}}\mathopen{}\pqty{\vec{y}-\vec{\eta}^v}\mathclose{}\\
+S &= G^v_{\vec{\eta}} V\mathopen{}\pqty{G^v_{\vec{\eta}}}\mathclose{}^T\,,
 :::
 {eq}`solution-linear` becomes
 :::{math}
-\vec{r} - S\vec{\lambda} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{} = \vec{0}\,.
+\vec{r} - S\vec{\lambda} + G^v_{\vec{\xi}}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{} = \vec{0}\,.
 :::
 Left multiplying by {math}`S^{-1}` one obtains
 :::{math}
 :label: multiplier-definition
 
-\vec{\lambda} = S^{-1}\pqty{\vec{r} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{}}\,.
+\vec{\lambda} = S^{-1}\pqty{\vec{r} + G^v_{\vec{\xi}}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{}}\,.
 :::
  {eq}`multiplier-definition` may then be substituted into {eq}`solution-unknown` to give
 :::{math}
-\pqty{G_\vec{\xi}^v}^TS^{-1}\pqty{\vec{r} + G^v_\vec{\xi}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{}} = \vec{0}\,,
+\pqty{G_{\vec{\xi}}^v}^TS^{-1}\pqty{\vec{r} + G^v_{\vec{\xi}}\mathopen{}\pqty{\vec{\xi}-\vec{\xi}^v}\mathclose{}} = \vec{0}\,,
 :::
 which may be solved for {math}`\vec{\xi}`:
 :::{math}
 :label: unknown-definition
 
- \vec{\xi} = \vec{\xi}^v - \pqty{\pqty{G_\vec{\xi}^v}^TS^{-1}G_\vec{\xi}^v}^{-1}\pqty{G_\vec{\xi}^v}^TS^{-1}\vec{r}\,.
+ \vec{\xi} = \vec{\xi}^v - \pqty{\pqty{G_{\vec{\xi}}^v}^TS^{-1}G_{\vec{\xi}}^v}^{-1}\pqty{G_{\vec{\xi}}^v}^TS^{-1}\vec{r}\,.
 :::
 Finally,  {eq}`solution-known` can be rearranged to give
 :::{math}
 :label: known-definition
 
-\vec{\eta} = \vec{y} - V\mathopen{}\pqty{G_\vec{\eta}^v}\mathclose{}^T\vec{\lambda}
+\vec{\eta} = \vec{y} - V\mathopen{}\pqty{G_{\vec{\eta}}^v}\mathclose{}^T\vec{\lambda}
 :::
 
 The solutions to the system are obtained by repeated application of the update equations as follows:
