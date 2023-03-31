@@ -76,7 +76,7 @@ Among the exit channels of the compound nucleus is an elastic channel, i.e. that
 :name: resonance-shape
 :width: 512px
 
-Comparison between the (left) Breit-Wigner distribution and the (right) elastic scattering cross section. (b) includes interference between the shape-elastic and resonance-elastic interactions. Subfigures taken from Ref. {cite:ps}`satchler_introduction_1990`.
+Comparison between the (left) Breit-Wigner distribution and the (right) elastic scattering cross section. (right) includes interference between the shape-elastic and resonance-elastic interactions. Subfigures taken from Ref. {cite:ps}`satchler_introduction_1990`.
 :::
 
 +++
@@ -212,10 +212,13 @@ In a system consisting of two different-mass nuclei, thick-target resonant scatt
 :name: inverse-forward-kinematics
 
 :::{image} image/forward-kinematics.svg
+:alt: (a)
 
 :::
 
 :::{image} image/inverse-kinematics.svg
+:alt: (b)
+
 :::
 
 Schematic illustration of a non-relativistic elastic scattering reaction (lab frame) in (a) forward kinematics, in which the lighter nucleus _a_ is used as the projectile; and (b) inverse kinematics, whereby the heavy nucleus _A_ impinges upon the light target. 

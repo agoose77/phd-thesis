@@ -28,8 +28,8 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="2.2416999"
-     inkscape:cx="83.641883"
-     inkscape:cy="149.21712"
+     inkscape:cx="97.916764"
+     inkscape:cy="84.980153"
      inkscape:window-width="1920"
      inkscape:window-height="1055"
      inkscape:window-x="0"
@@ -263,17 +263,6 @@
              id="path2798" />
           <text
              transform="scale(1,-1)"
-             style="font-variant:normal;font-weight:normal;font-size:137.118px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
-             id="text2804"
-             x="883.97467"
-             y="-5668.6978"><tspan
-               x="883.97467 1177.7996"
-               y="-5668.6978"
-               sodipodi:role="line"
-               id="tspan2802"
-               style="stroke-width:8.33333">αα</tspan></text>
-          <text
-             transform="scale(1,-1)"
              style="font-variant:normal;font-weight:bold;font-size:93.045px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
              id="text2810"
              x="1055.3721"
@@ -286,17 +275,6 @@
                y="-5730.7275"
                id="tspan2808"
                style="stroke-width:8.33333">n</tspan></text>
-          <text
-             transform="scale(1,-1)"
-             style="font-variant:normal;font-weight:normal;font-size:137.118px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
-             id="text2814"
-             x="854.59131"
-             y="-5991.9058"><tspan
-               x="854.59131 1442.2419 1148.4161"
-               y="-5991.9058"
-               sodipodi:role="line"
-               id="tspan2812"
-               style="stroke-width:8.33333">ααα</tspan></text>
           <text
              transform="scale(1,-1)"
              style="font-variant:normal;font-weight:bold;font-size:93.045px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
@@ -373,21 +351,6 @@
                style="stroke-width:8.33333">n</tspan></text>
           <text
              transform="scale(1,-1)"
-             style="font-variant:normal;font-weight:normal;font-size:137.118px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
-             id="text2852"
-             x="1515.6984"
-             y="-5066.3613"><tspan
-               x="1515.6984"
-               y="-5066.3613"
-               id="tspan2848"
-               style="stroke-width:8.33333">α</tspan><tspan
-               x="1368.786 1662.6108"
-               y="-5316.1128"
-               sodipodi:role="line"
-               id="tspan2850"
-               style="stroke-width:8.33333">αα</tspan></text>
-          <text
-             transform="scale(1,-1)"
              style="font-variant:normal;font-weight:bold;font-size:97.9416px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
              id="text2856"
              x="1495.7834"
@@ -426,10 +389,21 @@
              id="text2870"
              x="1354.0911"
              y="-5022.2896"><tspan
-               x="1354.0911 1403.1011 781.1322 825.20587"
+               x="1354.0911 1403.1011"
                y="-5022.2896"
                sodipodi:role="line"
                id="tspan2868"
+               style="stroke-width:8.33333">b)</tspan></text>
+          <text
+             transform="scale(1,-1)"
+             style="font-variant:normal;font-weight:bold;font-size:88.1475px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
+             id="text2870-3"
+             x="1082.349"
+             y="-4882.7061"><tspan
+               x="1082.349 1131.359 509.39011 553.46375"
+               y="-4882.7061"
+               sodipodi:role="line"
+               id="tspan2868-7"
                style="stroke-width:8.33333">b)a)</tspan></text>
           <text
              transform="scale(1,-1)"
@@ -437,6 +411,104 @@
              id="text9319"
              x="1794.7186"
              y="-5991.9058">(a)</text>
+          <g
+             id="g2704-9"
+             transform="matrix(8.33333,0,0,8.33333,-243.30899,3.5782374)">
+            <text
+               transform="matrix(1,0,0,-1,169.543,680.244)"
+               style="font-variant:normal;font-weight:normal;font-size:16.4542px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="text2708-7"><tspan
+                 x="0"
+                 y="0"
+                 id="tspan2706-8">α</tspan></text>
+          </g>
+          <g
+             id="g2704-2"
+             transform="matrix(8.33333,0,0,8.33333,-533.26753,6.3663004)">
+            <text
+               transform="matrix(1,0,0,-1,169.543,680.244)"
+               style="font-variant:normal;font-weight:normal;font-size:16.4542px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="text2708-5"><tspan
+                 x="0"
+                 y="0"
+                 id="tspan2706-3">α</tspan></text>
+          </g>
+          <g
+             id="g2704-4"
+             transform="matrix(8.33333,0,0,8.33333,-561.14816,324.20548)">
+            <text
+               transform="matrix(1,0,0,-1,169.543,680.244)"
+               style="font-variant:normal;font-weight:normal;font-size:16.4542px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="text2708-9"><tspan
+                 x="0"
+                 y="0"
+                 id="tspan2706-0">α</tspan></text>
+          </g>
+          <g
+             id="g2704-20"
+             transform="matrix(8.33333,0,0,8.33333,-271.18962,326.99354)">
+            <text
+               transform="matrix(1,0,0,-1,169.543,680.244)"
+               style="font-variant:normal;font-weight:normal;font-size:16.4542px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="text2708-1"><tspan
+                 x="0"
+                 y="0"
+                 id="tspan2706-9">α</tspan></text>
+          </g>
+          <g
+             id="g2704-6"
+             transform="matrix(8.33333,0,0,8.33333,27.133123,329.78161)">
+            <text
+               transform="matrix(1,0,0,-1,169.543,680.244)"
+               style="font-variant:normal;font-weight:normal;font-size:16.4542px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="text2708-2"><tspan
+                 x="0"
+                 y="0"
+                 id="tspan2706-1">α</tspan></text>
+          </g>
+          <g
+             id="g2704-207"
+             transform="matrix(8.33333,0,0,8.33333,-45.356514,-347.7177)">
+            <text
+               transform="matrix(1,0,0,-1,169.543,680.244)"
+               style="font-variant:normal;font-weight:normal;font-size:16.4542px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="text2708-3"><tspan
+                 x="0"
+                 y="0"
+                 id="tspan2706-11">α</tspan></text>
+          </g>
+          <g
+             id="g2704-90"
+             transform="matrix(8.33333,0,0,8.33333,105.19889,-607.00755)">
+            <text
+               transform="matrix(1,0,0,-1,169.543,680.244)"
+               style="font-variant:normal;font-weight:normal;font-size:16.4542px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="text2708-56"><tspan
+                 x="0"
+                 y="0"
+                 id="tspan2706-7">α</tspan></text>
+          </g>
+          <g
+             id="g2704-7"
+             transform="matrix(8.33333,0,0,8.33333,252.96622,-344.92963)">
+            <text
+               transform="matrix(1,0,0,-1,169.543,680.244)"
+               style="font-variant:normal;font-weight:normal;font-size:16.4542px;font-family:Symbol;-inkscape-font-specification:Symbol;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="text2708-4"><tspan
+                 x="0"
+                 y="0"
+                 id="tspan2706-06">α</tspan></text>
+          </g>
+          <text
+             transform="scale(1,-1)"
+             style="font-variant:normal;font-weight:bold;font-size:88.1475px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
+             id="text2870-7"
+             x="1358.34"
+             y="-5027.3188"><tspan
+               x="785.38098 829.45465"
+               sodipodi:role="line"
+               id="tspan2868-2"
+               style="stroke-width:8.33333">a)</tspan></text>
         </g>
       </g>
     </g>

@@ -197,10 +197,14 @@ Of particular relevance to this work is that of Ref. {cite:ps}`baba_coulomb_201
 :name: states-in-14c-14o
 
 :::{image} image/states-in-2+-14c-14o.png.svg
+:alt: (a)
+
 :::
 
 :::{image} image/states-in-4+-14c-14o.png.svg
+:alt: (b)
+
 :::
 
-(a, left) {math}`2^+` and (b, right) {math}`4^+` states in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` determined by AMD calculation. Close correspondence between the {math}`\pi`-bond chain states is observed, whilst the {math}`\sigma`-bond levels are expected to differ significantly in excitation energy and decay width. Figure taken from Ref. {cite:ps}`baba_coulomb_2019`.
+(a) {math}`2^+` and (b) {math}`4^+` states in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` determined by AMD calculation. Close correspondence between the {math}`\pi`-bond chain states is observed, whilst the {math}`\sigma`-bond levels are expected to differ significantly in excitation energy and decay width. Figure taken from Ref. {cite:ps}`baba_coulomb_2019`.
 ::::

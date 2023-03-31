@@ -361,3 +361,5 @@ plt.vlines(
 plt.vlines([13.32e3, 15.7e3, 17.36e3], 0, 500, label="AMD", color="black")
 plt.legend();
 ```
+
+It can be seen that a number of peaks in the excitation function coincide with known or predicted energies. Further analysis is required, including kinematic fitting of the angular measurements, and elastic-inelastic subtraction, to make any further observations.
