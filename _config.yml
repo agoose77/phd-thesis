@@ -7,7 +7,6 @@ exclude_patterns:
   - README.md
   - extern/*
   - content/4000*.md
-  - content/5000*.md
   - .build*
 
 mystnb:
