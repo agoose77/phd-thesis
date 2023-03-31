@@ -262,11 +262,4 @@ JuypterHub has several distributions according to the needs of the user. For sma
 
 Screenshot of the JupyterHub administrator panel, showing a list of previously seen users, and their server status. Individual user servers can be stopped and started by the administrator; enabling remote troubleshooting in the event of a problem.
 :::
-
-+++
-
-:::{admonition} To Do
-`ipywidgets`?
-`xeus-python`?
-modular configuration - how modules connect?
-:::
+\

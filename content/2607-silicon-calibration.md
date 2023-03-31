@@ -39,11 +39,11 @@ data_path = Path("data")
 ## Semiconductor Detectors
 The silicon detectors that surround the TexAT TPC are used to measure the energy of light products that escape the active volume. Within each detector, the periodic structure of the semiconductor's crystalline lattice establishes a set of electron energy bands separated by ranges of forbidden energies. At the Fermi level, the lower energy (_valence_) band comprises a continuum of fully occupied states that are bound to particular lattice sites, whilst the higher energy (_conduction_) band contains entirely unfilled states in which the electrons are free to move throughout the lattice (see {numref}`conduction-valence-band`). 
 
-:::{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Semiconductor_band_structure_%28lots_of_bands_2%29.svg/640px-Semiconductor_band_structure_%28lots_of_bands_2%29.svg.png
+:::{figure} image/semiconductor-band-structure.svg
 ---
 name: conduction-valence-band
 alt: An illustration of the valence and conduction bands in a semiconductor. A dashed line at the Fermi energy indicates the boundary between the lower energy (filled) valence band and the higher energy (unfilled) conduction band.
-width: 400px
+width: 300px
 align: center
 ---
 An illustration of the band structure in a semiconductor. The dashed line indicates the Fermi level that separates the valence and conduction bands.
@@ -55,7 +55,7 @@ The excitation of an electron across the gap between the valence and conduction 
 In order to observe the charge-pairs produced by ionisation, there must exist an electric field such that the charge-carriers do not recombine, but rather induce a current through their motion. As any externally developed potential will induce an opposing potential in the material, it follows that this field must be established through intrinsic diffusion of the charge carriers. To this end, one can _dope_ the semiconductor lattice with substitutional impurities that introduce a surplus of a particular charge carrier. These dopant atoms do not conserve the electron-hole equilibrium, i.e. they introduce a majority of the singular charge carrier that exclusively determines the material's electric conductivity. Semiconductors doped with donor (electron) impurities are denoted N-type semiconductors (see {numref}`n-type-doping`), whilst those with acceptor impurities are termed P-type materials (see {numref}`p-type-doping`). 
 
 
-:::{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/N-Type_Semiconductor_Bands.svg/320px-N-Type_Semiconductor_Bands.svg.png 
+:::{figure} image/n-type-doping.svg
 ---
 name: n-type-doping
 alt: A schematic diagram of the minority-majority charge carriers in an n-type semiconductor. A surplus of negative charge carriers (electron) can be seen in the conduction band.
@@ -68,7 +68,7 @@ A schematic diagram of the minority-majority charge carriers in an n-type semico
 
 +++
 
-:::{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/P-Type_Semiconductor_Bands.svg/320px-P-Type_Semiconductor_Bands.svg.png
+:::{figure} image/p-type-doping.svg
 ---
 name: p-type-doping
 alt: A schematic diagram of the minority-majority charge carriers in an p-type semiconductor. A surplus of positive charge carriers (holes) can be seen in the conduction band.
@@ -83,7 +83,7 @@ Upon interfacing two alternately doped semiconductors, a P-N junction is formed.
 
 The _contact potential_ established by the space charge at either end of the junction is of the order $\sim 1\,V$, which yields a poor electron-hole mobility. An electric potential can be applied to either side of the junction, widening the depletion region and reducing the likelihood of charge-pair recombination. Known as reverse biasing, this significantly improves the detector performance.
 
-:::{figure} https://upload.wikimedia.org/wikipedia/commons/f/fa/Pn-junction-equilibrium-graphs.png
+:::{figure} image/pn-junction-equilibrium-graphs.png
 ---
 name: p-n-junction
 alt: A schematic diagram of the charge-carrier distribution across a P-N junction. The holes in the P-type region and electrons in the N-type region are shown to reduce in concentration towards their counterparts. The space charge potential due to net charge carrier diffusion is shown to be maximal at the junction interface, and tending to zero outside of a given thickness.
@@ -266,7 +266,7 @@ F=\frac{\langle\delta N^2\rangle}{\langle N\rangle}\,,
 :::
 where {math}`\langle\delta N^2\rangle` is the observed variance and {math}`\langle N\rangle` the observed mean. In silicon detectors, which exhibit a high charge-pair formation efficiency, $F$ is experimentally found to be of the order $10^{-1}$ {cite:ps}`kotov_pair_2018`{cite:ps}`alig_scattering_1980`.
 
-+++ {"tags": ["only-web"]}
++++ {"tags": ["no-latex"]}
 
 :::{note}
 Simplified "final-state" models can predict the experimental values for {math}`F` with a microscopic assuming a single-particle-distribution function. One such model, the "bathtub model", assumes no inter-charge-pair correlations and draws from this single-particle-distribution to partition the deposited energy. It has been shown that correlational effects are required to fully reproduce experimental measurements of $F$, through models such as the random parking problem (RPP) {cite:ps}`subashiev_correlation_2010`.
@@ -281,7 +281,7 @@ Simplified "final-state" models can predict the experimental values for {math}`F
 
 For each detector, the charge distribution was fit as a sum of four Gaussian distributed random variables.
 
-+++ {"tags": ["only-web"]}
++++ {"tags": ["no-latex"]}
 
 :::{note}
 The motivation for a Gaussian fit function follows from the application of the central-limit-theorem to the final-state model of charge-pair formation {cite:ps}`subashiev_correlation_2010`, yielding

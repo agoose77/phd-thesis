@@ -9,8 +9,6 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-mystnb:
-  execution_mode: "inline"
 ---
 
 ```{code-cell} ipython3
@@ -24,10 +22,10 @@ import pickle
 import numpy as np
 import particle
 from matplotlib import pyplot as plt
+from mplhep.styles import ATLAS
 from particle import Particle
 from texat.detector.micromegas import PAD_HEIGHT
 from texat.units import units as u
-from mplhep.styles import ATLAS
 
 plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
@@ -91,7 +89,7 @@ An application of energy conservation yields
 ^2}{2m_3} + 
 E_\mathrm{ex}\,,
 :::
-where {math}`E_\mathrm{ex}` is the total excitation energy of particles 2 and 3. For elastic scattering, {math}`E_\mathrm{ex} = 0`
+where {math}`E_\mathrm{ex}` is the total excitation energy of particles 2 and 3. For elastic scattering, {math}`E_\mathrm{ex} = 0`.
 
 
 It can be shown that if {math}`m_1 = m_3`, the recoil momentum is uniquely determined by
@@ -140,7 +138,7 @@ with open("data/angular-energy-vertex.pickle", "rb") as f:
 hist.plot();
 ```
 
-This approach necessarily requires the knowledge of the interaction vertex (to identify the light particle energy) and the relative angle of the beam to the scattered ion track. If both of these cannot be determined, then there is insufficient knowledge of the system to find a solution. In the zero-degree regime, in which the light product track is close to zero degrees, it is possible to leverage the assumption of a linear reaction in order to once-again determine the beam energy (see {numref}`expt:zero-degree-scattering`).
+This approach necessarily requires the knowledge of the interaction vertex (to identify the light particle energy) and the relative angle of the beam to the scattered ion track. If both of these cannot be determined, then there is insufficient knowledge of the system to find a solution. In the central detectors, in which the light product track is close to zero degrees, it is possible to leverage the assumption of a linear reaction in order to once-again determine the beam energy (see {numref}`expt:zero-degree-scattering`).
 
 +++
 
@@ -182,6 +180,10 @@ ax_inset.set_ylim(
 ax_inset.axvline(23000, linestyle="--")
 ax.indicate_inset_zoom(ax_inset)
 
+ax_inset.set_xlabel(None)
+ax.xaxis.labelpad = 20
+ax.xaxis.label_position = "bottom"
+
 plt.ylim(0, 1000)
 plt.axvline(23000, linestyle="--");
 ```
@@ -204,7 +206,7 @@ ion_energy_4he = u.Quantity(ion_energy_4he, "MeV")
 max_si_energy = 23 * u.MeV
 range_at_max = np.interp(max_si_energy, ion_energy_4he, range_4he)
 energy_at_window = np.interp(range_at_max + 577 * u.mm, range_4he, ion_energy_4he)
-``` 
+```
 
 A more robust approach is to reconstruct the reaction kinematics in the non zero-degree regime, and plot the difference of the projectile energies computed by this reconstruction and directly by energy loss through the gas. {numref}`beam-energy-diff-hist` clearly shows a non-central distribution, indicating that the direct prediction lies below the reconstructed value by ~1 MeV, i.e. the true beam energy after the window is ~{eval}`energy_at_window * alpha_to_beam + 1*u.MeV`.
 
@@ -213,8 +215,9 @@ A more robust approach is to reconstruct the reaction kinematics in the non zero
 mystnb:
   figure:
     caption: A histogram of the difference in projectile energy computed directly
-      (through SRIM calculations of energy loss in the gas),
-      and via indirect kinematic reconstruction (using the known track angles and measured energy deposit in the silicon detectors).
+      (through SRIM calculations of energy loss in the gas), and via indirect kinematic
+      reconstruction (using the known track angles and measured energy deposit in
+      the silicon detectors).
     name: beam-energy-diff-hist
   image:
     align: center
@@ -224,7 +227,7 @@ tags: [hide-input]
 with open("data/beam-energy-delta.pickle", "rb") as f:
     beam_energy_delta_hist = pickle.load(f)
 beam_energy_delta_hist.plot(label=r"$E_B(\mathrm{si}) - E_B$")
-plt.axvline(1e3, linestyle="--", label="Centroid");
+plt.axvline(1e3, linestyle="--", label="Centroid")
 plt.legend();
 ```
 
@@ -292,12 +295,16 @@ energy_hit_ex, y_sample_ex = np.loadtxt(
 
 
 plt.plot(y_sample, energy_hit, color="white", label="0° curve")
-plt.plot(y_sample_ex, energy_hit_ex, color="white", label="0° curve (first excitation)", linestyle="--")
+plt.plot(
+    y_sample_ex,
+    energy_hit_ex,
+    color="white",
+    label="0° curve (first excitation)",
+    linestyle="--",
+)
 plt.xlabel("Vertex Position /mm")
 plt.ylabel("Silicon Energy /keV")
-plt.axvline(
-    -64 * PAD_HEIGHT, label="Start of MicroMeGaS", color="C2"
-)
+plt.axvline(-64 * PAD_HEIGHT, label="Start of MicroMeGaS", color="C2")
 hist.plot()
 plt.legend(labelcolor="white");
 ```
@@ -326,7 +333,10 @@ The calculation of a reaction Q-value is described in {numref}`expt:conservation
 mystnb:
   figure:
     caption: A histogram of the excitation energy of the {math}`{}^{14}\mathrm{O}`
-      nucleus integrated over all non-zero-degree scattering angles. States published in the ENSDF database are plotted in dashed lines, whilst the various AMD predictions discussed in this work for {math}`{}^{14}\mathrm{O}` are, where plausible, indicated by solid lines.
+      nucleus integrated over all non-zero-degree scattering angles. States published
+      in the ENSDF database are plotted in dashed lines, whilst the various AMD predictions
+      discussed in this work for {math}`{}^{14}\mathrm{O}` are, where plausible, indicated
+      by solid lines.
     name: excitation-curve
   image:
     align: center
@@ -337,8 +347,17 @@ with open("data/excitation-function.pickle", "rb") as f:
     excitation_hist = pickle.load(f)
 
 excitation_hist.stack(0).plot()
-plt.vlines([11970, 12840, 13010, 14640, 17400], 0, 500, linestyle="--", label="ENSDF", color="black")
+ax = plt.gca()
+ax.xaxis.labelpad = 20
+ax.xaxis.label_position = "bottom"
+plt.vlines(
+    [11970, 12840, 13010, 14640, 17400],
+    0,
+    500,
+    linestyle="--",
+    label="ENSDF",
+    color="black",
+)
 plt.vlines([13.32e3, 15.7e3, 17.36e3], 0, 500, label="AMD", color="black")
 plt.legend();
-
 ```

@@ -20,6 +20,7 @@ The analysis process was performed in a series of discrete stages (see {numref}`
 
 :::{mermaid}
 :caption: Process diagram of the TexAT analysis.
+:align: center
 :name: analysis-flowchart
 
 flowchart TD

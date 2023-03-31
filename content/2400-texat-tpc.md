@@ -229,7 +229,7 @@ The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in 
 :::{figure} image/placeholder/external-shaper.png
 :name: external-shaper
 :alt: Schematic diagram of the bypass mechanism for the AGET chip.
-:width: 400px
+:width: 300px
 :align: center
 
 A schematic diagram of the shaper bypass facility of AGET chips. External shapers are used for the ion counter signals (see above). Figure adapted from Ref. {cite:ps}`koshchiy_texas_2020`.

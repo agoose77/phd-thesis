@@ -26,6 +26,7 @@ from matplotlib import pyplot as plt
 from scipy.spatial import KDTree
 from texat.tracking.model.interval import probability_point_line
 from mplhep.styles import ATLAS
+from utils import DOT
 
 plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
@@ -34,7 +35,7 @@ plt.rc("figure", figsize=(10, 5), dpi=120)
 (expt:track-finding-and-fitting)=
 # Track Finding and Fitting
 
-Fundamental to design of many particle physics experiments is the ability to detect reaction ejectiles and measure their physical properties. The considerable challenge that this poses, in even the most conventional forward-kinematics fixed-target experiments, is exacerbated in the thick-target regime described in {numref}`expt:thick-target-experiments`. In the absence of a single interaction locus, it becomes of vital importance to be able to observe the _trajectories_ of reaction products such that the underlying kinematic variables can be reconstructed. As discussed in {numref}`expt:time-projection-chambers`, the TPC detectors in which these experiments are often conducted typically incorporate a segmented readout, whereby particle trajectories are described as a set of discretised samples. The resolution of these data is usually governed by a combination of the ejectile, gas, and readout properties. 
+Fundamental to the design of many particle physics experiments is the ability to detect reaction ejectiles and measure their physical properties. The considerable challenge that this poses, in even the most conventional forward-kinematics fixed-target experiments, is exacerbated in the thick-target regime described in {numref}`expt:thick-target-experiments`. In the absence of a single interaction locus, it becomes of vital importance to be able to observe the _trajectories_ of reaction products such that the underlying kinematic variables can be reconstructed. As discussed in {numref}`expt:time-projection-chambers`, the TPC detectors in which these experiments are often conducted typically incorporate a segmented readout, whereby particle trajectories are described as a set of discretised samples. The resolution of these data is usually governed by a combination of the ejectile, gas, and readout properties. 
 
 The problems of identifying and fitting the particle trajectories recorded in such data are nominally distinct concepts, although many approaches necessarily combine the two. Track _finding_ describes the task of identifying the existence of a particle track, whilst track _fitting_ refers to the process of ascribing model variables to identified tracks subject to the parametrisation. Central to both subproblems is the importance of outlier rejection, which is often used as a metric by which to evaluate algorithm performance.
 
@@ -46,16 +47,17 @@ The problems of identifying and fitting the particle trajectories recorded in su
 
 ### Hough Transform
 
-The _classical_ Hough transform is a technique for estimating the parameters and multiplicity of a model family within a dataset. In this context, a _model_ is a description of a set of data, such as a line or a plane. The Hough transform employs a scheme whereby _features_ in the dataset, i.e. points along a line, vote for models with which they are compatible. For any continuous parametrisation, a single observation is a member of an infinite set of models. In order to make this tractable, the Hough transform is conventionally performed by discretising the {math}`n`-dimensional parameter space of the model. Thereafter, for each observation, the set of compatible models can be determined from the permutations of the discrete {math}`n-1`-dimensional free parameter space.
+The _classical_ Hough transform is a technique for estimating the parameters and multiplicity of a model family within a dataset. In this context, a _model_ is a description of a set of data, such as a line or a plane. The Hough transform employs a scheme whereby _features_ in the dataset, i.e. points along a line, vote for models with which they are compatible (see {numref}`hough-transform-flow`). For any continuous parametrisation, a single observation is a member of an infinite set of models. In order to make this tractable, the Hough transform is conventionally performed by discretising the {math}`n`-dimensional parameter space of the model. Thereafter, for each observation, the set of compatible models can be determined from the permutations of the discrete {math}`n-1`-dimensional free parameter space.
 
 :::{mermaid}
 :caption: Flowchart detailing the classic discrete Hough transform.
+:name: hough-transform-flow
+:align: center
 
-graph TD;
+graph LR;
     start[Start]
     observation[Select observation]
     parameter_2[Select parameter #2]
-    parameter_dots[...]
     parameter_n[Select parameter #n]
     compute_dependent[Compute parameter #1]
     accumulate_vote[Store vote]
@@ -67,8 +69,7 @@ graph TD;
     
     start-->observation
     observation --> parameter_2
-    parameter_2 --> parameter_dots
-    parameter_dots --> parameter_n
+    parameter_2 --> |...| parameter_n
     parameter_n --> compute_dependent
     compute_dependent --> accumulate_vote
     accumulate_vote --> has_more_parameter_n
@@ -88,12 +89,6 @@ Certain procedures can be used to mitigate this compromise:
 - Bin smoothing: convolving the parameter space with a smoothing kernel to reduce the significance of spurious peaks
 - Secondary optimisation: by asserting that identified models are close to their "true" representations, a secondary optimiser (e.g. least squares) can be used to improve the model parameters.
 
-:::{admonition} To Do
-:class: margin
-
-Create figures to illustrate Hough transform algorithm.
-:::
-
 +++
 
 ### RANSAC 
@@ -101,19 +96,15 @@ Create figures to illustrate Hough transform algorithm.
 Random Sample Consensus (RANSAC) is a paradigm for fitting a singular model to experimental data. It recognises the model finding/fitting problem as a connected one; the challenge of identifying a unique set of models within a dataset is highly dependent upon estimating their free parameters given the observed data {cite:ps}`fischler_random_1981`.
 
 RANSAC draws a distinction between two kinds of error: 
-- _measurement_ error: deviations from the "true" values observed in measurements)
+- _measurement_ error: deviations from the "true" values observed in measurements
 - _classification_ error: gross errors that arise from misclassification of the dataset
 
-The RANSAC procedure accounts for these two kinds of error by starting with a small, feasible, initial dataset, before enlarging this set with _consistent_ data. Concretely, when fitting e.g a line within a set of {math}`N` points, the RANSAC approach would be to select two points, compute origin and direction vectors, and then determine the points which lie within an acceptance window (orthogonal distance) to the model. These new _inliers_ can then be used to re-estimate the model; smoothing the measurement errors. 
+The RANSAC procedure accounts for these two kinds of error by starting with a small, feasible, initial dataset, before enlarging this set with _consistent_ data (see {numref}`ransac-flow`). Concretely, when fitting e.g a line within a set of {math}`N` points, the RANSAC approach would be to select two points, compute origin and direction vectors, and then determine the points which lie within an acceptance window (orthogonal distance) to the model. These new _inliers_ can then be used to re-estimate the model; smoothing the measurement errors. 
 
-:::{admonition} To Do
-:class: margin
-
-Create figures to illustrate RANSAC algorithm.
-:::
 
 :::{mermaid}
 :caption: Flowchart outlining the RANSAC algorithm.
+:name: ransac-flow
 
 graph TD;
 start[Start]
@@ -169,12 +160,6 @@ The RANSAC algorithm establishes a hard distinction between inliers and outliers
 (expt:facility-location-problem)=
 ## Facility Location Problem
 The previously explored methods of the Hough transform and RANSAC are both _greedy_ methods; the order in which solutions are generated favours those models which are found first. The consequence of greedy optimisation is that the global solution across several models may not be optimal.
-
-:::{admonition} To Do
-:class: margin
-
-Give a visual example of this
-:::
 
 In order obtain a _global_ solution to track labelling, the task must be reframed as a global optimisation problem. 
 The facility location problem (FLP) is an optimisation problem whose solution determines the optimal location for a set of facilities such that the transportation costs for each facility are minimised. There are several formulations of the problem with auxillary constraints, such as the _capacity_ of the facilities, or the addition of an _opening cost_ for each facility. 
@@ -407,11 +392,13 @@ plt.legend(loc="lower right");
 
 Clearly, the _label cost_ leads to minimisation of the model count, whilst the _smooth cost_ leads to the preference of spatially coherent labellings. As before, the _data cost_ prefers models which are well-described by their inliers.
 
+<!-- 
 :::{admonition} To Do
 :class: margin
 
 Mention constraints on potential (see [https://profs.etsmtl.ca/hlombaert/energy/#SECTION00010000000000000000](https://profs.etsmtl.ca/hlombaert/energy/#SECTION00010000000000000000))
 :::
+ -->
 
 +++
 
@@ -469,37 +456,6 @@ mystnb:
     width: 128px
 tags: [hide-input]
 ---
-import base64
-import subprocess
-
-
-def format_dot(src, dpi):
-    mime = {}
-    result = subprocess.run(
-        ["dot", "-T", "svg"], capture_output=True, input=src.encode("utf-8")
-    )
-    if result.returncode:
-        mime["text/plain"] = result.stderr.decode()
-    else:
-        mime["image/svg+xml"] = result.stdout.decode()
-
-        result = subprocess.run(
-            ["dot", "-T", "png", f"-Gdpi={dpi:d}"],
-            capture_output=True,
-            input=src.encode("utf-8"),
-        )
-        mime["image/png"] = base64.b64encode(result.stdout).decode() + "\n"
-
-    return mime
-
-
-class DOT:
-    def __init__(self, source, dpi=300):
-        self.source = source
-        self.dpi = dpi
-
-    def _repr_mimebundle_(self, include=None, exclude=None):
-        return format_dot(self.source, self.dpi)
 
 
 DOT(

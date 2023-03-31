@@ -48,6 +48,7 @@ sphinx:
         image_dark: content/image/uob-logo-reversed.svg
     mermaid_version: ""
     mermaid_init_js: 'mermaid.initialize({startOnLoad:true});'
+    mermaid_pdfcrop: pdfcrop
     html_assets_policy: always
     builder_ignore_classes:
         latex: 
