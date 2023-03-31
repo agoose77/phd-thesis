@@ -101,7 +101,7 @@ Energy diagram of shell-model degeneracies for integer deformation ratios in an 
 :name: pi-sigma-bonds-13c
 :width: 400px
 
-One-dimensional molecular orbits for cluster states in {math}`{}^{13}\mathrm{C}`; showing {math}`\pi`. Note that the number of nodes {math}`[n_1 n_2 n_3]` increases with increasing oscillator quanta. In this 2D projection, the deformation axis lies in parallel to the plane normal. Figure adapted from {cite:ps}`mcewan_characterization_2004`.
+One-dimensional molecular orbits for cluster states in {math}`{}^{13}\mathrm{C}`; showing {math}`\pi`. Note that the number of nodes {math}`[n_1 n_2 n_3]` increases with increasing oscillator quanta. In this 2D projection, the deformation axis lies in parallel to the plane normal. Figure adapted from Ref. {cite:ps}`mcewan_characterization_2004`.
 :::
 
 :::{note}

@@ -606,7 +606,7 @@ The single Slater-determinant AMD basis representation ensures that the solution
 :align: center
 :width: 300px
 
-Density distributions of the AMD wavefunctions for {math}`{}^{9}\text{Li}` obtained by (a) variation _before_ parity and angular momentum projection, (b) _after_ parity and _before_ angular momentum projection, and (c) _after_ parity and angular momentum projection. It can be seen that only (c) exhibits beyond mean-field structure. The proton ({math}`\rho_p`), neutron ({math}`\rho_n`), and total ({math}`\rho_m`) densities of the AMD wave-function are illustrated. Figure adapted from {cite:ps}`beck_clusters_2010`.
+Density distributions of the AMD wavefunctions for {math}`{}^{9}\text{Li}` obtained by (a) variation _before_ parity and angular momentum projection, (b) _after_ parity and _before_ angular momentum projection, and (c) _after_ parity and angular momentum projection. It can be seen that only (c) exhibits beyond mean-field structure. The proton ({math}`\rho_p`), neutron ({math}`\rho_n`), and total ({math}`\rho_m`) densities of the AMD wave-function are illustrated. Figure adapted from Ref. {cite:ps}`beck_clusters_2010`.
 :::
 
 +++
@@ -639,7 +639,7 @@ Meanwhile, constrained variation closely resembles the Generator Coordinate Meth
 :align: center
 :width: 300px
 
-Density distributions of a singular AMD wave-function for {math}`{}^{9}\text{Li}` obtained by variation _after_ parity and _before_ angular momentum projection for a deformation constraint of {math}`\beta=0.35`. The proton ({math}`\rho_p`), neutron ({math}`\rho_n`), and total ({math}`\rho_m`) densities of the AMD wave-function are illustrated. See {numref}`amd-variation-comparison` for comparison to other variational solutions. Figure adapted from {cite:ps}`beck_clusters_2010`.
+Density distributions of a singular AMD wave-function for {math}`{}^{9}\text{Li}` obtained by variation _after_ parity and _before_ angular momentum projection for a deformation constraint of {math}`\beta=0.35`. The proton ({math}`\rho_p`), neutron ({math}`\rho_n`), and total ({math}`\rho_m`) densities of the AMD wave-function are illustrated. See {numref}`amd-variation-comparison` for comparison to other variational solutions. Figure adapted from Ref. {cite:ps}`beck_clusters_2010`.
 :::
 
 % HOW does this differ to HF? HF w.f. are intrinsically not localised to particles like AMD
@@ -700,7 +700,7 @@ The Hückel wave-function amplitudes for the various orbital configurations are 
 :name: pi-sigma-bonds-9be
 :width: 400px
 
-One-dimensional molecular orbits for cluster states in {math}`{}^9\text{Be}`; showing (a) {math}`\sigma` bonding, (b) {math}`\sigma` anti-bonding, (c\) {math}`\pi` bonding, (d) {math}`\pi` anti-bonding. In this 2D projection, the deformation axis lies in parallel to the plane normal. Figure adapted from {cite:ps}`mcewan_characterization_2004`.
+One-dimensional molecular orbits for cluster states in {math}`{}^9\text{Be}`; showing (a) {math}`\sigma` bonding, (b) {math}`\sigma` anti-bonding, (c\) {math}`\pi` bonding, (d) {math}`\pi` anti-bonding. In this 2D projection, the deformation axis lies in parallel to the plane normal. Figure adapted from Ref. {cite:ps}`mcewan_characterization_2004`.
 :::
 It can be seen that the {math}`\pi` and {math}`\sigma` bonds in {numref}`pi-sigma-bonds-9be` bare close resemblence to their namesakes in atomic molecular orbitals, shown in {numref}`pi-sigma-bonds-atomic`.
 
@@ -709,7 +709,7 @@ It can be seen that the {math}`\pi` and {math}`\sigma` bonds in {numref}`pi-sigm
 :name: pi-sigma-bonds-atomic
 :width: 400px
 
-One-dimensional molecular orbits from atomic physics; showing (a) {math}`\pi` bonding, (b) {math}`\pi` anti-bonding, (c\) {math}`\sigma` bonding, (d) {math}`\sigma` anti-bonding. Figure adapted from {cite:ps}`noauthor_35_2020`.
+One-dimensional molecular orbits from atomic physics; showing (a) {math}`\pi` bonding, (b) {math}`\pi` anti-bonding, (c\) {math}`\sigma` bonding, (d) {math}`\sigma` anti-bonding. Figure adapted from Ref. {cite:ps}`noauthor_35_2020`.
 :::
 
 The {math}`\pi` orbit is also known as the _ring orbit_, because it spreads perpendicular to the {math}`\alpha`-{math}`\alpha` axis, whilst the {math}`\sigma` orbit is called the _chain orbit_ it spreads parallel to the {math}`\alpha`-{math}`\alpha` axis (see {numref}`pi-sigma-bonds-schematic`) {cite:ps}`itagaki_molecular_2000`.
@@ -721,7 +721,7 @@ The {math}`\pi` orbit is also known as the _ring orbit_, because it spreads perp
 :name: pi-sigma-bonds-schematic
 :width: 400px
 
-Illustration of the spatial overlap of two {math}`p`-shell orbits, corresponding to (a) {math}`\pi` and (b) {math}`\sigma` molecular orbitals. Figure adapted from {cite:ps}`von_oertzen_nuclear_2006`. 
+Illustration of the spatial overlap of two {math}`p`-shell orbits, corresponding to (a) {math}`\pi` and (b) {math}`\sigma` molecular orbitals. Figure adapted from Ref. {cite:ps}`von_oertzen_nuclear_2006`. 
 :::
 
 +++

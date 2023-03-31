@@ -111,11 +111,6 @@ daily_active_users.describe().T
 The `start` time of each user server was downsampled to a granularity of days, and the distinct number of unique users per-day computed. A total of {eval}`len(np.unique(df.user))` unique users (including demonstrators) were identified in this dataset. See {numref}`table:olab-unique-users` for a subset of these records. The OLAB cluster was closed over the weekend to minimise running costs, which is reflected in the sharp, constant drop in users during these two-day windows. The median number of concurrent users for the entire trial period was found to be {eval}`int(daily_active_users[is_weekday].median())` users per day, but this value represents the entire distribution; in totality, the trial was phased as different student cohorts were given access to the resource. Throughout the month of November, a steady increasing trend in the number of concurrent users can be seen. In the subsequent period, user engagement remained fairly closely distributed around {eval}`int(daily_active_users[is_weekday & is_early_dec].median())` daily users. Strongly evident in these data is the end of term on the 21st of December 2020; in the week preceding, student engagement was much reduced.
 
 ```{code-cell} ipython3
-import warnings
-warnings.filterwarnings("ignore", category=Warning, module=r".*tornado.*")
-```
-
-```{code-cell} ipython3
 ---
 mystnb:
   figure:

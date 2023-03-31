@@ -53,6 +53,7 @@ sphinx:
             - toggle
             - margin
             - tag_no-latex
+            - no-latex
     mathjax3_config:
       loader:
         load:
@@ -70,7 +71,7 @@ sphinx:
         % Fix trace which is defined in JupyterBook.cls
         \let\trace\undefined
         \usepackage{physics}
-
+        
         % Fix fragile hyperlinks in captions
         \usepackage{etoolbox}
         \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}

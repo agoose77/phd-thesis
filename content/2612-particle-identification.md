@@ -18,6 +18,7 @@ kernelspec:
 
 import pickle
 
+import hist
 import numpy as np
 from matplotlib import pyplot as plt
 from texat.detector.micromegas import STRIP_HEIGHT
@@ -33,7 +34,7 @@ u.separate_format_defaults = True
 
 The majority of signals formed in the MicroMeGaS belong to charge clusters liberated by the passage of {math}`{}^{10}\mathrm{C}` beam ions within the TPC. Given the linear response between the signal formed on the anode and the energy deposited by the beam, it is possible to correlate the energy loss curve of the central MicroMeGaS pads region with a known stopping power curve of {math}`{}^{10}\mathrm{C}` within the TPC gas mixture. 
 
-A 2D histogram of the measured charge against the pad row was computed across all events (see {numref}`stopping-power-beam-hist`). Superimposed over this distribution is the stopping power for the beam ions in the active target, indicated by the dashed line, as simulated by SRIM {cite:ps}`ziegler_srim_2010`. There are two loci clearly visible within the histogram, one of which lies at much lower charges than the other. The primary locus, that of the beam, coincides with the predicted stopping power curve, which has been displaced along the {math}`y` axis in order to treat the initial beam energy as an unknown. The Bragg peak, corresponding to the maximum stopping power of the {math}`{}^{10}\mathrm{C}` ions, is indicated by the dotted line at row ~60. It follows that the beam is fully stopped in the active target, and any hits measured in the central silicon detectors originate from lighter particles which have sufficient energy to escape the chamber. The secondary locus, at near constant charge of 1500 units, corresponds to the scattered light alpha-particles and {math}`{}^{10}\mathrm{C}` ions produced by reactions before the sensitive region of the MicroMeGaS anode. In the far pads region, around pad 120, there is a visible low-charge discontinuity. This occurs due to the high-gain pads region located in the last 16 rows of pads. These pads are sensitive to both {math}`180^\circ`-scattered alpha particles and low stopping-power protons. Meanwhile, the beam is fully stopped well before this region.
+A 2D histogram of the measured charge against the pad row was computed across all events (see {numref}`stopping-power-beam-hist`). Superimposed over this distribution is the stopping power for the beam ions in the active target, indicated by the dashed line, as simulated by SRIM {cite:ps}`ziegler_srim_2010` for a beam energy given by a fit parameter (30.5 MeV). There are two loci clearly visible within the histogram, one of which lies at much lower charges than the other. The primary locus, that of the beam, coincides with the predicted stopping power curve, which has been displaced along the {math}`y` axis in order to treat the initial beam energy as an unknown. The Bragg peak, corresponding to the maximum stopping power of the {math}`{}^{10}\mathrm{C}` ions, is indicated by the dotted line at row ~60. It follows that the beam is fully stopped in the active target, and any hits measured in the central silicon detectors originate from lighter particles which have sufficient energy to escape the chamber. The secondary locus, at near constant charge of 1500 units, corresponds to the scattered light alpha-particles and {math}`{}^{10}\mathrm{C}` ions produced by reactions before the sensitive region of the MicroMeGaS anode. In the far pads region, around pad 120, there is a visible low-charge discontinuity. This occurs due to the high-gain pads region located in the last 16 rows of pads. These pads are sensitive to both {math}`180^\circ`-scattered alpha particles and low stopping-power protons. Meanwhile, the beam is fully stopped well before this region.
 
 By approximately fitting the stopping power curve to the arbitrary charge units seen in {numref}`stopping-power-beam-hist`, a rudimentary calibration of the MicroMeGaS gain can be achieved yielding {math}`\sim 1.219\times10^{-1}\,\mathrm{keV}\mathrm{cm}^{-1}` in the low-gain region.
 
@@ -43,7 +44,8 @@ mystnb:
   figure:
     caption: Experimental distribution of the stopping power of {math}`{}^{10}\mathrm{C}`
       ions in a gas-mixture of 96% {math}`{}^4\mathrm{He}`, 4% {math}`\mathrm{CO}_2`
-      with density {math}`\rho`. SRIM prediction indicated by the dashed line.
+      held at 405 torr. SRIM prediction for an after-window beam energy of 30.5 MeV
+      indicated by the dashed line.
     name: stopping-power-beam-hist
   image:
     align: center
@@ -57,23 +59,79 @@ range_10c = u.Quantity(range_10c, "cm")
 de_dx_10c = u.Quantity(de_dx_10c, "MeV/cm")
 ion_energy_10c = u.Quantity(ion_energy_10c, "MeV")
 
-DE_DX_TO_CHARGE = 8.2 * u("cm/keV")
-de_predicted = (de_dx_10c.to("keV/cm") * DE_DX_TO_CHARGE).magnitude  # e4
-x_predicted = -43 + 128 - (range_10c.to("mm").magnitude / STRIP_HEIGHT)
-
 with open("data/de-dx-beam.pickle", "rb") as f:
     dE_dx_hist = pickle.load(f)
 
-dE_dx_hist[:, 1000j:15000j].plot2d()
+DE_DX_TO_CHARGE = 8.36 * u("cm/keV")
+max_range = np.interp(30.5 * u.MeV, ion_energy_10c, range_10c)
+range_at_mm = max_range - 270 * u.mm
+pad_predicted = np.arange(128)
+range_sample = range_at_mm - pad_predicted * 1.75 * u.mm
+de_predicted = (
+    np.interp(range_sample, range_10c, de_dx_10c).to("keV/cm") * DE_DX_TO_CHARGE
+)
+
+dE_dx_hist[hist.loc(100) :, :14000j].plot2d()
 plt.plot(
-    x_predicted,
+    pad_predicted,
     de_predicted,
     linestyle="--",
-    color="white",
     label=r"SRIM $\frac{\mathrm{d}\,E}{\mathrm{d}\,x}$",
+    color="white",
 )
-plt.axhline(61, linestyle=":", color="white")
-plt.legend();
+plt.legend()
+plt.axhline(1500);
+```
+
+The same distribution can be fit using stopping powers predicted by MSTAR {cite:ps}`paul_empirical_2003` (see {numref}`stopping-power-beam-hist-mstar`). The predicted after-window beam energy is 29.7 MeV.
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: Experimental distribution of the stopping power of {math}`{}^{10}\mathrm{C}`
+      ions in a gas-mixture of 96% {math}`{}^4\mathrm{He}`, 4% {math}`\mathrm{CO}_2`
+      held at 405 torr. MSTAR prediction for an after-window beam energy of 29.7 MeV
+      indicated by the dashed line.
+    name: stopping-power-beam-hist-mstar
+  image:
+    align: center
+    width: 512px
+tags: [hide-input]
+---
+range_10c, de_dx_10c, ion_energy_10c = np.loadtxt(
+    "data/10C-in-4He-CO2-MSTAR.csv", delimiter=",", unpack=True
+)
+range_10c = u.Quantity(range_10c, "mm")
+de_dx_10c = u.Quantity(de_dx_10c, "MeV * cm ** 2 / mg")
+ion_energy_10c = u.Quantity(ion_energy_10c, "MeV / u")
+
+ρ = u.Quantity(0.00012412, "g/cm^3")
+de_dx_10c *= ρ
+ion_energy_10c *= 10 * u.u
+
+with open("data/de-dx-beam-mstar.pickle", "rb") as f:
+    dE_dx_hist = pickle.load(f)
+
+DE_DX_TO_CHARGE = 8.8 * u("cm/keV")
+max_range = np.interp(29.7 * u.MeV, ion_energy_10c, range_10c)
+range_at_mm = max_range - 270 * u.mm
+pad_predicted = np.arange(128)
+range_sample = range_at_mm - pad_predicted * 1.75 * u.mm
+de_predicted = (
+    np.interp(range_sample, range_10c, de_dx_10c).to("keV/cm") * DE_DX_TO_CHARGE
+)
+
+dE_dx_hist[hist.loc(100) :, :14000j].plot2d()
+plt.plot(
+    pad_predicted,
+    de_predicted,
+    linestyle="--",
+    label=r"SRIM $\frac{\mathrm{d}\,E}{\mathrm{d}\,x}$",
+    color="white",
+)
+plt.legend()
+plt.axhline(1500);
 ```
 
 ## Separating Light-Product Tracks
@@ -102,43 +160,13 @@ _, de_dx_4he, ion_energy_4he = np.loadtxt(
 
 de_dx_4he = u.Quantity(de_dx_4he, "MeV/cm")
 ion_energy_4he = u.Quantity(ion_energy_4he, "MeV")
-```
 
-```{code-cell} ipython3
----
-mystnb:
-  figure:
-    caption: Stopping power curves predicted by SRIM for {math}`{}^{1}\mathrm{H}`,
-      {math}`{}^{4}\mathrm{He}`, and {math}`{}^{10}\mathrm{C}` ions in a gas-mixture
-      of 96% {math}`{}^4\mathrm{He}`, 4% {math}`\mathrm{CO}_2` with density {math}`\rho`.
-      Each curve overlaps with the others for a given ion energy.
-    name: stopping-power-ions
-  image:
-    align: center
-    width: 512px
-tags: [hide-input]
----
 _, de_dx_1h, ion_energy_1h = np.loadtxt(
     "data/1H-in-4He-CO2.csv", delimiter=",", unpack=True
 )
 de_dx_1h = u.Quantity(de_dx_1h, "MeV/cm")
 ion_energy_1h = u.Quantity(ion_energy_1h, "MeV")
-```
 
-```{code-cell} ipython3
----
-mystnb:
-  figure:
-    caption: Stopping power curves predicted by SRIM for {math}`{}^{1}\mathrm{H}`,
-      {math}`{}^{4}\mathrm{He}`, and {math}`{}^{10}\mathrm{C}` ions in a gas-mixture
-      of 96% {math}`{}^4\mathrm{He}`, 4% {math}`\mathrm{CO}_2` with density {math}`\rho`.
-      Each curve overlaps with the others for a given ion energy.
-    name: stopping-power-ions
-  image:
-    align: center
-    width: 512px
-tags: [hide-input]
----
 fig, ax = plt.subplots()
 plt.loglog(ion_energy_1h, de_dx_1h, "C1", label="${}^{1}\mathrm{H}$")
 plt.loglog(ion_energy_4he, de_dx_4he, "C2", label="${}^{4}\mathrm{He}$")

@@ -20,6 +20,3 @@ One such example is the stability of the Borromean nucleus {math}`{}^{9}\mathrm{
 
 It would be remiss to omit reference to the COVID-19 pandemic, by which few people have been left unperturbed. Shortly following its onset in early 2020, a concerted effort in the School of Physics and Astronomy at the University of Birmingham arose to establish novel solutions for distance learning provision. In particular, the challenge of providing robust, flexible teaching of undergraduate laboratory skills was identified as a key limitation in responding to the exigent challenges posed by public health interventions during 2020 and 2021. In this thesis, the development and deployment of a virtual nuclear physics laboratory, to meet this need, is discussed. An exploration of the early student engagement, and future directions of the project is subsequently made.
 
-```{code-cell}
-
-```

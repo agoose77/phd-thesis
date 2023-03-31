@@ -13,7 +13,7 @@ kernelspec:
 
 # Preface
 
-+++ {"tags": ["no-latex"]}
++++
 
 ::::{grid} 1 1 2 2
 :gutter: 4 4 2 2
@@ -23,8 +23,6 @@ kernelspec:
 :columns: 12
 
 A thesis submitted to the University of Birmingham for the degree of Doctor of Philosophy
-
-+++
 
 Nuclear Physics Group  
 School of Physics and Astronomy  
@@ -37,11 +35,13 @@ September 22, 2023
 :link: 2100-nuclear-models
 :link-type: doc
 :img-bottom: image/placeholder/texat-detector.png
+:class: no-latex
 :::
 
 :::{grid-item-card} Interactive computing for nuclear laboratories
 :link: 3000-olab-online-laboratory
 :link-type: doc
 :img-bottom: image/olab-logo.png
+:class: no-latex
 :::
 ::::

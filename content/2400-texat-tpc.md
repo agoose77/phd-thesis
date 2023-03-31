@@ -156,7 +156,7 @@ These elements are arranged into a three-region configuration: the two side regi
 :width: 400px
 :align: center
 
-The segmentation plan of the MicroMeGaS anode. There are three distinct regions: a central column of $6\times 128$ pads, and two side regions with 64 interleaved rows (strips) and columns (chains). The strips are formed from single electrodes, whilst the chains are formed from staggered readout pads that are electrically connected together. Note that the measurements in this figure were subsequently revised for fabrication. Figure adapted from {cite:ps}`koshchiy_texas_2020`.
+The segmentation plan of the MicroMeGaS anode. There are three distinct regions: a central column of $6\times 128$ pads, and two side regions with 64 interleaved rows (strips) and columns (chains). The strips are formed from single electrodes, whilst the chains are formed from staggered readout pads that are electrically connected together. Note that the measurements in this figure were subsequently revised for fabrication. Figure adapted from Ref. {cite:ps}`koshchiy_texas_2020`.
 :::
 
 +++
@@ -234,5 +234,5 @@ The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in 
 :width: 400px
 :align: center
 
-A schematic diagram of the shaper bypass facility of AGET chips. External shapers are used for the ion counter signals (see above). Figure adapted from {cite:ps}`koshchiy_texas_2020`.
+A schematic diagram of the shaper bypass facility of AGET chips. External shapers are used for the ion counter signals (see above). Figure adapted from Ref. {cite:ps}`koshchiy_texas_2020`.
 :::
