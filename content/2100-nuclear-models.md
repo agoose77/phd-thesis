@@ -84,7 +84,7 @@ When a charged object with a quadrupole moment undergoes rotation, it emits quad
 :alt: (b)
 :::
 
-Schematic illustration of the measured quadrupole moment {math}`Q` for an axially symmetric rotor. (a) shows the configuration in which the rotor symmetry axis {math}`3` is maximally aligned with the space-fixed axis {math}`z`. (b) depicts a state in which the {math}`3` axis is approximately perpendicular to the {math}`z` axis; in this case, the {math}`3`-projected momentum is zero. Under the rotor model, both the oblate doubly-even and prolate odd-mass nuclei measurements are explained by an intrinsic prolate deformation. Adapted from {cite:ps}`rowe_fundamentals_2010`.
+Schematic illustration of the measured quadrupole moment {math}`Q` for an axially symmetric rotor. (a) shows the configuration in which the rotor symmetry axis {math}`3` is maximally aligned with the space-fixed axis {math}`z`. (b) depicts a state in which the {math}`3` axis is approximately perpendicular to the {math}`z` axis; in this case, the {math}`3`-projected momentum is zero. Under the rotor model, both the oblate doubly-even and prolate odd-mass nuclei measurements are explained by an intrinsic prolate deformation. Adapted from Ref. {cite:ps}`rowe_fundamentals_2010`.
 ::::
 
 +++
@@ -152,7 +152,7 @@ where {math}`\alpha` indicates the excited state.
 :width: 256px
 :align: center
 
-Relationship between the total angular momentum {math}`\vb{I}`, the intrinsic angular momentum {math}`\vb{J}`, the rotor angular momentum {math}`\vb{R}`, and the components {math}`M` of {math}`\vb{I}` along the fixed axis {math}`z`; and {math}`K` the symmetry axis. Adapted from {cite:ps}`rowe_fundamentals_2010`.
+Relationship between the total angular momentum {math}`\vb{I}`, the intrinsic angular momentum {math}`\vb{J}`, the rotor angular momentum {math}`\vb{R}`, and the components {math}`M` of {math}`\vb{I}` along the fixed axis {math}`z`; and {math}`K` the symmetry axis. Adapted from Ref. {cite:ps}`rowe_fundamentals_2010`.
 :::
 
 +++
@@ -456,7 +456,7 @@ As discussed in {numref}`nuclear-models:rotor-model`, nuclear states away from c
 :align: center
 
 Illustration of two nucleon orbits around a deformed core. {math}`K_1` depicts an orbit that lies closer to the bulk of the nucleus than {math}`K_2`, and therefore lies at lower energy.
-Adapted from {cite:ps}`casten_nuclear_1990`.
+Adapted from Ref. {cite:ps}`casten_nuclear_1990`.
 :::
 
 +++

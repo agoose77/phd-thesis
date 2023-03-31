@@ -118,7 +118,7 @@ One of the earliest conjectures as to the existence of molecular structures in {
 :name: states-in-carbon-oertzen
 :width: 400px
 
-Energy diagrams of molecular chain states in carbon isotopes, adapted from {cite:ps}`von_oertzen_dimers_1997`. The predicted configurations for {math}`{}^{14}\mathrm{C}` are shown in the blue box.
+Energy diagrams of molecular chain states in carbon isotopes, adapted from Ref. {cite:ps}`von_oertzen_dimers_1997`. The predicted configurations for {math}`{}^{14}\mathrm{C}` are shown in the blue box.
 :::
 
 Extending the concept of near-threshold states, {cite:ps}`von_oertzen_dimers_1997` further anticipated resonances in the {math}`{}^{10}\mathrm{Be}^* + \alpha` system at 18 MeV. These resonances lie, below the ~18.8 MeV {math}`{}^8\mathrm{Be}+2n+\alpha` threshold, due to the covalent binding of the valence neutrons {cite:ps}`von_oertzen_nuclear_2006`. It was predicted that a series of four states would arise from the group of states at 6 MeV in {math}`{}^{10}\mathrm{Be}^*` with spins {math}`0^+`, {math}`2^+`, {math}`1^-`, and {math}`2^-`. The reflection-symmetric {math}`\sigma`-orbit configuration, with valence nucleons distributed equally among the alpha particles (see (x) in {numref}`states-in-carbon-oertzen`), is expected to be found at lower energies than the asymmetric {math}`\pi`-orbit configuration due to the stronger binding effect of each valence neutron. It is anticipated to form a rotational band comprising of {math}`0^+`, {math}`2^+`, and {math}`4^+` {cite:ps}`von_oertzen_dimers_1997`.

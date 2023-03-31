@@ -76,7 +76,7 @@ Among the exit channels of the compound nucleus is an elastic channel, i.e. that
 :name: resonance-shape
 :width: 512px
 
-Comparison between the (left) Breit-Wigner distribution and the (right) elastic scattering cross section. (b) includes interference between the shape-elastic and resonance-elastic interactions. Subfigures taken from {cite:ps}`satchler_introduction_1990`.
+Comparison between the (left) Breit-Wigner distribution and the (right) elastic scattering cross section. (b) includes interference between the shape-elastic and resonance-elastic interactions. Subfigures taken from Ref. {cite:ps}`satchler_introduction_1990`.
 :::
 
 +++
