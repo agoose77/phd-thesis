@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-(content:the-texat-detector)=
+(expt:the-texat-detector)=
 # The TexAT Detector for Rare Isotope Beam Experiments
 
 ```{code-cell}
@@ -119,7 +119,7 @@ The TexAT detector configuration. A black arrow indicates the direction of the b
 
 +++
 
-(content:micromegas)=
+(expt:micromegas)=
 ### MicroMeGaS
 
 The MicroMeGaS is a parallel-plate gas particle detector. It comprises of a micro-pattern anode, with a thin metallic mesh suspended at a height of 128 μm above the surface (see {numref}`micromegas-schematic`). This _micro_-mesh partitions the gas into two juxtaposed volumes of differing potentials, forming a large drift region above the mesh, and a small amplification region between the mesh and the anode
@@ -195,7 +195,7 @@ For this experiment, a planar windowless ionisation chamber (IC) was placed imme
 
 ## Readout Electronics
 
-(content:get-architecture)=
+(expt:get-architecture)=
 ### GET Architecture
 TexAT uses the General Electronics for TPCs (GET) system for readout of the detectors {cite:ps}`pollacco_get_2018`. GET comprises of a heirarchy of electronic components, starting at the lowest level with the AGET (ASIC, Application-Specific Integrated Circuit, for GET) chip to amplify, shape, and store the signals from each detector (see {numref}`get-schematic`).
 

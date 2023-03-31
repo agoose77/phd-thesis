@@ -13,7 +13,7 @@ mystnb:
   execution_mode: "inline"
 ---
 
-(gas-simulation)=
+(expt:gas-simulation)=
 # Gas Simulation
 
 ```{code-cell} ipython3

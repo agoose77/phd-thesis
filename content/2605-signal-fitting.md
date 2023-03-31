@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-(signal-fitting)=
+(expt:signal-fitting)=
 # Signal Fitting
 
 ```{code-cell} ipython3
@@ -138,9 +138,9 @@ plt.legend(handles=handles);
 
 ## Silicon Signals
 
-In the silicon detector, the preliminary calibration run that is analysed in {ref}`content:silicon-calibration` was used to ensure that the dynamic range of the silicon detectors was sufficiently large during the acquisition phase of the experiment. As such, signals measured by the silicon detectors do not suffer from the saturation phenomenon described above.
+In the silicon detector, the preliminary calibration run that is analysed in {ref}`expt:silicon-calibration` was used to ensure that the dynamic range of the silicon detectors was sufficiently large during the acquisition phase of the experiment. As such, signals measured by the silicon detectors do not suffer from the saturation phenomenon described above.
 
-Meanwhile, the response function derived in {ref}`content:response-estimation` is, by virtue of its construction, a poor choice for (de)convolution fits of the silicon signals as the necessary source waveforms approach widths of ~1 time cell. Therefore, a simple linear transformation of the response function was used to fit silicon waveforms, which correctly recovers the peak locus and amplitude (see {numref}`signal-silicon-linear-fit`).
+Meanwhile, the response function derived in {ref}`expt:response-estimation` is, by virtue of its construction, a poor choice for (de)convolution fits of the silicon signals as the necessary source waveforms approach widths of ~1 time cell. Therefore, a simple linear transformation of the response function was used to fit silicon waveforms, which correctly recovers the peak locus and amplitude (see {numref}`signal-silicon-linear-fit`).
 
 ```{code-cell} ipython3
 ---

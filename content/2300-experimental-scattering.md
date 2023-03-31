@@ -25,7 +25,7 @@ plt.style.use(ROOT)
 plt.rc("figure", figsize=(10, 5), dpi=120)
 ```
 
-(content:thick-target-experiments)=
+(expt:thick-target-experiments)=
 # Thick Target Experiments
 
 +++
@@ -81,7 +81,7 @@ Comparison between the (left) Breit-Wigner distribution and the (right) elastic 
 
 +++
 
-(content:conservation-rules)=
+(expt:conservation-rules)=
 ## Conservation Rules
 
 As a closed physical system, the normal conservation rules still apply to a scattering reaction between two nuclei. The total energy of the system must therefore be conserved during the interaction. Assuming a resonance reaction of the form {math}`A(a,b)B`,
@@ -119,7 +119,7 @@ The vector {math}`\vb{\hat{J}_X}` is _by definition_ perpendicular to the moment
 
 +++
 
-(content:time-projection-chambers)=
+(expt:time-projection-chambers)=
 ## Time-Projection Chambers
 
 A time-projection chamber (TPC) is a particle detector which employs the use of a time-sensitive anode to perform three-dimensional reconstruction of particle trajectories. The original design for the TPC was developed at Lawrence Berkeley Laboratory {cite:ps}`marx_time_1978`, and has since seen multiple variations that improve the spatial resolution and gain. At the heart of the TPC is the time-sensitive anode, upon which a current is induced due to the drift of charges liberated by ionising radiation incident upon the active volume (see {numref}`gridded-ion-chamber`). Conventionally, time-projection chambers use gas mixtures such as P10 (90% Argon, 10% Methane) as the interaction medium; gas targets may easily be pressurised to tune the density according to the energies and families of particles that are likely to be observed.
@@ -254,4 +254,4 @@ plt.legend();
 
 +++ {"tags": ["no-latex"]}
 
-Unlike thin-target kinematics, reactions that take place within a gas chamber are not confined to a localised region.  Therefore, the experimental advantages of operating in a thick-target inverse-kinematic regime can only realised if there are suitable detectors (see {ref}`content:the-texat-detector`) and analysis techniques (see {ref}`content:track-finding-and-fitting`) available to recover the reaction kinematics. 
+Unlike thin-target kinematics, reactions that take place within a gas chamber are not confined to a localised region.  Therefore, the experimental advantages of operating in a thick-target inverse-kinematic regime can only realised if there are suitable detectors (see {ref}`expt:the-texat-detector`) and analysis techniques (see {ref}`expt:track-finding-and-fitting`) available to recover the reaction kinematics. 

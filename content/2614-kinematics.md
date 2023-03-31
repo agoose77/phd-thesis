@@ -36,12 +36,12 @@ plt.rc("font", size="16")
 u.separate_format_defaults = True
 ```
 
-(content:kinematics)=
+(expt:kinematics)=
 # Kinematics
 
 +++
 
-(content:angular-scattering)=
+(expt:angular-scattering)=
 ## Angular Scattering
 
 +++
@@ -141,11 +141,11 @@ with open("data/angular-energy-vertex.pickle", "rb") as f:
 hist.plot();
 ```
 
-This approach necessarily requires the knowledge of the interaction vertex (to identify the light particle energy) and the relative angle of the beam to the scattered ion track. If both of these cannot be determined, then there is insufficient knowledge of the system to find a solution. In the zero-degree regime, in which the light product track is close to zero degrees, it is possible to leverage the assumption of a linear reaction in order to once-again determine the beam energy (see {ref}`content:zero-degree-scattering`).
+This approach necessarily requires the knowledge of the interaction vertex (to identify the light particle energy) and the relative angle of the beam to the scattered ion track. If both of these cannot be determined, then there is insufficient knowledge of the system to find a solution. In the zero-degree regime, in which the light product track is close to zero degrees, it is possible to leverage the assumption of a linear reaction in order to once-again determine the beam energy (see {ref}`expt:zero-degree-scattering`).
 
 +++
 
-(content:beam-energy-estimation)=
+(expt:beam-energy-estimation)=
 ## Beam Energy Estimation
 The beam energy after the Havar window is predicted by SRIM calculations to be ~25 MeV. A preliminary evaluation of this estimate can be performed using the maximum energy deposited in the central silicon detectors. This should correspond to a near zero-degree scatter from the farthest point in the active volume, i.e. the window (see {numref}`max-silicon-hist`). Given a maximum energy of {eval}`max_si_energy`, the after-window beam energy computed by the alpha stopping power is {eval}`energy_at_window * alpha_to_beam`. This value is much larger than the initial prediction, but lies in close agreement with the value used to produce {numref}`stopping-power-beam-hist`.
 
@@ -231,7 +231,7 @@ plt.legend();
 
 It is evident that these calculations are highly sensitive to the stopping power tabulation; the disagreement in {numref}`beam-energy-diff-hist` implies that the stopping powers used in this analysis over-predict the energy loss of the beam in the energy region of interest. There is preliminary experimental evidence to suggest that this is the case for both MSTAR and SRIM {cite:ps}`d_torresi_measurement_2017`.
 
-(content:zero-degree-scattering)=
+(expt:zero-degree-scattering)=
 ## Zero-degree Scattering
 
 +++
@@ -268,7 +268,7 @@ E_1 &= \frac{\pqty{p_3}^2}{2m_1} + \frac{\pqty{p_2}^2}{2m_2}
 
 ::::
 
-{eq}`beam-energy-zero-degree` requires a precise measurement of the beam energy. In {ref}`content:beam-energy-estimation` and {numref}`content:beam-energy-estimation`, it was observed that the beam energy as predicted by direct and indirect methods did not show strong agreement. An alternative reconstruction approach to {eq}`beam-energy-zero-degree` is to identify the position of the Bragg peak (of the scattering projectile) alongside the energy deposited in the silicon detectors to compute the kinematic quantities: a method not dissimilar to that described in {ref}`content:angular-scattering`. Such an approach requires precise tabulation of the low-energy stopping powers for the projectile. Furthermore, and prohibiting the use of such a method in this analysis, it must be possible to identify the Bragg peak within the active volume. For these data, the kinematics given by simulated stopping powers (using both SRIM and MSTAR) do not admit the possibility of observing the Bragg peak of the scattered beam.
+{eq}`beam-energy-zero-degree` requires a precise measurement of the beam energy. In {ref}`expt:beam-energy-estimation` and {numref}`expt:beam-energy-estimation`, it was observed that the beam energy as predicted by direct and indirect methods did not show strong agreement. An alternative reconstruction approach to {eq}`beam-energy-zero-degree` is to identify the position of the Bragg peak (of the scattering projectile) alongside the energy deposited in the silicon detectors to compute the kinematic quantities: a method not dissimilar to that described in {ref}`expt:angular-scattering`. Such an approach requires precise tabulation of the low-energy stopping powers for the projectile. Furthermore, and prohibiting the use of such a method in this analysis, it must be possible to identify the Bragg peak within the active volume. For these data, the kinematics given by simulated stopping powers (using both SRIM and MSTAR) do not admit the possibility of observing the Bragg peak of the scattered beam.
 
 With {eq}`beam-energy-zero-degree`, the beam energy is uniquely determined for elastic scattering by the energy of the light ion at the reaction vertex. As discussed above, the zero-degree reconstruction is useful in the event that one cannot easily identify the reaction vertex. If the beam energy is approximately known, it is possible to identify the vertex at the intersection between the curves that describe the beam energy as reconstructed from the initial beam energy and the energy deposited in the silicon detectors. See {numref}`zero-degree-energy-curve` for a plot of the vertex position as a function of silicon energy as reconstructed by this method.
 
@@ -320,7 +320,7 @@ oxygen_14 = Particle.from_nucleus_info(a=14, z=8)
 Q = ((carbon_10.mass + helium_4.mass - oxygen_14.mass) * u.MeV / u.c**2) * u.c**2
 ```
 
-The calculation of a reaction Q-value is described in {ref}`content:conservation-rules`. For elastic scattering of {math}`{}^{10}\mathrm{C}` ions upon a {math}`{}^4\mathrm{He}` target, the Q-value is {eval}`Q.to("keV")`. This value is used to build the elastic non-zero-degree excitation function shown in {numref}`excitation-curve`, which is given by {math}`E_\mathrm{ex} = E_1 - E_\mathrm{CoM} + Q = E_1\frac{m_2}{m_1+m_2} + Q`. {numref}`excitation-curve` shows a stack plot of the raw excitation function distributions for each reconstruction method. Note that, without the ability to identify only the elastic zero-degree interactions, both possibilities are plotted.
+The calculation of a reaction Q-value is described in {ref}`expt:conservation-rules`. For elastic scattering of {math}`{}^{10}\mathrm{C}` ions upon a {math}`{}^4\mathrm{He}` target, the Q-value is {eval}`Q.to("keV")`. This value is used to build the elastic non-zero-degree excitation function shown in {numref}`excitation-curve`, which is given by {math}`E_\mathrm{ex} = E_1 - E_\mathrm{CoM} + Q = E_1\frac{m_2}{m_1+m_2} + Q`. {numref}`excitation-curve` shows a stack plot of the raw excitation function distributions for each reconstruction method. Note that, without the ability to identify only the elastic zero-degree interactions, both possibilities are plotted.
 
 ```{code-cell} ipython3
 ---

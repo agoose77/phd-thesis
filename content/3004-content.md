@@ -45,7 +45,7 @@ which comprised a grid system populated by discrete "cards". Each card contained
 
 +++
 
-(olab:content:preliminary)=
+(olab:expt:preliminary)=
 
 ## Preliminary Experiments
 

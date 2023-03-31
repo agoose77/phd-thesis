@@ -27,7 +27,7 @@ from scipy.stats import norm, uniform
 
 +++ {"tags": ["hide-cell"]}
 
-(content:beam-origin)=
+(expt:beam-origin)=
 # Beam Origin
 
 +++
@@ -66,7 +66,7 @@ The distribution observed in {numref}`origin-hist` was fit as the sum of a const
 ---
 mystnb:
   figure:
-    caption: Fit of the histogram in {ref}`origin-hist` using a constant function
+    caption: Fit of the histogram in {numref}`origin-hist` using a constant function
       and Gaussian distribution. Above the x-axis, the original histogram and minimiser
       result are superimposed. Below, the residual distribution of the fit against
       the measurement is shown.

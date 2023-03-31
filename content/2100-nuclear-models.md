@@ -161,7 +161,7 @@ Under the adiabatic limit, it is reasonable to consider the intrinsic structure 
 
 +++
 
-(content:parity-doublets)=
+(expt:parity-doublets)=
 #### Parity Doublets
 Simultaneously, if the intrinsic Hamiltonian is invariant with respect to a rotation {math}`\mathcal{R}_2(\pi)` about an axis perpendicular to the symmetry axis, a further reduction in the rotational (extrinsic) degrees of freedom is possible. This intrinsic symmetry operator {math}`\mathcal{R}_i = \mathcal{R}_2(\pi)` has corresponding eigenvalues {math}`r = \pm 1` as {math}`\mathcal{R}_i^2 = \mathcal{R}_2(2\pi) = +1`. The {math}`K=0` state is an eigenfunction of this operator. Meanwhile, the same symmetry in the extrinsic frame {math}`\mathcal{R}_e = \mathcal{R}_i` yields eigenvalues of {math}`-1^I` for this {math}`K=0` state, which follows from the behaviour of the spherical harmonics {cite:ps}`bohr_nuclear_1977`, such that we have 
 :::{math}
@@ -611,7 +611,7 @@ Density distributions of the AMD wavefunctions for {math}`{}^{9}\text{Li}` obtai
 
 +++
 
-(content:models-excited-states)=
+(expt:models-excited-states)=
 #### Excited States
 
 % NOTE: greiner 226 (1p1h deform men field)
@@ -648,7 +648,7 @@ Constrained solutions are particularly useful in obtaining basis states for loos
 
 +++
 
-(content:nuclear-molecules)=
+(expt:nuclear-molecules)=
 ### Nuclear Molecules
 
 The pairing force, which anti-aligns the angular momenta of like-nucleons within the same orbital, is responsible for some of the most exciting phenomena in nuclear physics, e.g. the even-even energy gap between the ground state and lowest single-particle excitation, or the zero angular momentum of even-even ground state nuclei. It is most strikingly seen within the {math}`\alpha`-particle system, which is comprised to two correlated pairs of protons and neutrons. In combination with the small symmetry energy of the system, the pairing interaction is responsible for the significant binding energy (28 MeV), and first excited state (20 MeV). These two properties suggest that where an {math}`\alpha`-particle forms in the nucleus, it may remain stable for a considerable period of time {cite:ps}`freer_clustered_2007-2`. Meanwhile, the emission of {math}`\alpha`-particles from the nucleus implies that such particles might be preformed and exist prior to the decay. Although it is known that such an assumption is overly reductive, the existence of many alpha-clustered structures is postulated by the Ikeda threshold rule, which predicts the emergence of such structures near the alpha breakup threshold {cite:ps}`catford_clustering_2013-1`.
@@ -751,4 +751,4 @@ Single-particle level scheme of the Nilsson deformed harmonic oscillator potenti
 
 In simple terms, the requirement that physical states have good parity means that one must take a superposition of the asymmetric states. This leads to symmetric and antisymmetric solutions.
 :::
-The set of basis states established from this two-center approach can be extended in the case of a three-center molecule, such as the carbon isotopes. This additional center primarily splits the basis states, and lowers the lowest state with respect to the three-body particle threshold {cite:ps}`milin_search_2002`. In addition, the formation of asymmetric structures may lead to the phenomenon of parity doublets (see {numref}`content:parity-doublets`).
+The set of basis states established from this two-center approach can be extended in the case of a three-center molecule, such as the carbon isotopes. This additional center primarily splits the basis states, and lowers the lowest state with respect to the three-body particle threshold {cite:ps}`milin_search_2002`. In addition, the formation of asymmetric structures may lead to the phenomenon of parity doublets (see {numref}`expt:parity-doublets`).

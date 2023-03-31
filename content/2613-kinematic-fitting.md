@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-(content:kinematic-fitting)=
+(expt:kinematic-fitting)=
 # Kinematic Fitting
 
 +++

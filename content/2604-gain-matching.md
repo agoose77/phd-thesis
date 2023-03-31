@@ -39,7 +39,7 @@ plt.rc("figure", figsize=(10, 5), dpi=120)
 data_path = Path("data")
 ```
 
-In {numref}`content:micromegas`, it was noted that the MicroMeGaS anode is subdivided into a set of distinct zones that can be held at different potentials in order to spatially vary the gain. In this experiment, both the strip-chain (side) regions and final block of pads in the central region were held at a high gain in order to better resolve light particle tracks with low stopping powers (see {numref}`micromegas-anode-gain-region`).
+In {numref}`expt:micromegas`, it was noted that the MicroMeGaS anode is subdivided into a set of distinct zones that can be held at different potentials in order to spatially vary the gain. In this experiment, both the strip-chain (side) regions and final block of pads in the central region were held at a high gain in order to better resolve light particle tracks with low stopping powers (see {numref}`micromegas-anode-gain-region`).
 
 +++
 

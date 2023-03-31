@@ -1,4 +1,5 @@
----
+
+Untracked files:---
 jupytext:
   text_representation:
     extension: .md
@@ -27,13 +28,13 @@ from utils import displayed_as_mimebundle
 
 +++ {"tags": ["hide-cell"]}
 
-(content:cluster-reconstruction)=
+(expt:cluster-reconstruction)=
 
 # Cluster Reconstruction
 
 +++
 
-As outlined in {ref}`content:micromegas`, the MicroMeGaS anode is highly segmented to give good position resolution measurements of the charge clusters produced by ionisation. In order to reconstruct the track trajectories in 3D, it is necessary to determine the height of the charge cluster. Given that the MicroMeGaS waveforms are energy-time signals, the height coordinate can be derived from the drift time, given by the locus of the peak in the measured waveform, and the drift velocity (see {ref}`gas-simulation`). The _origin_ of this coordinate was discussed in {ref}`content:beam-origin`.
+As outlined in {ref}`expt:micromegas`, the MicroMeGaS anode is highly segmented to give good position resolution measurements of the charge clusters produced by ionisation. In order to reconstruct the track trajectories in 3D, it is necessary to determine the height of the charge cluster. Given that the MicroMeGaS waveforms are energy-time signals, the height coordinate can be derived from the drift time, given by the locus of the peak in the measured waveform, and the drift velocity (see {ref}`expt:gas-simulation`). The _origin_ of this coordinate was discussed in {ref}`expt:beam-origin`.
 
 ```{code-cell} ipython3
 ---

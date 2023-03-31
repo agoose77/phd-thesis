@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-(content:response-estimation)=
+(expt:response-estimation)=
 # Response Estimation
 
 ```{code-cell} ipython3
