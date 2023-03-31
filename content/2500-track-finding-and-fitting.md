@@ -35,7 +35,7 @@ plt.rc('font', size="16")
 (expt:track-finding-and-fitting)=
 # Track Finding and Fitting
 
-Fundamental to design of many particle physics experiments is the ability to detect reaction ejectiles and measure their physical properties. The considerable challenge that this poses, in even the most conventional forward-kinematics fixed-target experiments, is exacerbated in the thick-target regime described in {ref}`expt:thick-target-experiments`. In the absence of a single interaction locus, it becomes of vital importance to be able to observe the _trajectories_ of reaction products such that the underlying kinematic variables can be reconstructed. As discussed in {ref}`expt:time-projection-chambers`, the TPC detectors in which these experiments are often conducted typically incorporate a segmented readout, whereby particle trajectories are described as a set of discretised samples. The resolution of these data is usually governed by a combination of the ejectile, gas, and readout properties. 
+Fundamental to design of many particle physics experiments is the ability to detect reaction ejectiles and measure their physical properties. The considerable challenge that this poses, in even the most conventional forward-kinematics fixed-target experiments, is exacerbated in the thick-target regime described in {numref}`expt:thick-target-experiments`. In the absence of a single interaction locus, it becomes of vital importance to be able to observe the _trajectories_ of reaction products such that the underlying kinematic variables can be reconstructed. As discussed in {numref}`expt:time-projection-chambers`, the TPC detectors in which these experiments are often conducted typically incorporate a segmented readout, whereby particle trajectories are described as a set of discretised samples. The resolution of these data is usually governed by a combination of the ejectile, gas, and readout properties. 
 
 The problems of identifying and fitting the particle trajectories recorded in such data are nominally distinct concepts, although many approaches necessarily combine the two. Track _finding_ describes the task of identifying the existence of a particle track, whilst track _fitting_ refers to the process of ascribing model variables to identified tracks subject to the parametrisation. Central to both subproblems is the importance of outlier rejection, which is often used as a metric by which to evaluate algorithm performance.
 
@@ -702,7 +702,7 @@ The choice of a {math}`V_{\alpha, \gamma}=\delta_{\alpha\gamma}` interaction pot
 
 ### PeARL
 
-So far, the application of graph-cuts to solving the metric labelling problem as been explored. It is not immediately obvious how this approach maps onto the problem of track fitting. At first glance, the model {math}`f` seen in {eq}`cost-function-pearl` resembles the label described in {ref}`expt:alpha-expansion`. However, our track models are members of {math}`\mathcal{L}=\mathbb{R}^n`, and therefore a one-to-one mapping between {math}`F` and {math}`\mathcal{L}` would be infinitely large. In order to explore the continuum of model parameters whilst working within a feasible subset of the parameter space, the PeARL algorithm may be used {cite:ps}`boykov_fast_2001-1`.
+So far, the application of graph-cuts to solving the metric labelling problem as been explored. It is not immediately obvious how this approach maps onto the problem of track fitting. At first glance, the model {math}`f` seen in {eq}`cost-function-pearl` resembles the label described in {numref}`expt:alpha-expansion`. However, our track models are members of {math}`\mathcal{L}=\mathbb{R}^n`, and therefore a one-to-one mapping between {math}`F` and {math}`\mathcal{L}` would be infinitely large. In order to explore the continuum of model parameters whilst working within a feasible subset of the parameter space, the PeARL algorithm may be used {cite:ps}`boykov_fast_2001-1`.
 
 +++
 
@@ -901,6 +901,7 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 
 +++ {"tags": ["no-latex"]}
 
+(expt:theory:kinematic-fitting)=
 ## Kinematic Fitting
 Many classes of problem, including those seen in track fitting, are amenable through least squares optimisation. In the context of track fitting, it is often the case that the solution is required to satisfy a set of constraints. These constraints ensure that determined solution is physically admissible.
 

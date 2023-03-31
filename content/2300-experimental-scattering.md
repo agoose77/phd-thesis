@@ -254,4 +254,4 @@ plt.legend();
 
 +++ {"tags": ["no-latex"]}
 
-Unlike thin-target kinematics, reactions that take place within a gas chamber are not confined to a localised region.  Therefore, the experimental advantages of operating in a thick-target inverse-kinematic regime can only realised if there are suitable detectors (see {ref}`expt:the-texat-detector`) and analysis techniques (see {ref}`expt:track-finding-and-fitting`) available to recover the reaction kinematics. 
+Unlike thin-target kinematics, reactions that take place within a gas chamber are not confined to a localised region.  Therefore, the experimental advantages of operating in a thick-target inverse-kinematic regime can only realised if there are suitable detectors (see {numref}`expt:the-texat-detector`) and analysis techniques (see {numref}`expt:track-finding-and-fitting`) available to recover the reaction kinematics. 

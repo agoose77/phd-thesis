@@ -151,7 +151,7 @@ For this experiment, a four-peak alpha source was suspended within the TexAT TPC
 
 +++ {"tags": ["remove-input", "remove-output"]}
 
-The waveforms recorded by the GET acquisition system were fit using the methods described in {ref}`expt:signal-fitting`, and the corresponding charge accumulated in a histogram. It can be seen in {numref}`calibration-spectra` that the majority of the silicon quadrants measured similar signal amplitudes for the given sources. A total of 11 quadrants were found to have an insufficient number of hits to be able to build a calibration, primarily those in the forward silicon detector array. See {numref}`calibration-quadrant-map` for a visual representation of these missing quadrants.
+The waveforms recorded by the GET acquisition system were fit using the methods described in {numref}`expt:signal-fitting`, and the corresponding charge accumulated in a histogram. It can be seen in {numref}`calibration-spectra` that the majority of the silicon quadrants measured similar signal amplitudes for the given sources. A total of 11 quadrants were found to have an insufficient number of hits to be able to build a calibration, primarily those in the forward silicon detector array. See {numref}`calibration-quadrant-map` for a visual representation of these missing quadrants.
 
 ```{code-cell} ipython3
 ---

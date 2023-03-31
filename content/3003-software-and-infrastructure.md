@@ -28,7 +28,7 @@ from scipy import integrate
 
 +++
 
-The objectives outlined in {ref}`olab:motivations` can be partitioned into development-focused priorities and product-focused outcomes. Though members of the development team had varying degrees of experience in writing Physics analyses, the landscape of modern software development spans a significant number of software packages, programming languages, and domain-specific knowledge. In order to deliver a usable, extensible platform which could be used to facilitate remote learning within the constrained time frame, a content-first, iterative approach to developing OLAB would be imperative. From these constraints, the following technological decisions were made:
+The objectives outlined in {numref}`olab:motivations` can be partitioned into development-focused priorities and product-focused outcomes. Though members of the development team had varying degrees of experience in writing Physics analyses, the landscape of modern software development spans a significant number of software packages, programming languages, and domain-specific knowledge. In order to deliver a usable, extensible platform which could be used to facilitate remote learning within the constrained time frame, a content-first, iterative approach to developing OLAB would be imperative. From these constraints, the following technological decisions were made:
 :::{list-table} High-level list of software packages used to build O-Lab.
 :header-rows: 1
 :name: software-choices
@@ -138,7 +138,7 @@ Jupyter Notebook (or Lab) is already an established tool for aiding research wit
 
 +++
 
-As discussed in {ref}`olab:learning-tools`, a prospective benefit of virtual laboratories is the ability to unify and maintain the software and content deployment process. A key component of this within the Jupyter project is JupyterHub.
+As discussed in {numref}`olab:learning-tools`, a prospective benefit of virtual laboratories is the ability to unify and maintain the software and content deployment process. A key component of this within the Jupyter project is JupyterHub.
 > JupyterHub brings the power of notebooks to groups of users. It gives users access to computational environments and resources without burdening the users with installation and maintenance tasks. Users - including students, researchers, and data scientists - can get their work done in their own workspaces on shared resources which can be managed efficiently by system administrators {cite:ps}`noauthor_project_nodate-1`.
 
 Within institutions, JupyterHub is increasingly popular, with a number of universities building MOOCs upon the platform such as Berkley's Data8 course {cite:ps}`adhikari_issue_2021`. Though these institutions predominantly utilise JupyterHub to provision JupyterLab instances, i.e. to provide a partially homogeneous computing environment, there are an increasing number of groups using JupyterHub to serve third-party software such as RStudio. JupyterHub is built from a series of composable resources that facilitate integration of a multi-tenant compute platform with existing virtual learning systems and compute resources. Users can be authenticated using OAuth or LTI solutions. User environments (containers) can easily be configured by platform maintainers, and can be run on a range of cloud providers e.g. via Kubernetes, or using on-prem infrastructure via SLURM, Torque, or even Docker spawners.  It was for these reasons that the Jupyter technologies listed in {numref}`software-choices` were employed to build O-Lab.

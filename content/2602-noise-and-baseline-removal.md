@@ -35,7 +35,7 @@ plt.rc("figure", figsize=(10, 5), dpi=120)
 
 +++
 
-As discussed in {ref}`expt:get-architecture`, the AGET chip provides four additional channels for measuring the electronic noise see {numref}`fpn-averaging`). These channels can be used to eliminate some of the electronic noise inherent within the system.
+As discussed in {numref}`expt:get-architecture`, the AGET chip provides four additional channels for measuring the electronic noise see {numref}`fpn-averaging`). These channels can be used to eliminate some of the electronic noise inherent within the system.
 
 ```{code-cell} ipython3
 ---

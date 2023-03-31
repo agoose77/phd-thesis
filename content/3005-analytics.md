@@ -263,7 +263,7 @@ tags: [hide-input]
 
 +++
 
-The notebook record includes information about the time that a notebook session started, stopped, and to which notebook the record corresponds (see {ref}`output:notebook-record`).
+The notebook record includes information about the time that a notebook session started, stopped, and to which notebook the record corresponds (see {numref}`output:notebook-record`).
 
 +++
 
