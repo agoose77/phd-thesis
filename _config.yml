@@ -46,6 +46,7 @@ sphinx:
       logo:
         image_light: content/image/uob-logo.svg
         image_dark: content/image/uob-logo-reversed.svg
+    latex_logo: content/image/uob-logo.pdf
     mermaid_version: ""
     mermaid_init_js: 'mermaid.initialize({startOnLoad:true});'
     mermaid_pdfcrop: pdfcrop
@@ -107,7 +108,67 @@ sphinx:
         \listoftables
       
       sphinxsetup: "hmargin={1in,1in}, vmargin={0.7in,1in}, marginpar=1in"
-
+      maketitle: |
+        \makeatletter
+        \let\sphinxrestorepageanchorsetting\relax
+        \ifHy@pageanchor\def\sphinxrestorepageanchorsetting{\Hy@pageanchortrue}\fi
+        \hypersetup{pageanchor=false}% avoid duplicate destination warnings
+        \begin{titlepage}%
+          \let\footnotesize\small
+          \let\footnoterule\relax
+          \noindent\rule{\textwidth}{1pt}\par
+            \begingroup % for PDF information dictionary
+             \def\endgraf{ }\def\and{\& }%
+             \pdfstringdefDisableCommands{\def\\{, }}% overwrite hyperref setup
+             \hypersetup{pdfauthor={\@author}, pdftitle={\@title}}%
+            \endgroup
+          \begin{flushright}%
+            \sphinxlogo
+            \py@HeaderFamily
+            {\Huge \@title \par}
+            \vfill
+            {\LARGE By}
+            \vfill
+            {\LARGE
+              \begin{tabular}[t]{c}
+                \@author
+                
+              \end{tabular}\kern-\tabcolsep
+              \par}
+          \end{flushright}%\par
+          \vfill
+          \begin{flushleft}%
+            \py@HeaderFamily
+            {\large
+              A thesis submitted to \\
+              the University of Birmingham \\
+              for the degree of \\
+              {\LARGE Doctor of Philosophy}\\
+              \par}
+          \end{flushleft}%\par
+          \begin{flushright}%\par
+            \py@HeaderFamily
+            \vfill
+            {\large
+              Nuclear Physics Group\\
+              School of Physics and Astronomy\\
+              College of Engineering and Physical Sciences\\
+              University of Birmingham\\
+             \@date \par
+             \vfill
+             \py@authoraddress \par
+            }%
+          \end{flushright}%\par
+          \@thanks
+        \end{titlepage}%
+        \setcounter{footnote}{0}%
+        \let\thanks\relax\let\maketitle\relax
+        %\gdef\@thanks{}\gdef\@author{}\gdef\@title{}
+        \clearpage
+        \ifdefined\sphinxbackoftitlepage\sphinxbackoftitlepage\fi
+        \if@openright\cleardoublepage\else\clearpage\fi
+        \sphinxrestorepageanchorsetting
+        \makeatother
     # MyST-nb support for image/svg+xml
     nb_execution_raise_on_error: true
     nb_eval_name_regex: ".*"

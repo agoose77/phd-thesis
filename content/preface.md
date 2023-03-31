@@ -17,6 +17,7 @@ kernelspec:
 
 ::::{grid} 1 1 2 2
 :gutter: 4 4 2 2
+:class-container: no-latex
 
 :::{grid-item-card}
 :img-top: image/uob-logo.svg
