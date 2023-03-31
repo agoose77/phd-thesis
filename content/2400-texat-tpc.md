@@ -114,7 +114,7 @@ An isographic 3D rendering of the combined detector with the field-cage and Micr
 :alt: A time-projection-chamber detector with a MicroMeGaS anode and array of silicon detectors surrounding the exterior of the active volume.
 :width: 400px
 
-The TexAT detector configuration. A black arrow indicates the direction of the beam, which first enters the detector through the ion-counter (IC, indicated). The segmented anode is visible in blue and purple at the top of the detector, whilst the field-cage (FC) and the array of CsI(Tl) + Si detectors are visible around the outside of the TPC volume. Figure taken from {cite:ps}`barbui_ensuremathalpha-cluster_2022`.
+The TexAT detector configuration. A black arrow indicates the direction of the beam, which first enters the detector through the ion-counter (IC, indicated). The segmented anode is visible in blue and purple at the top of the detector, whilst the field-cage (FC) and the array of CsI(Tl) + Si detectors are visible around the outside of the TPC volume. Figure taken from Ref. {cite:ps}`barbui_ensuremathalpha-cluster_2022`.
 :::
 
 +++
@@ -132,7 +132,7 @@ The MicroMeGaS is a parallel-plate gas particle detector. It comprises of a micr
 :width: 400px
 :align: center
 
-Charge signal formation from charged particle ionisation. The small amplification region can be seen between the mesh and the anode strips, with a much higher electric field than that of the drift region, of the order ~kV/cm. Figure taken from {cite:ps}`manjarres_performances_2012-1`.
+Charge signal formation from charged particle ionisation. The small amplification region can be seen between the mesh and the anode strips, with a much higher electric field than that of the drift region, of the order ~kV/cm. Figure taken from Ref. {cite:ps}`manjarres_performances_2012-1`.
 :::
 
 +++
@@ -183,7 +183,7 @@ Both of these detectors are configured with four ($25\times25\,\text{mm}^2$) qua
 :width: 400px
 :align: center
 
-A 3D rendering of the solid-state detector telescopes that surround the TPC: downstream array (top left); upstream array (bottom left); side array (top right); bottom array (bottom right). Figure taken from {cite:ps}`koshchiy_texas_2020`.
+A 3D rendering of the solid-state detector telescopes that surround the TPC: downstream array (top left); upstream array (bottom left); side array (top right); bottom array (bottom right). Figure taken from Ref. {cite:ps}`koshchiy_texas_2020`.
 :::
 
 +++

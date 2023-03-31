@@ -41,7 +41,7 @@ Nuclear reactions may be classified with respect to two extremes modes; _compoun
 :name: nuclear-reaction-extremes
 :width: 350px
 
-Semi-classical illustration of the limiting extremes to nuclear reactions: formation of a transitory compound nucleus, and direct reactions. Figure taken from {cite:ps}`satchler_introduction_1990`.
+Semi-classical illustration of the limiting extremes to nuclear reactions: formation of a transitory compound nucleus, and direct reactions. Figure taken from Ref. {cite:ps}`satchler_introduction_1990`.
 :::
 
 +++
@@ -186,7 +186,7 @@ Increasing the applied field further leads to the onset of non-proportionality, 
 :name: gas-detector-region-operation
 :width: 400px
 
-The different operation regions of gas-filled detectors, according to the applied electric field. Only a limited range of field strengths corresponds to a proportional regime in the detector response. Figure taken from {cite:ps}`knoll_radiation_1989`.
+The different operation regions of gas-filled detectors, according to the applied electric field. Only a limited range of field strengths corresponds to a proportional regime in the detector response. Figure taken from Ref. {cite:ps}`knoll_radiation_1989`.
 :::
 
 Frequently, noble gases such as argon or helium are used as the primary gas, as they have small electronegativities that prevent ionised electrons being absorbed by the fill gas. However, alone these gases are susceptible to low breakdown-voltages in which the proportional region is lost, and typically have poor gain characteristics. Addition of a second component with a smaller ionisation energy than the fill gas leads to the Penning effect, in which the number of ion pairs produced per unit energy is enhanced {cite:ps}`sahin_penning_2010`. Furthermore, additive gasses can be used to suppress the breakdown phenomenon; primary gas atoms excited by secondary electrons may de-excite through the emission of UV photons. These photons can seed additional avalanches within the active volume, leading to saturation. By adding a _quench_ gas with additional degrees of freedom and a large UV photo-absorption cross section, e.g. diatomic hydrocarbons with rotational and vibrational modes, the UV photons emitted by secondary excitation can be absorbed without subsequent re-emission {cite:ps}`cortesi_recent_2018`. Finally, with a large enough field, the dielectric properties of a gas detector can break down. Admixtures that contain quench gases can also increase the value of the field required to induce this phenomenon {cite:ps}`suzuki_prototype_2012-1`.

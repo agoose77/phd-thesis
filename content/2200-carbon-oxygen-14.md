@@ -77,7 +77,7 @@ Level schemes of the {math}`{}^{11}\mathrm{C}` and {math}`{}^{11}\mathrm{B}` nuc
 :name: a-14-isobar-levels
 :width: 400px
 
-Low lying energy levels of {math}`A=14` isobars, with adjusted energies relative to {math}`{}^{14}\mathrm{N}`. Levels in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` have {math}`T=1`, whilst those in {math}`{}^{14}\mathrm{N}` have {math}`T=0` apart from those levels in common with the other members of the isobar. Figure taken from {cite:ps}`krane_introductory_1987`.
+Low lying energy levels of {math}`A=14` isobars, with adjusted energies relative to {math}`{}^{14}\mathrm{N}`. Levels in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` have {math}`T=1`, whilst those in {math}`{}^{14}\mathrm{N}` have {math}`T=0` apart from those levels in common with the other members of the isobar. Figure taken from Ref. {cite:ps}`krane_introductory_1987`.
 :::
 
 +++
@@ -89,7 +89,7 @@ An exploration of the relationship between clustering and the deformed harmonic 
 :name: dho-predicted-structures
 :width: 400px
 
-Energy diagram of shell-model degeneracies for integer deformation ratios in an axially deformed harmonic oscillator. The open circles indicate the shells occupied by valence neutrons, whilst the shaded dots denote the shells occupied by the isospin-degenerate {math}`J_z=0` nucleon pairs that form an {math}`\alpha`-particle. Figure taken from {cite:ps}`von_oertzen_nuclear_2006`.
+Energy diagram of shell-model degeneracies for integer deformation ratios in an axially deformed harmonic oscillator. The open circles indicate the shells occupied by valence neutrons, whilst the shaded dots denote the shells occupied by the isospin-degenerate {math}`J_z=0` nucleon pairs that form an {math}`\alpha`-particle. Figure taken from Ref. {cite:ps}`von_oertzen_nuclear_2006`.
 :::
 
 % I *think* all of these are pi bonding, from the text:
@@ -132,7 +132,7 @@ The prolate linear-chain structures described above have two deformation modes, 
 :name: linear-chain-modes
 :width: 300px
 
-Schematic illustration of the deformation modes of linear-chain states. (a) shows the _breathing_ mode in which the centre-separation, {math}`d`, varies, whilst (b) depicts the _bending_ mode that depends upon the bending angle {math}`\theta`. Figure taken from {cite:ps}`itagaki_molecular-orbital_2001`.
+Schematic illustration of the deformation modes of linear-chain states. (a) shows the _breathing_ mode in which the centre-separation, {math}`d`, varies, whilst (b) depicts the _bending_ mode that depends upon the bending angle {math}`\theta`. Figure taken from Ref. {cite:ps}`itagaki_molecular-orbital_2001`.
 :::
 
 :::{note}
@@ -165,7 +165,7 @@ A long conjectured state in three-alpha systems is that of an equilateral triang
 :alt: (b)
 :::
 
-Energy levels in {math}`{}^{14}\mathrm{C}` for negative (a) and positive (b) parity states. Energies are measured relative to the {math}`{}^{10}\mathrm{Be} + \alpha` threshold, and the experimental states are plotted against the predictions for comparison. Figure taken from {cite:ps}`itagaki_equilateral-triangular_2004`.
+Energy levels in {math}`{}^{14}\mathrm{C}` for negative (a) and positive (b) parity states. Energies are measured relative to the {math}`{}^{10}\mathrm{Be} + \alpha` threshold, and the experimental states are plotted against the predictions for comparison. Figure taken from Ref. {cite:ps}`itagaki_equilateral-triangular_2004`.
 ::::
 
 +++
@@ -205,5 +205,5 @@ Of particular relevance to this work is that of {cite:ps}`baba_coulomb_2019` whi
 :alt: (b)
 :::
 
-(a) {math}`2^+` and (b) {math}`4^+` states in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` determined by AMD calculation. Close correspondence between the {math}`\pi`-bond chain states is observed, whilst the {math}`\sigma`-bond levels are expected to differ significantly in excitation energy and decay width. Figure taken from {cite:ps}`baba_coulomb_2019`.
+(a) {math}`2^+` and (b) {math}`4^+` states in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` determined by AMD calculation. Close correspondence between the {math}`\pi`-bond chain states is observed, whilst the {math}`\sigma`-bond levels are expected to differ significantly in excitation energy and decay width. Figure taken from Ref. {cite:ps}`baba_coulomb_2019`.
 ::::

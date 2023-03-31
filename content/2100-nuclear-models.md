@@ -320,7 +320,7 @@ The single-particle eigenfunctions form a complete basis (subject to truncation)
 :width: 384px
 :name: sharp-fermi-surface
 
-Labelling of particle and hole states relative to a sharp Fermi surface, that follows from the restricted Slater determinant form of the HF ground state {math}`\ket{\text{HF}}`. Figure taken from {cite:ps}`rowe_nuclear_2010`.
+Labelling of particle and hole states relative to a sharp Fermi surface, that follows from the restricted Slater determinant form of the HF ground state {math}`\ket{\text{HF}}`. Figure taken from Ref. {cite:ps}`rowe_nuclear_2010`.
 :::
 
 The process of determining the eigenstates of {math}`\hat{H}^{[1]}` is given by the following recurrence relation {cite:ps}`rowe_nuclear_2010`:
@@ -360,7 +360,7 @@ Whether the minimum found by the HF procedure is a true global minimum depends u
 :width: 300px
 :align: center
 
-Schematic diagram of the convergence of different HF trial wave-functions to local minima with distinct quadrupole moments {math}`Q` corresponding to a deformed isomer and subsequent fissioning of the nucleus. Figure taken from {cite:ps}`greiner_nuclear_1996`. 
+Schematic diagram of the convergence of different HF trial wave-functions to local minima with distinct quadrupole moments {math}`Q` corresponding to a deformed isomer and subsequent fissioning of the nucleus. Figure taken from Ref. {cite:ps}`greiner_nuclear_1996`. 
 :::
 
 %TODO: mention core polarization (greiner_nuclear_1996)
@@ -509,7 +509,7 @@ It follows that an AMD many-body basis state can be represented by a set of vari
 :name: amd-like-shell-model
 :align: center
 
-Schematic representation of the eigenstates resulting from anti-symmetrisation of Gaussian wave-packets in the limit of {math}`\frac{d}{\sqrt{a}} \rightarrow 0`, where {math}`d = 0.75 \sqrt { a }` is the displacement between each wave-packet, and {math}`a` the real width parameter. Figure taken from {cite:ps}`feldmeier_fermionic_1997`.
+Schematic representation of the eigenstates resulting from anti-symmetrisation of Gaussian wave-packets in the limit of {math}`\frac{d}{\sqrt{a}} \rightarrow 0`, where {math}`d = 0.75 \sqrt { a }` is the displacement between each wave-packet, and {math}`a` the real width parameter. Figure taken from Ref. {cite:ps}`feldmeier_fermionic_1997`.
 :::
 
 #### Energy minimisation
@@ -658,7 +658,7 @@ The pairing force, which anti-aligns the angular momenta of like-nucleons within
 :align: center
 :width: 400px
 
-A myriad of clustering phenomena are seen in light nuclei, varying from small clusters outside of a closed shell to alpha condensates. Figure taken from {cite:ps}`catford_clustering_2013-1`.
+A myriad of clustering phenomena are seen in light nuclei, varying from small clusters outside of a closed shell to alpha condensates. Figure taken from Ref. {cite:ps}`catford_clustering_2013-1`.
 :::
 
 +++
@@ -741,7 +741,7 @@ Neutron level scheme of the two-center shell-model as a function of the deformat
 :name: nilsson-orbits
 :width: 300px
 
-Single-particle level scheme of the Nilsson deformed harmonic oscillator potential, for {math}`N<50`. Solid lines indicate positive parity solutions, whilst dashed lines represent negative parity states. Each state is labelled by {math}`[N n_z \Lambda \Omega]`, where {math}`N` is the major oscillator number, {math}`n_z` is the oscillator quanta along the 3-axis, {math}`\Lambda` the z projection of the orbital angular momentum, and {math}`\Omega` the z projection of the total angular momentum {math}`J`. Figure taken from {cite:ps}`heyde_basic_2004`.
+Single-particle level scheme of the Nilsson deformed harmonic oscillator potential, for {math}`N<50`. Solid lines indicate positive parity solutions, whilst dashed lines represent negative parity states. Each state is labelled by {math}`[N n_z \Lambda \Omega]`, where {math}`N` is the major oscillator number, {math}`n_z` is the oscillator quanta along the 3-axis, {math}`\Lambda` the z projection of the orbital angular momentum, and {math}`\Omega` the z projection of the total angular momentum {math}`J`. Figure taken from Ref. {cite:ps}`heyde_basic_2004`.
 :::
 
 +++
