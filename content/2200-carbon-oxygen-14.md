@@ -70,7 +70,7 @@ Level schemes of the {math}`{}^{11}\mathrm{C}` and {math}`{}^{11}\mathrm{B}` nuc
 
 +++
 
-{numref}`Later in this chapter <experiment>`, an experimental measurement of the structure of {math}`{}^{14}\mathrm{O}` is discussed. As the mirror of {math}`{}^{14}\mathrm{O}`, {math}`{}^{14}\mathrm{C}` is well studied. It therefore serves as a good foil against which to evaluate the performance of the measurement, in addition to the effects of charge-symmetry breaking upon the observed structure of the nucleus. As such, it is of interest to evaluate the landscape of structure predictions concerning the carbon analogue for which there is a greater body of research.
+{ref}`Later in this chapter <experiment>`, an experimental measurement of the structure of {math}`{}^{14}\mathrm{O}` is discussed. As the mirror of {math}`{}^{14}\mathrm{O}`, {math}`{}^{14}\mathrm{C}` is well studied. It therefore serves as a good foil against which to evaluate the performance of the measurement, in addition to the effects of charge-symmetry breaking upon the observed structure of the nucleus. As such, it is of interest to evaluate the landscape of structure predictions concerning the carbon analogue for which there is a greater body of research.
 
 :::{figure} image/placeholder/a-14-isobar-levels.png
 :align: center
@@ -150,19 +150,19 @@ Calculations of {math}`{}^{14}\mathrm{C}` for the given configurations identify 
 
 A long conjectured state in three-alpha systems is that of an equilateral triangle configuration, which would exhibit a series of rotational bands starting at {math}`3^-` and {math}`0^+` {cite:ps}`bijker_algebraic_2002` {cite:ps}`itagaki_equilateral-triangular_2004`. Though such a state lies above the three-alpha threshold in {math}`{}^{12}\mathrm{C}`, it is expected that the valence neutrons of {math}`{}^{14}\mathrm{C}` should stabilise the triangular configuration. Using the Generator Coordinate Method (GCM, see {numref}`expt:models-excited-states`), {cite:authors}`itagaki_equilateral-triangular_2004` {cite:ps}`itagaki_equilateral-triangular_2004` make a series of predictions for the energy levels in {math}`{}^{14}\mathrm{C}`, identifying the two aforementioned rotational bands (see {numref}`equilateral-levels-parity`). It is observed experimentally that the second {math}`3^-` band is easily excited by {math}`\alpha` transfer, which indicates an alpha-cluster structure. Simultaneously, the band based upon the (fourth) {math}`0^+` state is observed to exhibit strong B(E2) transition rates, supporting the indication of a rotational band. The authors emphasise the difference between the Ikeda near-threshold clustering, with localised excess neutrons, and the crystalline alpha-condensate structures that can form well below the threshold energy due to the stabilisation of the delocalised valence neutrons. This observation represents a distinct mechanism for cluster states beyond the localised molecular orbits seen in the linear-chain structures.
 
-::::{subfigure} AAABBBBBB
+::::{subfigure} AAABBB
 :layout-sm: A|B
 :gap: 8px
 :subcaptions: below
 :name: equilateral-levels-parity
 
 :::{image} image/equilateral-levels-positive.png
-:alt: (a)
+:alt: Positive parity states.
 
 :::
 
 :::{image} image/equilateral-levels-negative.png
-:alt: (b)
+:alt: Negative parity states.
 :::
 
 Energy levels in {math}`{}^{14}\mathrm{C}` for positive (a) and negative (b) parity states. Energies are measured relative to the {math}`{}^{10}\mathrm{Be} + \alpha` threshold, and the experimental states are plotted against the predictions for comparison. Figure taken from Ref. {cite:ps}`itagaki_equilateral-triangular_2004`.
@@ -170,7 +170,7 @@ Energy levels in {math}`{}^{14}\mathrm{C}` for positive (a) and negative (b) par
 
 +++
 
-In a large work that undertakes a systematic review of experimental data, {cite:ps}`von_oertzen_search_2004` identify single-particle states with oblate shapes, and prolate states with nontrivial structure associated with the low-lying oblate structure of {math}`{}^{12}\mathrm{C}`. These latter states are proposed to have strong {math}`\alpha`-clustering and form rotational bands with signature parity inversion doublets and a high moment of inertia. The complete set of anticipated structures is schematically depicted in {numref}`cluster-structures-14c`. This work finds itself in agreement with {cite:ps}`itagaki_equilateral-triangular_2004` as to the existence of an oblate triangular configuration with {math}`K^\pi = 0^+,\,3^-` band heads. {cite:ps}`von_oertzen_search_2004` ascribe the prolate structures built upon the {math}`0_3^+,\,1_2^-`states to chain structures, though do not go so far as to identify these as either the symmetric or anti-symmetric structures described above.
+In a large work that undertakes a systematic review of experimental data, {cite:authors}`von_oertzen_search_2004` identify single-particle states with oblate shapes, and prolate states with nontrivial structure associated with the low-lying oblate structure of {math}`{}^{12}\mathrm{C}` {cite:ps}`von_oertzen_search_2004`. These latter states are proposed to have strong {math}`\alpha`-clustering and form rotational bands with signature parity inversion doublets and a high moment of inertia. The complete set of anticipated structures is schematically depicted in {numref}`cluster-structures-14c`. This work finds itself in agreement with Ref. {cite:ps}`itagaki_equilateral-triangular_2004` as to the existence of an oblate triangular configuration with {math}`K^\pi = 0^+,\,3^-` band heads. {cite:authors}`von_oertzen_search_2004` ascribe the prolate structures built upon the {math}`0_3^+,\,1_2^-`states to chain structures {cite:ps}`von_oertzen_search_2004`, though do not go so far as to identify these as either the symmetric or anti-symmetric structures described above.
 
 +++
 
@@ -190,20 +190,17 @@ Results of performing AMD simulations of the negative parity and positive parity
 
 Of particular relevance to this work is that of Ref. {cite:ps}`baba_coulomb_2019`, which considers the Coulomb shift of the mirror pair {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}`. The AMD calculations performed in this work suggest that the excitation energy of the {math}`\pi`-bond linear chains seen in {math}`{}^{14}\mathrm{C}` should lie close to those in {math}`{}^{14}\mathrm{O}`, with similar decay widths. The findings for the {math}`\sigma`-bond chain are somewhat different; it is anticipated that the levels in {math}`{}^{14}\mathrm{C}` have both larger decay widths and distinctly higher excitation energies, which are ascribed to a large Thomas-Ehrman shift (see {numref}`states-in-14c-14o`).
 
-::::{subfigure} AAABBBBBB
+::::{subfigure} AAABBB
 :layout-sm: A|B
 :gap: 8px
 :subcaptions: below
 :name: states-in-14c-14o
 
 :::{image} image/states-in-2+-14c-14o.png.svg
-:alt: (a)
-
 :::
 
 :::{image} image/states-in-4+-14c-14o.png.svg
-:alt: (b)
 :::
 
-(a) {math}`2^+` and (b) {math}`4^+` states in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` determined by AMD calculation. Close correspondence between the {math}`\pi`-bond chain states is observed, whilst the {math}`\sigma`-bond levels are expected to differ significantly in excitation energy and decay width. Figure taken from Ref. {cite:ps}`baba_coulomb_2019`.
+(a, left) {math}`2^+` and (b, right) {math}`4^+` states in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` determined by AMD calculation. Close correspondence between the {math}`\pi`-bond chain states is observed, whilst the {math}`\sigma`-bond levels are expected to differ significantly in excitation energy and decay width. Figure taken from Ref. {cite:ps}`baba_coulomb_2019`.
 ::::

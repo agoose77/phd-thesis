@@ -29,17 +29,18 @@ import awkward as ak
 import numpy as np
 from hist import Hist
 from matplotlib import pyplot as plt
-from mplhep.styles import ROOT
 from scipy.stats import linregress, norm
 from texat.utils.awkward.convert import from_hdf5
 from texat.units import units as u
-
-plt.style.use(ROOT)
-plt.rc("figure", figsize=(10, 5), dpi=120)
 data_path = Path("data")
 
 u.setup_matplotlib(True)
 u.separate_format_defaults = True
+
+from mplhep.styles import ATLAS
+
+plt.style.use(ATLAS)
+plt.rc("figure", figsize=(10, 5), dpi=120)
 ```
 
 ## Drift Velocity

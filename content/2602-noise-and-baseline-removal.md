@@ -22,12 +22,12 @@ kernelspec:
 import awkward as ak
 import numpy as np
 from matplotlib import pyplot as plt
-from mplhep.styles import ROOT
 from texat.signal.statistics import rolling_statistics
 from texat.utils.awkward.convert import from_hdf5
 from texat.utils.awkward.structure import groupby
+from mplhep.styles import ATLAS
 
-plt.style.use(ROOT)
+plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
 ```
 
@@ -35,7 +35,7 @@ plt.rc("figure", figsize=(10, 5), dpi=120)
 
 +++
 
-As discussed in {numref}`expt:get-architecture`, the AGET chip provides four additional channels for measuring the electronic noise see {numref}`fpn-averaging`). These channels can be used to eliminate some of the electronic noise inherent within the system.
+As discussed in {numref}`expt:get-architecture`, the AGET chip provides four additional channels for measuring the electronic noise (see {numref}`fpn-averaging`). These channels can be used to eliminate some of the electronic noise inherent within the system.
 
 ```{code-cell} ipython3
 ---
@@ -90,7 +90,7 @@ plt.legend(
 );
 ```
 
-As seen in {numref}`fpn-averaging`, the FPN waveforms typically include a non-linear baseline component. This component, when subtracted from non-FPN channels, restores the constant floor of the measured signals (see {numref}`fpn-baseline-subtraction`). A number of noise removal strategies are discussed in {cite:ps}`giovinazzo_get_2016`, where it is established that an average over the set of FPN channels per-chip is optimal.
+As seen in {numref}`fpn-averaging`, the fixed-pattern noise (FPN) waveforms typically include a non-linear baseline component. This component, when subtracted from non-FPN channels, restores the constant floor of the measured signals (see {numref}`fpn-baseline-subtraction`). A number of noise removal strategies are discussed in {cite:ps}`giovinazzo_get_2016`, where it is established that an average over the set of FPN channels per-chip is optimal.
 
 ```{code-cell} ipython3
 ---
@@ -131,6 +131,7 @@ In addition to a low frequency component of the electronic noise, a separate bas
 
 +++
 
+(texat:micromegas-baseline-estimation)=
 ## MicroMeGaS Baseline Estimation
 
 Given that time in the MicroMeGaS is primarly determined by the drift time of the liberated electrons in the gas volume, the baseline observed in the MicroMeGaS detector was not seen to occur at specific times. Therefore, in order to identify the region of baseline that would be linearly subtracted from the recorded signal, a local variance was computed for the channel samples, with a window of 96 cells. The value of the baseline was given by the locus of the minimum computed variance (see {numref}`baseline-estimate-micromegas`).

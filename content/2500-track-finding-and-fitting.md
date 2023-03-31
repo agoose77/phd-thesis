@@ -23,13 +23,12 @@ import numpy as np
 from IPython.display import Image
 from IPython.utils.capture import capture_output
 from matplotlib import pyplot as plt
-from mplhep.styles import ROOT
 from scipy.spatial import KDTree
 from texat.tracking.model.interval import probability_point_line
+from mplhep.styles import ATLAS
 
-plt.style.use(ROOT)
+plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
-plt.rc('font', size="16")
 ```
 
 (expt:track-finding-and-fitting)=

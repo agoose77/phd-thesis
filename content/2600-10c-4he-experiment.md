@@ -19,7 +19,7 @@ kernelspec:
 The analysis process was performed in a series of discrete stages (see {numref}`analysis-flowchart`).
 
 :::{mermaid}
-:caption: Process diagram of the TexAT analysis
+:caption: Process diagram of the TexAT analysis.
 :name: analysis-flowchart
 
 flowchart TD
@@ -69,7 +69,3 @@ click kinematics "2614-kinematics.html" "Reconstructing event information from k
 :::{container} mermaidTooltip
 % Tooltip 
 :::
-
-```{code-cell}
-
-```

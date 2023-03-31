@@ -28,10 +28,10 @@ import numpy as np
 import vector
 from matplotlib import pyplot as plt
 from matplotlib.collections import PolyCollection
-from mplhep.styles import ROOT
 from texat.utils.awkward.convert import from_hdf5
+from mplhep.styles import ATLAS
 
-plt.style.use(ROOT)
+plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
 data_path = Path("data")
 ```

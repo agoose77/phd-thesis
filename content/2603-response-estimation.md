@@ -24,12 +24,12 @@ from pathlib import Path
 
 import numpy as np
 from matplotlib import pyplot as plt
-from mplhep.styles import ROOT
 from scipy.fft import irfft, rfft
 from scipy.optimize import minimize_scalar
 from texat.signal.waveforms import GET_response, gaussian
+from mplhep.styles import ATLAS
 
-plt.style.use(ROOT)
+plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
 
 data_path = Path("data")
@@ -41,7 +41,7 @@ Channels which employ the AGET shaper require deconvolution in order to recover 
 
 h(t) = A \cdot \exp \left(-3 \frac{t}{\tau}\right) \cdot\left(\frac{t}{\tau}\right)^{3} \cdot \sin \left(\frac{t}{\tau}\right)\,,\\
 :::
-for {math}`\tau=\frac{\tau_s}{\delta t}`, where {math}`\tau` is the shaping time and {math}`\delta t` the reciprocal sampling rate. The authors note, however, that it is insufficiently accurate to be used with deconvolutional methods. Whilst the electronics can be configured such that the response function can be directly measured, this would have required further access to the detector which resides at the Cyclotron Institute, Texas A&M University {cite:ps}`giovinazzo_get_2016`. Without the ability to experimentally derive a response function, an estimate was determined through two separate methods.
+for {math}`\tau=\frac{\tau_s}{\delta t}`, where {math}`\tau` is the shaping time and {math}`\delta t` the reciprocal sampling rate. The authors of Ref. {cite:ps}`giovinazzo_get_2016` note, however, that it is insufficiently accurate to be used with deconvolutional methods. Whilst the electronics can be configured such that the response function can be directly measured, this would have required further access to the detector which resides at the Cyclotron Institute, Texas A&M University {cite:ps}`giovinazzo_get_2016`. Without the ability to experimentally derive a response function, an estimate was determined through two separate methods.
 
 :::{admonition} To Do
 :class: margin
@@ -75,7 +75,7 @@ plt.xlabel("Time /cells")
 plt.ylabel("Amplitude");
 ```
 
-Given such a sample, an initial estimate of the response function $F^{(1)}$ can be used to fit each waveform with the convolution of a Gaussian function:
+Given such a sample, an initial estimate of the response function, $F^{(1)}$, can be used to fit each waveform with the convolution of a Gaussian function:
 
 :::{math}
 :label: iterative-estimate
@@ -124,8 +124,7 @@ F^{(n)} &= \operatorname{Deconv}(Y^{(n-1)}, \mathcal{N}^{(n-1)})\,,
 ---
 mystnb:
   figure:
-    caption: A plot of the estimated response function over several iterations. It
-      can be seen that the estimated response function becomes broader with each iteration.
+    caption: A waterfall plot of the response function estimates computed over many sequential iterations. It can be seen that the estimated response function becomes broader with each iteration, ultimately converging upon a stable shape.
     name: mm-response-evolution
   image:
     align: center
@@ -151,7 +150,7 @@ The initial trial function shown in {numref}`mm-response-evolution` is a poor fi
 mystnb:
   figure:
     caption: A plot of the convolution fit solution cost as a function of the free
-      parameter {math}`tau`
+      parameter {math}`\tau`.
     name: cost-tau
   image:
     align: center
@@ -173,7 +172,7 @@ It can be seen that the fit value of {math}`\tau` is larger than the {math}`\tau
 ---
 mystnb:
   figure:
-    caption: Comparison of the response function for different values of {math}`\tau`
+    caption: Comparison of the response function for different values of {math}`\tau`.
     name: mm-response-initial-tau
   image:
     align: center
@@ -252,7 +251,7 @@ That the published value of {math}`\tau` does not agree with the value determine
 
 ## Sample Averaging
 
-As discussed in <TODO>, the width of the deconvolved GET waveforms in the MicroMeGaS is partially determined by the shape of the charge clusters formed in the detector, i.e. the elevation of the path travelled by ionising radiation. This additional degree of freedom is accounted for above through the Gaussian convolution fit. It follows that the silicon waveforms may provide a more robust estimate of the GET response function, as the shape of the current signal produced by interactions with the silicon detector is predominantly determined by the shaper. 
+As discussed in {numref}`expt:micromegas`, the width of the deconvolved GET waveforms in the MicroMeGaS is partially determined by the shape of the charge clusters formed in the detector, i.e. the elevation of the path travelled by ionising radiation. This additional degree of freedom is accounted for above through the Gaussian convolution fit. It follows that the silicon waveforms may provide a more robust estimate of the GET response function, as the shape of the current signal produced by interactions with the silicon detector is predominantly determined by the shaper. 
     
 To first approximation, the measured signal can be assumed to be the convolution of the delta function at some time $t$ and the intrinsic response function.
 To build a response function estimate, a random sample of silicon waveforms spanning a range of amplitudes is taken. The bin-wise mean of this set of waveforms is taken to produce an average waveform (see {numref}`si-response-average`). This waveform is an approximate response function, which can then be time-shifted such that the peak coincides with {math}`t=0`.

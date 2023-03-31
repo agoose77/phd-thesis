@@ -21,7 +21,6 @@ import pickle
 from pathlib import Path
 
 import awkward as ak
-import mplhep as hep
 import numpy as np
 import vector
 from matplotlib import pyplot as plt
@@ -30,6 +29,7 @@ from matplotlib.patches import Polygon
 from texat.utils.awkward.convert import from_hdf5
 from texat.utils.awkward.structure import ordered_map
 
+import mplhep as hep
 hep.style.use(hep.style.ATLAS)
 ```
 

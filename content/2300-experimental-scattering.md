@@ -19,9 +19,9 @@ kernelspec:
 
 import numpy as np
 from matplotlib import pyplot as plt
-from mplhep.styles import ROOT
+from mplhep.styles import ATLAS
 
-plt.style.use(ROOT)
+plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
 ```
 
@@ -254,4 +254,4 @@ plt.legend();
 
 +++ {"tags": ["no-latex"]}
 
-Unlike thin-target kinematics, reactions that take place within a gas chamber are not confined to a localised region.  Therefore, the experimental advantages of operating in a thick-target inverse-kinematic regime can only realised if there are suitable detectors (see {numref}`expt:the-texat-detector`) and analysis techniques (see {numref}`expt:track-finding-and-fitting`) available to recover the reaction kinematics. 
+Unlike thin-target kinematics, reactions that take place within a gas chamber are not confined to a localised region.  Therefore, the experimental advantages of operating in a thick-target inverse-kinematic regime can only realised if there are suitable detectors (see {numref}`expt:the-texat-detector`) and analysis techniques (see {numref}`expt:track-finding-and-fitting`) available to recover the reaction kinematics.

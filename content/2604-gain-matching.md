@@ -30,10 +30,10 @@ import iminuit
 import iminuit.cost
 import numpy as np
 from matplotlib import pyplot as plt
-from mplhep.styles import ROOT
 from scipy import stats
+from mplhep.styles import ATLAS
 
-plt.style.use(ROOT)
+plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
 
 data_path = Path("data")

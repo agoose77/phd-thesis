@@ -24,14 +24,13 @@ import pickle
 import numpy as np
 import particle
 from matplotlib import pyplot as plt
-from mplhep.styles import ROOT
 from particle import Particle
 from texat.detector.micromegas import PAD_HEIGHT
 from texat.units import units as u
+from mplhep.styles import ATLAS
 
-plt.style.use(ROOT)
+plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
-plt.rc("font", size="16")
 
 u.separate_format_defaults = True
 ```
@@ -119,7 +118,7 @@ p_3^\pqty{1}&= \frac{\pqty{p_2^\pqty{2}}^2\pqty{m_1+m_2} + \pqty{p_2^\pqty{1}}^2
 
 ::::
 
-{numref}`angular-energy-curve` shows a histogram of the observed silicon energy as a function of the reconstructed event vertex position.
+{numref}`angular-energy-curve` shows a histogram of the observed silicon energy as a function of the reconstructed event vertex position. The vertex is computed from the tracks fit in {numref}`expt:texat-track-fitting`, using the closest point of approach between the beam and the light recoil. In the event that one does not observe the beam track directly, an idealised track can be assumed in which the beam is aligned along the forward ({math}`+\hat{y}`) vector. For these tracks, the vertex of the interaction is given by taking the closest point of approach between the ideal beam track and the track of the observed light-recoil.
 
 ```{code-cell} ipython3
 ---

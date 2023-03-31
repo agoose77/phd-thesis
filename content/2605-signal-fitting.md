@@ -24,13 +24,11 @@ from pathlib import Path
 
 import numpy as np
 from matplotlib import pyplot as plt
-from mplhep.styles import ROOT
 from scipy.fft import irfft, rfft
-from scipy.optimize import minimize, minimize_scalar
-from texat.signal.convolution import gold_deconvolve_fft
-from texat.signal.waveforms import GET_response, gaussian
+from scipy.optimize import minimize, minimize_scalarnoauthor_apache_nodate
+from mplhep.styles import ATLAS
 
-plt.style.use(ROOT)
+plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
 
 data_path = Path("data")
@@ -108,7 +106,7 @@ ax2.set_ylabel("Amplitude")
 plt.legend(handles=handles);
 ```
 
-In such instances, one cannot easily determine the peak multiplicity of the sample. It is therefore assumed that the measured sample contains only one peak, which is fit as described above using an additional mask that forces the fit algorithm to ignore the saturated regions. Consequently, these fits are more prone to poor estimation of the signal amplitude where a significant portion of the signal is lost to saturation effects.
+In such instances, the peak multiplicity of the sample cannot easily be determined. It is therefore assumed that the measured sample contains only one peak, which is fit as described above using an additional mask that forces the fit algorithm to ignore the saturated regions. Consequently, these fits are more prone to poor estimation of the signal amplitude where a significant portion of the signal is lost to saturation effects.
 
 ```{code-cell} ipython3
 ---

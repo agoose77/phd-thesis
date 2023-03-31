@@ -15,6 +15,7 @@ mystnb:
 
 bibtex_bibfiles:
   - references.bib
+
 repository:
   url: 'https://github.com/agoose77/phd-thesis'
   path_to_book: docs
@@ -25,6 +26,8 @@ html:
   use_multitoc_numbering: false
 latex:
   latex_engine: pdflatex
+  latex_documents:
+    targetname: thesis.tex
 execute:
   stderr_output: remove-warn
 sphinx:
@@ -82,11 +85,13 @@ sphinx:
         % Double line spacing
         \usepackage{setspace}
         \doublespacing
-        
+
+        % Clear floats between sections
         \usepackage{placeins}
         \usepackage{afterpage}
         \afterpage{\FloatBarrier}
-        
+
+        % Simplify headings
         \makeatletter
         \fancypagestyle{normal}{
             \fancyhf{}
