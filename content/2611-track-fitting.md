@@ -21,16 +21,101 @@ import pickle
 from pathlib import Path
 
 import awkward as ak
+import k3d
+import k3d.platonic
+import mplhep as hep
 import numpy as np
 import vector
+from IPython.display import Image
 from matplotlib import pyplot as plt
+from matplotlib.cm import viridis
 from matplotlib.collections import PolyCollection
 from matplotlib.patches import Polygon
 from texat.utils.awkward.convert import from_hdf5
 from texat.utils.awkward.structure import ordered_map
+from utils import displayed_as_mimebundle
 
-import mplhep as hep
 hep.style.use(hep.style.ATLAS)
+```
+
+Tracks within the TPC volume were fit with line-interval models (see {numref}`texat:line-segment`) using the methods described in {numref}`texat:pearl-fit`. From these fits, a set of labels was generated, which permits ascribing each cluster to a given track model. {numref}`track-example-fit` shows an event that was fit according to these techniques.
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: A 3D plot of the track reconstruction for a single event using the PEARL
+      method described in {numref}`texat:pearl-fit`. Each distinct track is labelled
+      with a distinct colour, and the line of best fit superimposed. Due to the uncertainty
+      of the cluster positions in the pads region, the beam track is found to be longer
+      than it is physically expected to be. This can be corrected in a subsequent
+      constrained fit.
+    name: track-example-fit
+  image:
+    align: center
+    width: 512px
+tags: [hide-input]
+---
+cluster = from_hdf5("data/cluster-fit.h5")
+track = from_hdf5("data/track-fit.h5")
+
+
+def vec_to_array(vec):
+    fields = ak.unzip(vec[["x", "y", "z"]])
+    return ak.to_numpy(ak.concatenate([f[..., np.newaxis] for f in fields], axis=-1))
+
+
+points = vec_to_array(cluster.position).astype(np.float32)
+label = ak.to_numpy(cluster.label).astype(np.float32)
+
+starts = vec_to_array(track.start)
+stops = vec_to_array(track.stop)
+line_points = np.concatenate((starts, stops), axis=-1).reshape(-1, 3).astype(np.float32)
+line_indices = (np.arange(line_points.shape[0])).reshape(-1, 2)
+
+color_map = np.concatenate(
+    ((f := np.linspace(0, 1, 32))[:, np.newaxis], viridis(f)[:, :3]), axis=1
+)
+
+plot = k3d.plot(camera_auto_fit=False, grid_visible=False, colorbar_object_id=0)
+
+plot += k3d.points(
+    points,
+    attribute=label,
+    color_map=color_map,
+    name="Cluster",
+    point_size=2.0,
+    render="3d",
+)
+plot += k3d.lines(
+    line_points,
+    attribute=(line_indices // 2).ravel(),
+    color_map=color_map,
+    indices=line_indices,
+    indices_type="segment",
+)
+
+plot.camera = np.array(
+    [
+        -32.21654280817863,
+        -71.44774694349248,
+        101.78294988049275,
+        8.25564617466183,
+        -34.66977691828356,
+        22.24595725375475,
+        0.6849613598383177,
+        0.40730740534726717,
+        0.6040932071769807,
+    ]
+)
+
+
+# Provide image fallback
+with displayed_as_mimebundle() as c:
+    display(
+        plot,
+        Image("image/sample-track-reconstruction.png"),
+    )
 ```
 
 ## Track Multiplicity
@@ -69,10 +154,6 @@ For each event, with the trigger placed upon the silicon detector channels, it f
 
 A plot of the _relative_ hitmap formed by taking the difference of the reconstructed hit position with the known silicon centroid is shown in {numref}`silicon-hitmap-forward-relative` to have good agreement with the quadrant dimensions. It is expected that the agreement will not be exact; small tracks incur a larger angular error, which manifests as significant displacements in the reconstructed hit position. In both figures, the hitmap is formed by the union of all track intersections in order to remove bias from gating the track hit position. A position gate was applied to the track endpoint; tracks whose endpoints lie within the final sector of the MicroMeGaS are likely to be the light particles that reach the silicon; the beam and scattered beam tracks are typically found earlier in the detector.
 
-+++ {"tags": ["no-latex"]}
-
-:::{warning} Describe why so many quadrants are poor
-:::
 
 ```{code-cell} ipython3
 ---

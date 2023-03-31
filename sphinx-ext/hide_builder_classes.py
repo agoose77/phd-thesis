@@ -35,10 +35,11 @@ class HideNodesTransform(SphinxPostTransform):
         ignore_classes = builder_ignore_classes.get(
             self.app.builder.name, set()
         )
+        print(f"Ignoring {ignore_classes} for {self.app.builder.name} builder")
         for node in self.document.traverse(nodes.Element):
             node_classes = set(node['classes'])
             if node_classes & ignore_classes:
-                print("IGNORE", node)
+                print(f"Ignoring {node} due to {node_classes & ignore_classes}")
                 node.replace_self([HiddenNode()])
 
 

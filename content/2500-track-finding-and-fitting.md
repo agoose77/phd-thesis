@@ -699,6 +699,7 @@ The choice of a {math}`V_{\alpha, \gamma}=\delta_{\alpha\gamma}` interaction pot
 
 +++
 
+(texat:pearl-fit)=
 ### PeARL
 
 So far, the application of graph-cuts to solving the metric labelling problem as been explored. It is not immediately obvious how this approach maps onto the problem of track fitting. At first glance, the model {math}`f` seen in {eq}`cost-function-pearl` resembles the label described in {numref}`expt:alpha-expansion`. However, our track models are members of {math}`\mathcal{L}=\mathbb{R}^n`, and therefore a one-to-one mapping between {math}`F` and {math}`\mathcal{L}` would be infinitely large. In order to explore the continuum of model parameters whilst working within a feasible subset of the parameter space, the PeARL algorithm may be used {cite:ps}`boykov_fast_2001-1`.
@@ -745,6 +746,7 @@ The unbounded line may not be the most suitable model to describe linear data. C
 
 +++
 
+(texat:line-segment)=
 #### Line Segment
 Another model applicable to track fitting is to treat a set of observations as a line _interval_. 
 With a finite length, the model has a normalisable probability density, and as such the log likelihood can be used to determine the data cost.

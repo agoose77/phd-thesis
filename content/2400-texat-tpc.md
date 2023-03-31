@@ -49,13 +49,11 @@ TexAT is comprised of a gas-filled TPC and MicroMeGaS (Micro-Mesh Gaseous Struct
 ---
 mystnb:
   figure:
-    caption: A 3D model of the TexAT components, comprised of <span style="color:#440154">silicon</span>,
-      <span style="color:#21918b">thallium doped cesium iodide</span>, and <span style="color:#fde725">MicroMEGAS</span>
-      detectors.
+    caption: A 3D model of the "final" innermost TexAT detector components, comprised of silicon (purple), thallium doped cesium iodide (turquoise), and MicroMeGaS (yellow) detectors. The ion counter is not pictured here.
     name: texat-detector-3d
   image:
     align: center
-    alt: A time-projection-chamber detector with a Micromegas anode and array of silicon
+    alt: A time-projection-chamber detector with a MicroMeGaS anode and array of silicon
       detectors surrounding the exterior of the active volume.
     width: 512px
 tags: [hide-input]

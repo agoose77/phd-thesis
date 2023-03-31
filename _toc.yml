@@ -42,14 +42,11 @@ parts:
             - file: content/3005-analytics
             - file: content/3006-future-work
   
-  # - caption: Reproducible Research
-  #   numbered: true
-  #   chapters:
-  #     - file: content/4000-reproducible-research
-  # - caption: Discussion
-  #   numbered: true
-  #   chapters:
-  #     - file: content/5000-discussion.ipynb
+  - caption: Discussion
+    numbered: true
+    chapters:
+      - file: content/5000-conclusions
+      - file: content/5001-future-work
   
   - caption: End Matter
     numbered: false

@@ -155,7 +155,7 @@ The presence of saturated signals in the MicroMeGaS detector gives a locus (in t
 
 The baseline is adjusted such that the waveform is positive definite. The GOLD algorithm {cite:ps}`morhac_multidimensional_2005` used to deconvolve ringing waveforms requires such a condition. Furthermore, the baseline estimation procedure outlined in {numref}`texat:micromegas-baseline-estimation` does not produce reasonable solutions in the event that the baseline is dominated by a strong noise component. This is a significant problem for signals with ringing artefacts, which therefore require baseline adjustment in order to properly recover the peaks.
 
-It follows that a veto window that start immediately before the saturated waveform locus, and extends several peak-widths beyond it, can be defined. Waveform peaks that are identified within this veto window are only retained iff. they demonstrate a reasonable width (see {numref}`texat:pulse-width-distribution`), and they have no secondary ringing peaks (identified as above) with a primary-amplitude ratio that exceeds a threshold value.
+It follows that a veto window that start immediately before the saturated waveform locus, and extends several peak-widths beyond it, can be defined. Waveform peaks that are identified within this veto window are only retained iff. they demonstrate a reasonable width (see {numref}`texat:pulse-width-identification`), and they have no secondary ringing peaks (identified as above) with a primary-amplitude ratio that exceeds a threshold value.
 
 ```{code-cell} ipython3
 ---

@@ -25,7 +25,8 @@ from pathlib import Path
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.fft import irfft, rfft
-from scipy.optimize import minimize, minimize_scalarnoauthor_apache_nodate
+from texat.signal.convolution import gold_deconvolve_fft
+from scipy.optimize import minimize, minimize_scalar
 from mplhep.styles import ATLAS
 
 plt.style.use(ATLAS)
@@ -181,7 +182,7 @@ ax.set_ylabel("Amplitude")
 plt.legend();
 ```
 
-+++ {"tags": ["remove-cell"]}
+<!-- +++ {"tags": ["remove-cell"]}
 
 :::{warning}
 TODO: 
@@ -189,4 +190,4 @@ TODO:
 - [ ] check whether drift of charges is significant to signal formation in presence of micromesh?
 - [x] consider meaning of non linear least squares
 - [x] Mention GOLD deconvolution
-:::
+::: -->

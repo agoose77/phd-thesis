@@ -591,7 +591,7 @@ Early AMD calculations were performed first by a method known as variation _befo
         {\phi_{\mathrm{AMD}}}
 }
 :::
-for some state with angular momentum <TODO>, a method known as variation _after_ projection (VAP, or properly {math}`\text{VaP}^\pi \text{aP}^J`) {cite:ps}`kanada-enyo_variation_1998`. Fundamentally, VAP approach necessitates a minimisation procedure for each eigenstate onto which the AMD state is projected. Although much more costly than VBP, the VAP procedure is necessary to describe states with intrinsic structures that differ from the mean-field state (see {numref}`amd-variation-comparison`) {cite:ps}`feldmeier_nuclear_2017`.  
+for some state {math}` \ket{ \phi _ { M K } ^ { J } }`, a method known as variation _after_ projection (VAP, or properly {math}`\text{VaP}^\pi \text{aP}^J`) {cite:ps}`kanada-enyo_variation_1998`. Fundamentally, VAP approach necessitates a minimisation procedure for each eigenstate onto which the AMD state is projected. Although much more costly than VBP, the VAP procedure is necessary to describe states with intrinsic structures that differ from the mean-field state (see {numref}`amd-variation-comparison`) {cite:ps}`feldmeier_nuclear_2017`.  
     
 :::{note}
 :class: margin
