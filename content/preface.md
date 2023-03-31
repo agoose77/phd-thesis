@@ -28,18 +28,20 @@ Nuclear Physics Group
 School of Physics and Astronomy  
 College of Engineering and Physical Sciences  
 University of Birmingham  
-September 22, 2023
+March, 2023
 :::
 
 :::{grid-item-card} A search for molecular structure in oxygen-14
 :link: 2100-nuclear-models
 :link-type: doc
 :img-bottom: image/placeholder/texat-detector.png
+:class-item: no-latex
 :::
 
 :::{grid-item-card} Interactive computing for nuclear laboratories
 :link: 3000-olab-online-laboratory
 :link-type: doc
 :img-bottom: image/olab-logo.png
+:class-item: no-latex
 :::
 ::::
