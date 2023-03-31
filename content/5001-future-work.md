@@ -1,4 +1,4 @@
-ax.xaxis.labelpad = 20---
+---
 jupytext:
   text_representation:
     extension: .md
