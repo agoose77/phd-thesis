@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -353,4 +353,4 @@ Any two elements (strip-strip or chain-chain) are separated by a fixed spacing {
 :::
 
 ### In-plane Events
-A fundamental limitation to the strip-chain time-matching approach detailed above is observed for events in which all strip-chain times lie beneath the resolving limit. For these events, the set of possible matches grows to encompass the Cartesian product of the elements. It follows that an alternative approach must be taken to recover the track information for these events. Under the assumption of a single, linear track (which holds reasonably well in the side regions), a pair of vertices can be drawn from the innermost and outermost pairs of strips and chains. These vertices correspond to the conjectured start and end positions of a forward-focussed track that originates from the central pads region. One can then interpolate along this idealised track to recover the charge clusters. 
+A fundamental limitation to the strip-chain time-matching approach detailed above is observed for events in which all strip-chain times lie beneath the resolving limit. For these events, the set of possible matches grows to encompass the Cartesian product of the elements. It follows that an alternative approach must be taken to recover the track information for these events. Under the assumption of a single, linear track (which holds reasonably well in the side regions), a pair of vertices can be drawn from the innermost and outermost pairs of strips and chains. These vertices correspond to the conjectured start and end positions of a forward-focussed track that originates from the central pads region. One can then interpolate along this idealised track to recover the charge clusters.

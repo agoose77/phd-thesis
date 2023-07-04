@@ -4,13 +4,11 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-mystnb:
-  execution_mode: "inline"
 ---
 
 # Analytics
@@ -22,9 +20,11 @@ import json
 import pathlib
 import warnings
 from pathlib import Path
+from datetime import datetime
 
 import altair as alt
 import numpy as np
+
 import pandas as pd
 from altair.vegalite.v4.display import html_renderer, svg_renderer
 from IPython.display import Code
@@ -99,16 +99,10 @@ is_weekday = (daily_active_users.start.dt.day_of_week != 5) & (
 is_early_dec = (daily_active_users.start.dt.month == 12) & (
     (daily_active_users.start.dt.day < 14)
 )
-daily_active_users[is_weekday].describe().T
+daily_active_users.loc[is_weekday, "user"].describe().T
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-daily_active_users.describe().T
-```
-
-The `start` time of each user server was downsampled to a granularity of days, and the distinct number of unique users per-day computed. A total of {eval}`len(np.unique(df.user))` unique users (including demonstrators) were identified in this dataset. See {numref}`table:olab-unique-users` for a subset of these records. The OLAB cluster was closed over the weekend to minimise running costs, which is reflected in the sharp, constant drop in users during these two-day windows. The median number of concurrent users for the entire trial period was found to be {eval}`int(daily_active_users[is_weekday].median())` users per day, but this value represents the entire distribution; in totality, the trial was phased as different student cohorts were given access to the resource. Throughout the month of November, a steady increasing trend in the number of concurrent users can be seen. In the subsequent period, user engagement remained fairly closely distributed around {eval}`int(daily_active_users[is_weekday & is_early_dec].median())` daily users. Strongly evident in these data is the end of term on the 21st of December 2020; in the week preceding, student engagement was much reduced.
+The `start` time of each user server was downsampled to a granularity of days, and the distinct number of unique users per-day computed. A total of {eval}`len(np.unique(df.user))` unique users (including demonstrators) were identified in this dataset. See {numref}`table:olab-unique-users` for a subset of these records. The OLAB cluster was closed over the weekend to minimise running costs, which is reflected in the sharp, constant drop in users during these two-day windows. The median number of concurrent users for the entire trial period was found to be {eval}`int(daily_active_users.loc[is_weekday, "user"].median())` users per day, but this value represents the entire distribution; in totality, the trial was phased as different student cohorts were given access to the resource. Throughout the month of November, a steady increasing trend in the number of concurrent users can be seen. In the subsequent period, user engagement remained fairly closely distributed around {eval}`int(daily_active_users.loc[is_weekday & is_early_dec, "user"].median())` daily users. Strongly evident in these data is the end of term on the 21st of December 2020; in the week preceding, student engagement was much reduced.
 
 ```{code-cell} ipython3
 ---
@@ -169,14 +163,7 @@ alt.Chart(df).mark_tick().encode(
 ```
 
 ```{code-cell} ipython3
----
-mystnb:
-  figure:
-    caption: The total session duration of each user.
-    name: chart:olab-cum-session-duration
-tags: [hide-input]
----
-df_by_user = df.groupby("user").sum().loc[:, ["duration_minutes"]]
+df_by_user = df.loc[:, ["duration_minutes", "user"]].groupby("user").sum()
 df_by_user.loc[:, "count"] = df.groupby("user").start.count()
 
 # Cutoff for extreme outliers
@@ -230,8 +217,8 @@ sessions.describe()
 ```{code-cell} ipython3
 :tags: [remove-output, remove-input]
 
-is_before_nov = sessions.time < pd.datetime(2020, 11, 8)
-is_before_dec = sessions.time < pd.datetime(2020, 12, 8)
+is_before_nov = sessions.time < datetime(2020, 11, 8)
+is_before_dec = sessions.time < datetime(2020, 12, 8)
 sessions.loc[is_before_nov].describe()
 ```
 
@@ -378,8 +365,4 @@ tags: [hide-input]
     .encode(alt.Y("notebook"), alt.X("user"))
     .interactive()
 )
-```
-
-```{code-cell} ipython3
-
 ```

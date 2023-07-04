@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -173,7 +173,7 @@ quadrant = ak.zip({"position": quadrant_table.position, "count": count}, depth_l
 is_forward = quadrant.position.y > 190
 
 vertices = (
-    np.where(
+    ak.where(
         is_forward,
         vector.zip({"x": quadrant.position.x, "y": quadrant.position.z}),
         vector.zip({"x": quadrant.position.y, "y": quadrant.position.z}),

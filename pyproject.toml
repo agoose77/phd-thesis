@@ -47,12 +47,12 @@ dependencies = [
     "graphviz>=0.20",
     "sphinxcontrib-svg2pdfconverter>=1.2.0",
     "mdformat-myst>=0.1.5",
-    "altair>=4.2.0",
+    "altair>=4.2.0,<5",
     "altair-saver>=0.5.0",
     "pandas>=1.5.1",
     "sphinx-subfigure>=0.2.4",
     "particle>=0.21.2",
-    "texat @ file:///${PROJECT_ROOT}/extern/texat-0.2.9-py3-none-any.whl",
+    "texat @ file:///${PROJECT_ROOT}/extern/texat-0.3.0-py3-none-any.whl",
     "myst-nb @ file:///${PROJECT_ROOT}/extern/myst_nb-0.17.1-py3-none-any.whl",
     "selenium<4.3.0",
 ]
@@ -67,7 +67,6 @@ exclude = "extern"
 [tool.isort]
 profile = "black"
 
-[tool.pdm]
 [build-system]
 requires = ["pdm-pep517"]
 build-backend = "pdm.pep517.api"
