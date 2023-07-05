@@ -463,7 +463,7 @@ Adapted from Ref. {cite:ps}`casten_nuclear_1990`.
 
 The distinguishing feature of the Nilsson model with respect to the spherical shell model is an orientation of nucleon states with respect to the core. This is illustrated in {numref}`nilsson-model`, which depicts two nucleon orbits {math}`K_1` and {math}`K_2`. As illustrated for the rotor model in {numref}`rotor-frame`, the value {math}`K` corresponds to the projection of the the intrinsic angular momentum (in this case, the single-particle momentum) onto the symmetry axis of the core. 
 
-Given the success of the SHO in the description of the single-particle basis of the spherical shell model, the spheroidal anisotropic (deformed) harmonic oscillator is well-motivated to establish these states in the deformed system. Unlike the _spherical_ oscillator, in which there is a singular frequency {math}`\omega` that determines the per-quanta energy in each axis, the anisotropic harmonic oscillator distinguishes the frequency by axis. In the event of an axially-symmetric rotor, there are two distinct frequencies. Given that solutions to deformed oscillator should map onto the spherical oscillator in the deformation-free limit, the anisotropic frequencies must preserve the nuclear volume: {math}`\omega_3\omega_perp^2 = \omega_0^3`, where {math}`\omega_0` is the spherical oscillator frequency. This yields the following relations
+Given the success of the SHO in the description of the single-particle basis of the spherical shell model, the spheroidal anisotropic (deformed) harmonic oscillator is well-motivated to establish these states in the deformed system. Unlike the _spherical_ oscillator, in which there is a singular frequency {math}`\omega` that determines the per-quanta energy in each axis, the anisotropic harmonic oscillator distinguishes the frequency by axis. In the event of an axially-symmetric rotor, there are two distinct frequencies. Given that solutions to deformed oscillator should map onto the spherical oscillator in the deformation-free limit, the anisotropic frequencies must preserve the nuclear volume: {math}`\omega_3\omega_\perp^2 = \omega_0^3`, where {math}`\omega_0` is the spherical oscillator frequency. This yields the following relations
 :::{math}
 \omega_\perp &= \omega_0\exp(\frac{\epsilon}{3})
 
@@ -494,7 +494,7 @@ Anti-symmetrised Molecular Dynamics (AMD) attempts to model the coexistence of c
 :::
 where {math}`\ket{\psi_i}` is the direct product state of the spatial ({math}`\phi`), intrinsic spin ({math}`\chi`), and isospin ({math}`\tau`) states of nucleus {math}`i`:
 :::{math}
-\ket{\psi_i} &= \ket{\phi_{\vb{Z}_i}}\otimes\ket{\chi_i}\ket{\tau_i}
+\ket{\psi_i} &= \ket{\phi_{\vb{Z}_i}}\otimes\ket{\chi_i} \otimes \ket{\tau_i}
 
 \braket{\phi_{\vb{Z}_i}} &\propto \exp(-\nu\pqty{\vb{r}_j - \frac{\vb{Z}_i}{\sqrt{\nu}}}^2)
 
