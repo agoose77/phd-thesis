@@ -354,7 +354,7 @@ Primitive excited states can then be constructed from one-particle/one-hole (1p1
 
 +++
 
-Whether the minimum found by the HF procedure is a true global minimum depends upon the initial configuration. If the initial configuration determined by the trial wave-functions lie close to a shape-isomeric state, it is quite possible for the numerical procedure to settle upon a configuration that is deformed from the ground state {cite:ps}`greiner_nuclear_1996`. The variational principle outlined in {eq}`variational-principle` can be extended to include a deformation constraint that restricts e.g. the quadrupole moment {math}`Q` of the nucleus (see {numref}`energy-vs-deformation`).
+Whether the minimum found by the HF procedure is a true global minimum depends upon the initial configuration. If the initial configuration determined by the trial wave-functions lies close to a shape-isomeric state, it is quite possible for the numerical procedure to settle upon a configuration that is deformed from the ground state {cite:ps}`greiner_nuclear_1996`. The variational principle outlined in {eq}`variational-principle` can be extended to include a deformation constraint that restricts e.g. the quadrupole moment {math}`Q` of the nucleus (see {numref}`energy-vs-deformation`).
 :::{figure} image/placeholder/energy-vs-deformation.png
 :name: energy-vs-deformation
 :width: 300px
@@ -384,7 +384,7 @@ Extensions to the Hartree-Fock method have been developed to consider the pairin
 #### Excited States
 Meanwhile, _excited_ states are primarily modelled in the HF approximation as 1p1h excitations. Experimentally, however, it is clear that for many nuclei these single 1p1h excitations are themselves insufficient to describe low-lying excited states. An example is {math}`{}^{16}\text{O}`, for which the lowest energy excitations predicted by the harmonic oscillator approximation should be seen at around 11.5 MeV (the difference between the 1p and 2s-1d shells). The spectrum of {math}`{}^{16}\text{O}`, however, has a {math}`J^\pi = 3^-` state at 6.13 MeV, indicating additional _coherent_ excitation mechanisms {cite:ps}`ring_nuclear_2004`. The observation of these excitation modes directly underpins the use of collective models to describe the nucleus. These collective models usually ignore the single-particle degrees of freedom in favour of collective vibrational or rotational modes.
 
-[^ignore-pairing]: Experimentally, it is found that the ground state of spherical nuclei is not degenerate with respect to angular momentum as would be expected for a purely single-particle model. It follows that the residual interaction lowers the zero angular momentum state with respect to the other configurations {cite:ps}`greiner_nuclear_1996`.
+[^ignore-pairing]: Experimentally, it is found that the ground state of spherical nuclei with partially filled {math}`j`-shells is not degenerate with respect to angular momentum as would be expected for a purely single-particle model. It follows that the residual interaction lowers the zero angular momentum state with respect to the other configurations {cite:ps}`greiner_nuclear_1996`. % p. 269
 
 +++
 
