@@ -376,7 +376,7 @@ Whilst the HF approximation generates a set of self-consistent single-particle s
 % NOTE: Even for deformed nuclei, where there is no longer degeneracy of different j projections, Kramer's theorem holds that there exists a time-reversed analogue state {cite:ps}`Wigner1932`. {cite:ps}`rowe_fundamentals_2010` %p530
 
 Extensions to the Hartree-Fock method have been developed to consider the pairing interaction:
-- the Bardeen-Cooper-Schrieffer (BCS) model introduces a generalised pair creation operator for even-even nuclei of the form {math}`A^{+}=\sum_{k>0} \frac{v_k}{u_k} a_k^{+} a_\bar{k}^{+}` to build the BCS ansatz: {math}`\ket{\mathrm{BCS}}\propto \exp \left(A^{+}\right)\ket{-}=\sum_{r=0}^{\infty} \frac{1}{n !}\left(A^{+}\right)^r\ket{-}`, where {math}`\ket{-}` is the vacuum state.{cite:ps}`eisenberg_nuclear_1975` The resulting Hamiltonian is constrained to conserve particle number {math}`N`. Unlike the base HF method, the BCS model is not self-consistent; the pairing field does not change the single-particle wavefunctions {cite:ps}`zelevinsky_physics_2017`, which are generated using traditional Hartree-Fock {cite:ps}`anguiano_study_2014`.
+- the Bardeen-Cooper-Schrieffer (BCS) model introduces a generalised pair creation operator for even-even nuclei of the form {math}`A^{+}=\sum_{k>0} \frac{v_k}{u_k} a_k^{+} a_{\overline{k}}^{+}` to build the BCS ansatz: {math}`\ket{\mathrm{BCS}}\propto \exp \left(A^{+}\right)\ket{-}=\sum_{r=0}^{\infty} \frac{1}{n !}\left(A^{+}\right)^r\ket{-}`, where {math}`\ket{-}` is the vacuum state.{cite:ps}`eisenberg_nuclear_1975` The resulting Hamiltonian is constrained to conserve particle number {math}`N`. Unlike the base HF method, the BCS model is not self-consistent; the pairing field does not change the single-particle wavefunctions {cite:ps}`zelevinsky_physics_2017`, which are generated using traditional Hartree-Fock {cite:ps}`anguiano_study_2014`.
 - the Hartree-Fock-Bogoliubov (HFB) model generalises HF theory to incorporate the quasi-particle concepts of the BCS model. Importantly, it replaces the single particle-pair operators with generalised Bogoliubov quasi-particle operators of the form {math}`\sum_\mu \hat{a}_\mu^\dagger u_{\mu\nu} + \hat{a}_\mu v_{\mu\nu}` {cite:ps}`rowe_fundamentals_2010`.
 
 +++
@@ -520,16 +520,16 @@ Schematic representation of the eigenstates resulting from anti-symmetrisation o
 At the surface level, the HF and AMD methods bare a striking resemblence. The fundamental difference between the two, besides the ansatz of a single-particle Gaussian representation (the basis of the AMD wavefunction), is the supposition of a mean-field. The HF equations are solved iteratively to determine the self-consistent solution. The single-particle eigenfunctions are typically expanded in a complete basis, e.g. harmonic oscillator eigenfunctions, or solved numerically. Meanwhile, the AMD method optimises _parameters_ for a fixed model (Gaussian wave-packets), following the gradient of the Hamiltonian. the "variation" in the time-independent HF method corresponds to single 1p1h excitation of the trial state, whereas for AMD, variation is introduced through the total derivative of the wavefunction.
 :::
 
-To determine the optimum values for {math}`\mathcal{Z}`, the time-dependent variational principle (using the principle of least action ) {cite:ps}`kramer_time-dependent_1981`
+To determine the optimum values for {math}`\mathcal{Z}`, the time-dependent variational principle (using the principle of least action) {cite:ps}`kramer_time-dependent_1981`
 :::{math}
 :label: time-dependent-variational-principle
-\delta\matrixel{\psi}{\hat{H}-\mathrm{i} \hbar \frac{\partial}{\partial t}}{\psi}=0
+\delta\int_{t_1}^{t_2}\matrixel{\psi(t)}{\hat{H}-\mathrm{i} \hbar \frac{\partial}{\partial t}}{\psi}=0
 :::
 is used to derive the equations of motion of the system {cite:ps}`feldmeier_fermionic_1997`:
 :::{math}
 :label: amd-equation-of-motion
-i \hbar \dv{t} u_k = (\lambda+i \mu) 
-    \pdv{u_k^*}  
+i \hbar \dv{Z_k}{t}  = (\lambda+i \mu) 
+    \pdv{Z_k^*}  
         \frac{
             \expval{\hat{H}}{
                 \phi^{\pm}
@@ -540,7 +540,7 @@ i \hbar \dv{t} u_k = (\lambda+i \mu)
         }\,,
 :::
 where the term {math}`(\lambda+i \mu)` is an _artificial_ viscous component designed to dissipate the energy of the system towards a minimum {cite:ps}`wilets_classical_1977` {cite:ps}`horiuchi_neutron-rich_1995`.
-
+% see kanada-enyo_antisymmetrized_2003 for eqn
 +++
 
 In the language of second quantisation, the AMD Hamiltonian
