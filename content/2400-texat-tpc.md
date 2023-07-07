@@ -222,7 +222,7 @@ In order to synchronize the CoBos and generate a global trigger, an additional b
 
 +++
 
-The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in cases where exernal pre-amplifiers need to be read-out by the GET electronics {cite:ps}`pollacco_get_2018`. For this experiment, instead of using the internal GET pre-amplifier, the IC is connected via a bypass circuit (see {numref}`external-shaper`) to an external MESYTEC shaper (MSCF-16), whose signals are fed back into the Gain-2 stage of AGET chip, as discussed in {cite:ps}`koshchiy_texas_2020`.
+The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in cases where external pre-amplifiers need to be read-out by the GET electronics {cite:ps}`pollacco_get_2018`. For this experiment, instead of using the internal GET pre-amplifier, the IC is connected via a bypass circuit (see {numref}`external-shaper`) to an external MESYTEC shaper (MSCF-16), whose signals are fed back into the Gain-2 stage of AGET chip, as discussed in {cite:ps}`koshchiy_texas_2020`.
 
 +++
 

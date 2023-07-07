@@ -161,7 +161,7 @@ The RANSAC algorithm establishes a hard distinction between inliers and outliers
 ## Facility Location Problem
 The previously explored methods of the Hough transform and RANSAC are both _greedy_ methods; the order in which solutions are generated favours those models which are found first. The consequence of greedy optimisation is that the global solution across several models may not be optimal.
 
-In order obtain a _global_ solution to track labelling, the task must be reframed as a global optimisation problem. 
+In order to obtain a _global_ solution to track labelling, the task must be reframed as a global optimisation problem. 
 The facility location problem (FLP) is an optimisation problem whose solution determines the optimal location for a set of facilities such that the transportation costs for each facility are minimised. There are several formulations of the problem with auxillary constraints, such as the _capacity_ of the facilities, or the addition of an _opening cost_ for each facility. 
 
 The significance of "facility" and "transportation cost" depends upon the framing of the problem. Here, the _uncapacitated facility location problem_ (UFLP) will be explored in the context of particle track labelling.
@@ -560,7 +560,7 @@ Consider an example comprised of two nodes (observations) {math}`\Omega` and {ma
 
 +++
 
-Although is is already known that this labelling is the correct (optimal) one, in general one might not have this prior information. The _expansion-move_ algorithm can be used to find an improved labelling {math}`F^\prime_\alpha` through the expansion of a particular label {math}`\alpha`. If the expansion does not modify the labelling, then it is optimal i.e. the current labelling {math}`F` is a (local) minimum.
+Although it is already known that this labelling is the correct (optimal) one, in general one might not have this prior information. The _expansion-move_ algorithm can be used to find an improved labelling {math}`F^\prime_\alpha` through the expansion of a particular label {math}`\alpha`. If the expansion does not modify the labelling, then it is optimal i.e. the current labelling {math}`F` is a (local) minimum.
 
 The optimal labelling given in ({numref}`expansion-example-true-labelling`) should have a cost that evaluates to
 
@@ -658,7 +658,7 @@ The choice of a {math}`V_{\alpha, \gamma}=\delta_{\alpha\gamma}` interaction pot
 (texat:pearl-fit)=
 ### PeARL
 
-So far, the application of graph-cuts to solving the metric labelling problem as been explored. It is not immediately obvious how this approach maps onto the problem of track fitting. At first glance, the model {math}`f` seen in {eq}`cost-function-pearl` resembles the label described in {numref}`expt:alpha-expansion`. However, our track models are members of {math}`\mathcal{L}=\mathbb{R}^n`, and therefore a one-to-one mapping between {math}`F` and {math}`\mathcal{L}` would be infinitely large. In order to explore the continuum of model parameters whilst working within a feasible subset of the parameter space, the PeARL algorithm may be used {cite:ps}`boykov_fast_2001-1`.
+So far, the application of graph-cuts to solving the metric labelling problem has been explored. It is not immediately obvious how this approach maps onto the problem of track fitting. At first glance, the model {math}`f` seen in {eq}`cost-function-pearl` resembles the label described in {numref}`expt:alpha-expansion`. However, our track models are members of {math}`\mathcal{L}=\mathbb{R}^n`, and therefore a one-to-one mapping between {math}`F` and {math}`\mathcal{L}` would be infinitely large. In order to explore the continuum of model parameters whilst working within a feasible subset of the parameter space, the PeARL algorithm may be used {cite:ps}`boykov_fast_2001-1`.
 
 +++
 
