@@ -28,14 +28,21 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="2.2416999"
-     inkscape:cx="97.916764"
-     inkscape:cy="84.980153"
+     inkscape:cx="279.02932"
+     inkscape:cy="85.203198"
      inkscape:window-width="1920"
-     inkscape:window-height="1055"
+     inkscape:window-height="1080"
      inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g2692" />
+     inkscape:current-layer="g2692"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="20.737508,2.2033197"
+       orientation="0,-1"
+       id="guide13842" />
+  </sodipodi:namedview>
   <defs
      id="defs2">
     <clipPath
@@ -375,27 +382,6 @@
                style="stroke-width:8.33333">n</tspan></text>
           <text
              transform="scale(1,-1)"
-             style="font-variant:normal;font-weight:bold;font-size:107.736px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
-             id="text2866"
-             x="1794.7228"
-             y="-5138.9351"><tspan
-               x="1794.7228"
-               y="-5138.9351"
-               id="tspan2864"
-               style="stroke-width:8.33333">(c)</tspan></text>
-          <text
-             transform="scale(1,-1)"
-             style="font-variant:normal;font-weight:bold;font-size:88.1475px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
-             id="text2870"
-             x="1354.0911"
-             y="-5022.2896"><tspan
-               x="1354.0911 1403.1011"
-               y="-5022.2896"
-               sodipodi:role="line"
-               id="tspan2868"
-               style="stroke-width:8.33333">b)</tspan></text>
-          <text
-             transform="scale(1,-1)"
              style="font-variant:normal;font-weight:bold;font-size:88.1475px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
              id="text2870-3"
              x="1082.349"
@@ -503,12 +489,34 @@
              transform="scale(1,-1)"
              style="font-variant:normal;font-weight:bold;font-size:88.1475px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
              id="text2870-7"
-             x="1358.34"
-             y="-5027.3188"><tspan
-               x="785.38098 829.45465"
+             x="1107.8501"
+             y="-5070.1821"><tspan
+               x="1107.8501"
                sodipodi:role="line"
                id="tspan2868-2"
-               style="stroke-width:8.33333">a)</tspan></text>
+               style="stroke-width:8.33333"
+               y="-5070.1821">(i)</tspan></text>
+          <text
+             transform="scale(1,-1)"
+             style="font-variant:normal;font-weight:bold;font-size:88.1475px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
+             id="text2870-7-0"
+             x="1690.0704"
+             y="-5071.1118"><tspan
+               x="1690.0704"
+               sodipodi:role="line"
+               id="tspan2868-2-8"
+               style="stroke-width:8.33333"
+               y="-5071.1118">(ii)</tspan></text>
+          <text
+             transform="scale(1,-1)"
+             style="font-variant:normal;font-weight:bold;font-size:107.736px;font-family:Times;-inkscape-font-specification:Times-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.33333"
+             id="text18444"
+             x="1794.7228"
+             y="-5518.1016"><tspan
+               x="1794.7228"
+               y="-5194.8936"
+               id="tspan18442"
+               style="stroke-width:8.33333">(c)</tspan></text>
         </g>
       </g>
     </g>

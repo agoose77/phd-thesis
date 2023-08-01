@@ -201,7 +201,7 @@ In this configuration, the energy of each interaction is given as a function of 
 +++
 
 In a system consisting of two different-mass nuclei, thick-target resonant scattering can be performed either in forward kinematics, or in _inverse_ kinematics. In forward kinematics, the beam consists of the lighter nucleus, whilst the heavier nucleus serves as the target. In _inverse kinematics_, the reverse is true: the heavier ion serves as the beam, which is used to bombard a target consisting of the lighter isotope. This approach provides several advantages over forward kinematics: 
-- From the conservation of momentum, two-body reactions are forward focussed (see {numref}`inverse-forward-kinematics`), which improves the geometrical efficiency of the forward-angle detector for a particular solid-angle coverage. 
+- From the conservation of momentum, two-body reactions with negative (or zero) Q values are forward focussed (see {numref}`inverse-forward-kinematics`), which improves the geometrical efficiency of the forward-angle detector for a particular solid-angle coverage. 
 - For short-lived isotopes, it is possible to use a particle accelerator to produce ions on-line to circumvent challenges of radioactive target production. This is particular feasible for alpha-scattering experiments; {math}`{}^4\mathrm{He}` is one of the lightest nuclei in existence, and therefore most nuclei of interest have larger masses.
 
 
@@ -236,7 +236,7 @@ mystnb:
   figure:
     caption: Stopping power of {math}`{}^{10}\mathrm{C}` and {math}`{}^{4}\mathrm{He}`
       ions in a gas-mixture of 96% {math}`{}^4\mathrm{He}`, 4% {math}`\mathrm{CO}_2`
-      at 405 atm, simulated using SRIM {cite:ps}`ziegler_srim_2010`.
+      at 405 torr, simulated using SRIM {cite:ps}`ziegler_srim_2010`.
     name: stopping-power-10c-4he
   image:
     align: center

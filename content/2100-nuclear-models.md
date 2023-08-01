@@ -93,9 +93,9 @@ A quantum mechanical rotor has the Hamiltonian
 :::{math}
 \hat{H}_\text{rot} = \frac{\hbar^2}{2}\bqty{
     \frac{\hat{R}_1^2}{\mathcal{I}_1} + \frac{\hat{R}_2^2}{\mathcal{I}_2} + \frac{\hat{R}_3^2}{\mathcal{I}_3}
-}\,.
+}\,,
 :::
-With the inclusion of intrinsic degrees of freedom, this Hamiltonian would also possess an intrinsic term that couples with the extrinsic components; if the nucleus has intrinsic angular momentum {math}`\vb{J}`, then the total angular momentum is given by the vector sum
+where {math}`\mathcal{I}_j` is the moment of inertia with respect to the intrinsic axis {math}`j`, and {math}`\hbar` the reduced Planck's constant. With the inclusion of intrinsic degrees of freedom, this Hamiltonian would also possess an intrinsic term that couples with the extrinsic components; if the nucleus has intrinsic angular momentum {math}`\vb{J}`, then the total angular momentum is given by the vector sum
 :::{math}
 \hat{\vb{I}} = \hat{\vb{R}} + \hat{\vb{J}}\,.
 :::
@@ -463,7 +463,7 @@ Adapted from Ref. {cite:ps}`casten_nuclear_1990`.
 
 The distinguishing feature of the Nilsson model with respect to the spherical shell model is an orientation of nucleon states with respect to the core. This is illustrated in {numref}`nilsson-model`, which depicts two nucleon orbits {math}`K_1` and {math}`K_2`. As illustrated for the rotor model in {numref}`rotor-frame`, the value {math}`K` corresponds to the projection of the the intrinsic angular momentum (in this case, the single-particle momentum) onto the symmetry axis of the core. 
 
-Given the success of the SHO in the description of the single-particle basis of the spherical shell model, the spheroidal anisotropic (deformed) harmonic oscillator is well-motivated to establish these states in the deformed system. Unlike the _spherical_ oscillator, in which there is a singular frequency {math}`\omega` that determines the per-quanta energy in each axis, the anisotropic harmonic oscillator distinguishes the frequency by axis. In the event of an axially-symmetric rotor, there are two distinct frequencies. Given that solutions to deformed oscillator should map onto the spherical oscillator in the deformation-free limit, the anisotropic frequencies must preserve the nuclear volume: {math}`\omega_3\omega_\perp^2 = \omega_0^3`, where {math}`\omega_0` is the spherical oscillator frequency. This yields the following relations
+Given the success of the SHO in the description of the single-particle basis of the spherical shell model, the spheroidal anisotropic (deformed) harmonic oscillator is well-motivated to establish these states in the deformed system. Unlike the _spherical_ oscillator, in which there is a singular frequency {math}`\omega` that determines the per-quanta energy in each axis, the anisotropic harmonic oscillator distinguishes the frequency by axis. In the event of an axially-symmetric rotor, there are two distinct frequencies. Given that solutions to deformed oscillator should map onto the spherical oscillator in the deformation-free limit, the anisotropic frequencies must preserve the nuclear volume: {math}`\omega_3\omega_\perp^2 = \omega_0^3`, where {math}`\omega_0` is the spherical oscillator frequency, {math}`\omega_3` is the axial oscillator frequency, and {math}`\omega_\perp` is the perpendicular oscillator frequency. This yields the following relations
 :::{math}
 \omega_\perp &= \omega_0\exp(\frac{\epsilon}{3})
 
