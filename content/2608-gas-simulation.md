@@ -54,7 +54,7 @@ The transformation from energy-time space of the GET waveforms to the energy-pos
 - - Name
   - Value
 - - Pressure
-  - 405
+  - 405 Torr
 - - Temperature
   - 290 K
 - - Composition
