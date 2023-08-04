@@ -49,7 +49,8 @@ mystnb:
       with a distinct colour, and the line of best fit superimposed. Due to the uncertainty
       of the cluster positions in the pads region, the beam track is found to be longer
       than it is physically expected to be. This can be corrected in a subsequent
-      constrained fit.
+      constrained fit. The blue track corresponds to a beam-like pile-up track, whilst the 
+      green, orange, and pink tracks belong to a single scattering reaction.
     name: track-example-fit
   image:
     align: center
@@ -122,7 +123,7 @@ with displayed_as_mimebundle() as c:
 
 +++
 
-In {numref}`expt:facility-location-problem`, the PeARL method for multi-model discovery and fitting was discussed. For this experiment, a random sample of 1024 models was drawn from pairwise combinations of the clusters computed in {numref}`expt:cluster-reconstruction`. Each model comprised of a pair of clusters, with corresponding positions and charges, and assigned a characteristic width drawn from a Gaussian distribution whose width was determined by inspection. {numref}`track-multiplicity-fit` shows the track multiplicity of these fits, i.e. the number of tracks per event. Perfect scattering reactions correspond to three-track events, in which the beam, light product recoil, and heavy reactant scatter are observed. However, these events are in the minority; many scattering reactions will happen such that the beam track is not observed, or the light product track is missed. As such, the majority of events are <3 track events. Beyond three track events correspond to coherent noise, which is reconstructed as ghost tracks, or pileup, in which there are demonstrably greater than three tracks present in the event.
+In {numref}`expt:facility-location-problem`, the PeARL method for multi-model discovery and fitting was discussed. For this experiment, a random sample of 1024 models was drawn from pairwise combinations of the clusters computed in {numref}`expt:cluster-reconstruction`. Each model comprised of a pair of clusters, with corresponding positions and charges, and assigned a characteristic width drawn from a Gaussian distribution whose width was determined by inspection. {numref}`track-multiplicity-fit` shows the track multiplicity of these fits, i.e. the number of tracks per event. Perfect scattering reactions correspond to three-track events, in which the beam, light product recoil, and heavy reactant scatter are observed. However, these events are in the minority; interactions which occur near (or before) the start of the MicroMeGaS are only partially captured by the detector; the beam track falls outside of the active region of the TPC. Similarly, the heavy product track is often too short to be identified from the resolution of the detector. As such, the majority of events are fewer-than-three-track events. Beyond-three-track events typically correspond to coherent noise, which is reconstructed as ghost tracks, or pileup, in which there are demonstrably greater than three tracks present in the event.
 
 ```{code-cell} ipython3
 ---
