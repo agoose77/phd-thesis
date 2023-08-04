@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -404,7 +404,7 @@ Mention constraints on potential (see [https://profs.etsmtl.ca/hlombaert/energy/
 
 ### Graph Cut Optimisation
 
-In the absence of smooth costs, the UFLP can be solved by integer programming techniques, but remains NP-hard {cite:ps}`Cheriyan98approximationalgorithms`. There exists an heuristic method which solves {eq}`uflp-cost-function` in {math}`\mathcal{O}(\lvert F\rvert^2 \lvert C \rvert)` time {cite:ps}`kuehn_heuristic_1963`. Meanwhile, task of minimising {eq}`cost-function-pearl` is also NP-hard for {math}`\lvert F \rvert \geq 3` {cite:ps}`boykov_fast_2001-1`, but there exist approximate solutions using _graph cuts_ that are guaranteed to find the local minima within a fixed bound of the global optimum {cite:ps}`delong_fast_2010`.
+In the absence of smooth costs, the UFLP can be solved by integer programming techniques, but remains NP-hard {cite:ps}`Cheriyan98approximationalgorithms`. There exists an heuristic method which solves {eq}`uflp-cost-function` in {math}`O(\lvert F\rvert^2 \lvert C \rvert)` time {cite:ps}`kuehn_heuristic_1963`, where {math}`O(n)` represents an asymptotic time complexity that is linear in {math}`n`. Meanwhile, the task of minimising {eq}`cost-function-pearl` is also NP-hard for {math}`\lvert F \rvert \geq 3` {cite:ps}`boykov_fast_2001-1`, but there exist approximate solutions using _graph cuts_ that are guaranteed to find the local minima within a fixed bound of the global optimum {cite:ps}`delong_fast_2010`.
 
 ::::{admonition} NP-hardness
 :class: dropdown
@@ -456,8 +456,6 @@ mystnb:
     width: 128px
 tags: [hide-input]
 ---
-
-
 DOT(
     """
     digraph my_graph {
@@ -560,8 +558,6 @@ Consider an example comprised of two nodes (observations) {math}`\Omega` and {ma
 
 +++
 
-Although it is already known that this labelling is the correct (optimal) one, in general one might not have this prior information. The _expansion-move_ algorithm can be used to find an improved labelling {math}`F^\prime_\alpha` through the expansion of a particular label {math}`\alpha`. If the expansion does not modify the labelling, then it is optimal i.e. the current labelling {math}`F` is a (local) minimum.
-
 The optimal labelling given in ({numref}`expansion-example-true-labelling`) should have a cost that evaluates to
 
 +++
@@ -575,16 +571,20 @@ i.e. the sum of
 - the data cost for {math}`\Omega` under the {math}`\omega` model
 - the smoothness cost between {math}`\Omega` under the {math}`\omega` model, and {math}`A` under the {math}`\alpha` model.
 
-+++
-
-From the definition of the expansion-move, it follows that one can construct a graph {math}`G_\alpha` such that the minimum cut gives {eq}`expansion-minimum-cut-cost`. (see {numref}`graph-expansion-ocean-cut`).
+The graph for this two-node system whose minimum cut yields {eq}`expansion-minimum-cut-cost` is shown in {numref}`graph-expansion-ocean-cut`.
 
 ```{code-cell} ipython3
 ---
 mystnb:
   figure:
-    caption: Graph cut which yields {eq}`expansion-minimum-cut-cost`. Cut links are
-      indicated with dotted lines.
+    caption: Graph representing a two-node system whose optimal labelling is given
+      in {numref}`expansion-example-true-labelling`. By choosing appropriate edge
+      weights, the cost of the minimum cut is equal to the optimal labelling cost
+      given in {eq}`expansion-minimum-cut-cost`. Cut links are indicated with dotted
+      lines. Smoothness costs that penalise localised discontinuities in the labelling
+      are introduced through the addition _auxillary nodes_ at label boundaries, i.e.
+      the {math}`\star` node between {math}`\Omega` and {math}`A`. The edges between
+      these auxilliary nodes and their neighbours encode the smoothness penalty.
     name: graph-expansion-ocean-cut
   image:
     align: center
@@ -593,36 +593,70 @@ tags: [hide-input]
 ---
 DOT(
     """
-graph my_graph {
+graph min_cut_example {
     rankdir=LR;
     {rank = same; "A"; "★"; "Ω"}
     "α" [shape=square color=orange];
     "ω" [shape=square color=grey];
     "Ω" [shape=circle];
     "A" [shape=circle];
-    "★" [shape=circle];
-    "α" -- "Ω" [label="D(Ω·α)"];
+    "★" [shape=doublecircle];
+    "α" -- "Ω";
     "Ω" -- "ω" [label="D(Ω·ω)" style=dotted];
     "α" -- "A" [label="D(A·α)" style=dotted];
-    "A" -- "ω" [label="∞"];
-    "★" -- "A" [label="V(Ω·α,A·α)"]
+    "A" -- "ω";
+    "★" -- "A";
     "Ω" -- "★" [label="V(Ω·ω,A·α)" style=dotted];
-    "★" -- "ω" [label="V(Ω·ω,A·α)"]
+    "★" -- "ω";
 }
 """
 )
 ```
 
-The choice of weights is the fundamental mechanism by which the expansion-move algorithm operates. The rules for finding these values are given in {cite:ps}`delong_fast_2010`.
-
-+++
-
-Clearly, the cut illustrated in {numref}`graph-expansion-ocean-cut` yields the correct cost. However, how does this cut invoke a new labelling? One implication of the property 
+Clearly, the cut illustrated in {numref}`graph-expansion-ocean-cut` yields the optimal cost. However, how does this cut invoke a (new) labelling? One implication of the property 
 > no proper subset of {math}`\mathcal{C}` may also be a cut
 
-is that exactly _one_ edge between the terminals ({math}`\{\,\omega, \alpha\,\}`) and any node can be cut {cite:ps}`boykov_fast_2001-1`. This naturally defines a correspondence between a cut and a labelling: the cutting of a terminal edge assigns the corresponding label to the node. In this case, there is a cut through {math}`\alpha-A` and {math}`\omega-\Omega`, which assigns label {math}`\alpha` to {math}`A` and {math}`\Omega` to {math}`\omega` respectively. Hence, the edge with a cost of {math}`\infty` is required in order to satisfy the expanding-only property of the expansion-move; it will never be favourable to cut these edges, i.e. the primary label {math}`\alpha` for a given expansion will never be reassigned from.
+is that exactly _one_ edge between the terminals ({math}`\{\,\omega, \alpha\,\}`) and any node can be cut {cite:ps}`boykov_fast_2001-1`. This naturally defines a correspondence between a cut and a labelling: the cutting of a terminal edge assigns the corresponding label to the node. In this case, there is a cut through {math}`\alpha-A` and {math}`\omega-\Omega`, which assigns label {math}`\alpha` to {math}`A` and {math}`\Omega` to {math}`\omega` respectively. 
 
 +++
+
+Although it is already known that this labelling is the correct (optimal) one, in general one might not have this prior information. The _expansion-move_ algorithm can be used to find an improved labelling {math}`F^\prime_\alpha` through the expansion of a particular label {math}`\alpha`. If the expansion does not modify the labelling, then it is optimal i.e. the current labelling {math}`F` is a (local) minimum. The _expansion_ of a label {math}`\alpha` refers to an equivalence class of cuts that preserve the edges between the alternate label and each node. For the two-node system shown in {numref}`graph-expansion-ocean-cut`, the _expansion_ property of the expansion-move algorithm is introduced by setting the cost of the edges between the terminal {math}`\omega` and the nodes {math}`A`, {math}`\Omega` to infinity. Edges with infinite costs will belong to any minimum cut, ensuring that the {math}`\omega` label does not grow (see {numref}`graph-expansion-optimal-cut`).
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: Variation of {numref}`graph-expansion-ocean-cut` depicting a two-node
+      system whose labelling is already optimal. As such, the weight between {math}`A`
+      and the terminal {math}`\omega` is set to infinity, so that the {math}`\omega`
+      label does not grow i.e. the {math}`\alpha` label does not shrink.
+    name: graph-expansion-optimal-cut
+  image:
+    align: center
+    width: 512px
+tags: [hide-input]
+---
+DOT(
+    """
+graph min_cut_expansion {
+    rankdir=LR;
+    {rank = same; "A"; "★"; "Ω"}
+    "α" [shape=square color=orange];
+    "ω" [shape=square color=grey];
+    "Ω" [shape=circle];
+    "A" [shape=circle];
+    "★" [shape=doublecircle];
+    "α" -- "Ω";
+    "Ω" -- "ω" [label="D(Ω·ω)" style=dotted];
+    "α" -- "A" [label="D(A·α)" style=dotted];
+    "A" -- "ω" [xlabel="∞" color=red fontcolor=red];
+    "★" -- "A";
+    "Ω" -- "★" [label="V(Ω·ω,A·α)" style=dotted];
+    "★" -- "ω";
+}
+"""
+)
+```
 
 This simple model only considers two labels ({math}`\lvert F \rvert = 2`), whilst in practice {math}`\lvert F \rvert \gg 2`. To generalise the expansion of label {math}`\alpha` to {math}`\lvert F \rvert > 2`, {math}`\omega` can be replaced with a _meta_ label {math}`\overline{\alpha}` that represents not-{math}`\alpha`. Thereafter, the procedure remains identical. In order to determine the optimum expansion-move, this procedure must be repeated for each label.
 
@@ -639,7 +673,7 @@ The {math}`\alpha`-expansion algorithm is therefore
 
 +++
 
-It can be shown that this algorithm can be generalised to account for label costs in order to solve {eq}`cost-function-pearl` {cite:ps}`delong_fast_2010`.
+The choice of weights is the fundamental mechanism by which the expansion-move algorithm operates. The rules for finding these values are given in {cite:ps}`delong_fast_2010`. In addition, it can be shown that this algorithm can be generalised to account for label costs in order to solve {eq}`cost-function-pearl` {cite:ps}`delong_fast_2010`.
 
 +++
 

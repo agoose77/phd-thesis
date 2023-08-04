@@ -112,7 +112,7 @@ An isographic 3D rendering of the combined detector with the field-cage and Micr
 :alt: A time-projection-chamber detector with a MicroMeGaS anode and array of silicon detectors surrounding the exterior of the active volume.
 :width: 400px
 
-The TexAT detector configuration. A black arrow indicates the direction of the beam, which first enters the detector through the ion-counter (IC, indicated). The segmented anode is visible in blue and purple at the top of the detector, whilst the field-cage (FC) and the array of CsI(Tl) + Si detectors are visible around the outside of the TPC volume. Figure taken from Ref. {cite:ps}`barbui_ensuremathalpha-cluster_2022`.
+The TexAT detector configuration. A black arrow indicates the direction of the beam, which first enters the detector through the ion-counter (IC, indicated). The segmented anode is visible in blue and purple at the top of the detector, whilst the field-cage (FC) and the array of CsI(Tl) + Si detectors are visible around the outside of the field cage. These detectors occupy the same gas cell as the MicroMeGaS (MM). The ion drift plane is given by the normal of the MicroMeGaS. The beam direction, given by a vector between the window and silicon wall, is indicated by a white arrow. Figure taken from Ref. {cite:ps}`barbui_ensuremathalpha-cluster_2022`.
 :::
 
 +++
@@ -120,17 +120,17 @@ The TexAT detector configuration. A black arrow indicates the direction of the b
 (expt:micromegas)=
 ### MicroMeGaS
 
-The MicroMeGaS is a parallel-plate gas particle detector. It comprises of a micro-pattern anode, with a thin metallic mesh suspended at a height of 128 μm above the surface (see {numref}`micromegas-schematic`). This _micro_-mesh partitions the gas into two juxtaposed volumes of differing potentials, forming a large drift region above the mesh, and a small amplification region between the mesh and the anode
+The MicroMeGaS is a parallel-plate gas particle detector. It comprises of a micro-pattern anode, with a thin metallic mesh suspended at a height of 128 μm above the surface (see {numref}`micromegas-schematic`). This _micro_-mesh partitions the gas into two juxtaposed volumes of differing potentials, forming a large drift region above the mesh, and a small amplification region between the mesh and the anode.
 
 +++
 
-:::{figure} image/placeholder/drift-micromegas.png
+:::{figure} image/micromegas-texat-drift.png
 :name: micromegas-schematic
 :alt: A charged particle ionises the detector gas along its path, producing charge clusters which drift towards the anode. These clusters pass through a micromegas into the high-field amplification region, whose avalanches are detected on the anode.
 :width: 400px
 :align: center
 
-Charge signal formation from charged particle ionisation. The small amplification region can be seen between the mesh and the anode strips, with a much higher electric field than that of the drift region, of the order ~kV/cm. Figure taken from Ref. {cite:ps}`manjarres_performances_2012-1`.
+Charge signal formation from charged particle ionisation. A small amplification region, with an electric field of the order ~kV/cm, can be seen between the micromesh and the anode strips. The larger drift/conversion region, with a field strength of ~{math}`10^2`V/cm, is bounded by the cathode and the micromesh. Gas multiplication predominantly occurs in the amplification region; the drift/conversion region serves only to separate the ion pairs liberated by ionising particle tracks, such as those of scattered alpha particles. Figure adapted from Ref. {cite:ps}`noauthor_texat_nodate`.
 :::
 
 +++
