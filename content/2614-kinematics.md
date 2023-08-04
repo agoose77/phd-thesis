@@ -65,7 +65,7 @@ Given the energy and angular straggling of the beam following interactions with 
 :::{figure} image/scattering-coordinate-system.svg
 :name: scattering-coordinate-system
 
-Schematic diagram of a static-target scattering reaction in a beam-centric coordinate system. The {math}`\hat{1}` vector is given by the beam direction, the {math}`\hat{3}` vector given by the reaction plane normal, and the {math}`\hat{2}` vector taken to be perpendicular to {math}`\hat{1}` and {math}`\hat{3}`. Each particle {math}`p_{i}` can be resolved along these canonical axis vectors.
+Schematic diagram of a static-target scattering reaction in a beam-centric coordinate system. The {math}`\hat{1}` vector is given by the beam direction, the {math}`\hat{3}` vector given by the reaction plane normal, and the {math}`\hat{2}` vector taken to be perpendicular to {math}`\hat{1}` and {math}`\hat{3}`. Each particle {math}`\vb{p}_{i}` can be resolved along these canonical axis vectors. Each vector {math}`\vb{p}_{i}` indicates the momentum of the reaction participant {math}`i`, whose components {math}`\vb{p}_{i}^{(j)}` have been resolved along the beam-centric coordinate system vectors {math}`\hat{j}`.
 :::
 
 +++
