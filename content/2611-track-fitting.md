@@ -49,8 +49,8 @@ mystnb:
       with a distinct colour, and the line of best fit superimposed. Due to the uncertainty
       of the cluster positions in the pads region, the beam track is found to be longer
       than it is physically expected to be. This can be corrected in a subsequent
-      constrained fit. The blue track corresponds to a beam-like pile-up track, whilst the 
-      green, orange, and pink tracks belong to a single scattering reaction.
+      constrained fit. The upper track corresponds to a beam-like pile-up track, whilst the 
+      lower track triplet belong to a single scattering reaction.
     name: track-example-fit
   image:
     align: center
