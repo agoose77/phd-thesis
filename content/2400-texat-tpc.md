@@ -214,7 +214,12 @@ Each channel possesses an independent trigger and continuously samples the filte
 
 To read out all of the channels in a TexAT detector requires 24 AGET chips. There are 4 AGET chips on each AsAd (ASIC and Analog to Digital converter) board, which digitises the signals from the SCA memory of the AGET chips using a 12-bit ADC {cite:ps}`pollacco_get_2018`. The data from these AsAd boards are collected by a series of CoBo's (Concentration Boards), which timestamp the information and transmit it to the storage infrastructure. 
 
-In order to synchronize the CoBos and generate a global trigger, an additional board called the MuTAnT (MUltiplicity Trigger ANd Time) is used.
+In order to synchronize the CoBos and generate a global trigger, an additional board called the MuTAnT (MUltiplicity Trigger ANd Time) is used. In this context, a _global_ trigger describes a single trigger event derived from multiple CoBo boards. The MuTAnT supports multiple kinds (levels) of trigger:
+- Level 0: an external trigger, e.g. from an ancillary detector
+- Level 1: a "multiplicity" trigger which reduces the triggers from each CoBo board into a single trigger. 
+- Level 2: a pattern-based trigger that matches the 64-bit hit-pattern from each AGET
+
+In this experiment, a Level 1 silicon-only trigger was used.
 
 +++
 
@@ -222,7 +227,7 @@ In order to synchronize the CoBos and generate a global trigger, an additional b
 
 +++
 
-The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in cases where external pre-amplifiers need to be read-out by the GET electronics {cite:ps}`pollacco_get_2018`. For this experiment, instead of using the internal GET pre-amplifier, the IC is connected via a bypass circuit (see {numref}`external-shaper`) to an external MESYTEC shaper (MSCF-16), whose signals are fed back into the Gain-2 stage of AGET chip, as discussed in {cite:ps}`koshchiy_texas_2020`.
+The internal pre-amplification stage (CSA) in each AGET chip can be bypassed in cases where external pre-amplifiers need to be read-out by the GET electronics {cite:ps}`pollacco_get_2018`. In order to optimise the signal processing of the detector (bypassing the GET filtering stage) the IC is connected via a bypass circuit (see {numref}`external-shaper`) to an external MESYTEC shaper (MSCF-16). The signals from this bypass circuit are fed back into the Gain-2 stage of AGET chip, as discussed in {cite:ps}`koshchiy_texas_2020`.
 
 +++
 

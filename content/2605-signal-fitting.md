@@ -45,7 +45,9 @@ For each preprocessed MicroMeGaS waveform, a convolutional Gaussian fit is perfo
 mystnb:
   figure:
     caption: A plot of the peaks identified within a MicroMeGaS waveform sample using
-      boosted GOLD deconvolution.
+      boosted GOLD deconvolution. It can clearly be seen that the signal is formed of 
+      two separate peaks, whose convolution cannot trivially be separated into distinct peaks.
+      Experimentally, this corresponds to overlapping charge clusters (in the drift plane).
     name: boosted-peak-search
   image:
     align: center
@@ -69,7 +71,7 @@ ax2.stairs(
 ax.set_xlabel("Time /cells")
 ax.set_ylabel("Amplitude")
 ax2.set_ylabel("Amplitude")
-plt.legend();
+plt.legend(handles=handles);
 ```
 
 In some cases, the measured sample exceeds the dynamic range of waveform amplitudes that can be measured. This saturation introduces a discontinuity in the derivative of the sample, which renders it un-amenable to deconvolution (see {numref}`signal-saturation-discontinuity`).
@@ -107,7 +109,7 @@ ax2.set_ylabel("Amplitude")
 plt.legend(handles=handles);
 ```
 
-In such instances, the peak multiplicity of the sample cannot easily be determined. It is therefore assumed that the measured sample contains only one peak, which is fit as described above using an additional mask that forces the fit algorithm to ignore the saturated regions. Consequently, these fits are more prone to poor estimation of the signal amplitude where a significant portion of the signal is lost to saturation effects.
+ In such instances, the peak multiplicity of the sample cannot easily be determined. Given that MicroMeGaS waveforms provide both charge and temporal (spatial) information, it is important that these signals are not discarded prematurely. To recover these signals, it is therefore assumed that the measured sample contains only one peak, which is fit as described above using an additional mask. This mask that forces the fit algorithm to ignore the saturated regions. Consequently, these fits are more prone to poor estimation of the signal amplitude where a significant portion of the signal is lost to saturation effects.
 
 ```{code-cell} ipython3
 ---
