@@ -61,13 +61,15 @@ fig, ax = plt.subplots(sharex=True)
 ax2 = ax.twinx()
 ax.set_ylim(0, 1250)
 ax2.set_ylim(0, 10250)
-ax.stairs(sample_mm[1], color="C0", label="Signal")
-ax2.stairs(
-    gold_deconvolve_fft(np.clip(sample_mm[1], 0, np.inf), response_si, 20, 10, 1.4),
-    color="C1",
-    linestyle="--",
-    label="GOLD Deconvolution",
-)
+handles=[
+    ax.stairs(sample_mm[1], color="C0", label="Signal"),
+    ax2.stairs(
+        gold_deconvolve_fft(np.clip(sample_mm[1], 0, np.inf), response_si, 20, 10, 1.4),
+        color="C1",
+        linestyle="--",
+        label="GOLD Deconvolution",
+    )
+]
 ax.set_xlabel("Time /cells")
 ax.set_ylabel("Amplitude")
 ax2.set_ylabel("Amplitude")

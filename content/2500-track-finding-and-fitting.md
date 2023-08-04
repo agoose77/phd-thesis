@@ -50,36 +50,29 @@ The problems of identifying and fitting the particle trajectories recorded in su
 The _classical_ Hough transform is a technique for estimating the parameters and multiplicity of a model family within a dataset. In this context, a _model_ is a description of a set of data, such as a line or a plane. The Hough transform employs a scheme whereby _features_ in the dataset, i.e. points along a line, vote for models with which they are compatible (see {numref}`hough-transform-flow`). For any continuous parametrisation, a single observation is a member of an infinite set of models. In order to make this tractable, the Hough transform is conventionally performed by discretising the {math}`n`-dimensional parameter space of the model. Thereafter, for each observation, the set of compatible models can be determined from the permutations of the discrete {math}`n-1`-dimensional free parameter space.
 
 :::{mermaid}
-:caption: Flowchart detailing the classic discrete Hough transform.
+:caption: Flowchart detailing the classic discrete Hough transform. Once the algorithm has terminated, maxima in the voting space correspond to models (parameterisations) with high support (large numbers of votes). These maxima can be treated as candidates that well describe the data.
 :name: hough-transform-flow
 :align: center
 
 graph LR;
     start[Start]
     observation[Select observation]
-    parameter_2[Select parameter #2]
-    parameter_n[Select parameter #n]
-    compute_dependent[Compute parameter #1]
+    parameter_2_n[Select parameters 2..n]
+    compute_dependent[Compute parameter 1]
     accumulate_vote[Store vote]
-    has_more_parameter_2{Another parameter #2?}
-    has_more_parameter_n{Another parameter #n?}
-    has_more_observation{Another observation?}
-    find_peaks[Find peaks in vote space]
+    has_more_parameter_2_n{Phase-space exhausted?}
+    has_more_observation{Next observation?}
     stop[Stop]
     
     start-->observation
-    observation --> parameter_2
-    parameter_2 --> |...| parameter_n
-    parameter_n --> compute_dependent
+    observation --> parameter_2_n
+    parameter_2_n --> compute_dependent
     compute_dependent --> accumulate_vote
-    accumulate_vote --> has_more_parameter_n
-    has_more_parameter_n --> |Yes| parameter_n
-    has_more_parameter_n --> |no| has_more_parameter_2
-    has_more_parameter_2 --> |Yes| parameter_2
-    has_more_parameter_2 --> |No| has_more_observation
-    has_more_observation --> |Yes| find_peaks
+    accumulate_vote --> has_more_parameter_2_n
+    has_more_parameter_2_n --> |Yes| parameter_2_n
+    has_more_parameter_2_n --> |No| has_more_observation
+    has_more_observation --> |Yes| stop
     has_more_observation --> |No| observation
-    find_peaks --> stop
 
 :::
 
@@ -106,7 +99,7 @@ The RANSAC procedure accounts for these two kinds of error by starting with a sm
 :caption: Flowchart outlining the RANSAC algorithm.
 :name: ransac-flow
 
-graph TD;
+graph LR;
 start[Start]
 finish[Finish]
 sample[Draw random sample]

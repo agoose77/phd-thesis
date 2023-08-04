@@ -4,13 +4,11 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-mystnb:
-  execution_mode: "inline"
 ---
 
 (expt:gas-simulation)=
@@ -108,8 +106,6 @@ Using a microscopic Monte Carlo model, the spread of the drift electrons can be 
 
 ```{code-cell} ipython3
 ---
-jupyter:
-  source_hidden: true
 mystnb:
   figure:
     caption: The x position distribution of drifted electrons for y=5.90 cm fit with
@@ -120,17 +116,27 @@ mystnb:
     width: 512px
 tags: [hide-input]
 ---
-avalanche = ak.from_json(data_path / "avalanche.json")
-# Sort by height
+avalanche = ak.concatenate(
+    [ak.from_json(p) for p in data_path.glob("avalanche-*.json")]
+)
 avalanche = avalanche[np.argsort(avalanche.y)]
-# Final entry is bogus
-avalanche = avalanche[:-1]
+grouped = ak.unflatten(avalanche, ak.run_lengths(avalanche.y), axis=0)
+
+
+avalanche = ak.zip(
+    {"y": grouped.y[:, 0], "endpoints": ak.flatten(grouped.endpoints, axis=2)},
+    depth_limit=1,
+)[
+    :-1
+]  # last entry is bogus
 
 hist = Hist.new.Reg(128, -1, 1).Int64().fill(avalanche[-1].endpoints.x)
 mu, sigma = norm.fit(avalanche[-1].endpoints.x)
 
-plt.axvline(0, linestyle="--", color=plt.rcParams['axes.edgecolor'], alpha=0.15)
-plt.axvspan(-sigma, sigma, linestyle="--", color=plt.rcParams['axes.edgecolor'], alpha=0.15)
+plt.axvline(0, linestyle="--", color=plt.rcParams["axes.edgecolor"], alpha=0.15)
+plt.axvspan(
+    -sigma, sigma, linestyle="--", color=plt.rcParams["axes.edgecolor"], alpha=0.15
+)
 
 hist.plot(density=True, label="Binned")
 plt.stairs(
@@ -153,8 +159,6 @@ where {math}`C_D` is the transverse diffusion coefficient, {math}`z` the drift d
 
 ```{code-cell} ipython3
 ---
-jupyter:
-  source_hidden: true
 mystnb:
   figure:
     caption: The standard deviation of the final electron transverse position as a
@@ -192,4 +196,4 @@ plt.xlabel("z /cm")
 ax[0].legend(handles=handles, loc="upper left");
 ```
 
-A regression of the transverse variance against the drift height yields {math}`C_D` of {eval}`C_D.to("mm")` (see {numref}`x-distribution-regression`), with the width of the charge cluster distribution spanning 1–2 mm within the conversion region of the TPC. This value is significantly smaller than the width of a MicroMeGaS pad, which (subject to the initial cluster size) implies that tracks within the central region of the detector should predominantly comprise of single pads.
+A regression of the transverse variance against the drift height yields {math}`C_D` of {eval}`C_D.to("mm")` (see {numref}`x-distribution-regression`), with the std-deviation of the charge cluster distribution found to be on the order of 1 mm within the conversion region of the TPC. This value is significantly smaller than the width of a MicroMeGaS pad (3.5 mm), which (subject to the initial cluster size) implies that tracks within the central region of the detector should predominantly comprise of single pads.
