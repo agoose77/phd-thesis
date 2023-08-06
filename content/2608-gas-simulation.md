@@ -196,4 +196,4 @@ plt.xlabel("z /cm")
 ax[0].legend(handles=handles, loc="upper left");
 ```
 
-A regression of the transverse variance against the drift height yields {math}`C_D` of {eval}`C_D.to("mm")` (see {numref}`x-distribution-regression`), with the std-deviation of the charge cluster distribution found to be on the order of 1 mm within the conversion region of the TPC. This value is significantly smaller than the width of a MicroMeGaS pad (3.5 mm), which (subject to the initial cluster size) implies that tracks within the central region of the detector should predominantly comprise of single pads.
+A regression of the transverse variance against the drift height yields {math}`C_D` of {eval}`C_D.to("mm")` (see {numref}`x-distribution-regression`), with the median standard deviation of the charge cluster distribution within the conversion region of the TPC found to be on approximately 1 mm. This value is significantly smaller than the width of a MicroMeGaS pad (3.5 mm), which (subject to the initial cluster size) implies that tracks within the central region of the detector should predominantly comprise of single pads.

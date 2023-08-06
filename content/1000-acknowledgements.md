@@ -31,6 +31,8 @@ Along this journey, I count myself lucky not to have made any mortal enemies. At
 
 +++
 
-> The atmosphere was dominated by a feeling of mutual respect . . . There existed in those days a true camaraderie in our profession, whatever the small differences in our approach.  
+:::{epigraph}
+The atmosphere was dominated by a feeling of mutual respect . . . There existed in those days a true camaraderie in our profession, whatever the small differences in our approach.  
 
-_The Remains of the Day_, Kazuo Ishiguro.
+-- The Remains of the Day, Kazuo Ishiguro.
+:::

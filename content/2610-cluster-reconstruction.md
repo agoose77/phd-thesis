@@ -41,7 +41,12 @@ mystnb:
   figure:
     caption: 3D scatter plot of the cluster reconstruction taken from experiment.
       The charge of each cluster is indicated by its colour. Three distinct tracks
-      are visible; a heavier incoming and scatter track, and a light recoiling track.
+      can be identified; a heavier incoming and scatter track, and a light recoiling
+      track. A discontinuity in the light recoil track immediately after the interaction
+      vertex is clearly visible. This follows from the low stopping power of the corresponding
+      ion, whereby the energy deposited in the MicroMeGaS is insufficient to trigger
+      the low-gain channels. Once the ion enters the high-gain region it forms a coherent
+      track.
     name: sample-cluster-3d
   image:
     align: center
@@ -66,6 +71,7 @@ plot += k3d.points(
     color_map=color_map,
     point_size=3,
 )
+plot += k3d.points([[5, -70, 2]], point_size=8, color=0xFF0000)
 
 
 plot.camera = [

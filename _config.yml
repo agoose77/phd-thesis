@@ -36,6 +36,7 @@ sphinx:
     # Hide any :dropdown: or {toggle} content for LaTeX
     hide_builder_classes: ./sphinx-ext
     load_mermaid: ./sphinx-ext
+    caption_after_table: ./sphinx-ext
   extra_extensions:
     - sphinxcontrib.mermaid
     # Convert SVG to PDF

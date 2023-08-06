@@ -52,32 +52,29 @@ Figure by Tim Starling & Mliu92, distributed under a [CC BY-SA 4.0](https://crea
 
 The excitation of an electron across the gap between the valence and conduction bands establishes an electron-hole pair, which is free to migrate throughout the lattice. It is the motion of these charge-pairs under an electric field that gives rise to a current. Above 0 K there will exist some steady-state concentration (given by the Boltzmann distribution) of thermal electrons in the conduction band such that the material will be conductive.  
 
-In order to observe the charge-pairs produced by ionisation, there must exist an electric field such that the charge-carriers do not recombine, but rather induce a current through their motion. As any externally developed potential will induce an opposing potential in the material, it follows that this field must be established through intrinsic diffusion of the charge carriers. To this end, one can _dope_ the semiconductor lattice with substitutional impurities that introduce a surplus of a particular charge carrier. These dopant atoms do not conserve the electron-hole equilibrium, i.e. they introduce a majority of the singular charge carrier that exclusively determines the material's electric conductivity. Semiconductors doped with donor (electron) impurities are denoted N-type semiconductors (see {numref}`n-type-doping`), whilst those with acceptor impurities are termed P-type materials (see {numref}`p-type-doping`). 
+In order to observe the charge-pairs produced by ionisation, there must exist an electric field such that the charge-carriers do not recombine, but rather induce a current through their motion. As any externally developed potential will induce an opposing potential in the material, it follows that this field must be established through intrinsic diffusion of the charge carriers. To this end, one can _dope_ the semiconductor lattice with substitutional impurities that introduce a surplus of a particular charge carrier. These dopant atoms do not conserve the electron-hole equilibrium, i.e. they introduce a majority of the singular charge carrier that exclusively determines the material's electric conductivity. Semiconductors doped with donor (electron) impurities are denoted N-type semiconductors whilst those with acceptor impurities are termed P-type materials (see {numref}`np-type-doping`). 
 
 
-:::{figure} image/n-type-doping.svg
----
-name: n-type-doping
-alt: A schematic diagram of the minority-majority charge carriers in an n-type semiconductor. A surplus of negative charge carriers (electron) can be seen in the conduction band.
-width: 250px
-align: center
-figclass: margin
----
-A schematic diagram of the minority-majority charge carriers in an n-type semiconductor. A surplus of negative charge carriers (electron) can be seen in the conduction band.
+::::{subfigure} AB
+:layout-sm: A|B
+:gap: 8px
+:subcaptions: below
+:name: np-doping
+
+:::{image} image/p-type-doping.svg
+:alt: (a)
+
 :::
+
+:::{image} image/n-type-doping.svg
+:alt: (b)
+
+:::
+
+An illustrative diagram of the minority-majority charge carriers in an (a) p-type semiconductor and (b) n-type semiconductor. A surplus of mobile charge carriers can be seen in the conduction band. The charge carriers in p-type semiconductors (a) are termed holes, whilst those in n-type materials (b) are electrons.
+::::
 
 +++
-
-:::{figure} image/p-type-doping.svg
----
-name: p-type-doping
-alt: A schematic diagram of the minority-majority charge carriers in an p-type semiconductor. A surplus of positive charge carriers (holes) can be seen in the conduction band.
-width: 250px
-align: center
-figclass: margin
----
-A schematic diagram of the minority-majority charge carriers in an p-type semiconductor. A surplus of positive charge carriers (holes) can be seen in the conduction band.
-:::
 
 Upon interfacing two alternately doped semiconductors, a P-N junction is formed. An initial gradient in the concentration of charge carriers leads to the establishment of a "depletion zone" in which electrons and holes combine, filling the valence band. This displacement of the majority charge carriers in turn establishes an electric field that inhibits further diffusion (see {numref}`p-n-junction`). These two phenomena render the depletion zone an ideal region for radiation detection; the electron-hole pairs formed by ionisation will quickly move under the electric field to establish a measurable current. 
 
@@ -86,11 +83,11 @@ The _contact potential_ established by the space charge at either end of the jun
 :::{figure} image/pn-junction-equilibrium-graphs.png
 ---
 name: p-n-junction
-alt: A schematic diagram of the charge-carrier distribution across a P-N junction. The holes in the P-type region and electrons in the N-type region are shown to reduce in concentration towards their counterparts. The space charge potential due to net charge carrier diffusion is shown to be maximal at the junction interface, and tending to zero outside of a given thickness.
+alt: An illustrative diagram of the charge-carrier distribution across a P-N junction. The holes in the P-type region and electrons in the N-type region are shown to reduce in concentration towards their counterparts. The space charge potential due to net charge carrier diffusion is shown to be maximal at the junction interface, and tending to zero outside of a given thickness.
 width: 800px
 align: center
 ---
-A schematic diagram of the charge-carrier distribution across a P-N junction. Additional graphs show the charge, field, and electric potential, across the junction. Figure by TheNoise, distributed under a [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license.
+An illustrative diagram of the charge-carrier distribution across a P-N junction. Additional graphs show the charge, field, and electric potential, across the junction. Figure by TheNoise, distributed under a [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license.
 :::
 
 
