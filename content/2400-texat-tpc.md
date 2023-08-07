@@ -120,7 +120,7 @@ The TexAT detector configuration. A black arrow indicates the direction of the b
 (expt:micromegas)=
 ### MicroMeGaS
 
-The MicroMeGaS is a parallel-plate gas particle detector. It comprises of a micro-pattern anode, with a thin metallic mesh suspended at a height of 128 μm above the surface (see {numref}`micromegas-schematic`). This _micro_-mesh partitions the gas into two juxtaposed volumes of differing potentials, forming a large drift region above the mesh, and a small amplification region between the mesh and the anode.
+The MicroMeGaS is a parallel-plate gas particle detector. It comprises of a micro-pattern anode, with a thin metallic mesh suspended at a height of 128 μm above the surface (see {numref}`micromegas-schematic`). This _micro_-mesh partitions the gas into two juxtaposed volumes of differing potentials, forming a large drift region above the mesh, and a small amplification region between the mesh and the anode. In this manner, the detector behaves like an ideal parallel plate detector; the signals formed on the anode readout are predominantly determined by the electron mobility of the gas rather than that of the ions. The irregular pixellation of the anode facilitates high position resolution measurement of these signals. The bias for the mesh is constant across the detector geometry; individual region biasing is performed by applying different potentials to the corresponding elements of the anode.
 
 +++
 
@@ -132,10 +132,6 @@ The MicroMeGaS is a parallel-plate gas particle detector. It comprises of a micr
 
 Charge signal formation from charged particle ionisation. A small amplification region, with an electric field of the order ~kV/cm, can be seen between the micromesh and the anode strips. The larger drift/conversion region, with a field strength of ~{math}`10^2`V/cm, is bounded by the cathode and the micromesh. Gas multiplication predominantly occurs in the amplification region; the drift/conversion region serves only to separate the ion pairs liberated by ionising particle tracks, such as those of scattered alpha particles. Figure adapted from Ref. {cite:ps}`noauthor_texat_nodate`.
 :::
-
-+++
-
-In this manner, the detector behaves like an ideal parallel plate detector; the signals formed on the anode readout are predominantly determined by the electron mobility of the gas rather than that of the ions. The irregular pixellation of the anode facilitates high position resolution measurement of these signals. The bias for the mesh is constant across the detector geometry; individual region biasing is performed by applying different potentials to the corresponding elements of the anode.
 
 +++
 
@@ -160,6 +156,8 @@ The segmentation plan of the MicroMeGaS anode. There are three distinct regions:
 +++
 
 The multiplexing scheme present in the side regions is used to reduce the number of channels from $64\times128$ to $64+64$, at a cost of lower resolution, sensitivity, and reconstruction ambiguity. The readout is mapped such that individual zones within the MicroMeGaS can be biased in order to create areas with different gas gains.
+
+In the context of the wider TexAT TPC, the MicroMeGaS provides a readout of the active volume of the TPC chamber. Ionising radiation liberates charge carriers within the conversion region of the MicroMeGaS (i.e. the active volume of the TPC), which separate under the applied electric field (see the field cage in {numref}`micromegas-schematic`). Within the amplification region of the MicroMeGaS, the high-mobility electrons drifting from the conversion region under amplification, forming a proportional distribution of electrons which induce a charge upon the anode (see {numref}`micromegas-anode`). This charge is subsequently recorded by the GET electronics to perform reconstruction of the incident particle track.
 
 +++
 

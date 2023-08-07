@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -22,10 +22,10 @@ kernelspec:
 import awkward as ak
 import numpy as np
 from matplotlib import pyplot as plt
+from mplhep.styles import ATLAS
 from texat.signal.statistics import rolling_statistics
 from texat.utils.awkward.convert import from_hdf5
 from texat.utils.awkward.structure import groupby
-from mplhep.styles import ATLAS
 
 plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
@@ -41,12 +41,12 @@ As discussed in {numref}`expt:get-architecture`, the AGET chip provides four add
 ---
 mystnb:
   figure:
-    caption: FPN channel waveforms digitised by the GET acquisition system for a random
-      AGET chip alongside their binned mean. Although each FPN waveform has a different
-      vertical offset, this is manifested as a simple constant offset in the computed
-      average. In practice this offset is unimportant; even when using the nearest-FPN
-      channel for noise estimation, there is typically a non-zero offset that necessitates
-      a baseline removal step.
+    caption: FPN channel waveforms digitised by the GET acquisition system, alongside
+      their binned mean, for a random AGET chip. Each FPN waveform has a different
+      vertical offset, which can be modeled to first-order as contributing a constant
+      offset in the computed average basliebaseline. In practice, this offset is unimportant;
+      even when using the nearest-FPN channel for noise estimation, there is typically
+      a non-zero offset that necessitates a baseline removal step.
     name: fpn-averaging
   image:
     align: center
@@ -71,19 +71,16 @@ baseline = ak.to_regular(
     ak.mean(get.sample, axis=-2, keepdims=True, mask_identity=False), axis=-2
 )
 
-fig_baseline, ax = plt.subplots()
-ax.set_ylabel("Amplitude (Single)")
-ax2 = ax.twinx()
-stairs = [ax.stairs(c.sample, label=c.addr.chan) for c in get[0]]
-stairs += [ax2.stairs(baseline[0, 0], color="C4", label="Mean")]
-ax.set_ylim(280, 350)
-ax2.set_ylim(280 + 10, 350 + 10)
-ax2.set_ylabel("Amplitude (Mean)")
-ax.set_xlabel("Time /cells")
+fig_baseline = plt.figure()
+stairs = [
+    *(plt.stairs(c.sample, label=c.addr.chan, alpha=0.5) for c in get[0]),
+    plt.stairs(baseline[0, 0], color="C4", label="Mean"),
+]
+plt.ylabel("Amplitude")
+plt.ylim(280, 350)
+plt.xlim(0, 512)
+plt.xlabel("Time /cells")
 plt.legend(
-    handles=stairs,
-    bbox_to_anchor=(0.5, 1.25),
-    loc="upper center",
     fancybox=True,
     shadow=True,
     ncol=5,
