@@ -61,7 +61,7 @@ with open("data/origin-fit.json", "r") as f:
     origin_params = json.load(f)
 ```
 
-The distribution observed in {numref}`origin-hist` was fit as the sum of a constant function, and a Gaussian distribution, using a binned negative log-likelihood optimiser. The linear contribution of the constant function corresponds to interactions that occur in the region prior to the MicroMeGaS. These interactions occur over a wide range of stops and over a range of angles, such that the charge clusters liberated by these tracks appear evenly distributed when viewed over a narrow slice. Despite some periodicity in the residual plot, indicating a mismatch between model and data, the fit shown in {numref}`origin-hist-fit` demonstrates good agreement with the data and yields an origin of {eval}`f"{origin_params['mu']:.2f}"` cells.
+The distribution observed in {numref}`origin-hist` was fit as the sum of a constant function, and a Gaussian distribution, using a binned negative log-likelihood optimiser. The linear contribution of the constant function corresponds to interactions that occur in the region prior to the MicroMeGaS. These interactions occur over a wide range of stops and over a range of angles, such that the charge clusters liberated by these tracks appear evenly distributed when viewed over a narrow slice. Despite some periodicity in the residual plot, indicating a mismatch between model and data, the fit shown in {numref}`origin-hist-fit` demonstrates good agreement with the data and yields an origin of {eval}`f"{origin_params['mu']:.1f}"` cells.
 
 ```{code-cell}
 ---
