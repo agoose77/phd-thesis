@@ -208,7 +208,7 @@ An illustration of the relationship between the experimental detector, readout e
 
 +++
 
-Each channel possesses an independent trigger and continuously samples the filtered analogue signal from the shaper, with a sampling frequency between 1 and 100 MHz, using a 512-cell switch-capacitor circular buffer {cite:ps}`pollacco_get_2018`. A single AGET chip has 64 independent channels in addition to 4 floating channels that provide a measure of the electronic noise, known as fixed-pattern noise (FPN) channels. These FPN channels are distributed across the AGET chip in order to place one FPN channel at the edge of each chip {cite:ps}`pollacco_get_2018`. 
+Each channel possesses an independent trigger and continuously samples the filtered analogue signal from the shaper, with a sampling frequency between 1 and 100 MHz, using a 512-cell switch-capacitor circular buffer {cite:ps}`pollacco_get_2018`. For this experiment, the readout sampling frequency was set to 25 MHz. A single AGET chip has 64 independent channels in addition to 4 floating channels that provide a measure of the electronic noise, known as fixed-pattern noise (FPN) channels. These FPN channels are distributed across the AGET chip in order to place one FPN channel at the edge of each chip {cite:ps}`pollacco_get_2018`. 
 
 To read out all of the channels in a TexAT detector requires 24 AGET chips. There are 4 AGET chips on each AsAd (ASIC and Analog to Digital converter) board, which digitises the signals from the SCA memory of the AGET chips using a 12-bit ADC {cite:ps}`pollacco_get_2018`. The data from these AsAd boards are collected by a series of CoBo's (Concentration Boards), which timestamp the information and transmit it to the storage infrastructure. 
 

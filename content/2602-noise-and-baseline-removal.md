@@ -46,7 +46,8 @@ mystnb:
       vertical offset, which can be modeled to first-order as contributing a constant
       offset in the computed average basliebaseline. In practice, this offset is unimportant;
       even when using the nearest-FPN channel for noise estimation, there is typically
-      a non-zero offset that necessitates a baseline removal step.
+      a non-zero offset that necessitates a baseline removal step. The x-axis is given
+      in terms of AGET circular-buffer cells (see {numref}`expt:get-architecture`).
     name: fpn-averaging
   image:
     align: center
