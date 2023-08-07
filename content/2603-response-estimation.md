@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -24,10 +24,10 @@ from pathlib import Path
 
 import numpy as np
 from matplotlib import pyplot as plt
+from mplhep.styles import ATLAS
 from scipy.fft import irfft, rfft
 from scipy.optimize import minimize_scalar
 from texat.signal.waveforms import GET_response, gaussian
-from mplhep.styles import ATLAS
 
 plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
@@ -124,7 +124,9 @@ F^{(n)} &= \operatorname{Deconv}(Y^{(n-1)}, \mathcal{N}^{(n-1)})\,,
 ---
 mystnb:
   figure:
-    caption: A waterfall plot of the response function estimates computed over many sequential iterations. It can be seen that the estimated response function becomes broader with each iteration, ultimately converging upon a stable shape.
+    caption: A waterfall plot of the response function estimates computed over many
+      sequential iterations. It can be seen that the estimated response function becomes
+      broader with each iteration, ultimately converging upon a stable shape.
     name: mm-response-evolution
   image:
     align: center
@@ -162,7 +164,7 @@ tau_min = fit_cost[np.argmin(fit_cost[:, 1]), 0]
 
 plt.axvline(tau_min, linestyle="--")
 plt.plot(fit_cost[:, 0], fit_cost[:, 1], "x")
-plt.xlabel("$\\tau$")
+plt.xlabel("$\\tau$ /cells")
 plt.ylabel("Cost");
 ```
 
@@ -182,9 +184,11 @@ tags: [hide-input]
 t_edge = np.arange(513)
 t = (t_edge[1:] + t_edge[:-1]) / 2
 plt.stairs(
-    GET_response(t, 1.0, 502 / 40), t_edge, linestyle="--", label="$\\tau = 502$"
+    GET_response(t, 1.0, 502 / 40), t_edge, linestyle="--", label="$\\tau = 502$ ns"
 )
-plt.stairs(GET_response(t, 1.0, tau_min), t_edge - 7, label="$\\tau = 715.7$")
+plt.stairs(
+    GET_response(t, 1.0, tau_min), t_edge - 7, label=f"$\\tau = {tau_min*40:.1f}$ ns"
+)
 plt.xlabel("Time /cells")
 plt.ylabel("Amplitude")
 plt.legend();
@@ -337,8 +341,4 @@ ax[1].set_xlabel("Time /cells")
 ax[1].set_xlim(220, 370)
 ax[1].set_ylabel("Amplitude")
 ax[1].legend(loc="upper right");
-```
-
-```{code-cell} ipython3
-
 ```

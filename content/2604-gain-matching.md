@@ -4,18 +4,16 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-mystnb:
-  execution_mode: "inline"
 ---
 
 # Gain Matching
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [remove-input, remove-output]
 
 # Fix RC overwriting
@@ -30,8 +28,8 @@ import iminuit
 import iminuit.cost
 import numpy as np
 from matplotlib import pyplot as plt
-from scipy import stats
 from mplhep.styles import ATLAS
+from scipy import stats
 
 plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
@@ -48,14 +46,14 @@ In {numref}`expt:micromegas`, it was noted that the MicroMeGaS anode is subdivid
 :width: 400px
 :align: center
 
-Illustration of the significant zones within the MicroMeGaS anode segmentation. The strip-chain region (a), held at the same potential as the high-gain pads (c), is shaded in dark grey. The high-gain pads region (c) is shaded in yellow, whilst the low-gain pads (b) are coloured in light grey.
+Illustration of the significant zones within the MicroMeGaS anode segmentation. The strip-chain region (a), held at the same potential as the high-gain pads (c), is shaded in green. The high-gain pads region (c) is shaded in orange, whilst the low-gain pads (b) are coloured in blue. The beam direction is indicated by a black vertical arrow.
 :::
 
 +++
 
 Following position reconstruction, these gains must be accounted for if the collected charge is to be used for particle identification. Given that the strips, chains, and final central pads were held at the same potential, the relative gain of these regions can be determined solely by looking at the relative gain of the final central pad region. This was experimentally measured by observing the change in charge collected by the rows of pads either side of the high-low gain boundary (see regions (b) and (c) of {numref}`micromegas-anode-gain-region`).
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 mystnb:
   figure:
@@ -93,11 +91,17 @@ m_last.migrad()
 P_last = cdf(xe_last, *m_last.values)
 
 gain_hists["last-rel"].plot1d(label="Measured")
-plt.plot(xe_last, np.append(np.diff(P_last), np.nan), drawstyle="steps-post", label="Fit")
 plt.axvline(m_last.values["mu"], linestyle="dashed", label="$\mu$")
+plt.plot(
+    xe_last,
+    np.append(np.diff(P_last), np.nan),
+    drawstyle="steps-post",
+    linestyle="dashed",
+    label="Fit",
+)
 plt.xlabel("Relative Gain")
 plt.ylabel("Counts")
-plt.legend();
+plt.legend()
 pass  # Required for next cell's eval
 ```
 
