@@ -184,10 +184,11 @@ tags: [hide-input]
 with open("data/silicon-maximum-hist.pickle", "rb") as f:
     energy_hist = pickle.load(f)
 
-energy_hist.plot()
+fig = plt.figure()
+ax = plt.gca()
+energy_hist.plot(ax=ax)
 
 # Create an inset axis in the bottom right corner
-ax = plt.gca()
 x_0 = 23000
 real_width = 15000
 width = 5000
@@ -209,9 +210,10 @@ ax.xaxis.label_position = "bottom"
 
 plt.ylim(0, 1000)
 plt.axvline(23000, linestyle="--");
+pass  # Required for next cell's eval
 ```
 
-A more robust approach is to reconstruct the reaction kinematics in the non zero-degree regime, and plot the difference of the projectile energies computed by this reconstruction and directly by energy loss through the gas.  clearly shows a non-central distribution, indicating that the direct prediction lies below the reconstructed value by ~1 MeV, i.e. the true beam energy after the window is {eval}`energy_at_window * alpha_to_beam + 1*u.MeV`. 
+A more robust approach is to reconstruct the reaction kinematics in the non zero-degree regime, and plot the difference of the projectile energies computed by this reconstruction and directly by energy loss through the gas. {numref}`beam-energy-diff-hist` clearly shows a non-central distribution, indicating that the direct prediction lies below the reconstructed value by ~1 MeV, i.e. the true beam energy after the window is {eval}`energy_at_window * alpha_to_beam + 1*u.MeV`. 
 
 ```{code-cell} ipython3
 ---
