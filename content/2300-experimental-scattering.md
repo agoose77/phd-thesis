@@ -46,6 +46,8 @@ Semi-classical illustration of the limiting extremes to nuclear reactions: forma
 
 +++
 
+Between two charged nuclei, there exists a barrier to fusion that follows from the intrinsic positive charge of the nucleus. The magnitude of this barrier can be approximated through a classical treatment of the system, whereby the two nuclei are taken to be point charges separated by the sum of the nuclear radii. It follows that an interaction between two colliding nuclei may form a compound nucleus only if there is sufficient energy to overcome this barrier.
+
 At low incident energies, the compound nucleus may exhibit discrete states, despite being unstable against particle emission. Although there is sufficient energy for ejection of one or more particles, this energy is typically partitioned among several nucleons. Decay of this compound state occurs only once the excitation energy localises itself sufficiently for particles to escape. It follows that the compound nucleus may demonstrate a lifetime much greater than the orbital period of a single nucleon ({math}`\sim 10^{-22}\,\mathrm{s}`) i.e. the duration of a direct interaction {cite:ps}`satchler_introduction_1990`. In the low-energy region at which resonances are found, there are usually only two decay modes available to the liquid drop; rejection of the incident particle (scattering), or {math}`\gamma`-emission {cite:ps}`krane_introductory_1987`. Given that a quasi-bound state is unstable, it possesses an imprecise energy; from the Mandelstam-Tamm uncertainty principle {cite:ps}`mandelstam_uncertainty_1991`
 :::{math}
 :label: energy-uncertainty
