@@ -112,7 +112,7 @@ An isographic 3D rendering of the combined detector with the field-cage and Micr
 :alt: A time-projection-chamber detector with a MicroMeGaS anode and array of silicon detectors surrounding the exterior of the active volume.
 :width: 400px
 
-The TexAT detector configuration. A black arrow indicates the direction of the beam, which first enters the detector through the ion-counter (IC, indicated). The segmented anode is visible in blue and purple at the top of the detector, whilst the field-cage (FC) and the array of CsI(Tl) + Si detectors are visible around the outside of the field cage. These detectors occupy the same gas cell as the MicroMeGaS (MM). The ion drift plane is given by the normal of the MicroMeGaS. The beam direction, given by a vector between the window and silicon wall, is indicated by a white arrow. Figure taken from Ref. {cite:ps}`barbui_ensuremathalpha-cluster_2022`.
+A schematic diagram of the TexAT detector configuration, indicating the location of the various detectors and auxiliary apparatus. A black arrow indicates the direction of the beam, which first enters the detector through the ion-counter (IC, indicated). The segmented anode is visible in blue and purple at the top of the detector, whilst the field-cage (FC) and the array of CsI(Tl) + Si detectors are visible around the outside of the field cage. These detectors occupy the same gas cell as the MicroMeGaS (MM), which sits at the top of the detector. The ion drift plane is given by the normal of the MicroMeGaS. The beam direction, given by a vector between the window and silicon wall, is indicated by a white arrow. Figure taken from Ref. {cite:ps}`barbui_ensuremathalpha-cluster_2022`.
 :::
 
 +++

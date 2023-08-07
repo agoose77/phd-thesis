@@ -91,7 +91,7 @@ m_last.migrad()
 P_last = cdf(xe_last, *m_last.values)
 
 gain_hists["last-rel"].plot1d(label="Measured")
-plt.axvline(m_last.values["mu"], linestyle="dashed", label="$\mu$")
+plt.axvline(m_last.values["mu"], linestyle="dashed", label=r"$\mu$")
 plt.plot(
     xe_last,
     np.append(np.diff(P_last), np.nan),
