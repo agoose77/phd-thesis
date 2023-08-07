@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 mystnb:
   execution_mode: "inline"
+
 ---
 
 ```{code-cell}

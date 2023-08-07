@@ -9,6 +9,8 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+mystnb:
+  execution_mode: inline
 ---
 
 ```{code-cell} ipython3
@@ -144,6 +146,27 @@ This approach necessarily requires the knowledge of the interaction vertex (to i
 
 (expt:beam-energy-estimation)=
 ## Beam Energy Estimation
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+
+# Energy in keV
+m_10c = particle.Particle.from_nucleus_info(6, 10).mass * 1e3
+m_4he = particle.Particle.from_nucleus_info(2, 4).mass * 1e3
+alpha_to_beam = (m_10c + m_4he) ** 2 / (4 * m_10c * m_4he)
+
+range_4he, de_dx_4he, ion_energy_4he = np.loadtxt(
+    "data/4He-in-4He-CO2.csv", delimiter=",", unpack=True
+)
+range_4he = u.Quantity(range_4he, "cm")
+de_dx_4he = u.Quantity(de_dx_4he, "MeV/cm")
+ion_energy_4he = u.Quantity(ion_energy_4he, "MeV")
+
+max_si_energy = 23 * u.MeV
+range_at_max = np.interp(max_si_energy, ion_energy_4he, range_4he)
+energy_at_window = np.interp(range_at_max + 577 * u.mm, range_4he, ion_energy_4he)
+```
+
 The beam energy after the Havar window is predicted by SRIM calculations to be ~25 MeV. A preliminary evaluation of this estimate can be performed using the maximum energy deposited in the central silicon detectors. This should correspond to a near zero-degree scatter from the farthest point in the active volume, i.e. the window (see {numref}`max-silicon-hist`). Given a maximum energy of {eval}`max_si_energy`, the after-window beam energy computed by the alpha stopping power is {eval}`energy_at_window * alpha_to_beam`. This value is much larger than the initial prediction, but lies in close agreement with the value used to produce {numref}`stopping-power-beam-hist`.
 
 ```{code-cell} ipython3
@@ -188,27 +211,7 @@ plt.ylim(0, 1000)
 plt.axvline(23000, linestyle="--");
 ```
 
-```{code-cell} ipython3
-:tags: [hide-cell]
-
-# Energy in keV
-m_10c = particle.Particle.from_nucleus_info(6, 10).mass * 1e3
-m_4he = particle.Particle.from_nucleus_info(2, 4).mass * 1e3
-alpha_to_beam = (m_10c + m_4he) ** 2 / (4 * m_10c * m_4he)
-
-range_4he, de_dx_4he, ion_energy_4he = np.loadtxt(
-    "data/4He-in-4He-CO2.csv", delimiter=",", unpack=True
-)
-range_4he = u.Quantity(range_4he, "cm")
-de_dx_4he = u.Quantity(de_dx_4he, "MeV/cm")
-ion_energy_4he = u.Quantity(ion_energy_4he, "MeV")
-
-max_si_energy = 23 * u.MeV
-range_at_max = np.interp(max_si_energy, ion_energy_4he, range_4he)
-energy_at_window = np.interp(range_at_max + 577 * u.mm, range_4he, ion_energy_4he)
-```
-
-A more robust approach is to reconstruct the reaction kinematics in the non zero-degree regime, and plot the difference of the projectile energies computed by this reconstruction and directly by energy loss through the gas. {numref}`beam-energy-diff-hist` clearly shows a non-central distribution, indicating that the direct prediction lies below the reconstructed value by ~1 MeV, i.e. the true beam energy after the window is ~{eval}`energy_at_window * alpha_to_beam + 1*u.MeV`.
+A more robust approach is to reconstruct the reaction kinematics in the non zero-degree regime, and plot the difference of the projectile energies computed by this reconstruction and directly by energy loss through the gas.  clearly shows a non-central distribution, indicating that the direct prediction lies below the reconstructed value by ~1 MeV, i.e. the true beam energy after the window is {eval}`energy_at_window * alpha_to_beam + 1*u.MeV`. 
 
 ```{code-cell} ipython3
 ---

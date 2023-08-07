@@ -53,7 +53,7 @@ dependencies = [
     "sphinx-subfigure>=0.2.4",
     "particle>=0.21.2",
     "texat @ file:///${PROJECT_ROOT}/extern/texat-0.3.1-py3-none-any.whl",
-    "myst-nb @ file:///${PROJECT_ROOT}/extern/myst_nb-0.17.1-py3-none-any.whl",
+    "myst-nb @ git+https://github.com/executablebooks/MyST-NB.git@3d6a5d16d808dd9dfe95f71e5c0b6f08c7c3cc00",
     "selenium<4.3.0",
 ]
 
@@ -74,6 +74,7 @@ build-backend = "pdm.pep517.api"
 [tool.jupytext]
 formats = "md:myst"
 cell_metadata_filter = "-user_expressions"
+notebook_metadata_filter = "kernelspec,jupytext,mystnb"
 # [tool.pdm.overrides]
 # myst-nb = "file:///${PROJECT_ROOT}/extern/myst_nb-0.17.1-py3-none-any.whl"  # Newer version
 # sphinx-jupyterbook-latex = "0.5.1"

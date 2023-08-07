@@ -9,6 +9,9 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+mystnb:
+  execution_mode: "inline"
+
 ---
 
 (expt:gas-simulation)=

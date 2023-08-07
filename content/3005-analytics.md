@@ -9,6 +9,9 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+mystnb:
+  execution_mode: inline
+
 ---
 
 # Analytics
@@ -163,6 +166,13 @@ alt.Chart(df).mark_tick().encode(
 ```
 
 ```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: The total session duration of each user.
+    name: chart:olab-cum-session-duration
+tags: [hide-input]
+---
 df_by_user = df.loc[:, ["duration_minutes", "user"]].groupby("user").sum()
 df_by_user.loc[:, "count"] = df.groupby("user").start.count()
 
@@ -179,7 +189,7 @@ alt.Chart(df_by_user_started).mark_bar().encode(
 
 +++ {"jp-MarkdownHeadingCollapsed": true}
 
-The median session length for single-use servers was found to be {eval}`f"{df.loc[df.is_single_use].duration_minutes.median():.2f} minutes"`. This includes an additional margin of one minute for the server to detect and stop servers after users close the browser tab. Due to the anonymisation of records, it is not possible to isolate instructors from students in these data. The median session length across all server sessions was {eval}`f"{df.duration_minutes.quantile(0.5):.1f} min"`, with a long tailed distribution; the mean session length was {eval}`f"{df.duration_minutes.mean():.1f} min"` with a standard deviation of {eval}`f"{df.duration_minutes.std():.1f} min"`. One reason for this long-tail is the possibility of idle servers; servers with which users are no longer interacting, but remain open and consuming resources. A prompt was generated to remind users to close unused servers, but the component responsible for automatically closing the server (after a grace period elapsed) was not successful, following some technical problems with API authentication.
+The median session length for single-use servers was found to be {eval}`f"{df_by_user_started.loc[df_by_user_started.is_single_use].duration_minutes.median():.2f} minutes"`. This includes an additional margin of one minute for the server to detect and stop servers after users close the browser tab. Due to the anonymisation of records, it is not possible to isolate instructors from students in these data. The median session length across all server sessions was {eval}`f"{df_by_user_started.duration_minutes.quantile(0.5):.1f} min"`, with a long tailed distribution; the mean session length was {eval}`f"{df_by_user_started.duration_minutes.mean():.1f} min"` with a standard deviation of {eval}`f"{df_by_user_started.duration_minutes.std():.1f} min"`. One reason for this long-tail is the possibility of idle servers; servers with which users are no longer interacting, but remain open and consuming resources. A prompt was generated to remind users to close unused servers, but the component responsible for automatically closing the server (after a grace period elapsed) was not successful, following some technical problems with API authentication.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
