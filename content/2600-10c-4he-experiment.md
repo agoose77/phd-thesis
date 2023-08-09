@@ -16,7 +16,9 @@ kernelspec:
 
 +++
 
-The analysis process was performed in a series of discrete stages (see {numref}`analysis-flowchart`).
+This chapter outlines an analysis workflow that has been developed to reconstruct experimental data taken from an experiment conducted at Texas A&M University in 2018 using the TeXAT detector at the Cyclotron Institute. For much of this analysis work, there were no public references for best-practice or existing analysis techniques beyond high-level discussions in a preliminary paper published by the physics group at Texas A&M University. As such, all methods described here are original work, although the group at Texas A&M were helpful in resolving particular lines of questioning concerning detector function and other analysis techniques being developed. Reconstruction of the GET response function, and its use in signal fitting; track fitting using the PeARL method; and ringing elimination may be considered to be particularly novel contributions. Application of kinematic fitting to the reconstructed kinematics was also a novel contribution to this kind of analysis, although a summary of the results from this work is not included following a refocussing on the challenges associated with signal ringing in the detector. The development of this analysis using modern high-energy physics packages, and the Dask parallel computing library was also novel, although discussion of this work was omitted here for brevity.
+
+The analysis process described in this chapter was performed in a series of discrete stages (see {numref}`analysis-flowchart`).
 
 :::{mermaid}
 :caption: Process diagram of the TexAT analysis.
