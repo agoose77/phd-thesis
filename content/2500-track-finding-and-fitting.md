@@ -158,11 +158,11 @@ The RANSAC algorithm establishes a hard distinction between inliers and outliers
 mystnb:
   figure:
     caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{4}\mathrm{He}` gas target. The
       simulation parameters match the experimental parameters described in {numref}`experiment`.
       The beam direction is given by the {math}`\hat{y}` axis. Three track labels
       given by sequential RANSAC are indicated by the colour map, with a fourth outlier
-      label given by -1. It can clearly be seen that the scattered beam (blue) labelling
+      label corresponding to -1. It can clearly be seen that the scattered beam (blue) labelling
       is over-supported, as it extends into the incident beam (yellow) track clusters.
     name: ransac-greedy-1-labels
   image:
@@ -273,14 +273,10 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
-      simulation parameters match the experimental parameters described in {numref}`experiment`.
-      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
-      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
-      point-cloud of the measured track clusters. Reconstructed tracks corresponding
-      to the labelling shown in {numref}`ransac-greedy-1-tracks` are shown with arbitrary
-      lengths; only their directions should be considered. It can be seen that whilst
+    caption: 3D visualisation of the tracks reconstructed from {numref}`ransac-greedy-1-labels` using sequential RANSAC. 
+      Only the track direction should be considered; these fits correspond to unbounded lines. 
+      The simulated (red) tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+      point-cloud of the measured track clusters. It can be seen that whilst
       the scattered beam track lies close to the simulated track, a common-vertex
       fit will pull the vertex away from its true value.
     name: ransac-greedy-1-tracks
@@ -337,11 +333,11 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+    caption: 3D scatter plot of a second simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{4}\mathrm{He}` gas target. The
       simulation parameters match the experimental parameters described in {numref}`experiment`.
       The beam direction is given by the {math}`\hat{y}` axis. Three track labels
-      are indicated by the colour map, with a fourth outlier label given by -1. Like
+      are indicated by the colour map, with a fourth outlier label corresponding to -1. Like
       {numref}`ransac-greedy-1-labels`, the RANSAC fit is greedy, but in this figure
       it can be seen that the indicent beam (purple) is over-supported and extends
       into the scattered beam (yellow) track clusters.
@@ -386,11 +382,9 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
-      simulation parameters match the experimental parameters described in {numref}`experiment`.
-      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
-      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+    caption: 3D visualisation of the tracks reconstructed from {numref}`ransac-greedy-2-labels` using sequential RANSAC. 
+      Only the track direction should be considered; these fits correspond to unbounded lines. 
+      The simulated (red) tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
       point-cloud of the measured track clusters. Like {numref}`ransac-greedy-1-tracks`,
       it can be seen that whilst the scattered beam track lies close to the simulated
       track, a common-vertex fit will pull the vertex away from its true value.
@@ -448,11 +442,11 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+    caption: 3D scatter plot of a third simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{4}\mathrm{He}` gas target. The
       simulation parameters match the experimental parameters described in {numref}`experiment`.
       The beam direction is given by the {math}`\hat{y}` axis. Three track labels
-      are indicated by the colour map, with a fourth outlier label given by -1. Whilst
+      are indicated by the colour map, with a fourth outlier label corresponding to -1. Whilst
       the correct number of active tracks (3) have been identified, it can be seen
       that the light-product track (blue) extends far into the incident beam clusters
       (green), and the incident beam clusters extend into the scattered beam region
@@ -498,11 +492,9 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
-      simulation parameters match the experimental parameters described in {numref}`experiment`.
-      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
-      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+    caption: 3D visualisation of the tracks reconstructed from {numref}`ransac-greedy-3-labels` using sequential RANSAC. 
+      Only the track direction should be considered; these fits correspond to unbounded lines. 
+      The simulated (red) tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
       point-cloud of the measured track clusters. It can be seen that the poor labelling
       shown in {numref}`ransac-greedy-3-labels` produces a poor fit, with the reconstructed
       vertex (given by the intersection of the blue scattered and heavy beam tracks)
@@ -1296,13 +1288,9 @@ From the same dataset used to produce {numref}`ransac-greedy-1-labels` (and asso
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
-      simulation parameters match the experimental parameters described in {numref}`experiment`.
-      The beam direction is given by the {math}`\hat{y}` axis. Three track labels
-      are indicated by the colour map, with a fourth outlier label given by -1. For
-      the same reaction as depicted in {numref}`ransac-greedy-1-labels`, it can be
-      seen that the PeARL fit (with line intervals) preserves a common vertex through
+    caption: 3D scatter plot of the simulated elastic scattering reaction shown in {numref}`ransac-greedy-1-labels`. 
+      Three track labels given by the PeARL algorithm are indicated by the colour map. In comparison to {numref}`ransac-greedy-1-labels`, 
+      it can be seen that the PeARL fit (with line intervals) preserves a common vertex through
       distinct track separation.
     name: pearl-greedy-1-labels
   image:
@@ -1345,11 +1333,9 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
-      simulation parameters match the experimental parameters described in {numref}`experiment`.
-      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
-      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+    caption: 3D visualisation of the tracks reconstructed from {numref}`pearl-greedy-1-labels` using PeARL. 
+      Both the track direction and end-point should be considered; these fits correspond to bounded line intervals.
+      The simulated (red) tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
       point-cloud of the measured track clusters. For the same reaction as depicted
       in {numref}`ransac-greedy-1-tracks`, it can be seen that the PeARL fit (with
       line intervals) better preserves a common vertex through distinct track separation.
@@ -1409,13 +1395,9 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
-      simulation parameters match the experimental parameters described in {numref}`experiment`.
-      The beam direction is given by the {math}`\hat{y}` axis. Three track labels
-      are indicated by the colour map, with a fourth outlier label given by -1. For
-      the same reaction as depicted in {numref}`ransac-greedy-2-labels`, it can be
-      seen that the PeARL fit (with line intervals) avoids overfitting of the incident
+    caption: 3D scatter plot of the simulated elastic scattering reaction shown in {numref}`ransac-greedy-2-labels`. 
+      Three track labels given by the PeARL algorithm are indicated by the colour map. In comparison to {numref}`ransac-greedy-2-labels`, 
+      it can be seen that the PeARL fit (with line intervals) avoids overfitting of the incident
       beam (blue) track, although a reduced degree of overfitting is observed in the
       scattered beam (purple) region.
     name: pearl-greedy-2-labels
@@ -1459,11 +1441,9 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
-      simulation parameters match the experimental parameters described in {numref}`experiment`.
-      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
-      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+    caption: 3D visualisation of the tracks reconstructed from {numref}`pearl-greedy-2-labels` using PeARL. 
+      Both the track direction and end-point should be considered; these fits correspond to bounded line intervals.
+      The simulated (red) tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
       point-cloud of the measured track clusters. For the same reaction as depicted
       in {numref}`ransac-greedy-2-tracks`, it can be seen that the PeARL fit (with
       line intervals) better reconstructs the angle of each track in agreement with
@@ -1523,16 +1503,12 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
-      simulation parameters match the experimental parameters described in {numref}`experiment`.
-      The beam direction is given by the {math}`\hat{y}` axis. Three track labels
-      are indicated by the colour map, with a fourth outlier label given by -1. For
-      the same reaction as depicted in {numref}`ransac-greedy-3-labels`, it can be
-      seen that the PeARL fit (with line intervals) avoids the discontinuity in the
-      reconstructed  incident beam (blue) track. As such, the labelling of the scattered
-      beam (yellow) track has more support. The degree of overfitting in the light
-      product (purple) track is also much diminished, and all clusters are considered
+    caption: 3D scatter plot of the simulated elastic scattering reaction shown in {numref}`ransac-greedy-3-labels`. 
+      Three track labels given by the PeARL algorithm are indicated by the colour map. In comparison to 
+      {numref}`ransac-greedy-3-labels`, it can be seen that the PeARL fit (with line intervals) avoids the discontinuity in the
+      reconstructed incident beam (blue) track. As such, the labelling of the scattered
+      beam (yellow) track has more support. The degree of overfitting in the light 
+      product (purple) track is also much diminished, and all clusters are considered 
       inliers.
     name: pearl-greedy-3-labels
   image:
@@ -1575,11 +1551,9 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ---
 mystnb:
   figure:
-    caption: 3D scatter plot of a simulated elastic scattering reaction between a
-      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
-      simulation parameters match the experimental parameters described in {numref}`experiment`.
-      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
-      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+    caption: 3D visualisation of the tracks reconstructed from {numref}`pearl-greedy-3-labels` using PeARL. 
+      Both the track direction and end-point should be considered; these fits correspond to bounded line intervals.
+      The simulated (red) tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
       point-cloud of the measured track clusters. For the same reaction as depicted
       in {numref}`ransac-greedy-3-tracks`, it can be seen that the PeARL fit (with
       line intervals) produces a far more reasonable reconstruction of the track angles,
