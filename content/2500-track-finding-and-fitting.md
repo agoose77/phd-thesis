@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.15.0
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -16,9 +16,10 @@ kernelspec:
 
 # Fix RC overwriting
 %config InlineBackend.rc = {}
-
+import awkward as ak
 import jax; jax.config.update('jax_platform_name', 'cpu')
 import k3d
+import k3d.platonic
 import numpy as np
 from IPython.display import Image
 from IPython.utils.capture import capture_output
@@ -30,6 +31,9 @@ from utils import DOT
 
 plt.style.use(ATLAS)
 plt.rc("figure", figsize=(10, 5), dpi=120)
+
+import vector
+vector.register_awkward()
 ```
 
 (expt:track-finding-and-fitting)=
@@ -142,13 +146,416 @@ Although there is no analytic method for determining the minimum support require
 
 +++
 
+(content:sequential-ransac)=
 #### Sequential RANSAC
 
 The RANSAC algorithm is designed to find the best-fit model given a dataset. In scenarios where there may be multiple models, RANSAC must be generalised to identify a family of concensus sets. A common approach is to use _Sequential_ RANSAC, which iteratively applies the RANSAC algorithm to the dataset until no further models can be identified with sufficient support. 
 
-The RANSAC algorithm establishes a hard distinction between inliers and outliers. An important consequence of this behaviour is that the method is hierarchical: the first "winning" model has the greatest number of data points to choose from, whilst the final model has the least. As such, for models with overlapping observations, RANSAC can perform poorly.
+The RANSAC algorithm establishes a hard distinction between inliers and outliers. An important consequence of this behaviour is that the method is hierarchical: the first "winning" model has the greatest number of data points to choose from, whilst the final model has the least. As such, for models with overlapping observations, RANSAC can perform poorly. Two instances of ideal simulated track scattering reactions are shown in {numref}`ransac-greedy-1-labels` and {numref}`ransac-greedy-2-labels`, whilst a reaction for which sequential RANSAC is ill-suited is shown in {numref}`ransac-greedy-3-labels`.
 
-+++
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. Three track labels
+      given by sequential RANSAC are indicated by the colour map, with a fourth outlier
+      label given by -1. It can clearly be seen that the scattered beam (blue) labelling
+      is over-supported, as it extends into the incident beam (yellow) track clusters.
+    name: ransac-greedy-1-labels
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+cm = 1
+mm = 0.1 * cm
+
+
+def vector_to_ndarray(vec):
+    layout = ak.to_layout(vec[["x", "y", "z"]])
+    if isinstance(layout, ak.record.Record):
+        layout = layout.array[layout.at : layout.at + 1]
+    as_numpy = ak.to_numpy(layout)
+    return as_numpy.view(as_numpy.dtype[1]).reshape(-1, 3)
+
+
+def show_event(
+    event,
+    color,
+    label,
+    plot=None,
+    length=15,
+    show_simulation=True,
+    labelling=None,
+    cluster_kwargs=None,
+):
+    if plot is None:
+        plot = k3d.plot(camera_auto_fit=False)
+
+    heavy_end = event.simulation.vertex + event.simulation.heavy * length
+    light_end = event.simulation.vertex + event.simulation.light * length
+
+    heavy_line = k3d.line(
+        np.stack(
+            [
+                vector_to_ndarray(event.simulation.vertex),
+                vector_to_ndarray(heavy_end),
+            ]
+        ),
+        color=color,
+        point_size=2,
+        name=f"Heavy (sim) {label}",
+    )
+    heavy_line.visible = show_simulation
+    plot += heavy_line
+
+    light_line = k3d.line(
+        np.stack(
+            [
+                vector_to_ndarray(event.simulation.vertex),
+                vector_to_ndarray(light_end),
+            ]
+        ),
+        color=color,
+        point_size=2,
+        name=f"Light (sim) {label}",
+    )
+    light_line.visible = show_simulation
+    plot += light_line
+
+    plot += k3d.points(
+        vector_to_ndarray(event.reconstruction.position),
+        point_size=0.25,
+        name=f"Cluster {label}",
+        color_map=k3d.matplotlib_color_maps.Viridis,
+        render="3d",
+        **(cluster_kwargs or {}),
+    )
+
+    return plot
+
+
+ransac_greedy_1 = ak.from_parquet("data/1-ransac-greedy.parquet")
+
+plot_greedy_1 = show_event(
+    ransac_greedy_1,
+    0xFF0000,
+    "event",
+    show_simulation=False,
+    cluster_kwargs={"attribute": ak.to_numpy(ransac_greedy_1["ransac"].label)},
+)
+
+
+plot_greedy_1.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_1, Image("image/1-ransac-greedy-label.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
+      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+      point-cloud of the measured track clusters. Reconstructed tracks corresponding
+      to the labelling shown in {numref}`ransac-greedy-1-tracks` are shown with arbitrary
+      lengths; only their directions should be considered. It can be seen that whilst
+      the scattered beam track lies close to the simulated track, a common-vertex
+      fit will pull the vertex away from its true value.
+    name: ransac-greedy-1-tracks
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+plot_greedy_1_tracks = show_event(
+    ransac_greedy_1,
+    color=0xFF0000,
+    label="event",
+    cluster_kwargs={
+        "attribute": ak.to_numpy(ransac_greedy_1["ransac"].label),
+        "opacity": 0.1,
+    },
+)
+
+
+for i, track in enumerate(ransac_greedy_1["ransac"].track):
+    plot_greedy_1_tracks += k3d.line(
+        np.stack(
+            [
+                vector_to_ndarray(track.start),
+                vector_to_ndarray(track.start + track.direction * 10),
+            ]
+        ),
+        color=0x0000FF,
+        point_size=2,
+        name=f"Track {i}",
+    )
+
+plot_greedy_1_tracks.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_1_tracks, Image("image/1-ransac-greedy-tracks.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. Three track labels
+      are indicated by the colour map, with a fourth outlier label given by -1. Like
+      {numref}`ransac-greedy-1-labels`, the RANSAC fit is greedy, but in this figure
+      it can be seen that the indicent beam (purple) is over-supported and extends
+      into the scattered beam (yellow) track clusters.
+    name: ransac-greedy-2-labels
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+ransac_greedy_2 = ak.from_parquet("data/2-ransac-greedy.parquet")
+
+plot_greedy_2 = show_event(
+    ransac_greedy_2,
+    0xFF0000,
+    "event",
+    show_simulation=False,
+    cluster_kwargs={"attribute": ak.to_numpy(ransac_greedy_2["ransac"].label)},
+)
+
+
+plot_greedy_2.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_2, Image("image/2-ransac-greedy-label.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
+      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+      point-cloud of the measured track clusters. Like {numref}`ransac-greedy-1-tracks`,
+      it can be seen that whilst the scattered beam track lies close to the simulated
+      track, a common-vertex fit will pull the vertex away from its true value.
+    name: ransac-greedy-2-tracks
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+plot_greedy_2_tracks = show_event(
+    ransac_greedy_2,
+    color=0xFF0000,
+    label="event",
+    cluster_kwargs={
+        "attribute": ak.to_numpy(ransac_greedy_2["ransac"].label),
+        "opacity": 0.1,
+    },
+)
+
+
+for i, track in enumerate(ransac_greedy_2["ransac"].track):
+    plot_greedy_2_tracks += k3d.line(
+        np.stack(
+            [
+                vector_to_ndarray(track.start),
+                vector_to_ndarray(track.start + track.direction * 10),
+            ]
+        ),
+        color=0x0000FF,
+        point_size=2,
+        name=f"Track {i}",
+    )
+
+plot_greedy_2_tracks.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_2_tracks, Image("image/2-ransac-greedy-tracks.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. Three track labels
+      are indicated by the colour map, with a fourth outlier label given by -1. Whilst
+      the correct number of active tracks (3) have been identified, it can be seen
+      that the light-product track (blue) extends far into the incident beam clusters
+      (green), and the incident beam clusters extend into the scattered beam region
+      (yellow). The beam track is thus discontinuous.
+    name: ransac-greedy-3-labels
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+ransac_greedy_3 = ak.from_parquet("data/3-ransac-greedy.parquet")
+
+plot_greedy_3 = show_event(
+    ransac_greedy_3,
+    0xFF0000,
+    "event",
+    show_simulation=False,
+    cluster_kwargs={"attribute": ak.to_numpy(ransac_greedy_3["ransac"].label)},
+)
+
+
+plot_greedy_3.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_3, Image("image/3-ransac-greedy-label.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
+      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+      point-cloud of the measured track clusters. It can be seen that the poor labelling
+      shown in {numref}`ransac-greedy-3-labels` produces a poor fit, with the reconstructed
+      vertex (given by the intersection of the blue scattered and heavy beam tracks)
+      displaced outside the measured clusters.
+    name: ransac-greedy-3-tracks
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+plot_greedy_3_tracks = show_event(
+    ransac_greedy_3,
+    color=0xFF0000,
+    label="event",
+    cluster_kwargs={
+        "attribute": ak.to_numpy(ransac_greedy_3["ransac"].label),
+        "opacity": 0.1,
+    },
+)
+
+
+for i, track in enumerate(ransac_greedy_3["ransac"].track):
+    plot_greedy_3_tracks += k3d.line(
+        np.stack(
+            [
+                vector_to_ndarray(track.start),
+                vector_to_ndarray(track.start + track.direction * 10),
+            ]
+        ),
+        color=0x0000FF,
+        point_size=2,
+        name=f"Track {i}",
+    )
+
+plot_greedy_3_tracks.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_3_tracks, Image("image/3-ransac-greedy-tracks.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
 
 (expt:facility-location-problem)=
 ## Facility Location Problem
@@ -609,7 +1016,7 @@ graph min_cut_example {
 Clearly, the cut illustrated in {numref}`graph-expansion-ocean-cut` yields the optimal cost. However, how does this cut invoke a (new) labelling? One implication of the property 
 > no proper subset of {math}`\mathcal{C}` may also be a cut
 
-is that exactly _one_ edge between the terminals ({math}`\{\,\omega, \alpha\,\}`) and any node can be cut {cite:ps}`boykov_fast_2001-1`. This naturally defines a correspondence between a cut and a labelling: the cutting of a terminal edge assigns the corresponding label to the node. In this case, there is a cut through {math}`\alpha-A` and {math}`\omega-\Omega`, which assigns label {math}`\alpha` to {math}`A` and {math}`\Omega` to {math}`\omega` respectively. 
+is that exactly _one_ edge between the terminals ({math}`\{\,\omega, \alpha\,\}`) and any node can be cut {cite:ps}`boykov_fast_2001-1`. This naturally defines a correspondence between a cut and a labelling: the cutting of a terminal edge assigns the corresponding label to the node. In this case, there is a cut through {math}`\alpha-A` and {math}`\omega-\Omega`, which assigns label {math}`\alpha` to {math}`A` and {math}`\Omega` to {math}`\omega` respectively.
 
 +++
 
@@ -879,6 +1286,356 @@ figure.camera = [
 # Provide image fallback
 with capture_output() as c:
     display(figure, Image("image/probability-line-interval.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+From the same dataset used to produce {numref}`ransac-greedy-1-labels` (and associated figures), a series of track fits using the PeARL algorithm (using the line interval model given by {eq}`p-point-line-solution`) were produced. Whilst {numref}`pearl-greedy-1-labels` and {numref}`pearl-greedy-2-labels` offer moderate improvements in track labelling over their respective RANSAC results in {numref}`ransac-greedy-1-labels` and {numref}`ransac-greedy-2-labels`, these represent ideal behavior of the RANSAC algorithm. Under narrower track angles, the sequential RANSAC approach given in {numref}`content:sequential-ransac` suffers from poor fits due to earlier track fits intersecting with separate tracks. Such a pathalogical worst-case is depicted in {numref}`ransac-greedy-3-labels`, with the improved PeARL result shown in {numref}`pearl-greedy-3-labels`. In this case it is both the choice of bounded line intervals _and_ a global fitting approach that regularises the result.
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. Three track labels
+      are indicated by the colour map, with a fourth outlier label given by -1. For
+      the same reaction as depicted in {numref}`ransac-greedy-1-labels`, it can be
+      seen that the PeARL fit (with line intervals) preserves a common vertex through
+      distinct track separation.
+    name: pearl-greedy-1-labels
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+pearl_greedy_1 = ak.from_parquet("data/1-pearl-greedy.parquet")
+
+plot_greedy_1 = show_event(
+    pearl_greedy_1,
+    0xFF0000,
+    "event",
+    show_simulation=False,
+    cluster_kwargs={"attribute": ak.to_numpy(pearl_greedy_1["pearl"].label)},
+)
+
+
+plot_greedy_1.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_1, Image("image/1-pearl-greedy-label.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
+      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+      point-cloud of the measured track clusters. For the same reaction as depicted
+      in {numref}`ransac-greedy-1-tracks`, it can be seen that the PeARL fit (with
+      line intervals) better preserves a common vertex through distinct track separation.
+      The line-interval parameterisation makes it possible to clearly identify the
+      estaimted vertex from the end-point of the incident beam track.
+    name: pearl-greedy-1-tracks
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+plot_greedy_1_tracks = show_event(
+    pearl_greedy_1,
+    color=0xFF0000,
+    label="event",
+    cluster_kwargs={
+        "attribute": ak.to_numpy(pearl_greedy_1["pearl"].label),
+        "opacity": 0.1,
+    },
+)
+
+
+for i, track in enumerate(pearl_greedy_1["pearl"].track):
+    plot_greedy_1_tracks += k3d.line(
+        np.stack(
+            [
+                vector_to_ndarray(track.start),
+                vector_to_ndarray(track.stop),
+            ]
+        ),
+        color=0x0000FF,
+        point_size=2,
+        name=f"Track {i}",
+    )
+
+plot_greedy_1_tracks.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_1_tracks, Image("image/1-pearl-greedy-tracks.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. Three track labels
+      are indicated by the colour map, with a fourth outlier label given by -1. For
+      the same reaction as depicted in {numref}`ransac-greedy-2-labels`, it can be
+      seen that the PeARL fit (with line intervals) avoids overfitting of the incident
+      beam (blue) track, although a reduced degree of overfitting is observed in the
+      scattered beam (purple) region.
+    name: pearl-greedy-2-labels
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+pearl_greedy_2 = ak.from_parquet("data/2-pearl-greedy.parquet")
+
+plot_greedy_2 = show_event(
+    pearl_greedy_2,
+    0xFF0000,
+    "event",
+    show_simulation=False,
+    cluster_kwargs={"attribute": ak.to_numpy(pearl_greedy_2["pearl"].label)},
+)
+
+
+plot_greedy_2.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_2, Image("image/2-pearl-greedy-label.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
+      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+      point-cloud of the measured track clusters. For the same reaction as depicted
+      in {numref}`ransac-greedy-2-tracks`, it can be seen that the PeARL fit (with
+      line intervals) better reconstructs the angle of each track in agreement with
+      the simulation. A common vertex is much more easily identified by the intersection
+      of the reconstructed tracks.
+    name: pearl-greedy-2-tracks
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+plot_greedy_2_tracks = show_event(
+    pearl_greedy_2,
+    color=0xFF0000,
+    label="event",
+    cluster_kwargs={
+        "attribute": ak.to_numpy(pearl_greedy_2["pearl"].label),
+        "opacity": 0.1,
+    },
+)
+
+
+for i, track in enumerate(pearl_greedy_2["pearl"].track):
+    plot_greedy_2_tracks += k3d.line(
+        np.stack(
+            [
+                vector_to_ndarray(track.start),
+                vector_to_ndarray(track.stop),
+            ]
+        ),
+        color=0x0000FF,
+        point_size=2,
+        name=f"Track {i}",
+    )
+
+plot_greedy_2_tracks.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_2_tracks, Image("image/2-pearl-greedy-tracks.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. Three track labels
+      are indicated by the colour map, with a fourth outlier label given by -1. For
+      the same reaction as depicted in {numref}`ransac-greedy-3-labels`, it can be
+      seen that the PeARL fit (with line intervals) avoids the discontinuity in the
+      reconstructed  incident beam (blue) track. As such, the labelling of the scattered
+      beam (yellow) track has more support. The degree of overfitting in the light
+      product (purple) track is also much diminished, and all clusters are considered
+      inliers.
+    name: pearl-greedy-3-labels
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+pearl_greedy_3 = ak.from_parquet("data/3-pearl-greedy.parquet")
+
+plot_greedy_3 = show_event(
+    pearl_greedy_3,
+    0xFF0000,
+    "event",
+    show_simulation=False,
+    cluster_kwargs={"attribute": ak.to_numpy(pearl_greedy_3["pearl"].label)},
+)
+
+
+plot_greedy_3.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_3, Image("image/3-pearl-greedy-label.png"))
+
+display(c.outputs[0].data | c.outputs[1].data, raw=True)
+```
+
+```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: 3D scatter plot of a simulated elastic scattering reaction between a
+      {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{10}\mathrm{C}` gas target. The
+      simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The beam direction is given by the {math}`\hat{y}` axis. The simulated (red)
+      tracks and reconstructed (blue) tracks are superimposed over a semi-transparent
+      point-cloud of the measured track clusters. For the same reaction as depicted
+      in {numref}`ransac-greedy-3-tracks`, it can be seen that the PeARL fit (with
+      line intervals) produces a far more reasonable reconstruction of the track angles,
+      with the closest-point-of-approach between any two tracks producing a good starting-point
+      for vertex estimation. As evidenced by its length, the incident beam track is
+      slightly overfit. A bigger discrepancy lies in the light-product track, which
+      is visually distinct from the simulated track. Here it can be presumed that
+      secondary scattering in the simulation leads to a bending in the track, which
+      lies below the resolution of the MicroMeGaS. As such, only a single track is
+      observed here.
+    name: pearl-greedy-3-tracks
+  image:
+    align: center
+    width: '512'
+tags: [hide-input]
+---
+plot_greedy_3_tracks = show_event(
+    pearl_greedy_3,
+    color=0xFF0000,
+    label="event",
+    cluster_kwargs={
+        "attribute": ak.to_numpy(pearl_greedy_3["pearl"].label),
+        "opacity": 0.1,
+    },
+)
+
+
+for i, track in enumerate(pearl_greedy_3["pearl"].track):
+    plot_greedy_3_tracks += k3d.line(
+        np.stack(
+            [
+                vector_to_ndarray(track.start),
+                vector_to_ndarray(track.stop),
+            ]
+        ),
+        color=0x0000FF,
+        point_size=2,
+        name=f"Track {i}",
+    )
+
+plot_greedy_3_tracks.camera = [
+    7.159987587605925,
+    19.32128636237384,
+    12.873808399614415,
+    0.8849930990985254,
+    20.737317744505287,
+    1.1921020617616975,
+    -0.8449857089887459,
+    0.08698490340507949,
+    0.5276672987635235,
+]
+
+
+# Provide image fallback
+with capture_output() as c:
+    display(plot_greedy_3_tracks, Image("image/3-pearl-greedy-tracks.png"))
 
 display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ```
