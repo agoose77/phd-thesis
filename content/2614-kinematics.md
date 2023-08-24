@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.15.0
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -255,7 +255,7 @@ oxygen_14 = Particle.from_nucleus_info(a=14, z=8)
 Q = ((carbon_10.mass + helium_4.mass - oxygen_14.mass) * u.MeV / u.c**2) * u.c**2
 ```
 
-The calculation of a reaction Q-value is described in {numref}`expt:conservation-rules`. For elastic scattering of {math}`{}^{10}\mathrm{C}` ions upon a {math}`{}^4\mathrm{He}` target, the Q-value is {eval}`Q.to("keV")`. This value is used to build the elastic non-zero-degree excitation function shown in {numref}`excitation-curve`, which is given by {math}`E_\mathrm{ex} = E_1 - E_\mathrm{CoM} + Q = E_1\frac{m_2}{m_1+m_2} + Q`.
+The calculation of a reaction Q-value is described in {numref}`expt:conservation-rules`. For elastic scattering of {math}`{}^{10}\mathrm{C}` ions upon a {math}`{}^4\mathrm{He}` target, the Q-value is {eval}`Q.to("keV")`. This value is used to build the elastic non-zero-degree excitation function shown in {numref}`excitation-curve`, which is given by {math}`E_\mathrm{ex} = E_1 - E_\mathrm{CoM} + Q = E_1\frac{m_2}{m_1+m_2} + Q`. Without the ability to isolate the elastic and inelastic contributions to the excitation function, it is not possible to combine the data in {numref}`excitation-curve` with those in {numref}`zero-degree-excitation-curve` which plots the zero-degree counterpart. As such, {numref}`zero-degree-excitation-curve` plots the excitation function derived under the assumption that these data were obtained via the elastic, and inelastic channels.
 
 ```{code-cell} ipython3
 ---
@@ -265,7 +265,9 @@ mystnb:
       nucleus integrated over all non-zero-degree scattering angles. States published
       in the ENSDF database are plotted in dashed lines, whilst the various AMD predictions
       discussed in this work for {math}`{}^{14}\mathrm{O}` are, where plausible, indicated
-      by solid lines.
+      by solid lines. Clear peak-like structures are visible, against a wider background
+      distribution. Despite this, further enhancement of these data through secondary
+      fitting is required to provide more conclusive agreement with predicted states.
     name: excitation-curve
   image:
     align: center
@@ -275,13 +277,36 @@ tags: [hide-input]
 with open("data/excitation-function.pickle", "rb") as f:
     excitation_hist = pickle.load(f)
 
-excitation_hist["Angular", ...].plot()
+excitation_hist["Angular", ...].plot(label="Elastic")
 ax = plt.gca()
 ax.xaxis.labelpad = 20
+plt.vlines(
+    [11970, 12840, 13010, 14640, 17400],
+    0,
+    500,
+    linestyle="--",
+    label="ENSDF",
+    color="black",
+)
+plt.vlines([13.32e3, 15.7e3, 17.36e3], 0, 500, label="AMD", color="black")
 plt.legend();
 ```
 
 ```{code-cell} ipython3
+---
+mystnb:
+  figure:
+    caption: A histogram of the excitation energy of the {math}`{}^{14}\mathrm{O}`
+      nucleus computed from the near-zero-degree scattering channel. States published
+      in the ENSDF database are plotted in dashed lines, whilst the various AMD predictions
+      discussed in this work for {math}`{}^{14}\mathrm{O}` are, where plausible, indicated
+      by solid lines.
+    name: zero-degree-excitation-curve
+  image:
+    align: center
+    width: 512px
+tags: [hide-input]
+---
 with open("data/excitation-function.pickle", "rb") as f:
     excitation_hist = pickle.load(f)
 
@@ -301,7 +326,7 @@ plt.vlines([13.32e3, 15.7e3, 17.36e3], 0, 500, label="AMD", color="black")
 plt.legend();
 ```
 
-It can be seen that a number of peaks in the excitation function coincide with known or predicted energies. Further analysis is required, including kinematic fitting of the angular measurements, and elastic-inelastic subtraction, to make any further observations.
+Although the analysis work described in this chapter does not yield sufficient results to elucidate the structure of the {math}`{}^{14}\mathrm{O}` nucleus, it can be seen that a number of peaks in the excitation function coincide with known or predicted energies. Yet, further analysis is still required, including kinematic fitting of the angular measurements, and elastic-inelastic subtraction, to make any deeper observations. The completion of this work is planned by the nuclear physics group at the University of Birmingham, which will identify the cross sections associated with the elastic scattering channel, and use them to infer the states present in {math}`{}^{14}\mathrm{O}`.
 
 +++
 
@@ -395,4 +420,4 @@ plt.axvline(1e3, linestyle="--", label="Centroid")
 plt.legend();
 ```
 
-It is evident that these calculations are highly sensitive to the stopping power tabulation; the disagreement in {numref}`beam-energy-diff-hist` implies that the stopping powers used in this analysis over-predict the energy loss of the beam in the energy region of interest. There is preliminary experimental evidence to suggest that this is the case for both MSTAR and SRIM {cite:ps}`d_torresi_measurement_2017`.
+It is evident that these calculations are highly sensitive to the stopping power tabulation; the disagreement in {numref}`beam-energy-diff-hist` implies that the stopping powers used in this analysis over-predict the energy loss of the beam in the energy region of interest. There is preliminary experimental evidence to suggest that this is the case for both MSTAR and SRIM {cite:ps}`d_torresi_measurement_2017`. Future work should measure these stopping powers, both of {math}`{}^{10}\mathrm{C}` in {math}`{}^{4}\mathrm{He}` and {math}`{}^{4}\mathrm{He}` in {math}`{}^{4}\mathrm{He}` in order to reduce the discrepancy in the agreement of these two beam-energy estimates.

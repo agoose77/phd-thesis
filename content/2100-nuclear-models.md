@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 ---
 
+(content:nuclear-models)=
 # Nuclear Models
 
 When describing the nucleus, it may appear that the most natural degrees of freedom are those of the constituent nucleons: their spins, isospins, and positions. From these parameters arises a set of microscopic models, which vary according to the assumptions and symmetries used to render an otherwise intractable computation feasible. These models are sensitive to the nucleon-nucleon interaction, for which there is no analytical theory. It is also possible to describe the nucleus in terms of the _collective_ degrees of freedom, such as the centre-of-mass, or quadrupole moment. The challenge of aligning these two descriptions of the nucleus is a significant, on-going effort in the research community.
@@ -384,7 +385,10 @@ Extensions to the Hartree-Fock method have been developed to consider the pairin
 #### Excited States
 Meanwhile, _excited_ states are primarily modelled in the HF approximation as 1p1h excitations. Experimentally, however, it is clear that for many nuclei these single 1p1h excitations are themselves insufficient to describe low-lying excited states. An example is {math}`{}^{16}\text{O}`, for which the lowest energy excitations predicted by the harmonic oscillator approximation should be seen at around 11.5 MeV (the difference between the 1p and 2s-1d shells). The spectrum of {math}`{}^{16}\text{O}`, however, has a {math}`J^\pi = 3^-` state at 6.13 MeV, indicating additional _coherent_ excitation mechanisms {cite:ps}`ring_nuclear_2004`. The observation of these excitation modes directly underpins the use of collective models to describe the nucleus. These collective models usually ignore the single-particle degrees of freedom in favour of collective vibrational or rotational modes.
 
-[^ignore-pairing]: Experimentally, it is found that the ground state of spherical nuclei with partially filled {math}`j`-shells is not degenerate with respect to angular momentum as would be expected for a purely single-particle model. It follows that the residual interaction lowers the zero angular momentum state with respect to the other configurations {cite:ps}`greiner_nuclear_1996`. % p. 269
+% p. 269
+
+[^ignore-pairing]: Experimentally, it is found that the ground state of spherical nuclei with partially filled {math}`j`-shells is not degenerate with respect to angular momentum as would be expected for a purely single-particle model. It follows that the residual interaction lowers the zero angular momentum state with respect to the other configurations {cite:ps}`greiner_nuclear_1996`. 
+
 
 +++
 
@@ -726,14 +730,14 @@ Illustration of the spatial overlap of two {math}`p`-shell orbits, corresponding
 
 +++
 
-In {math}`{}^9\text{Be}`, molecular states comprise two clusters {math}`\alpha+\alpha+n\rightarrow {}^5\mathrm{He}+\alpha`, whereby molecular orbitals are constructed from the {math}`p_{3/2}` shell-model orbit of the valence neutron in {math}`{}^5\text{He}`. A two-centre model of the nucleus has been explored in {cite:ps}`scharnweber_asymptotically_1970`, and a neutron level scheme computed as a function of the centre separation (see {numref}`two-centre-correlations`). Though a formal model can be used to build this scheme {cite:ps}`seya_nuclear_1981`, significant insight can be derived from mapping the separate-centre shell-model states onto states in the Nilsson deformed harmonic oscillator. With known spin and parity, the Nilsson orbits can be used to label the two-centre solutions and define a set of molecular orbitals {cite:ps}`von_oertzen_nuclear_2002`. By correlating the states in {numref}`two-centre-correlations` with those in {numref}`nilsson-orbits`, one can identify the four molecular orbitals available to the {math}`1p3/2` neutron in {math}`{}^5\mathrm{He}`: the {math}`3 / 2^{-}`, {math}`1 / 2^{+}`, and {math}`1 / 2^{-}` states in {math}`{ }^9 \mathrm{Be}` correspond to the {math}`\left(\pi_{3 / 2^{-}}, \mathrm{g}\right)`, {math}`\left(\sigma_{1 / 2^{+}}, u\right)`, and {math}`\left(\pi_{1 / 2^{-}}, g\right)` orbitals {cite:ps}`von_oertzen_dimers_1997`. The complete set of low-lying states in {math}`{}^{9}\mathrm{Be}` are consistent with rotational bands built upon these basis {cite:ps}`von_oertzen_dimers_1997`.
+In {math}`{}^9\text{Be}`, molecular states comprise two clusters {math}`\alpha+\alpha+n\rightarrow {}^5\mathrm{He}+\alpha`, whereby molecular orbitals are constructed from the {math}`p_{3/2}` shell-model orbit of the valence neutron in {math}`{}^5\text{He}`. A two-centre model of the nucleus has been explored in {cite:ps}`scharnweber_asymptotically_1970`, and a neutron level scheme computed as a function of the centre separation (see {numref}`two-centre-correlations`). Though a formal model can be used to build this scheme {cite:ps}`seya_nuclear_1981`, significant insight can be derived from mapping the separate-centre shell-model states onto states in the Nilsson deformed harmonic oscillator. With known spin and parity, the Nilsson orbits can be used to label the two-centre solutions and define a set of molecular orbitals {cite:ps}`von_oertzen_nuclear_2002`. By correlating the states in {numref}`two-centre-correlations` with those in {numref}`nilsson-orbits`, one can identify the four molecular orbitals available to the {math}`1p3/2` neutron in {math}`{}^5\mathrm{He}`: the {math}`3 / 2^{-}`, {math}`1 / 2^{+}`, and {math}`1 / 2^{-}` states in {math}`{ }^9 \mathrm{Be}` correspond to the {math}`\left(\pi_{3 / 2^{-}}, \mathrm{g}\right)`, {math}`\left(\sigma_{1 / 2^{+}}, u\right)`, and {math}`\left(\pi_{1 / 2^{-}}, g\right)` orbitals {cite:ps}`von_oertzen_dimers_1997` (see {numref}`correlation-diagram-two-center`). The complete set of low-lying states in {math}`{}^{9}\mathrm{Be}` are consistent with rotational bands built upon these basis {cite:ps}`von_oertzen_dimers_1997`.
 
 :::{figure} image/two-center-correlations.png
 :align: center
 :name: two-centre-correlations
 :width: 300px
 
-Neutron level scheme of the two-centre shell-model as a function of the deformation eccentricity {math}`z_0`. The y-axis intercepts correspond to spherical shell-model states, whilst at large separations the spherical shell-model states of the fragments are indicated {cite:ps}`scharnweber_asymptotically_1970`. 
+Neutron level scheme of the two-centre shell-model as a function of the deformation eccentricity {math}`z_0 \in [0, R]`, where {math}`R` is the nuclear radius. The y-axis intercepts correspond to spherical shell-model states, whilst at large separations the spherical shell-model states of the fragments are indicated {cite:ps}`scharnweber_asymptotically_1970`. 
 :::
 
 :::{figure} image/nilsson-orbits.png
@@ -743,6 +747,16 @@ Neutron level scheme of the two-centre shell-model as a function of the deformat
 
 Single-particle level scheme of the Nilsson deformed harmonic oscillator potential, for {math}`N<50`. Solid lines indicate positive parity solutions, whilst dashed lines represent negative parity states. Each state is labelled by {math}`[N n_z \Lambda \Omega]`, where {math}`N` is the major oscillator number, {math}`n_z` is the oscillator quanta along the 3-axis, {math}`\Lambda` the z projection of the orbital angular momentum, and {math}`\Omega` the z projection of the total angular momentum {math}`J`. Figure taken from Ref. {cite:ps}`heyde_basic_2004`.
 :::
+
+:::{figure} image/correlation-diagram-two-centre.svg
+:align: center
+:name: correlation-diagram-two-center
+:width: 300px
+
+Correlation diagram of molecular orbitals for a two-center {math}`\alpha`-{math}`\alpha` system with the {math}`p_{3/2}` shell-model orbit of the valence neutron in {math}`{}^5\text{He}` indicated. The location of the potential minimum is labelled {math}`R_\mathrm{min}`. Each orbital state is labelled by {math}`[K,\pi,u/g]`, where {math}`K` is the projection of the total angular momentum {math}`J` onto the cluster axis, {math}`\pi` the orbital parity, and {math}`u/g` the ungerade/gerade orbital family. From {numref}`nilsson-orbits`, the {math}`p_{3/2}` shell-model orbit for separate centres can be identified with Nilsson orbits in the deformed model. Figure taken from Ref. {cite:ps}`von_oertzen_nuclear_2006`.
+:::
+
+% For example, the {math}`\left(\sigma_{1 / 2^{+}}, u\right)` corresponds to the {math}`[2 2 0 \frac{1}{2}]` Nilsson orbit, which coincides with the {math}`1d5/2` shell model state. Thus, given that this orbital has {math}`l=2` and a total {math}`J` of {math}`\frac{5}{2}`, the orbital and spin components are aligned. For this state, {math}`\Lambda=0` such that this is a {math}`\sigma` orbital. From the known parity of the first excited state {math}`1/2+` in {math}`{}^{9}\mathrm{Be}`, this state must be ungerade. 
 
 +++
 

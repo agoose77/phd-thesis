@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 ---
 
+(content:olab)=
 # O-Lab Online Nuclear Laboratory
 
 +++

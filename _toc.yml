@@ -6,6 +6,7 @@ parts:
     chapters:
       - file: content/0000-abstract
       - file: content/1000-acknowledgements
+      - file: content/1999-introduction
   - caption: Experimental Nuclear Physics
     numbered: true
     chapters:

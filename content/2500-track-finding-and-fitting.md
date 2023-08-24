@@ -160,6 +160,8 @@ mystnb:
     caption: 3D scatter plot of a simulated elastic scattering reaction between a
       {math}`{}^{10}\mathrm{C}` beam and a {math}`{}^{4}\mathrm{He}` gas target. The
       simulation parameters match the experimental parameters described in {numref}`experiment`.
+      The simulation was performed using a heavily modified variant of TexATSim, the software
+      developed by the group at Texaa A&M for TexAT reaction studies.
       The beam direction is given by the {math}`\hat{y}` axis. Three track labels
       given by sequential RANSAC are indicated by the colour map, with a fourth outlier
       label corresponding to -1. It can clearly be seen that the scattered beam (blue) labelling
@@ -1283,6 +1285,8 @@ display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ```
 
 From the same dataset used to produce {numref}`ransac-greedy-1-labels` (and associated figures), a series of track fits using the PeARL algorithm (using the line interval model given by {eq}`p-point-line-solution`) were produced. Whilst {numref}`pearl-greedy-1-labels` and {numref}`pearl-greedy-2-labels` offer moderate improvements in track labelling over their respective RANSAC results in {numref}`ransac-greedy-1-labels` and {numref}`ransac-greedy-2-labels`, these represent ideal behavior of the RANSAC algorithm. Under narrower track angles, the sequential RANSAC approach given in {numref}`content:sequential-ransac` suffers from poor fits due to earlier track fits intersecting with separate tracks. Such a pathalogical worst-case is depicted in {numref}`ransac-greedy-3-labels`, with the improved PeARL result shown in {numref}`pearl-greedy-3-labels`. In this case it is both the choice of bounded line intervals _and_ a global fitting approach that regularises the result.
+
+Of fundamental importance to any track-fitting approach is the treatment of each track on an equal basis, and establishing the concept of a global (total) fit. The PeARL method provides a mechanism for this, and the relative advantages can be seen in particular in {numref}`pearl-greedy-3-labels`. A particular challenge of using PeARL with line _intervals_ (as defined above) is the increase in dimensionality of the space from whic PeARL samples candidate models. Unlike unbounded lines, line intervals do not well describe points that lie beyond the interval bounds (indeed, unbounded lines have infinite bounds). As such, the problem is more sensitive to the set of available models, as prior samples are poorly incentivised to expand their inlier set. Further work could be performed here to investigate the prior distribution from which candidate models are sampled, such as the use of scattering-vertex seeding. The use of unbounded lines with PeARL is also feasible, and retains many of the advantages of the PeARL algorithm over sequential RANSAC. However, the problem of small-angle scattering is less tractable through unbounded lines, due to the strong incentive to grow the inlier set without impedence due to a track length penalty.
 
 ```{code-cell} ipython3
 ---
