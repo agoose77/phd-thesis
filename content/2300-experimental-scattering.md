@@ -260,3 +260,10 @@ plt.legend();
 +++ {"tags": ["no-latex"]}
 
 Unlike thin-target kinematics, reactions that take place within a gas chamber are not confined to a localised region.  Therefore, the experimental advantages of operating in a thick-target inverse-kinematic regime can only realised if there are suitable detectors (see {numref}`expt:the-texat-detector`) and analysis techniques (see {numref}`expt:track-finding-and-fitting`) available to recover the reaction kinematics.
+
+
+## Conclusion
+
+Experimental nuclear physics is predicated in-part upon the ability to inspect the interactions that govern nuclear structure through scattering interactions. Within the domain of nuclear scattering, there are innumerable techniques that are used to scatter and measure two or more systems of nucleons, although they essentially fall into several extremes, indicated in {numref}`nuclear-reaction-extremes`. In this thesis, the phenomenon of resonant nuclear elastic scattering is of particular interest, as is discussed in subsequent chapters. In this regime, a compound nucleus is formed, whose structure can be elucidated from the properties of the outgoing products. As such, in this chapter, the conservation rules which govern nuclear interactions, and facilitate their kinematic reconstruction, are discussed.
+
+In order to measure the products of a scattering reaction, an experimentalist has a choice of measurement techniques. A powerful approach that is outlined in this thesis is the time-projection chamber, used in inverse kinematics. The concept of forward and inverse kinematics is introduced in this chapter, alongside the advantages of operating in inverse kinematics when working with short-lived radioactive reactants. In this chapter, the operating principles of TPCs are established, and the fundamental concepts of gas ionisation and charge multiplication discussed. Subsequent chapters build upon the concepts outlined here, in the description of the form and function of the TexAT TPC given in {numref}`expt:the-texat-detector`. 

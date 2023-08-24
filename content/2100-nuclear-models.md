@@ -490,6 +490,7 @@ The NCSM is somewhat paradoxically named; as aforementioned, the shell model is 
 
 +++
 
+(content:amd-nuclear-model)=
 ### Anti-symmetrised Molecular Dynamics
 
 Anti-symmetrised Molecular Dynamics (AMD) attempts to model the coexistence of cluster and mean-fields phenomena within the nucleus. Like the HF methods, AMD employs a basis of Slater determinants. Instead of single-particle eigenfunctions, however, AMD uses a basis of Gaussian wave packets:
@@ -766,3 +767,15 @@ Correlation diagram of molecular orbitals for a two-center {math}`\alpha`-{math}
 In simple terms, the requirement that physical states have good parity means that one must take a superposition of the asymmetric states. This leads to symmetric and antisymmetric solutions.
 :::
 The set of basis states established from this two-centre approach can be extended in the case of a three-center molecule, such as the carbon isotopes. This additional center primarily splits the basis states, and lowers the lowest state with respect to the three-body particle threshold {cite:ps}`milin_search_2002`. In addition, the formation of asymmetric structures may lead to the phenomenon of parity doublets (see {numref}`expt:parity-doublets`).
+
+## Conclusion
+
+From the discussion in this chapter, it is evident that the landscape of nuclear models is both rich and varied. It suffices to say that there is yet no single model that can describe the full set of physical phenomena that nuclei have been observed to demonstrate, despite new approaches such as the no-core shell model showing promise in the emergent description of collective behaviour alongside the established single-particle description of the nucleus. 
+
+Collective models provide a basis for describing the macroscopic phenomena that is easily visible in level schemes, such as rotational bands, or collective vibrational modes (though the latter is omitted in this chapter). Alongside single-particle models, collective descriptions of the nucleus provide a lens to interpret the behavior of the nucleus.
+
+The Hartree-Fock description of the nucleus both serves to elucidate the single-particle behavior of many nuclear states, and provides a language for describing the further developments in nuclear models such as AMD, just as the shell-model is used to describe phenomena that escape single-particle descriptions. The Hartree-Fock description in this chapter is sufficient to understand its function, but leaves room for a more comprehensive, mathematically rigorous treatment.
+
+The AMD model of the nucleus proves particular interesting to the discipline of cluster physics, as it provides computationally tractable predictions of the structure of these unusual nuclei. Later discussions in this thesis make particular reference to the AMD predictions of the structures in {math}`{}^{14}\mathrm{O}` and {math}`{}^{14}\mathrm{C}`, which provides some insight into the mechanisms that govern their observed level schemes. A focus was placed upon the variations of AMD that are in common practice; recent developments have led to VaP approaches becoming tractable and commonplace, providing richer predictions for far-from-mean-field structures.
+
+Finally, a discussion of nuclear molecules provides a basis for describing the non alpha-conjugate cluster-like structures prediced in {math}`{}^{14}\mathrm{O}` and {math}`{}^{14}\mathrm{C}`. Understanding the level-schemes of these nuclei is an on-going field of research in nuclear structure, and molecular orbitals provide an approachable model for interpreting the sometimes unintuitive phenomena that arise, such as the binding behavior of valence nucleons.

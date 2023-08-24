@@ -242,6 +242,7 @@ Without additional information such as the Bragg peak to disambiguate between el
 
 +++
 
+(content:excitation-functions)=
 ## Excitation Functions
 
 ```{code-cell} ipython3

@@ -62,7 +62,7 @@ The level schemes for a pair of mirror nuclei are shown in {numref}`level-scheme
 :::{figure} image/placeholder/level-scheme-11c-11b.svg
 :name: level-scheme-11c-11b
 
-Level schemes of the {math}`{}^{11}\mathrm{C}` and {math}`{}^{11}\mathrm{B}` nuclei. The order and spacing between the levels is well preserved under exchange of the protons and neutrons, with only the {math}`\frac{7}{2}^{-}` and {math}`\frac{1}{2}^{+}` states changing in order. The states of the {math}`{}^{11}\mathrm{C}` nucleus are observed to have lower energies (i.e., are more weakly bound), which follows from the increased long-range Coulomb repulsion between protons. Generated from data taken from the ENSDF database as of March 24th, 2023. Version available at <http://www.nndc.bnl.gov/ensarchivals/>.
+Level schemes of the {math}`{}^{11}\mathrm{C}` and {math}`{}^{11}\mathrm{B}` nuclei. The order and spacing between the levels is well preserved under exchange of the protons and neutrons, with only the {math}`\frac{7}{2}^{-}` and {math}`\frac{1}{2}^{+}` states changing in order. Generated from data taken from the ENSDF database as of March 24th, 2023. Version available at <http://www.nndc.bnl.gov/ensarchivals/>.
 :::
 
 +++
@@ -189,7 +189,7 @@ Results of performing AMD simulations of the negative parity and positive parity
 
 +++
 
-Of particular relevance to this work is that of Ref. {cite:ps}`baba_coulomb_2019`, which considers the Coulomb shift of the mirror pair {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}`. The AMD calculations performed in this work suggest that the excitation energy of the {math}`\pi`-bond linear chains seen in {math}`{}^{14}\mathrm{C}` should lie close to those in {math}`{}^{14}\mathrm{O}`, with similar decay widths. The findings for the {math}`\sigma`-bond chain are somewhat different; it is anticipated that the levels in {math}`{}^{14}\mathrm{C}` have both larger decay widths and distinctly higher excitation energies, which are ascribed to a large Thomas-Ehrman shift (see {numref}`states-in-14c-14o`).
+Of particular relevance to this work is that of Ref. {cite:ps}`baba_coulomb_2019`, which considers the Coulomb shift of the mirror pair {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}`. The AMD calculations performed in this work suggest that the excitation energy of the {math}`\pi`-bond linear chains seen in {math}`{}^{14}\mathrm{C}` should lie close to those in {math}`{}^{14}\mathrm{O}`, with similar decay widths. The findings for the {math}`\sigma`-bond chain are somewhat different; it is anticipated that the levels in {math}`{}^{14}\mathrm{C}` have both larger decay widths and distinctly higher excitation energies, which are ascribed to a large Thomas-Ehrman shift (see {numref}`states-in-14c-14o`). The Thomas-Ehrman shift describes a pronounced shift in the energy of the first {math}`1/2+` state; s-states are able to avoid significant Coulomb repulsion due to the lack of a centrifugal ({math}`l>0`) barrier which confines the wavefunction inside the Coulomb barrier {cite:ps}`ito_cluster_2016`.
 
 ::::{subfigure} AAABBB
 :layout-sm: A|B
@@ -209,3 +209,9 @@ Of particular relevance to this work is that of Ref. {cite:ps}`baba_coulomb_201
 
 (a) {math}`2^+` and (b) {math}`4^+` states in {math}`{}^{14}\mathrm{C}` and {math}`{}^{14}\mathrm{O}` determined by AMD calculation. Close correspondence between the {math}`\pi`-bond chain states is observed, whilst the {math}`\sigma`-bond levels are expected to differ significantly in excitation energy and decay width. Figure taken from Ref. {cite:ps}`baba_coulomb_2019`.
 ::::
+
+## Conclusion
+
+The symmetries of the residual strong interaction provide a mechanism by which to elucidate the structure of a poorly understood nucleus using that of its mirror. {math}`{}^{14}\mathrm{O}` is one such nucleus, whose level scheme is less comprehensive than that of {math}`{}^{14}\mathrm{C}`. In this chapter, the justification for using one nucleus as a means of understanding the structure of its mirror is established. A discussion is made of the degree to which this model is appropriate, with particular emphasis on the shift in the potential that arises from the additional Coulomb contribution, and the discrepancy in the form of a Thomas-Ehrman shift. 
+
+Using {math}`{}^{14}\mathrm{C}` as a reference, the literature is summarised to give an indication as to the predicted structures in {math}`{}^{14}\mathrm{O}`, and their properties. From this discussion, the notion that a linear chain LCCS state may be observable in the 14 MeV—19 MeV region is established. Additional molecular structures are also conjectured, with two triangular configurations, and a second linear state. Many of the referenced works use AMD simulations to establish their predictions, which is discussed in {numref}`content:amd-nuclear-model`.

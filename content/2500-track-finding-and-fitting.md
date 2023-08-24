@@ -1751,3 +1751,13 @@ In this manner, the unknown variables {math}`\vec{\xi}` are initially computed, 
 :::{math}
 \abs{\frac{\left(\chi^2\right)^{i+1} - \left(\chi^2\right)^{i+1}}{\left(\chi^2\right)^{i}}} < \epsilon\,.
 :::
+
+## Conclusion
+
+The fundamental challenge involved with reconstructing the information captured within a TPC is the ability to identify and fit the kinematics of the tracks left behind by the movement of ionising particles. This is a space of on-going research, with classical statistical techniques such as the Hough transform forming the basis of many analyses. In recent times, the RANSAC method has found popularity in its ability to overcome the limitations of the Hough transform, which suffers from poor performance in the phase space of poor track resolution and similar track properties. 
+
+In this chapter, these two methods have been introduced and discussed, with reference to their limitations as track-finding approaches. The RANSAC method was explored in greater detail, with an application to scattering reactions simulated by the TexATSim simulation package. This package was developed by the Texas A&M group, and further enhanced during the work on this thesis, in order to improve the user-experience and the behavior of the cluster resolution fit model. From these simulations, it was shown that the sequential RANSAC technique suffers from poor performance in a number of scenarios, which represent the limits of the greedy fitting approach.
+
+Subsequently, the reframing of the track fitting & finding task as an Uncapacitated Facility Location Problem was made, in order to explore the set of similar problems outside of nuclear physics that have already been solved. Through an introduction to the method of Graph Cuts, a novel track fitting approach that leverages the PEaRL algorithm was introduced. In support of this novel approach, the cost function of a line-interval model was derived to provide the ability to fit finite-length tracks. This new track fitting approach using line intervals was later applied to the simulation reactions shown in {numref}`content:sequential-ransac`, and the improved reconstruction performance emphasised as a function of the global, interval based fitting technique.
+
+Finally, a discussion of the theory behind kinematic fitting (constrained optimisation) was made, in order to support the next steps in the analysis workflow described in {numref}`experiment`.
