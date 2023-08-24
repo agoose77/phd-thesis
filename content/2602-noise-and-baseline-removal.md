@@ -43,7 +43,7 @@ mystnb:
   figure:
     caption: FPN channel waveforms digitised by the GET acquisition system, alongside
       their binned mean, for a random AGET chip. Each FPN waveform has a different
-      vertical offset, which can be modeled to first-order as contributing a constant
+      vertical offset, which can be modelled to first-order as contributing a constant
       offset in the computed average basliebaseline. In practice, this offset is unimportant;
       even when using the nearest-FPN channel for noise estimation, there is typically
       a non-zero offset that necessitates a baseline removal step. The x-axis is given
@@ -179,7 +179,7 @@ ax[1].legend(loc="upper left");
 
 ## Silicon Baseline Estimation
 
-Unlike the MicroMeGaS channels, the silicon quadrant detectors have a well defined boundary between the baseline and the interaction signals. This boundary occurs at a similar time for each detector, as it is the silicon detectors upon which the GET system was configured to trigger. To determine the baseline value, the mean of the sample values for the preceeding ten cells was used (see {numref}`baseline-estimate-silicon`).
+Unlike the MicroMeGaS channels, the silicon quadrant detectors have a well defined boundary between the baseline and the interaction signals. This boundary occurs at a similar time for each detector, as it is the silicon detectors upon which the GET system was configured to trigger. To determine the baseline value, the mean of the sample values for the preceding ten cells was used (see {numref}`baseline-estimate-silicon`).
 
 ```{code-cell} ipython3
 ---

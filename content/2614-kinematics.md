@@ -119,7 +119,7 @@ p_3^\pqty{1}&= \frac{\pqty{p_2^\pqty{2}}^2\pqty{m_1+m_2} + \pqty{p_2^\pqty{1}}^2
 
 {numref}`angular-energy-curve` shows a histogram of the observed silicon energy as a function of the reconstructed event vertex position. The vertex is computed from the tracks fit in {numref}`expt:texat-track-fitting`, using the closest point of approach between the beam and the light recoil tracks. In the event that one does not observe the beam track directly, an idealised track can be assumed in which the beam is aligned along the forward ({math}`+\hat{y}`) vector. For these tracks, the vertex of the interaction is given by taking the closest point of approach between the ideal beam track and the track of the observed light-recoil.
 
-Two clear loci are visible, corresponding to the elastic (upper) and inelastic (lower) scattering channels; with a portion of the available center-of-mass energy partitioned into formation of an excited state in the (heavy) scattered beam nucleus, there is less kinetic energy available to the products of inelastic scattering reactions.
+Two clear loci are visible, corresponding to the elastic (upper) and inelastic (lower) scattering channels; with a portion of the available centre-of-mass energy partitioned into formation of an excited state in the (heavy) scattered beam nucleus, there is less kinetic energy available to the products of inelastic scattering reactions.
 
 ```{code-cell} ipython3
 ---

@@ -120,7 +120,7 @@ A schematic diagram of the TexAT detector configuration, indicating the location
 (expt:micromegas)=
 ### MicroMeGaS
 
-The MicroMeGaS is a parallel-plate gas particle detector. It comprises of a micro-pattern anode, with a thin metallic mesh suspended at a height of 128 μm above the surface (see {numref}`micromegas-schematic`). This _micro_-mesh partitions the gas into two juxtaposed volumes of differing potentials, forming a large drift region above the mesh, and a small amplification region between the mesh and the anode. In this manner, the detector behaves like an ideal parallel plate detector; the signals formed on the anode readout are predominantly determined by the electron mobility of the gas rather than that of the ions. The irregular pixellation of the anode facilitates high position resolution measurement of these signals. The bias for the mesh is constant across the detector geometry; individual region biasing is performed by applying different potentials to the corresponding elements of the anode.
+The MicroMeGaS is a parallel-plate gas particle detector. It comprises of a micro-pattern anode, with a thin metallic mesh suspended at a height of 128 μm above the surface (see {numref}`micromegas-schematic`). This _micro_-mesh partitions the gas into two juxtaposed volumes of differing potentials, forming a large drift region above the mesh, and a small amplification region between the mesh and the anode. In this manner, the detector behaves like an ideal parallel plate detector; the signals formed on the anode readout are predominantly determined by the electron mobility of the gas rather than that of the ions. The irregular pixelation of the anode facilitates high position resolution measurement of these signals. The bias for the mesh is constant across the detector geometry; individual region biasing is performed by applying different potentials to the corresponding elements of the anode.
 
 +++
 
@@ -146,7 +146,7 @@ These elements are arranged into a three-region configuration: the two side regi
 
 :::{figure} image/placeholder/micromegas-anode.png
 :name: micromegas-anode
-:alt: A schematic diagram showing the different regions within the MicroMeGaS anode. A central pixellated column is visible, between two side regions formed from stagged strips and contiguous chains.
+:alt: A schematic diagram showing the different regions within the MicroMeGaS anode. A central pixelated column is visible, between two side regions formed from staggered strips and contiguous chains.
 :width: 400px
 :align: center
 
@@ -193,7 +193,7 @@ For this experiment, a planar windowless ionisation chamber (IC) was placed imme
 
 (expt:get-architecture)=
 ### GET Architecture
-TexAT uses the General Electronics for TPCs (GET) system for readout of the detectors {cite:ps}`pollacco_get_2018`. GET comprises of a heirarchy of electronic components, starting at the lowest level with the AGET (ASIC, Application-Specific Integrated Circuit, for GET) chip to amplify, shape, and store the signals from each detector (see {numref}`get-schematic`).
+TexAT uses the General Electronics for TPCs (GET) system for readout of the detectors {cite:ps}`pollacco_get_2018`. GET comprises of a hierarchy of electronic components, starting at the lowest level with the AGET (ASIC, Application-Specific Integrated Circuit, for GET) chip to amplify, shape, and store the signals from each detector (see {numref}`get-schematic`).
 
 +++
 

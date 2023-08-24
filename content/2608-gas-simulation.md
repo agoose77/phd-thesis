@@ -66,7 +66,7 @@ The transformation from energy-time space of the GET waveforms to the energy-pos
 
 +++
 
-The phenomenon of electron diffusion within a gas is described by the Boltzmann transport equation (BTE), which models the phase-space evolution of a system in the absence of significant ionization. Given the distribution function {math}`f(\vb{r}, \vb{v}, t)` describing the number density of electrons at the locus {math}`(\vb{r}, \vb{v}, t)` in phase space, the BTE may be expressed as  
+The phenomenon of electron diffusion within a gas is described by the Boltzmann transport equation (BTE), which models the phase-space evolution of a system in the absence of significant ionisation. Given the distribution function {math}`f(\vb{r}, \vb{v}, t)` describing the number density of electrons at the locus {math}`(\vb{r}, \vb{v}, t)` in phase space, the BTE may be expressed as  
 :::{math}
 :label: boltzmann-transport-equation
 

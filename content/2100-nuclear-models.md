@@ -270,7 +270,7 @@ Hence, the introduction of a particular single-particle potential transforms the
 
 +++
 
-In the context of the nucleus, the existence of a single-particle potential corresponds to a _mean-field_, whose origin is the motion of the nucleons themselves. The physical justification for introducing a mean-field potential {math}`\hat{U}` depends upon whether one-body behavior or two-body collisions dominate within the nucleus, i.e. whether the nucleon mean-free-path is much greater than, or lesser than the nuclear size {cite:ps}`negele_mean-field_1982`. Despite the strong short-range repulsive nature of the strong nuclear force, through Pauli blocking of states close to the Fermi surface it can be shown that nucleons behave to first approximation as independent particles i.e. comprise an Independent Particle Model (IPM) {cite:ps}`fetter_quantum_1972`.
+In the context of the nucleus, the existence of a single-particle potential corresponds to a _mean-field_, whose origin is the motion of the nucleons themselves. The physical justification for introducing a mean-field potential {math}`\hat{U}` depends upon whether one-body behaviour or two-body collisions dominate within the nucleus, i.e. whether the nucleon mean-free-path is much greater than, or lesser than the nuclear size {cite:ps}`negele_mean-field_1982`. Despite the strong short-range repulsive nature of the strong nuclear force, through Pauli blocking of states close to the Fermi surface it can be shown that nucleons behave to first approximation as independent particles i.e. comprise an Independent Particle Model (IPM) {cite:ps}`fetter_quantum_1972`.
 
 In occupation representation, a general state {math}`\ket{\phi}` is written as
 :::{math}

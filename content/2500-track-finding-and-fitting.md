@@ -109,7 +109,7 @@ finish[Finish]
 sample[Draw random sample]
 fit[Fit model to subset]
 test[Expand inliers]
-refit[Fit concensus set]
+refit[Fit consensus set]
 
 loop{Drawn k trials?}
 start --> sample
@@ -149,7 +149,7 @@ Although there is no analytic method for determining the minimum support require
 (content:sequential-ransac)=
 #### Sequential RANSAC
 
-The RANSAC algorithm is designed to find the best-fit model given a dataset. In scenarios where there may be multiple models, RANSAC must be generalised to identify a family of concensus sets. A common approach is to use _Sequential_ RANSAC, which iteratively applies the RANSAC algorithm to the dataset until no further models can be identified with sufficient support. 
+The RANSAC algorithm is designed to find the best-fit model given a dataset. In scenarios where there may be multiple models, RANSAC must be generalised to identify a family of consensus sets. A common approach is to use _Sequential_ RANSAC, which iteratively applies the RANSAC algorithm to the dataset until no further models can be identified with sufficient support. 
 
 The RANSAC algorithm establishes a hard distinction between inliers and outliers. An important consequence of this behaviour is that the method is hierarchical: the first "winning" model has the greatest number of data points to choose from, whilst the final model has the least. As such, for models with overlapping observations, RANSAC can perform poorly. Two instances of ideal simulated track scattering reactions are shown in {numref}`ransac-greedy-1-labels` and {numref}`ransac-greedy-2-labels`, whilst a reaction for which sequential RANSAC is ill-suited is shown in {numref}`ransac-greedy-3-labels`.
 
@@ -685,7 +685,7 @@ E(F) = \sum_{f \in F,\,c \in C} T_{fc} D_{fc}\,,
 :::
 is ill-posed. A _well-posed_ problem is guaranteed to have a _unique_ solution that depends continuously on the input data {cite:ps}`hadamard`.
 
-In order to solve {eq}`cost-function-trivial`, the set of admissable solutions must be restricted by the introduction of _a priori_ knowledge, i.e. the problem must be _regularised_. The label cost term given in {eq}`uflp-cost-function` is one such regulariser which imposes a preference for solutions with fewer labels.
+In order to solve {eq}`cost-function-trivial`, the set of admissible solutions must be restricted by the introduction of _a priori_ knowledge, i.e. the problem must be _regularised_. The label cost term given in {eq}`uflp-cost-function` is one such regulariser which imposes a preference for solutions with fewer labels.
 
 A common feature of the labelling problem (of which the track labelling problem is a derivative) is that coherent groups of observations are typically known _a priori_ to be positively correlated. 
 
@@ -978,7 +978,7 @@ mystnb:
       lines. Smoothness costs that penalise localised discontinuities in the labelling
       are introduced through the addition _auxillary nodes_ at label boundaries, i.e.
       the {math}`\star` node between {math}`\Omega` and {math}`A`. The edges between
-      these auxilliary nodes and their neighbours encode the smoothness penalty.
+      these auxiliary nodes and their neighbours encode the smoothness penalty.
     name: graph-expansion-ocean-cut
   image:
     align: center
@@ -1284,7 +1284,7 @@ with capture_output() as c:
 display(c.outputs[0].data | c.outputs[1].data, raw=True)
 ```
 
-From the same dataset used to produce {numref}`ransac-greedy-1-labels` (and associated figures), a series of track fits using the PeARL algorithm (using the line interval model given by {eq}`p-point-line-solution`) were produced. Whilst {numref}`pearl-greedy-1-labels` and {numref}`pearl-greedy-2-labels` offer moderate improvements in track labelling over their respective RANSAC results in {numref}`ransac-greedy-1-labels` and {numref}`ransac-greedy-2-labels`, these represent ideal behavior of the RANSAC algorithm. Under narrower track angles, the sequential RANSAC approach given in {numref}`content:sequential-ransac` suffers from poor fits due to earlier track fits intersecting with separate tracks. Such a pathalogical worst-case is depicted in {numref}`ransac-greedy-3-labels`, with the improved PeARL result shown in {numref}`pearl-greedy-3-labels`. In this case it is both the choice of bounded line intervals _and_ a global fitting approach that regularises the result.
+From the same dataset used to produce {numref}`ransac-greedy-1-labels` (and associated figures), a series of track fits using the PeARL algorithm (using the line interval model given by {eq}`p-point-line-solution`) were produced. Whilst {numref}`pearl-greedy-1-labels` and {numref}`pearl-greedy-2-labels` offer moderate improvements in track labelling over their respective RANSAC results in {numref}`ransac-greedy-1-labels` and {numref}`ransac-greedy-2-labels`, these represent ideal behaviour of the RANSAC algorithm. Under narrower track angles, the sequential RANSAC approach given in {numref}`content:sequential-ransac` suffers from poor fits due to earlier track fits intersecting with separate tracks. Such a pathological worst-case is depicted in {numref}`ransac-greedy-3-labels`, with the improved PeARL result shown in {numref}`pearl-greedy-3-labels`. In this case it is both the choice of bounded line intervals _and_ a global fitting approach that regularises the result.
 
 Of fundamental importance to any track-fitting approach is the treatment of each track on an equal basis, and establishing the concept of a global (total) fit. The PeARL method provides a mechanism for this, and the relative advantages can be seen in particular in {numref}`pearl-greedy-3-labels`. A particular challenge of using PeARL with line _intervals_ (as defined above) is the increase in dimensionality of the space from whic PeARL samples candidate models. Unlike unbounded lines, line intervals do not well describe points that lie beyond the interval bounds (indeed, unbounded lines have infinite bounds). As such, the problem is more sensitive to the set of available models, as prior samples are poorly incentivised to expand their inlier set. Further work could be performed here to investigate the prior distribution from which candidate models are sampled, such as the use of scattering-vertex seeding. The use of unbounded lines with PeARL is also feasible, and retains many of the advantages of the PeARL algorithm over sequential RANSAC. However, the problem of small-angle scattering is less tractable through unbounded lines, due to the strong incentive to grow the inlier set without impedence due to a track length penalty.
 
@@ -1344,7 +1344,7 @@ mystnb:
       in {numref}`ransac-greedy-1-tracks`, it can be seen that the PeARL fit (with
       line intervals) better preserves a common vertex through distinct track separation.
       The line-interval parameterisation makes it possible to clearly identify the
-      estaimted vertex from the end-point of the incident beam track.
+      estimated vertex from the end-point of the incident beam track.
     name: pearl-greedy-1-tracks
   image:
     align: center

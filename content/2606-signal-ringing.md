@@ -162,7 +162,7 @@ It follows that a veto window that start immediately before the saturated wavefo
 mystnb:
   figure:
     caption: A waveform with the ringing phenomenon visible at {math}`t\sim 345`,
-      and the deconvolution of the baseline adjusted signal overlayed. A distinct
+      and the deconvolution of the baseline adjusted signal overlaid. A distinct
       non-ringing component is also visible at {math}`t\sim 254`. The shaded region
       indicates the span covering ringing in this channel. It can be seen that the
       green peaks in the shaded region have much higher relative amplitudes, and much
