@@ -89,9 +89,9 @@ sphinx:
         \doublespacing
 
         % Clear floats between sections
-        \usepackage{placeins}
-        \usepackage{afterpage}
-        \afterpage{\FloatBarrier}
+        \usepackage[section]{placeins}
+        % \usepackage{afterpage}
+        % \afterpage{\FloatBarrier}
 
         % Simplify headings
         \makeatletter

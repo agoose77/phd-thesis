@@ -214,12 +214,12 @@ In a system consisting of two different-mass nuclei, thick-target resonant scatt
 :name: inverse-forward-kinematics
 
 :::{image} image/forward-kinematics.svg
-:alt: (a)
+:alt: Forward kinematics
 
 :::
 
 :::{image} image/inverse-kinematics.svg
-:alt: (b)
+:alt: Inverse kinematics
 
 :::
 

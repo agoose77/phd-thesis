@@ -77,12 +77,12 @@ When a charged object with a quadrupole moment undergoes rotation, it emits quad
 :name: prolate-oblate-rotor
 
 :::{image} image/prolate-rotor.svg
-:alt: (a)
+:alt: Prolate nucleus
 
 :::
 
 :::{image} image/oblate-rotor.svg
-:alt: (b)
+:alt: Oblate nucleus
 :::
 
 Schematic illustration of the measured quadrupole moment {math}`Q` for an axially symmetric rotor. (a) shows the configuration in which the rotor symmetry axis {math}`3` is maximally aligned with the space-fixed axis {math}`z`. (b) depicts a state in which the {math}`3` axis is approximately perpendicular to the {math}`z` axis; in this case, the {math}`3`-projected momentum is zero. Under the rotor model, both the oblate doubly-even and prolate odd-mass nuclei measurements are explained by an intrinsic prolate deformation. Adapted from Ref. {cite:ps}`rowe_fundamentals_2010`.
@@ -752,7 +752,7 @@ Single-particle level scheme of the Nilsson deformed harmonic oscillator potenti
 :::{figure} image/correlation-diagram-two-centre.svg
 :align: center
 :name: correlation-diagram-two-center
-:width: 300px
+:width: 512px
 
 Correlation diagram of molecular orbitals for a two-center {math}`\alpha`-{math}`\alpha` system with the {math}`p_{3/2}` shell-model orbit of the valence neutron in {math}`{}^5\text{He}` indicated. The location of the potential minimum is labelled {math}`R_\mathrm{min}`. Each orbital state is labelled by {math}`[K,\pi,u/g]`, where {math}`K` is the projection of the total angular momentum {math}`J` onto the cluster axis, {math}`\pi` the orbital parity, and {math}`u/g` the ungerade/gerade orbital family. From {numref}`nilsson-orbits`, the {math}`p_{3/2}` shell-model orbit for separate centres can be identified with Nilsson orbits in the deformed model. Figure taken from Ref. {cite:ps}`von_oertzen_nuclear_2006`.
 :::

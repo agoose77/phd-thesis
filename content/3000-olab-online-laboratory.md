@@ -16,9 +16,12 @@ kernelspec:
 
 +++
 
-> And now for something completely different
 
-_Monty Python's Flying Circus_
+:::{epigraph}
+And now for something completely different. 
+
+-- Monty Python's Flying Circus.
+:::
 
 +++
 
