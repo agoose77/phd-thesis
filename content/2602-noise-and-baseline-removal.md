@@ -172,7 +172,7 @@ ax[1].scatter(
     j_baseline[32], stats_baseline.var[32], color="C2", label="Minimum Variance"
 )
 ax[1].axvline(j_baseline[32], linestyle="--", color="C2")
-ax[1].set_xlabel("Time /cell")
+ax[1].set_xlabel("Time /cells")
 ax[1].set_ylabel("Amplitude")
 ax[1].legend(loc="upper left");
 ```
@@ -201,7 +201,7 @@ fig_si_baseline, ax = plt.subplots()
 ax.stairs(sample[93], label="Signal"),
 ax.axhline(y_si_baseline[93], linestyle="--", color="C1", label="Baseline"),
 ax.axvspan(0, 10, alpha=0.2, color="C1")
-ax.set_xlabel("Time /cell")
+ax.set_xlabel("Time /cells")
 ax.set_ylabel("Amplitude")
 ax.legend();
 ```
