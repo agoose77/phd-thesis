@@ -1,0 +1,62 @@
+name: Build and Deploy
+
+# Only run this when the master branch changes
+on:
+  push:
+    branches:
+    - main    
+
+# This job installs dependencies, builds the book, and pushes it to `gh-pages`
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    # Install dependencies
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.10
+
+    - name: Clone special TeXAT dependencies
+      uses: actions/checkout@v4
+      with:
+        repository: "agoose77/texat"
+        path: "texat-src"
+        
+
+    - name: Install dependencies
+      run: |
+        pip install -e . ./texat-src
+
+    # Build the book
+    - name: Build the book
+      run: |
+        jupyter-book build .
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      path: "_output/html/"
+
+  # Deploy job
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2 # or the latest "vX.X.X" version tag for this action
