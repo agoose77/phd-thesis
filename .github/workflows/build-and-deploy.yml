@@ -35,7 +35,7 @@ jobs:
         python-version: "3.11"
 
     - name: Export dependencies
-      run: pdm export -f requirements.txt
+      run: pdm export -f requirements
 
     - uses: actions/upload-artifact@v3
       with:
