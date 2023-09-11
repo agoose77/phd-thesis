@@ -26,9 +26,15 @@ jobs:
         path: "texat-src"
         
 
+    - name: Build wheel
+      run: |
+        pipx run build -w ./texat-src
+        cp ./texat-src/dist/*.whl extern/
+        
+
     - name: Install dependencies
       run: |
-        pip install -e . ./texat-src
+        pip install .
 
     # Build the book
     - name: Build the book
