@@ -3378,7 +3378,7 @@ files = [
 [[package]]
 name = "texat"
 version = "0.3.1"
-requires_python = "<3.11,>=3.10"
+requires_python = "<3.12,>=3.10"
 path = "./extern/texat-0.3.1-py3-none-any.whl"
 summary = ""
 dependencies = [
@@ -3398,7 +3398,7 @@ dependencies = [
     "vector>=0.11.0",
 ]
 files = [
-    {file = "texat-0.3.1-py3-none-any.whl", hash = "sha256:22bbc5900e0bd61f875e8ae179789c5e8bcf1e6a114af4c7d81215052a4e0b62"},
+    {file = "texat-0.3.1-py3-none-any.whl", hash = "sha256:dd342671b7d630c2546846b066802a51eb20eafd309afbff8320b8881d885843"},
 ]
 
 [[package]]
