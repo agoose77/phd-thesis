@@ -25,6 +25,7 @@ jobs:
         repository: "agoose77/texat"
         path: "texat-src"
         ref: main
+        token: "${{ secrets.TEXAT_TOKEN }}"
         
 
     - name: Build wheel
