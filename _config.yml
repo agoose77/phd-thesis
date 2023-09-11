@@ -76,13 +76,18 @@ sphinx:
         % Fix trace which is defined in JupyterBook.cls
         \let\trace\undefined
         \usepackage{physics}
+
+        % % Hide links for printing
+        % \hypersetup{
+        %     hidelinks
+        % }
         
         % Fix fragile hyperlinks in captions
         \usepackage{etoolbox}
         \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}
         
         % Remove intrinsic bib name
-        \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+        \patchcmd{\thebibliography}{\chapter*{\bibname}}{}{}{}
         
         % Double line spacing
         \usepackage{setspace}
