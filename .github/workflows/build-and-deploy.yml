@@ -54,6 +54,7 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: texat-wheel
+        path: extern/
 
     - uses: actions/setup-python@v4
       with:
