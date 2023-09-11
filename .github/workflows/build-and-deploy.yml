@@ -12,10 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Setup upterm session
-      uses: lhotari/action-upterm@v1
-      with:
-        limit-access-to-actor: true
 
     - name: Build texat wheel
       run: |
@@ -27,11 +23,11 @@ jobs:
       uses: pdm-project/setup-pdm@v3
 
     - name: Install dependencies
-      run: pdm install
+      run: PDM_USE_VENV=0 pdm install
 
     # Build the book
     - name: Build the book
-      run: python3 -m jupyter_book build .
+      run: jupyter-book build .
         
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
