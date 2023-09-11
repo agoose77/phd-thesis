@@ -8,7 +8,7 @@ on:
 
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
-  build:
+  build-texat-wheel:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -17,17 +17,59 @@ jobs:
       run: |
         git clone "https://agoose77:${{ secrets.TEXAT_TOKEN }}@github.com/agoose77/texat.git" ./texat-src
         pipx run build -w ./texat-src
-        cp ./texat-src/dist/*.whl extern/        
+        cp ./texat-src/dist/*.whl extern/ 
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: texat-wheel
+        path: texat-src/dist/*.whl
+  
+  export-requirements:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4    
 
     - name: Setup PDM
       uses: pdm-project/setup-pdm@v3
+      with:
+        python-version: "3.11"
+
+    - name: Export dependencies
+      run: pdm export -f requirements.txt
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: requirements-txt
+        path: requirements.txt
+      
+  build:
+    needs: 
+        - export-requirements
+        - build-texat-wheel
+    
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: texat-wheel
+
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' 
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: requirements-txt
 
     - name: Install dependencies
-      run: PDM_USE_VENV=0 pdm install
+      run: pip install -r requirements.txt
+      
 
     # Build the book
     - name: Build the book
-      run: python3 -m jupyter book build .
+      run: jupyter book build .
         
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
