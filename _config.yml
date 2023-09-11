@@ -81,6 +81,8 @@ sphinx:
         % \hypersetup{
         %     hidelinks
         % }
+        % % Disable title colors for printing
+        % \sphinxDeclareColorOption{TitleColor}{{rgb}{0,0,0}}
         
         % Fix fragile hyperlinks in captions
         \usepackage{etoolbox}
