@@ -6,7 +6,7 @@ groups = ["default"]
 cross_platform = true
 static_urls = false
 lock_version = "4.3"
-content_hash = "sha256:77a644ac1e5a08dad1003a95ada50568d392e97732a603ccd4b00d7768e99d8c"
+content_hash = "sha256:534c1af5331d80e0b2ee2f0b9bb49e5b9d3631fc67f5201030d7939cdad4e06e"
 
 [[package]]
 name = "accessible-pygments"
@@ -1950,9 +1950,6 @@ files = [
 name = "myst-nb"
 version = "0.18.0"
 requires_python = ">=3.8"
-git = "https://github.com/executablebooks/MyST-NB.git"
-ref = "3d6a5d16d808dd9dfe95f71e5c0b6f08c7c3cc00"
-revision = "3d6a5d16d808dd9dfe95f71e5c0b6f08c7c3cc00"
 summary = "A Jupyter Notebook Sphinx reader built on top of the MyST markdown parser."
 dependencies = [
     "importlib-metadata",
@@ -3276,11 +3273,10 @@ files = [
 name = "sphinxcontrib-mermaid"
 version = "0.7.1"
 requires_python = ">=3.7"
-path = "./extern/sphinxcontrib_mermaid-0.7.1-py3-none-any.whl"
+git = "https://github.com/agoose77/sphinxcontrib-mermaid.git"
+ref = "patch-2"
+revision = "daf27674ff0d39faaca1c0ce03b7f648f8b5c0a8"
 summary = "Mermaid diagrams in yours Sphinx powered docs"
-files = [
-    {file = "sphinxcontrib_mermaid-0.7.1-py3-none-any.whl", hash = "sha256:8c8e8680de2cf243a868eaaf731f78cd0b5dd475e76eef1c4ac809bad9995391"},
-]
 
 [[package]]
 name = "sphinxcontrib-qthelp"

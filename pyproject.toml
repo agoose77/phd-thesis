@@ -77,5 +77,5 @@ formats = "md:myst"
 cell_metadata_filter = "-user_expressions"
 notebook_metadata_filter = "kernelspec,jupytext,mystnb"
 
-[tool.pdm.overrides]
+[tool.pdm.resolution.overrides]
 myst-nb = "git+https://github.com/executablebooks/MyST-NB.git@3d6a5d16d808dd9dfe95f71e5c0b6f08c7c3cc00"
