@@ -19,7 +19,7 @@ jobs:
       with:
         python-version: "3.10"
 
-    - name: Build wheel
+    - name: Build texat wheel
       run: |
         git clone "https://agoose77:${{ secrets.TEXAT_TOKEN }}@github.com/agoose77/texat.git" ./texat-src
         pipx run build -w ./texat-src
@@ -27,7 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install .
+        pipx run pdm install
 
     # Build the book
     - name: Build the book
