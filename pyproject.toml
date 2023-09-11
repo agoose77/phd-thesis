@@ -39,7 +39,7 @@ dependencies = [
     # Other
     "nbdime>=3.1.1",
     "not-dead-yet>=0.4.0",
-    "sphinxcontrib-mermaid @ file:///${PROJECT_ROOT}/extern/sphinxcontrib_mermaid-0.7.1-py3-none-any.whl",
+    "sphinxcontrib-mermaid @ git+https://github.com/agoose77/sphinxcontrib-mermaid.git@patch-2",
     "hist>=2.6.1",
     "pyppeteer>=1.0.2",
     "iminuit>=2.11.2",
