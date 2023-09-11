@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
+      with:
+        limit-access-to-actor: true
 
     - name: Build texat wheel
       run: |
@@ -27,7 +31,7 @@ jobs:
 
     # Build the book
     - name: Build the book
-      run: jupyter-book build .
+      run: python3 -m jupyter_book build .
         
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
