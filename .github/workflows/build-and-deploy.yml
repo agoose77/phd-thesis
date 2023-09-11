@@ -27,7 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pipx run pdm install
+        pipx run pdm install --no-isolation
 
     # Build the book
     - name: Build the book
