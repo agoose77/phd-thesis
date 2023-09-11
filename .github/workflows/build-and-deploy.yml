@@ -24,6 +24,7 @@ jobs:
       with:
         repository: "agoose77/texat"
         path: "texat-src"
+        ref: main
         
 
     - name: Build wheel
