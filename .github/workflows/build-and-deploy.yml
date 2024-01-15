@@ -53,6 +53,11 @@ jobs:
       with:
         lfs: 'true'
 
+    - uses: awalsh128/cache-apt-pkgs-action@latest
+      with:
+        packages: graphviz
+        version: 1.0
+
     - uses: actions/download-artifact@v3
       with:
         name: texat-wheel
